@@ -63,7 +63,6 @@ public class DragController : MonoBehaviour
         var touchPosition = callbackContext.ReadValue<Vector2>().ScreenToWorldPoint2D(cam);
         var closest = GetClosestCollider(touchPosition, draggableLayer, dragDetectRadius);
         if (closest == null) return;
-        Debug.Log("Closest hit: " + closest.name);
         // Set the current element to the closest one
         if (!closest.TryGetComponent<Draggable>(out var draggable)) return;
         currentElement = draggable;
