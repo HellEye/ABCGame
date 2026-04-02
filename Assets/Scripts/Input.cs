@@ -4,23 +4,46 @@ using UnityEngine;
 [DefaultExecutionOrder(-999)]
 public class Input : MonoBehaviour
 {
-    public static Input instance;
-    public InputSystem_Actions actions;
+    public static Input instance { get; private set; }
+    public InputSystem_Actions actions { get; private set; }
 
     void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        EnsureActions();
+
+        actions.Player.Enable();
+    }
+    void OnEnable()
     {
         if (instance == null)
         {
             instance = this;
         }
-        else
+
+        EnsureActions();
+        actions.Player.Enable();
+    }
+    void OnDisable() { actions?.Player.Disable(); }
+
+    void OnDestroy()
+    {
+        if (instance == this)
         {
-            Destroy(gameObject);
+            instance = null;
         }
 
-        actions = new();
+        actions?.Dispose();
+        actions = null;
     }
 
-    void OnEnable() { actions.Player.Enable(); }
-    void OnDisable() { actions.Player.Disable(); }
+    void EnsureActions()
+    {
+        actions ??= new();
+    }
 }
