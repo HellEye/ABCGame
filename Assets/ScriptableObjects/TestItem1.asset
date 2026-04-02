@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TestItem1
   m_EditorClassIdentifier: Assembly-CSharp::SpawnManagerScriptableObject
   itemName: circle
-  sprite2D: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  sprite2D: {fileID: 2747690628134850419, guid: 16037dbd798344f57a526d53d48f5ead, type: 3}

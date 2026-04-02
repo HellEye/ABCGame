@@ -276,6 +276,7 @@ GameObject:
   - component: {fileID: 659712468}
   - component: {fileID: 659712471}
   - component: {fileID: 659712472}
+  - component: {fileID: 659712473}
   m_Layer: 6
   m_Name: Draggable1
   m_TagString: Untagged
@@ -406,6 +407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Draggable
   collider: {fileID: 659712469}
+  item: {fileID: 0}
 --- !u!114 &659712472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,6 +423,20 @@ MonoBehaviour:
   incorrectShakeDelay: 0.5
   incorrectShakeFrequency: 5
   incorrectShakeDuration: 1
+--- !u!114 &659712473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659712467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b5d2802383c4b4bd95fc2a434615488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  item: {fileID: 11400000, guid: 6d263761cbdce4c44ae964fb9449bedc, type: 2}
+  spriteRenderer: {fileID: 659712468}
 --- !u!1 &983111914
 GameObject:
   m_ObjectHideFlags: 0

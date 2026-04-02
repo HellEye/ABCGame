@@ -1,75 +1,72 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class ItemSpawnerManager : MonoBehaviour
 {
-    [SerializeField] public List<ItemSO> items = new List<ItemSO>(); //to be moved to some gameManager
-    public static ItemSpawnerManager Instance { get; private set; }
+    [SerializeField]
+    public List<ItemSO> items = new(); //to be moved to some gameManager
 
     public int maxItems;
     public int itemsPerType;
     public int itemTypesSpawned;
 
-    public Item itemPrefab;
+    [SerializeField]
+    ScreenSizeManager screenSizeManager;
 
-    void Start()
+    public Item itemPrefab;
+    public static ItemSpawnerManager Instance { get; private set; }
+
+    void Awake()
     {
+        // If there is an instance, and it's not me, delete myself.
+
+        if (Instance == null || Instance == this)
+            Instance = this;
+    }
+
+    void Start() =>
         //TrySpawningItemsPerType(maxItems);
         TrySpawningMaxItems(itemsPerType);
-        //test one of these two
-    }
-    private void Awake() 
-    {    
-        // If there is an instance, and it's not me, delete myself.
-    
-        if (Instance != null && Instance != this) 
-        { 
-            Destroy(this); 
-        } 
-        else 
-        { 
-            Instance = this; 
-        } 
-    }
 
-    public void TrySpawningItemsPerType(int maxItems) {
-        int itemsPerType;
-        int remaningItemsToSpawn;
-        itemsPerType = maxItems / itemTypesSpawned;
-        remaningItemsToSpawn = maxItems % itemTypesSpawned;
-        
-        for (int i = 0; i < itemTypesSpawned-1; i++) {
-            for (int j = 0; j < itemsPerType; j++)
-            {
-                var newItem = Instantiate(itemPrefab, Vector3.zero , Quaternion.identity);
-                newItem.Initialize(items[i], RandomiseSpawnPos());
-            }
-        }
-        for (int i = 0; i < itemsPerType + remaningItemsToSpawn; i++)
+    //test one of these two
+    public void TrySpawningItemsPerType(int maxItems)
+    {
+        var itemsPerType = maxItems / itemTypesSpawned;
+        var remaningItemsToSpawn = maxItems % itemTypesSpawned;
+
+        for (var i = 0; i < itemTypesSpawned - 1; i++)
+        for (var j = 0; j < itemsPerType; j++)
         {
-            var newItem = Instantiate(itemPrefab, Vector3.zero , Quaternion.identity);
-            newItem.Initialize(items[items.Count-1], RandomiseSpawnPos());
+            var newItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
+            newItem.Initialize(items[i], RandomiseSpawnPos());
         }
-        
+
+        for (var i = 0; i < itemsPerType + remaningItemsToSpawn; i++)
+        {
+            var newItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
+            newItem.Initialize(items[^1], RandomiseSpawnPos());
+        }
+
         //add items to list in a game manager
     }
 
-    public void TrySpawningMaxItems(int itemsPerType) {
-        for (int i = 0; i < itemTypesSpawned; i++) {
-            for (int j = 0; j < itemsPerType; j++)
-            {
-                var newItem = Instantiate(itemPrefab, Vector3.zero , Quaternion.identity);
-                newItem.Initialize(items[i], RandomiseSpawnPos());
-            }
+    public void TrySpawningMaxItems(int itemsPerType)
+    {
+        for (var i = 0; i < itemTypesSpawned; i++)
+        for (var j = 0; j < itemsPerType; j++)
+        {
+            var newItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
+            newItem.Initialize(items[i], RandomiseSpawnPos());
         }
-        
+
         //add items to list in a game manager
     }
 
-    public Vector3 RandomiseSpawnPos() {
-        float xPos = UnityEngine.Random.Range(0.0f, 1.0f);
-        float yPos = UnityEngine.Random.Range(0.0f, 1.0f);
-        
-        return new Vector3(xPos, yPos, 0);
+    public Vector3 RandomiseSpawnPos()
+    {
+        var xPos = Random.Range(0.0f, 1.0f);
+        var yPos = Random.Range(0.0f, 1.0f);
+
+        return new(xPos, yPos, 0);
     }
 }
