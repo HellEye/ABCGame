@@ -2,17 +2,17 @@ using System;
 using UnityEngine;
 
 [DefaultExecutionOrder(-900)]
+[ExecuteAlways]
 public class ScreenSizeManager : MonoBehaviour
 {
     [SerializeField]
-    [HideInInspector]
     Camera cam;
 
     public static ScreenSizeManager Instance { get; private set; }
 
     public Vector2 SizePx { get; private set; }
-    public Vector2 SizeUnits { get; private set; }
-    public Vector2 WorldBottomLeft { get; private set; }
+    // public Vector2 WorldTopRight { get; private set; }
+    // public Vector2 WorldBottomLeft { get; private set; }
 
     void Awake()
     {
@@ -26,7 +26,7 @@ public class ScreenSizeManager : MonoBehaviour
     {
         if (!RecalculateNewPosition(out var newSize)) return;
         OnResize?.Invoke(newSize);
-        OnResizeUnits?.Invoke(WorldBottomLeft, SizeUnits);
+        OnResizeUnits?.Invoke(this);
     }
 
     void OnEnable()
@@ -40,7 +40,7 @@ public class ScreenSizeManager : MonoBehaviour
         RecalculateNewPosition(out var _);
     }
 
-    bool RecalculateNewPosition(out Vector2 newSize)
+    public bool RecalculateNewPosition(out Vector2 newSize)
     {
         var width = Screen.width;
         var height = Screen.height;
@@ -52,27 +52,22 @@ public class ScreenSizeManager : MonoBehaviour
     }
 
     public event Action<Vector2> OnResize;
-    public event Action<Vector2, Vector2> OnResizeUnits;
+    public event Action<ScreenSizeManager> OnResizeUnits;
 
     void CalcUnitSize(Vector2 newSize)
     {
-        var worldBottomLeft = cam.ScreenToWorldPoint(new(0, 0, -cam.transform.position.z));
-        var worldTopRight = cam.ScreenToWorldPoint(new(newSize.x, newSize.y, -cam.transform.position.z));
-        WorldBottomLeft = worldBottomLeft;
-        SizeUnits = worldTopRight - worldBottomLeft;
+        // WorldBottomLeft = cam.ViewportToWorldPoint(new(0, 0, -cam.transform.position.z));
+        // WorldTopRight = cam.ViewportToWorldPoint(new(newSize.x, newSize.y, -cam.transform.position.z));
     }
 
-    public Vector3 FromNormalizedToWorldPos(Vector2 normalizedPos)
-    {
-        var x = Mathf.Lerp(WorldBottomLeft.x, SizeUnits.x + WorldBottomLeft.x, normalizedPos.x);
-        var y = Mathf.Lerp(WorldBottomLeft.y, SizeUnits.y + WorldBottomLeft.y, normalizedPos.y);
-        return new(x, y, 0f);
-    }
+    public Vector3 FromNormalizedToWorldPos(Vector2 normalizedPos) =>
+        cam.ViewportToWorldPoint(normalizedPos) - cam.transform.position;
 
-    public Vector2 FromWorldToNormalizedPos(Vector3 worldPos)
-    {
-        var x = Mathf.InverseLerp(WorldBottomLeft.x, SizeUnits.x + WorldBottomLeft.x, worldPos.x);
-        var y = Mathf.InverseLerp(WorldBottomLeft.y, SizeUnits.y + WorldBottomLeft.y, worldPos.y);
-        return new(x, y);
-    }
+    // var x = Mathf.Lerp(WorldBottomLeft.x, WorldTopRight.x, normalizedPos.x);
+    // var y = Mathf.Lerp(WorldBottomLeft.y, WorldTopRight.y, normalizedPos.y);
+    // return new(x, y, 0f);
+    public Vector2 FromWorldToNormalizedPos(Vector3 worldPos) => cam.WorldToViewportPoint(worldPos);
+    // var x = Mathf.InverseLerp(WorldBottomLeft.x, WorldTopRight.x, worldPos.x);
+    // var y = Mathf.InverseLerp(WorldBottomLeft.y, WorldTopRight.y, worldPos.y);
+    // return new(x, y);
 }

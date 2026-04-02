@@ -20,7 +20,7 @@ public class ScreenPositionPlacer : MonoBehaviour
         {
             pos = value;
             if (screenSizeManager != null)
-                OnScreenResize(screenSizeManager.WorldBottomLeft, screenSizeManager.SizeUnits);
+                OnScreenResize(screenSizeManager);
         }
     }
 
@@ -57,10 +57,6 @@ public class ScreenPositionPlacer : MonoBehaviour
         }
     }
 
-    void OnScreenResize(Vector2 worldBottomLeft, Vector2 sizeUnits)
-    {
-        var newX = Mathf.Lerp(worldBottomLeft.x, sizeUnits.x + worldBottomLeft.x, Pos.x);
-        var newY = Mathf.Lerp(worldBottomLeft.y, sizeUnits.y + worldBottomLeft.y, Pos.y);
-        transform.position = new Vector2(newX, newY);
-    }
+    void OnScreenResize(ScreenSizeManager screenManager) =>
+        transform.position = screenManager.FromNormalizedToWorldPos(Pos);
 }
