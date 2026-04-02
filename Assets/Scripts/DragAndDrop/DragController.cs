@@ -17,7 +17,6 @@ public class DragController : MonoBehaviour
     public float dropZoneDetectRadius = 0.1f;
 
     Camera cam;
-    Input input;
     Draggable currentElement = null;
     bool isDragging = false;
     Vector2 offset;
@@ -25,7 +24,12 @@ public class DragController : MonoBehaviour
 
     void OnEnable()
     {
-        input = Input.instance;
+        var input = Input.instance;
+        if (input == null || input.actions == null)
+        {
+            Debug.LogError("Input system not initialized");
+            return;
+        }
         input.actions.Player.Touch.started += OnTouchStarted;
         input.actions.Player.Touch.performed += OnTouchMoved;
         input.actions.Player.Touch.canceled += OnTouchEnded;
@@ -33,6 +37,8 @@ public class DragController : MonoBehaviour
 
     void OnDisable()
     {
+        var input = Input.instance;
+        if (input?.actions == null) return;
         input.actions.Player.Touch.started -= OnTouchStarted;
         input.actions.Player.Touch.performed -= OnTouchMoved;
         input.actions.Player.Touch.canceled -= OnTouchEnded;
@@ -66,6 +72,7 @@ public class DragController : MonoBehaviour
         // Set the current element to the closest one
         if (!closest.TryGetComponent<Draggable>(out var draggable)) return;
         currentElement = draggable;
+        draggable.Pickup();
         // offset for smoother dragging (not jumping the center of the element to the mouse)
         offset = ((Vector2)draggable.transform.position) - touchPosition;
         isDragging = true;
@@ -97,7 +104,11 @@ public class DragController : MonoBehaviour
         if (dropZoneCollider == null) return;
 
         // found, trigger the drop zone
-        if (!dropZoneCollider.TryGetComponent<DropZone>(out var dropZone)) return;
+        if (!dropZoneCollider.TryGetComponent<DropZone>(out var dropZone))
+        {
+            droppedElement.Drop();
+            return;
+        }
         dropZone.Drop(droppedElement);
     }
 }

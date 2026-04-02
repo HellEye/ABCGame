@@ -1,13 +1,27 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.VFX;
 
 public class DropZone : MonoBehaviour
 {
-    public UnityEvent OnDrop;
-
+    public VisualEffect correctEffect;
     public void Drop(Draggable draggable)
     {
         Debug.Log("Dropped " + draggable.name);
-        OnDrop?.Invoke();
+        
+        // Logic to check if the draggable is correct
+        // Correct(draggable);
+        Incorrect(draggable);
+    }
+
+    void Correct(Draggable draggable)
+    {
+        correctEffect.Play();
+        draggable.DropCorrect();
+    }
+
+    void Incorrect(Draggable draggable)
+    {
+        draggable.DropIncorrect();
     }
 }
