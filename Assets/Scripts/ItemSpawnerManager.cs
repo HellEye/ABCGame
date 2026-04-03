@@ -1,15 +1,20 @@
+using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class ItemSpawnerManager : MonoBehaviour
 {
-    [SerializeField]
-    public List<ItemSO> items = new(); //to be moved to some gameManager
-
     public int maxItems;
     public int itemsPerType;
     public int itemTypesSpawned;
+
+    [SerializeField]
+    float spawnDelay = 0.2f;
+
+    [SerializeField]
+    DropZoneGameManager gameManager;
 
     [SerializeField]
     MinMaxRect bounds;
@@ -28,10 +33,9 @@ public class ItemSpawnerManager : MonoBehaviour
             Instance = this;
     }
 
-    void Start() =>
-        //TrySpawningItemsPerType(maxItems);
-        TrySpawningMaxItems(itemsPerType);
-
+    /// <summary>
+    ///     Draws the spawning area
+    /// </summary>
     void OnDrawGizmosSelected()
     {
         if (screenSizeManager == null)
@@ -55,37 +59,31 @@ public class ItemSpawnerManager : MonoBehaviour
     }
 
     //test one of these two
-    public void TrySpawningItemsPerType(int maxItems)
+    public async UniTaskVoid TrySpawningItemsPerType(List<ItemSO> items)
     {
         var itemsPerType = maxItems / itemTypesSpawned;
         var remaningItemsToSpawn = maxItems % itemTypesSpawned;
 
         for (var i = 0; i < itemTypesSpawned - 1; i++)
         for (var j = 0; j < itemsPerType; j++)
-        {
-            var newItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
-            newItem.Initialize(items[i], RandomiseSpawnPos());
-        }
+            await CreateItem(items[i]);
 
-        for (var i = 0; i < itemsPerType + remaningItemsToSpawn; i++)
-        {
-            var newItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
-            newItem.Initialize(items[^1], RandomiseSpawnPos());
-        }
-
-        //add items to list in a game manager
+        for (var i = 0; i < itemsPerType + remaningItemsToSpawn; i++) await CreateItem(items[^1]);
     }
 
-    public void TrySpawningMaxItems(int itemsPerType)
+    public async UniTaskVoid TrySpawningMaxItems(List<ItemSO> items)
     {
         for (var i = 0; i < itemTypesSpawned; i++)
         for (var j = 0; j < itemsPerType; j++)
-        {
-            var newItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
-            newItem.Initialize(items[i], RandomiseSpawnPos());
-        }
+            await CreateItem(items[i]);
+    }
 
-        //add items to list in a game manager
+    UniTask CreateItem(ItemSO item)
+    {
+        var newItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
+        newItem.Initialize(item, RandomiseSpawnPos());
+        gameManager.AddItem(newItem);
+        return UniTask.Delay(TimeSpan.FromSeconds(spawnDelay));
     }
 
     public Vector3 RandomiseSpawnPos()

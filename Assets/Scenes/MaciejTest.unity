@@ -319,8 +319,9 @@ GameObject:
   - component: {fileID: 683851788}
   - component: {fileID: 683851787}
   - component: {fileID: 683851786}
+  - component: {fileID: 683851789}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: Managers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -351,13 +352,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e939a6e875665014a2ef2d01257e0f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSpawnerManager
-  items:
-  - {fileID: 11400000, guid: 6d263761cbdce4c44ae964fb9449bedc, type: 2}
-  - {fileID: 11400000, guid: 41340b97126ba654897e777c7b6d5279, type: 2}
-  - {fileID: 11400000, guid: 278f5635c77b8a980afd498439d08ffa, type: 2}
   maxItems: 6
   itemsPerType: 2
   itemTypesSpawned: 3
+  spawnDelay: 0.2
+  gameManager: {fileID: 683851789}
   bounds:
     min: {x: 0.05, y: 0.44}
     max: {x: 0.95, y: 0.95}
@@ -378,6 +377,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &683851789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683851785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d72476fe3cc9419195adbd093933f048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DropZoneGameManager
+  allItems:
+  - {fileID: 11400000, guid: 6d263761cbdce4c44ae964fb9449bedc, type: 2}
+  - {fileID: 11400000, guid: 41340b97126ba654897e777c7b6d5279, type: 2}
+  - {fileID: 11400000, guid: 278f5635c77b8a980afd498439d08ffa, type: 2}
+  dropZones:
+  - {fileID: 983111915}
+  itemSpawnerManager: {fileID: 683851787}
+  itemTypes: 3
 --- !u!1 &983111914
 GameObject:
   m_ObjectHideFlags: 0
