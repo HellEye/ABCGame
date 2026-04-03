@@ -1,4 +1,3 @@
-using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using LitMotion;
@@ -7,21 +6,27 @@ using UnityEngine;
 using DelayType = LitMotion.DelayType;
 
 [RequireComponent(typeof(Draggable))]
-
 public class DraggableAnimations : MonoBehaviour
 {
-    Draggable draggable;
-    CancellationTokenSource cts;
-    CompositeMotionHandle currentHandle;
-
     [Header("Incorrect drop zone animation")]
     public float incorrectShakeDelay = 5f;
+
     public int incorrectShakeFrequency = 5;
     public float incorrectShakeDuration = 1f;
 
-    void Awake()
-    {
-    }
+    [Header("Spawn animation")]
+    public float spawnDuration = 0.5f;
+
+    [Header("Destroy animation")]
+    public float destroyDuration = 0.5f;
+
+    CancellationTokenSource cts;
+    CompositeMotionHandle currentHandle;
+    Draggable draggable;
+
+    void Awake() { }
+
+    void Start() => SpawnAnimation();
 
     void OnEnable()
     {
@@ -29,26 +34,25 @@ public class DraggableAnimations : MonoBehaviour
         currentHandle = new();
         draggable.OnPickedUp += CancelAnimation;
         draggable.OnDroppedIncorrect += AnimateIncorrect;
+        draggable.OnDroppedCorrect += UniTask.Action(AnimateAndDestroy);
     }
 
     void OnDisable()
     {
         draggable.OnPickedUp -= CancelAnimation;
         draggable.OnDroppedIncorrect -= AnimateIncorrect;
+        draggable.OnDroppedCorrect -= UniTask.Action(AnimateAndDestroy);
         currentHandle?.Cancel();
         currentHandle = null;
     }
 
-    public void CancelAnimation()
-    {
+    public void CancelAnimation() =>
         // cts?.Cancel();
         // cts?.Dispose();
         // cts = new();
         currentHandle?.Cancel();
-    }
 
-    public void AnimateIncorrect()
-    {
+    public void AnimateIncorrect() =>
         LMotion.Punch
             .Create(transform.position, new(0.1f, 0, 0), incorrectShakeDuration)
             .WithEase(Ease.OutCubic)
@@ -58,6 +62,17 @@ public class DraggableAnimations : MonoBehaviour
             .WithLoops(-1)
             .BindToPosition(transform)
             .AddTo(currentHandle);
-    }
 
+    public void SpawnAnimation() =>
+        LMotion.Create(Vector3.zero, Vector3.one, spawnDuration)
+            .BindToLocalScale(transform)
+            .AddTo(this);
+
+    public async UniTaskVoid AnimateAndDestroy()
+    {
+        await LMotion.Create(Vector3.one, Vector3.zero, destroyDuration)
+            .BindToLocalScale(transform)
+            .ToUniTask();
+        Destroy(gameObject);
+    }
 }
