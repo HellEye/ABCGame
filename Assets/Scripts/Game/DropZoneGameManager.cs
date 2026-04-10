@@ -43,4 +43,17 @@ public class DropZoneGameManager : MonoBehaviour
     }
 
     public void AddDropZone(DropZone newDropZone) => dropZones.Add(newDropZone);
+
+    public void RestartGame()
+    {
+        // Clear existing items and drop zones
+        foreach (var item in items) Destroy(item.gameObject);
+        items.Clear();
+
+        foreach (var dropZone in dropZones) Destroy(dropZone.gameObject);
+        dropZones.Clear();
+
+        // Restart the game
+        Start().Forget();
+    }
 }

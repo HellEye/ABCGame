@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TestItem2
   m_EditorClassIdentifier: Assembly-CSharp::SpawnManagerScriptableObject
   itemName: square
-  sprite2D: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  sprite2D: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
