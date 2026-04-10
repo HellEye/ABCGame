@@ -4,8 +4,7 @@ using System.Linq;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public class DropZoneGameManager : MonoBehaviour
-{
+public class DropZoneGameManager : MonoBehaviour {
     [SerializeField] List<ItemSO> allItems;
 
     [SerializeField] DropZone dropZonePrefab;
@@ -21,8 +20,7 @@ public class DropZoneGameManager : MonoBehaviour
 
     // This is allowed, but I guess resharper didn't get the memo
     // ReSharper disable once Unity.IncorrectMethodSignature
-    async UniTaskVoid Start()
-    {
+    async UniTaskVoid Start() {
         var pickedItems = allItems.PickRandom(itemTypes);
         //itemSpawnerManager.TrySpawningItemsPerType(pickedItems);
         await itemSpawnerManager.TrySpawningMaxItems(pickedItems);
@@ -35,8 +33,7 @@ public class DropZoneGameManager : MonoBehaviour
     public event Action OnGameComplete;
     public void AddItem(Item item) => items.Add(item);
 
-    public void RemoveItem(Item item)
-    {
+    public void RemoveItem(Item item) {
         items.Remove(item);
         // If there are no more items left that match the drop zones, the game is complete
         if (!items.Any(i => dropZones.Exists(d => d.target == i.item))) OnGameComplete?.Invoke();
@@ -44,8 +41,7 @@ public class DropZoneGameManager : MonoBehaviour
 
     public void AddDropZone(DropZone newDropZone) => dropZones.Add(newDropZone);
 
-    public void RestartGame()
-    {
+    public void RestartGame() {
         // Clear existing items and drop zones
         foreach (var item in items) Destroy(item.gameObject);
         items.Clear();

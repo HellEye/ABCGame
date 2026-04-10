@@ -1,23 +1,20 @@
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class DropZone : MonoBehaviour
-{
+public class DropZone : MonoBehaviour {
     public VisualEffect correctEffect;
     public ItemSO target;
     public SpriteRenderer targetSpriteRenderer;
     [SerializeField] ScreenPositionPlacer placer;
     DropZoneGameManager gameManager;
 
-    void OnValidate()
-    {
+    void OnValidate() {
         if (targetSpriteRenderer != null && target != null) targetSpriteRenderer.sprite = target.sprite2D;
     }
 
     public void SetManager(DropZoneGameManager manager) => gameManager = manager;
 
-    public void Initialize(ItemSO item, Vector2 pos)
-    {
+    public void Initialize(ItemSO item, Vector2 pos) {
         target = item;
         if (targetSpriteRenderer != null)
             targetSpriteRenderer.sprite = item.sprite2D;
@@ -25,8 +22,7 @@ public class DropZone : MonoBehaviour
             placer.Pos = pos;
     }
 
-    public void Drop(Draggable draggable)
-    {
+    public void Drop(Draggable draggable) {
         Debug.Log("Dropped " + draggable.name);
         if (draggable.item.item == target)
             Correct(draggable);
@@ -34,8 +30,7 @@ public class DropZone : MonoBehaviour
             Incorrect(draggable);
     }
 
-    void Correct(Draggable draggable)
-    {
+    void Correct(Draggable draggable) {
         correctEffect.Play();
         draggable.DropCorrect();
         gameManager.RemoveItem(draggable.item);

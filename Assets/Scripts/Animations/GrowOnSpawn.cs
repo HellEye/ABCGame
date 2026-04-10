@@ -2,8 +2,7 @@ using LitMotion;
 using LitMotion.Extensions;
 using UnityEngine;
 
-public class GrowOnSpawn : MonoBehaviour
-{
+public class GrowOnSpawn : MonoBehaviour {
     [SerializeField] float time = 0.5f;
 
     void Start() =>

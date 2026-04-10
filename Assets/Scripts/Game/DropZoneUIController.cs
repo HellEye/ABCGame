@@ -1,26 +1,22 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DropZoneUIController : MonoBehaviour
-{
+public class DropZoneUIController : MonoBehaviour {
     [SerializeField] DropZoneGameManager gameManager;
     [SerializeField] Button restartButton;
     [SerializeField] Canvas canvas;
 
-    void Start()
-    {
+    void Start() {
         canvas.enabled = false;
         gameManager.OnGameComplete += OnGameComplete;
     }
 
-    void OnGameComplete()
-    {
+    void OnGameComplete() {
         canvas.enabled = true;
         restartButton.onClick.AddListener(OnRestartClicked);
     }
 
-    void OnRestartClicked()
-    {
+    void OnRestartClicked() {
         canvas.enabled = false;
         restartButton.onClick.RemoveListener(OnRestartClicked);
         gameManager.RestartGame();

@@ -6,8 +6,7 @@ using UnityEngine;
 using DelayType = LitMotion.DelayType;
 
 [RequireComponent(typeof(Draggable))]
-public class DraggableAnimations : MonoBehaviour
-{
+public class DraggableAnimations : MonoBehaviour {
     [Header("Incorrect drop zone animation")]
     public float incorrectShakeDelay = 5f;
 
@@ -21,8 +20,7 @@ public class DraggableAnimations : MonoBehaviour
     CompositeMotionHandle currentHandle;
     Draggable draggable;
 
-    void OnEnable()
-    {
+    void OnEnable() {
         draggable ??= GetComponent<Draggable>();
         currentHandle = new();
         draggable.OnPickedUp += CancelAnimation;
@@ -30,8 +28,7 @@ public class DraggableAnimations : MonoBehaviour
         draggable.OnDroppedCorrect += UniTask.Action(AnimateAndDestroy);
     }
 
-    void OnDisable()
-    {
+    void OnDisable() {
         draggable.OnPickedUp -= CancelAnimation;
         draggable.OnDroppedIncorrect -= AnimateIncorrect;
         draggable.OnDroppedCorrect -= UniTask.Action(AnimateAndDestroy);
@@ -56,8 +53,7 @@ public class DraggableAnimations : MonoBehaviour
             .BindToPosition(transform)
             .AddTo(currentHandle);
 
-    public async UniTaskVoid AnimateAndDestroy()
-    {
+    public async UniTaskVoid AnimateAndDestroy() {
         await LMotion.Create(Vector3.one, Vector3.zero, destroyDuration)
             .BindToLocalScale(transform)
             .ToUniTask();

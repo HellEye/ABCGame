@@ -2,8 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class DragController : MonoBehaviour
-{
+public class DragController : MonoBehaviour {
     [Tooltip("Interaction layer for draggable elements")]
     public LayerMask draggableLayer;
 
@@ -22,21 +21,19 @@ public class DragController : MonoBehaviour
     Vector2 offset;
     void Start() { cam = Camera.main; }
 
-    void OnEnable()
-    {
+    void OnEnable() {
         var input = Input.instance;
-        if (input == null || input.actions == null)
-        {
+        if (input == null || input.actions == null) {
             Debug.LogError("Input system not initialized");
             return;
         }
+
         input.actions.Player.Touch.started += OnTouchStarted;
         input.actions.Player.Touch.performed += OnTouchMoved;
         input.actions.Player.Touch.canceled += OnTouchEnded;
     }
 
-    void OnDisable()
-    {
+    void OnDisable() {
         var input = Input.instance;
         if (input?.actions == null) return;
         input.actions.Player.Touch.started -= OnTouchStarted;
@@ -44,19 +41,16 @@ public class DragController : MonoBehaviour
         input.actions.Player.Touch.canceled -= OnTouchEnded;
     }
 
-    Collider2D GetClosestCollider(Vector2 position, LayerMask layerMask, float radius)
-    {
+    Collider2D GetClosestCollider(Vector2 position, LayerMask layerMask, float radius) {
         var hits = Physics2D.OverlapCircleAll(position, radius, layerMask);
         if (hits.Length == 0) return null;
 
         // Find the closest collider, in case of overlap
         var closest = hits[0];
-        foreach (var hit in hits)
-        {
+        foreach (var hit in hits) {
             var closestPosition = new Vector2(closest.transform.position.x, closest.transform.position.y);
             var hitPosition = new Vector2(hit.transform.position.x, hit.transform.position.y);
-            if (Vector2.SqrMagnitude(hitPosition - position) < Vector2.SqrMagnitude(closestPosition - position))
-            {
+            if (Vector2.SqrMagnitude(hitPosition - position) < Vector2.SqrMagnitude(closestPosition - position)) {
                 closest = hit;
             }
         }
@@ -64,8 +58,7 @@ public class DragController : MonoBehaviour
         return closest;
     }
 
-    void OnTouchStarted(InputAction.CallbackContext callbackContext)
-    {
+    void OnTouchStarted(InputAction.CallbackContext callbackContext) {
         var touchPosition = callbackContext.ReadValue<Vector2>().ScreenToWorldPoint2D(cam);
         var closest = GetClosestCollider(touchPosition, draggableLayer, dragDetectRadius);
         if (closest == null) return;
@@ -78,16 +71,14 @@ public class DragController : MonoBehaviour
         isDragging = true;
     }
 
-    void OnTouchMoved(InputAction.CallbackContext callbackContext)
-    {
+    void OnTouchMoved(InputAction.CallbackContext callbackContext) {
         if (!isDragging) return;
         var worldPos = callbackContext.ReadValue<Vector2>().ScreenToWorldPoint2D(cam);
         // update the position of the draggable element
         currentElement.Move(worldPos + offset);
     }
 
-    void OnTouchEnded(InputAction.CallbackContext callbackContext)
-    {
+    void OnTouchEnded(InputAction.CallbackContext callbackContext) {
         isDragging = false;
         if (currentElement == null) return;
         var droppedElement = currentElement;
@@ -104,11 +95,11 @@ public class DragController : MonoBehaviour
         if (dropZoneCollider == null) return;
 
         // found, trigger the drop zone
-        if (!dropZoneCollider.TryGetComponent<DropZone>(out var dropZone))
-        {
+        if (!dropZoneCollider.TryGetComponent<DropZone>(out var dropZone)) {
             droppedElement.Drop();
             return;
         }
+
         dropZone.Drop(droppedElement);
     }
 }

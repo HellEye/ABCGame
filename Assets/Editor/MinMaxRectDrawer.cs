@@ -2,13 +2,11 @@ using UnityEditor;
 using UnityEngine;
 
 [CustomPropertyDrawer(typeof(MinMaxRect))]
-public class MinMaxRectDrawer : PropertyDrawer
-{
+public class MinMaxRectDrawer : PropertyDrawer {
     public override float GetPropertyHeight(
         SerializedProperty property,
         GUIContent label
-    )
-    {
+    ) {
         return EditorGUIUtility.singleLineHeight * 3f +
                EditorGUIUtility.standardVerticalSpacing * 2f;
     }
@@ -17,8 +15,7 @@ public class MinMaxRectDrawer : PropertyDrawer
         Rect position,
         SerializedProperty property,
         GUIContent label
-    )
-    {
+    ) {
         var minProp = property.FindPropertyRelative("min");
         var maxProp = property.FindPropertyRelative("max");
 
@@ -63,8 +60,7 @@ public class MinMaxRectDrawer : PropertyDrawer
     }
 
     private void DrawVector2Clamped(Rect rect, SerializedProperty prop,
-        string prefix)
-    {
+        string prefix) {
         var labelWidth = 35f;
         var fieldWidth = (rect.width - labelWidth) * 0.5f;
 
