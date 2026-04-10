@@ -6,32 +6,23 @@ using Random = UnityEngine.Random;
 
 public class ItemSpawnerManager : MonoBehaviour
 {
+    [Header("Spawn settings")]
     public int maxItems;
+
     public int itemsPerType;
     public int itemTypesSpawned;
+    [SerializeField] float spawnDelay = 0.2f;
+    [SerializeField] MinMaxRect bounds;
+    [SerializeField] float dropZoneNormalizedY = 0.2f;
 
-    [SerializeField]
-    float spawnDelay = 0.2f;
+    [Header("Prefabs")]
+    [SerializeField] Item itemPrefab;
 
-    [SerializeField]
-    DropZoneGameManager gameManager;
+    [SerializeField] DropZone dropZonePrefab;
 
-    [SerializeField]
-    MinMaxRect bounds;
+    [SerializeField] DropZoneGameManager gameManager;
+    [SerializeField] ScreenSizeManager screenSizeManager;
 
-    [SerializeField]
-    ScreenSizeManager screenSizeManager;
-
-    public Item itemPrefab;
-    public static ItemSpawnerManager Instance { get; private set; }
-
-    void Awake()
-    {
-        // If there is an instance, and it's not me, delete myself.
-
-        if (Instance == null || Instance == this)
-            Instance = this;
-    }
 
     /// <summary>
     ///     Draws the spawning area
@@ -71,7 +62,7 @@ public class ItemSpawnerManager : MonoBehaviour
         for (var i = 0; i < itemsPerType + remaningItemsToSpawn; i++) await CreateItem(items[^1]);
     }
 
-    public async UniTaskVoid TrySpawningMaxItems(List<ItemSO> items)
+    public async UniTask TrySpawningMaxItems(List<ItemSO> items)
     {
         for (var i = 0; i < itemTypesSpawned; i++)
         for (var j = 0; j < itemsPerType; j++)
@@ -86,11 +77,31 @@ public class ItemSpawnerManager : MonoBehaviour
         return UniTask.Delay(TimeSpan.FromSeconds(spawnDelay));
     }
 
+    UniTask CreateDropZone(ItemSO item, float normalizedXPos)
+    {
+        var newDropZone = Instantiate(dropZonePrefab, Vector3.zero, Quaternion.identity);
+        newDropZone.SetManager(gameManager);
+        newDropZone.Initialize(item, new(normalizedXPos, dropZoneNormalizedY));
+        gameManager.AddDropZone(newDropZone);
+        return UniTask.Delay(TimeSpan.FromSeconds(spawnDelay));
+    }
+
     public Vector3 RandomiseSpawnPos()
     {
         var xPos = Random.Range(bounds.min.x, bounds.max.x);
         var yPos = Random.Range(bounds.min.y, bounds.max.y);
 
         return new(xPos, yPos, 0);
+    }
+
+    public async UniTask SpawnDropZones(List<ItemSO> targets)
+    {
+        var count = targets.Count;
+        var spacing = 1f / (count + 1f);
+        for (var i = 0; i < targets.Count; i++)
+        {
+            var target = targets[i];
+            await CreateDropZone(target, spacing * (i + 1));
+        }
     }
 }

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6226223324506803629}
   - component: {fileID: 2914334274141738977}
   - component: {fileID: 6559707495396496395}
+  - component: {fileID: 4864220933220537400}
   m_Layer: 6
   m_Name: Draggable
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 4024666350026777014}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -8.796928, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -161,6 +162,7 @@ MonoBehaviour:
   incorrectShakeDelay: 0.5
   incorrectShakeFrequency: 5
   incorrectShakeDuration: 1
+  destroyDuration: 0.5
 --- !u!114 &2914334274141738977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,3 +192,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ScreenPositionPlacer
   pos: {x: 0, y: 0}
   screenSizeManager: {fileID: 0}
+--- !u!114 &4864220933220537400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4024666350026777014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f3465b430134e94b803d8489291b3d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrowOnSpawn
+  time: 0.5

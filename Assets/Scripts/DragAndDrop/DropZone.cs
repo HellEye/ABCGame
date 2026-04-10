@@ -6,6 +6,7 @@ public class DropZone : MonoBehaviour
     public VisualEffect correctEffect;
     public ItemSO target;
     public SpriteRenderer targetSpriteRenderer;
+    [SerializeField] ScreenPositionPlacer placer;
     DropZoneGameManager gameManager;
 
     void OnValidate()
@@ -14,6 +15,15 @@ public class DropZone : MonoBehaviour
     }
 
     public void SetManager(DropZoneGameManager manager) => gameManager = manager;
+
+    public void Initialize(ItemSO item, Vector2 pos)
+    {
+        target = item;
+        if (targetSpriteRenderer != null)
+            targetSpriteRenderer.sprite = item.sprite2D;
+        if (placer != null)
+            placer.Pos = pos;
+    }
 
     public void Drop(Draggable draggable)
     {

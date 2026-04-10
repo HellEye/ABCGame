@@ -312,6 +312,7 @@ GameObject:
   - component: {fileID: 4940348945996746022}
   - component: {fileID: 6363331035705915278}
   - component: {fileID: 7703318054763952947}
+  - component: {fileID: 5753493264114650622}
   m_Layer: 7
   m_Name: DropZone
   m_TagString: Untagged
@@ -388,6 +389,7 @@ MonoBehaviour:
   correctEffect: {fileID: 4319147997119142063}
   target: {fileID: 11400000, guid: 6d263761cbdce4c44ae964fb9449bedc, type: 2}
   targetSpriteRenderer: {fileID: 7093284935214599492}
+  placer: {fileID: 7703318054763952947}
 --- !u!114 &7703318054763952947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,5 +402,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de98a65e8b84213bf2988d95db4dee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScreenPositionPlacer
-  pos: {x: 0.63432795, y: 0.26199996}
+  pos: {x: 0.63445824, y: 0.26199996}
   screenSizeManager: {fileID: 0}
+--- !u!114 &5753493264114650622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7707440617992212232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f3465b430134e94b803d8489291b3d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrowOnSpawn
+  time: 0.5

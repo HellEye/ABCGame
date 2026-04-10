@@ -14,19 +14,12 @@ public class DraggableAnimations : MonoBehaviour
     public int incorrectShakeFrequency = 5;
     public float incorrectShakeDuration = 1f;
 
-    [Header("Spawn animation")]
-    public float spawnDuration = 0.5f;
-
     [Header("Destroy animation")]
     public float destroyDuration = 0.5f;
 
     CancellationTokenSource cts;
     CompositeMotionHandle currentHandle;
     Draggable draggable;
-
-    void Awake() { }
-
-    void Start() => SpawnAnimation();
 
     void OnEnable()
     {
@@ -62,11 +55,6 @@ public class DraggableAnimations : MonoBehaviour
             .WithLoops(-1)
             .BindToPosition(transform)
             .AddTo(currentHandle);
-
-    public void SpawnAnimation() =>
-        LMotion.Create(Vector3.zero, Vector3.one, spawnDuration)
-            .BindToLocalScale(transform)
-            .AddTo(this);
 
     public async UniTaskVoid AnimateAndDestroy()
     {
