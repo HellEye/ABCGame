@@ -11,20 +11,20 @@ public class DropZoneGameManager : MonoBehaviour {
 
     [SerializeField] ItemSpawnerManager itemSpawnerManager;
 
-    [SerializeField] int itemTypes = 3;
-    [SerializeField] int targetTypes = 1;
-
+    [SerializeField] DropZoneGameDifficulty difficulty;
     readonly List<DropZone> dropZones = new();
 
     readonly List<Item> items = new();
 
+
     // This is allowed, but I guess resharper didn't get the memo
     // ReSharper disable once Unity.IncorrectMethodSignature
     async UniTaskVoid Start() {
-        var pickedItems = allItems.PickRandom(itemTypes);
+        var pickedItems = allItems.PickRandom(difficulty.itemTypes);
+        itemSpawnerManager.SetDifficulty(difficulty);
         //itemSpawnerManager.TrySpawningItemsPerType(pickedItems);
         await itemSpawnerManager.TrySpawningMaxItems(pickedItems);
-        var targets = pickedItems.PickRandom(targetTypes);
+        var targets = pickedItems.PickRandom(difficulty.targetTypes);
         await itemSpawnerManager.SpawnDropZones(targets);
         OnGameComplete += () => Debug.Log("Game Complete!!!");
     }
