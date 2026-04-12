@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DropZoneGameDifficulty
   difficultyName: Medium
   itemTypes: 3
-  targetTypes: 2
-  maxItems: 10
-  itemsPerType: 3
+  targetTypes: 3
+  maxItems: 12
+  itemsPerType: 4

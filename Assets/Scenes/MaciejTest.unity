@@ -428,9 +428,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e939a6e875665014a2ef2d01257e0f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSpawnerManager
-  maxItems: 6
-  itemsPerType: 2
-  itemTypesSpawned: 3
   spawnDelay: 0.2
   bounds:
     min: {x: 0.05, y: 0.44}
@@ -473,8 +470,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 278f5635c77b8a980afd498439d08ffa, type: 2}
   dropZonePrefab: {fileID: 6363331035705915278, guid: ed289f47892866fe99ddcd883038865d, type: 3}
   itemSpawnerManager: {fileID: 683851787}
-  itemTypes: 3
-  targetTypes: 2
+  difficulty: {fileID: 11400000, guid: 453c59661d257cad889cfc4205695b92, type: 2}
 --- !u!1 &994378220
 GameObject:
   m_ObjectHideFlags: 0
