@@ -6,16 +6,12 @@ using UnityEngine;
 using DelayType = LitMotion.DelayType;
 
 [RequireComponent(typeof(Draggable))]
-public class DraggableAnimations : MonoBehaviour
-{
+public class DraggableAnimations : MonoBehaviour {
     [Header("Incorrect drop zone animation")]
     public float incorrectShakeDelay = 5f;
 
     public int incorrectShakeFrequency = 5;
     public float incorrectShakeDuration = 1f;
-
-    [Header("Spawn animation")]
-    public float spawnDuration = 0.5f;
 
     [Header("Destroy animation")]
     public float destroyDuration = 0.5f;
@@ -24,12 +20,7 @@ public class DraggableAnimations : MonoBehaviour
     CompositeMotionHandle currentHandle;
     Draggable draggable;
 
-    void Awake() { }
-
-    void Start() => SpawnAnimation();
-
-    void OnEnable()
-    {
+    void OnEnable() {
         draggable ??= GetComponent<Draggable>();
         currentHandle = new();
         draggable.OnPickedUp += CancelAnimation;
@@ -37,8 +28,7 @@ public class DraggableAnimations : MonoBehaviour
         draggable.OnDroppedCorrect += UniTask.Action(AnimateAndDestroy);
     }
 
-    void OnDisable()
-    {
+    void OnDisable() {
         draggable.OnPickedUp -= CancelAnimation;
         draggable.OnDroppedIncorrect -= AnimateIncorrect;
         draggable.OnDroppedCorrect -= UniTask.Action(AnimateAndDestroy);
@@ -63,13 +53,7 @@ public class DraggableAnimations : MonoBehaviour
             .BindToPosition(transform)
             .AddTo(currentHandle);
 
-    public void SpawnAnimation() =>
-        LMotion.Create(Vector3.zero, Vector3.one, spawnDuration)
-            .BindToLocalScale(transform)
-            .AddTo(this);
-
-    public async UniTaskVoid AnimateAndDestroy()
-    {
+    public async UniTaskVoid AnimateAndDestroy() {
         await LMotion.Create(Vector3.one, Vector3.zero, destroyDuration)
             .BindToLocalScale(transform)
             .ToUniTask();

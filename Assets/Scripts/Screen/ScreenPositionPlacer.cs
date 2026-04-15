@@ -1,56 +1,45 @@
 using UnityEngine;
 
 [ExecuteAlways]
-public class ScreenPositionPlacer : MonoBehaviour
-{
-    [SerializeField]
-    Vector2 pos;
+public class ScreenPositionPlacer : MonoBehaviour {
+    [SerializeField] Vector2 pos;
 
-    [SerializeField]
-    ScreenSizeManager screenSizeManager;
+    [SerializeField] ScreenSizeManager screenSizeManager;
 
     Vector2 lastNormalizedPos;
 
     Vector3 lastTransformPos;
 
-    public Vector2 Pos
-    {
+    public Vector2 Pos {
         get => pos;
-        set
-        {
+        set {
             pos = value;
             if (screenSizeManager != null)
                 OnScreenResize(screenSizeManager);
         }
     }
 
-    void Update()
-    {
+    void Update() {
         if (lastTransformPos != transform.position) OnValidate();
     }
 
-    void OnEnable()
-    {
+    void OnEnable() {
         screenSizeManager ??= ScreenSizeManager.Instance;
         screenSizeManager.OnResizeUnits += OnScreenResize;
     }
 
-    void OnDisable()
-    {
+    void OnDisable() {
         if (screenSizeManager != null) screenSizeManager.OnResizeUnits -= OnScreenResize;
     }
 
-    void OnValidate()
-    {
+    void OnValidate() {
         if (screenSizeManager == null) screenSizeManager = FindFirstObjectByType<ScreenSizeManager>();
-        if (transform.position != lastTransformPos)
-        {
+        if (transform.position != lastTransformPos) {
             Pos = screenSizeManager.FromWorldToNormalizedPos(transform.position);
             lastNormalizedPos = Pos;
             lastTransformPos = transform.position;
         }
-        else if (lastNormalizedPos != Pos)
-        {
+        else if (lastNormalizedPos != Pos) {
             transform.position = screenSizeManager.FromNormalizedToWorldPos(Pos);
             lastNormalizedPos = Pos;
             lastTransformPos = transform.position;

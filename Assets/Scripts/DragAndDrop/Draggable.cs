@@ -2,13 +2,11 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D), typeof(Item))]
-public class Draggable : MonoBehaviour
-{
+public class Draggable : MonoBehaviour {
     public new Collider2D collider;
     public Item item;
 
-    void Awake()
-    {
+    void Awake() {
         collider = GetComponent<Collider2D>();
         item = GetComponent<Item>();
     }
@@ -21,14 +19,12 @@ public class Draggable : MonoBehaviour
     public void Pickup() => OnPickedUp?.Invoke();
     public void Drop() => OnDropped?.Invoke();
 
-    public void DropCorrect()
-    {
+    public void DropCorrect() {
         OnDroppedCorrect?.Invoke();
         Debug.Log("Correct");
     }
 
-    public void DropIncorrect()
-    {
+    public void DropIncorrect() {
         OnDroppedIncorrect?.Invoke();
         Debug.Log("Incorrect");
     }

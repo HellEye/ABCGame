@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TestItem3
   m_EditorClassIdentifier: Assembly-CSharp::SpawnManagerScriptableObject
   itemName: checkmark
-  sprite2D: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  sprite2D: {fileID: -2413806693520163455, guid: 4adeaf2d2b1c7417e89f026626d8264f, type: 3}
