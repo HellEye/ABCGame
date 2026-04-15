@@ -65,8 +65,8 @@ public class ItemSpawnerManager : MonoBehaviour
         var remaningItemsToSpawn = maxItems % itemTypesSpawned;
 
         for (var i = 0; i < itemTypesSpawned - 1; i++)
-        for (var j = 0; j < itemsPerType; j++)
-            await CreateItem(items[i]);
+            for (var j = 0; j < itemsPerType; j++)
+                await CreateItem(items[i]);
 
         for (var i = 0; i < itemsPerType + remaningItemsToSpawn; i++) await CreateItem(items[^1]);
     }
@@ -74,8 +74,8 @@ public class ItemSpawnerManager : MonoBehaviour
     public async UniTaskVoid TrySpawningMaxItems(List<ItemSO> items)
     {
         for (var i = 0; i < itemTypesSpawned; i++)
-        for (var j = 0; j < itemsPerType; j++)
-            await CreateItem(items[i]);
+            for (var j = 0; j < itemsPerType; j++)
+                await CreateItem(items[i]);
     }
 
     UniTask CreateItem(ItemSO item)

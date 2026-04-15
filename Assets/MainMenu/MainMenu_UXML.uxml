@@ -1,0 +1,31 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/MainMenu/MainMenu_USS.uss?fileID=7433441132597879392&amp;guid=2ae076cb3d48201f7aae11fdaa07edaa&amp;type=3#MainMenu_USS"/>
+    <ui:VisualElement class="wrapper">
+        <ui:VisualElement class="menu-container">
+            <ui:VisualElement class="nav-bar">
+                <ui:Button name="btn-left" class="nav-btn"/>
+                <ui:VisualElement class="grid-container">
+                    <ui:VisualElement class="row-container">
+                        <ui:Button name="slot-0" class="btn level-btn"/>
+                        <ui:Button name="slot-1" class="btn level-btn"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="row-container">
+                        <ui:Button name="slot-2" class="btn level-btn"/>
+                        <ui:Button name="slot-3" class="btn level-btn"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:Button name="btn-right" class="nav-btn"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="difficulty-bar">
+                <ui:Button name="easy" class="btn difficulty-btn" text="Easy"/>
+                <ui:Button name="medium" class="btn difficulty-btn" text="Medium"/>
+                <ui:Button name="hard" class="btn difficulty-btn" text="Hard"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="menu-bar">
+                <ui:Button name="new-game" class="btn menu-btn" text="New game"/>
+                <ui:Button name="options" class="btn menu-btn" text="Options"/>
+                <ui:Button name="exit" class="btn menu-btn" text="Exit"/>
+            </ui:VisualElement>
+        </ui:VisualElement>    
+    </ui:VisualElement>
+</ui:UXML>

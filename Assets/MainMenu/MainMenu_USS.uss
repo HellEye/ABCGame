@@ -1,0 +1,87 @@
+.wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: #111;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-container {
+    flex-direction: row;
+}
+.tight .menu-container {
+    flex-direction: column;
+}
+
+.nav-bar {
+    max-width: 100%;
+    width: 500px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.nav-btn {
+    max-width: 15%;
+    width: 60px; /*UXML preview doesn't care, Unity cares*/
+    height: 120px;
+    align-self: center;
+    background-color: #444;
+    color: white;
+    font-size: 30px;
+}
+
+.grid-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    --gap: 5px;
+    --button-size: 150px;
+    margin: 10px;
+}
+
+.row-container {
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: var(--gap);
+}
+
+
+.difficulty-bar {
+    flex-direction: column;
+    justify-content: center;
+}
+.tight .difficulty-bar {
+    flex-direction: row;
+}
+
+.menu-bar {
+    flex-direction: column;
+    justify-content: center;
+}
+.tight .menu-bar {
+    flex-direction: row;
+}
+
+.level-btn {
+    max-width: 50%;
+    width: var(--button-size);
+    height: var(--button-size);
+    margin-right: var(--gap);
+}
+
+.difficulty-btn {
+
+}
+
+.menu-btn {
+
+}
+
+.btn {
+    background-color: #666;
+    border-width: 2px;
+    color: white;
+    font-size: 20px;
+}
