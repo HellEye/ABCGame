@@ -3,10 +3,8 @@ using UnityEngine;
 
 [DefaultExecutionOrder(-900)]
 [ExecuteAlways]
-public class ScreenSizeManager : MonoBehaviour
-{
-    [SerializeField]
-    Camera cam;
+public class ScreenSizeManager : MonoBehaviour {
+    [SerializeField] Camera cam;
 
     public static ScreenSizeManager Instance { get; private set; }
 
@@ -14,34 +12,29 @@ public class ScreenSizeManager : MonoBehaviour
     // public Vector2 WorldTopRight { get; private set; }
     // public Vector2 WorldBottomLeft { get; private set; }
 
-    void Awake()
-    {
+    void Awake() {
         if (Instance == null && Instance != this)
             Instance = this;
     }
 
     void Start() => cam = Camera.main;
 
-    void Update()
-    {
+    void Update() {
         if (!RecalculateNewPosition(out var newSize)) return;
         OnResize?.Invoke(newSize);
         OnResizeUnits?.Invoke(this);
     }
 
-    void OnEnable()
-    {
+    void OnEnable() {
         if (Instance == null) Instance = this;
     }
 
-    void OnValidate()
-    {
+    void OnValidate() {
         if (cam == null) cam = Camera.main;
         RecalculateNewPosition(out var _);
     }
 
-    public bool RecalculateNewPosition(out Vector2 newSize)
-    {
+    public bool RecalculateNewPosition(out Vector2 newSize) {
         var width = Screen.width;
         var height = Screen.height;
         newSize = new(width, height);
@@ -54,8 +47,7 @@ public class ScreenSizeManager : MonoBehaviour
     public event Action<Vector2> OnResize;
     public event Action<ScreenSizeManager> OnResizeUnits;
 
-    void CalcUnitSize(Vector2 newSize)
-    {
+    void CalcUnitSize(Vector2 newSize) {
         // WorldBottomLeft = cam.ViewportToWorldPoint(new(0, 0, -cam.transform.position.z));
         // WorldTopRight = cam.ViewportToWorldPoint(new(newSize.x, newSize.y, -cam.transform.position.z));
     }

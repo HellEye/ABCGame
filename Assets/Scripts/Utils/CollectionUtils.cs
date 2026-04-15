@@ -2,12 +2,10 @@ using System;
 using System.Collections.Generic;
 using Random = UnityEngine.Random;
 
-public static class CollectionUtils
-{
+public static class CollectionUtils {
     public static List<T> PickRandom<T>(
         this IReadOnlyList<T> items,
-        int count)
-    {
+        int count) {
         if (items is null)
             throw new ArgumentNullException(nameof(items));
 
@@ -19,8 +17,7 @@ public static class CollectionUtils
 
         var result = new List<T>(count);
 
-        for (var i = 0; i < count; i++)
-        {
+        for (var i = 0; i < count; i++) {
             var j = Random.Range(i, items.Count);
             (indices[i], indices[j]) = (indices[j], indices[i]);
             result.Add(items[indices[i]]);

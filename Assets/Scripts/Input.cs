@@ -2,39 +2,35 @@ using System;
 using UnityEngine;
 
 [DefaultExecutionOrder(-999)]
-public class Input : MonoBehaviour
-{
+public class Input : MonoBehaviour {
     public static Input instance { get; private set; }
     public InputSystem_Actions actions { get; private set; }
 
-    void Awake()
-    {
-        if (instance != null && instance != this)
-        {
+    void Awake() {
+        if (instance != null && instance != this) {
             Destroy(gameObject);
             return;
         }
+
         instance = this;
         EnsureActions();
 
         actions.Player.Enable();
     }
-    void OnEnable()
-    {
-        if (instance == null)
-        {
+
+    void OnEnable() {
+        if (instance == null) {
             instance = this;
         }
 
         EnsureActions();
         actions.Player.Enable();
     }
+
     void OnDisable() { actions?.Player.Disable(); }
 
-    void OnDestroy()
-    {
-        if (instance == this)
-        {
+    void OnDestroy() {
+        if (instance == this) {
             instance = null;
         }
 
@@ -42,8 +38,5 @@ public class Input : MonoBehaviour
         actions = null;
     }
 
-    void EnsureActions()
-    {
-        actions ??= new();
-    }
+    void EnsureActions() { actions ??= new(); }
 }
