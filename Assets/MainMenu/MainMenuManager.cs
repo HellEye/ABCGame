@@ -1,3 +1,5 @@
+using Cysharp.Threading.Tasks.Triggers;
+using LitMotion;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -6,6 +8,7 @@ public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] private UIDocument mainMenuDoc;
     private VisualElement rootElement;
+    private VisualElement popupOverlay;
     private int startIndex = 0;
     private Button[] slotButtons = new Button[4]; //need for new if you initialize onEnable?
 
@@ -21,7 +24,14 @@ public class MainMenuManager : MonoBehaviour
         }
 
         rootElement.Q<Button>("btn-left").clicked += () => ChangePage(-buttonsPerPage);
-        rootElement.Q<Button>("btn-right").clicked += () => ChangePage(buttonsPerPage); //make enum for button strings?
+        rootElement.Q<Button>("btn-right").clicked += () => ChangePage(buttonsPerPage);
+
+
+        popupOverlay = rootElement.Q<VisualElement>("options-popup");
+
+        rootElement.Q<Button>("options").clicked += () => TogglePopup(true);
+        rootElement.Q<Button>("btn-close-options").clicked += () => TogglePopup(false);
+
 
         UpdateUI();
     }
@@ -48,5 +58,10 @@ public class MainMenuManager : MonoBehaviour
         {
             slotButtons[i].text = (startIndex + i + 1).ToString();
         }
+    }
+
+    private void TogglePopup(bool show)
+    {
+        popupOverlay.style.display = show ? DisplayStyle.Flex : DisplayStyle.None;
     }
 }
