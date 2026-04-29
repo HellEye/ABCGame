@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
+         editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; background-color: rgb(128, 128, 128);">
+        <ui:Label text="Label"/>
+        <ui:Label text="Label"/>
+        <ui:Button text="Button" name="openPopup"/>
+    </ui:VisualElement>
+    <Popup name="testPopup">
+        <ui:Label text="I'm a popup"/>
+        <ui:Button text="Close me" name="closePopupButton"/>
+    </Popup>
+</ui:UXML>
