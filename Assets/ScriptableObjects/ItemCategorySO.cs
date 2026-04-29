@@ -1,10 +1,13 @@
 using System.Collections.Generic;
+using DragAndDrop;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Category", menuName = "ScriptableObjects/Category", order = 1)]
-public class ItemCategorySO : ScriptableObject {
+public class ItemCategorySO : ScriptableObject, ITarget {
     public string title;
     public List<ItemSO> items;
+    public Sprite sprite2D { get; }
+    public bool Matches(Draggable draggable) => items.Exists(i => i.Matches(draggable));
 
     public List<ItemSO> PickRandom(int count) => items.PickRandom(count);
 }
