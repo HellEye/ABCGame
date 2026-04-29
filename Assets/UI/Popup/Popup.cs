@@ -27,6 +27,8 @@ public partial class Popup : VisualElement {
         LoadStyleSheet().Forget();
     }
 
+    [UxmlAttribute] public bool CloseOnBackdropClick { get; set; } = true;
+
     public override VisualElement contentContainer => wrapper;
 
     [UxmlAttribute]
@@ -53,7 +55,7 @@ public partial class Popup : VisualElement {
 
     void OnBackdropClick(PointerDownEvent evt) {
         // only close the popup if the click was on the backdrop specifically
-        if (evt.target == this)
+        if (evt.target == this && CloseOnBackdropClick)
             IsOpen = false;
     }
 

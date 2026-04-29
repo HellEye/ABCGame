@@ -3,10 +3,18 @@
     <ui:VisualElement style="flex-grow: 1; background-color: rgb(128, 128, 128);">
         <ui:Label text="Label"/>
         <ui:Label text="Label"/>
-        <ui:Button text="Button" name="openPopup"/>
+        <ui:Button text="Open 1" name="openPopup"/>
+        <ui:Button text="Open with no backdrop close" name="openPopup2"/>
     </ui:VisualElement>
     <Popup name="testPopup">
         <ui:Label text="I'm a popup"/>
         <ui:Button text="Close me" name="closePopupButton"/>
     </Popup>
+    <Popup name="testPopupNoBackdropClose" close-on-backdrop-click="false">
+        <ui:Label text="I'm a popup"/>
+        <ui:Label text="I don't close automatically"/>
+
+        <ui:Button text="Close me" name="closePopupButton2"/>
+    </Popup>
+
 </ui:UXML>
