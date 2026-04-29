@@ -5,7 +5,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class DropZoneGameManager : MonoBehaviour {
-    [SerializeField] List<ItemSO> allItems;
+    [SerializeField] ItemCategorySO allItems;
 
     [SerializeField] DropZone dropZonePrefab;
 
