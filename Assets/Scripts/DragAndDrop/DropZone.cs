@@ -9,7 +9,7 @@ public class DropZone : MonoBehaviour {
     DropZoneGameManager gameManager;
 
     void OnValidate() {
-        if (targetSpriteRenderer != null && target != null) targetSpriteRenderer.sprite = target.sprite2D;
+        if (targetSpriteRenderer != null && target != null) targetSpriteRenderer.sprite = target.Sprite2D;
     }
 
     public void SetManager(DropZoneGameManager manager) => gameManager = manager;
@@ -17,7 +17,7 @@ public class DropZone : MonoBehaviour {
     public void Initialize(ItemSO item, Vector2 pos) {
         target = item;
         if (targetSpriteRenderer != null)
-            targetSpriteRenderer.sprite = item.sprite2D;
+            targetSpriteRenderer.sprite = item.Sprite2D;
         if (placer != null)
             placer.Pos = pos;
     }

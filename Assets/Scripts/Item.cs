@@ -10,7 +10,7 @@ public class Item : MonoBehaviour {
 
     void OnValidate() {
         if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null && item != null) spriteRenderer.sprite = item.sprite2D;
+        if (spriteRenderer != null && item != null) spriteRenderer.sprite = item.Sprite2D;
     }
 
     public void Initialize(ItemSO item, Vector3 pos) {
@@ -20,6 +20,6 @@ public class Item : MonoBehaviour {
         screenPlacer.Pos = pos;
         if (spriteRenderer == null)
             spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = item.sprite2D;
+        spriteRenderer.sprite = item.Sprite2D;
     }
 }

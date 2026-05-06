@@ -1,20 +1,23 @@
-using System;
 using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class ItemSpawnerManager : MonoBehaviour {
-    [SerializeField] float spawnDelay = 0.2f;
+    [Header("Settings")]
     [SerializeField] MinMaxRect bounds;
+
     [SerializeField] float dropZoneNormalizedY = 0.2f;
+    [SerializeField] float spawnProtectionRadius = 0.2f;
 
     [Header("Prefabs")]
     [SerializeField] Item itemPrefab;
 
     [SerializeField] DropZone dropZonePrefab;
 
+    [Header("References")]
     [SerializeField] DropZoneGameManager gameManager;
+
     [SerializeField] ScreenSizeManager screenSizeManager;
 
     DropZoneGameDifficulty difficulty;
@@ -43,51 +46,77 @@ public class ItemSpawnerManager : MonoBehaviour {
     }
 
     //test one of these two
-    public async UniTaskVoid TrySpawningItemsPerType(List<ItemSO> items) {
+    public void TrySpawningItemsPerType(List<ItemSO> items) {
         var itemsPerType = difficulty.maxItems / items.Count;
         var remainingItemsToSpawn = difficulty.maxItems % items.Count;
 
+        var itemPositions = new List<Vector3>(items.Count * difficulty.itemsPerType);
+        var squareRadius = spawnProtectionRadius * spawnProtectionRadius;
+
         for (var i = 0; i < items.Count - 1; i++)
         for (var j = 0; j < itemsPerType; j++)
-            await CreateItem(items[i]);
+            itemPositions.Add(
+                CreateItem(
+                    items[i],
+                    RandomiseSpawnPos(itemPositions, squareRadius)
+                ).transform.position
+            );
 
-        for (var i = 0; i < itemsPerType + remainingItemsToSpawn; i++) await CreateItem(items[^1]);
+        for (var i = 0; i < itemsPerType + remainingItemsToSpawn; i++)
+            itemPositions.Add(
+                CreateItem(
+                    items[^1],
+                    RandomiseSpawnPos(itemPositions, squareRadius)
+                ).transform.position
+            );
     }
 
-    public async UniTask TrySpawningMaxItems(List<ItemSO> items) {
+    public void TrySpawningMaxItems(List<ItemSO> items) {
+        var itemPositions = new List<Vector3>(items.Count * difficulty.itemsPerType);
+        var squareRadius = spawnProtectionRadius * spawnProtectionRadius;
         foreach (var t in items)
             for (var j = 0; j < difficulty.itemsPerType; j++)
-                await CreateItem(t);
+                itemPositions.Add(
+                    CreateItem(
+                        t,
+                        RandomiseSpawnPos(itemPositions, squareRadius)
+                    ).transform.position
+                );
     }
 
-    UniTask CreateItem(ItemSO item) {
+    Item CreateItem(ItemSO item, Vector3 pos) {
         var newItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
-        newItem.Initialize(item, RandomiseSpawnPos());
+        newItem.Initialize(item, pos);
         gameManager.AddItem(newItem);
-        return UniTask.Delay(TimeSpan.FromSeconds(spawnDelay));
+        return newItem;
     }
 
-    UniTask CreateDropZone(ItemSO item, float normalizedXPos) {
+    void CreateDropZone(ItemSO item, float normalizedXPos) {
         var newDropZone = Instantiate(dropZonePrefab, Vector3.zero, Quaternion.identity);
         newDropZone.SetManager(gameManager);
         newDropZone.Initialize(item, new(normalizedXPos, dropZoneNormalizedY));
         gameManager.AddDropZone(newDropZone);
-        return UniTask.Delay(TimeSpan.FromSeconds(spawnDelay));
     }
 
-    public Vector3 RandomiseSpawnPos() {
-        var xPos = Random.Range(bounds.min.x, bounds.max.x);
-        var yPos = Random.Range(bounds.min.y, bounds.max.y);
+    Vector3 RandomiseSpawnPos(List<Vector3> existingPositions, float squareRadius) {
+        var pos = Vector3.zero;
+        for (var i = 0; i < 100; i++) {
+            var xPos = Random.Range(bounds.min.x, bounds.max.x);
+            var yPos = Random.Range(bounds.min.y, bounds.max.y);
+            pos = new(xPos, yPos, 0);
+            if (existingPositions.Any(p => Vector3.SqrMagnitude(p - pos) < squareRadius))
+                return pos;
+        }
 
-        return new(xPos, yPos, 0);
+        return pos;
     }
 
-    public async UniTask SpawnDropZones(List<ItemSO> targets) {
+    public void SpawnDropZones(List<ItemSO> targets) {
         var count = targets.Count;
         var spacing = 1f / (count + 1f);
         for (var i = 0; i < targets.Count; i++) {
             var target = targets[i];
-            await CreateDropZone(target, spacing * (i + 1));
+            CreateDropZone(target, spacing * (i + 1));
         }
     }
 

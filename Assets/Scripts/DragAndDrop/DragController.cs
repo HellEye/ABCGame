@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,10 +15,10 @@ public class DragController : MonoBehaviour {
     public float dropZoneDetectRadius = 0.1f;
 
     Camera cam;
-    Draggable currentElement = null;
-    bool isDragging = false;
+    Draggable currentElement;
+    bool isDragging;
     Vector2 offset;
-    void Start() { cam = Camera.main; }
+    void Start() => cam = Camera.main;
 
     void OnEnable() {
         var input = Input.instance;
@@ -50,9 +49,8 @@ public class DragController : MonoBehaviour {
         foreach (var hit in hits) {
             var closestPosition = new Vector2(closest.transform.position.x, closest.transform.position.y);
             var hitPosition = new Vector2(hit.transform.position.x, hit.transform.position.y);
-            if (Vector2.SqrMagnitude(hitPosition - position) < Vector2.SqrMagnitude(closestPosition - position)) {
+            if (Vector2.SqrMagnitude(hitPosition - position) < Vector2.SqrMagnitude(closestPosition - position))
                 closest = hit;
-            }
         }
 
         return closest;
@@ -65,14 +63,16 @@ public class DragController : MonoBehaviour {
         // Set the current element to the closest one
         if (!closest.TryGetComponent<Draggable>(out var draggable)) return;
         currentElement = draggable;
+        Debug.Log("Started dragging: " + draggable.name + " at " + touchPosition + "");
         draggable.Pickup();
         // offset for smoother dragging (not jumping the center of the element to the mouse)
-        offset = ((Vector2)draggable.transform.position) - touchPosition;
+        offset = (Vector2)draggable.transform.position - touchPosition;
         isDragging = true;
     }
 
     void OnTouchMoved(InputAction.CallbackContext callbackContext) {
         if (!isDragging) return;
+        Debug.Log("Dragging: " + currentElement.name);
         var worldPos = callbackContext.ReadValue<Vector2>().ScreenToWorldPoint2D(cam);
         // update the position of the draggable element
         currentElement.Move(worldPos + offset);
@@ -81,6 +81,7 @@ public class DragController : MonoBehaviour {
     void OnTouchEnded(InputAction.CallbackContext callbackContext) {
         isDragging = false;
         if (currentElement == null) return;
+        Debug.Log("Dropped: " + currentElement.name + " at " + currentElement.transform.position);
         var droppedElement = currentElement;
         currentElement = null;
 

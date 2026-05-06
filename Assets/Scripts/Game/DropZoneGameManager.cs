@@ -1,12 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class DropZoneGameManager : MonoBehaviour {
-    [SerializeField] ItemCategorySO allItems;
-
+    [SerializeField] List<ItemSO> allItems;
     [SerializeField] DropZone dropZonePrefab;
 
     [SerializeField] ItemSpawnerManager itemSpawnerManager;
@@ -19,13 +17,13 @@ public class DropZoneGameManager : MonoBehaviour {
 
     // This is allowed, but I guess resharper didn't get the memo
     // ReSharper disable once Unity.IncorrectMethodSignature
-    async UniTaskVoid Start() {
+    void Start() {
         var pickedItems = allItems.PickRandom(difficulty.itemTypes);
         itemSpawnerManager.SetDifficulty(difficulty);
         //itemSpawnerManager.TrySpawningItemsPerType(pickedItems);
-        await itemSpawnerManager.TrySpawningMaxItems(pickedItems);
+        itemSpawnerManager.TrySpawningMaxItems(pickedItems);
         var targets = pickedItems.PickRandom(difficulty.targetTypes);
-        await itemSpawnerManager.SpawnDropZones(targets);
+        itemSpawnerManager.SpawnDropZones(targets);
         OnGameComplete += () => Debug.Log("Game Complete!!!");
     }
 
@@ -50,6 +48,6 @@ public class DropZoneGameManager : MonoBehaviour {
         dropZones.Clear();
 
         // Restart the game
-        Start().Forget();
+        Start();
     }
 }

@@ -3,7 +3,6 @@ using Cysharp.Threading.Tasks;
 using LitMotion;
 using LitMotion.Extensions;
 using UnityEngine;
-using DelayType = LitMotion.DelayType;
 
 [RequireComponent(typeof(Draggable))]
 public class DraggableAnimations : MonoBehaviour {
@@ -11,7 +10,7 @@ public class DraggableAnimations : MonoBehaviour {
     public float incorrectShakeDelay = 5f;
 
     public int incorrectShakeFrequency = 5;
-    public float incorrectShakeDuration = 1f;
+    public float incorrectTransitionDuration = 1f;
 
     [Header("Destroy animation")]
     public float destroyDuration = 0.5f;
@@ -42,14 +41,10 @@ public class DraggableAnimations : MonoBehaviour {
         // cts = new();
         currentHandle?.Cancel();
 
-    public void AnimateIncorrect() =>
-        LMotion.Punch
-            .Create(transform.position, new(0.1f, 0, 0), incorrectShakeDuration)
-            .WithEase(Ease.OutCubic)
-            .WithDampingRatio(2f)
-            .WithDelay(incorrectShakeDelay, DelayType.EveryLoop)
-            .WithFrequency(incorrectShakeFrequency)
-            .WithLoops(-1)
+    public void AnimateIncorrect(Vector3 initialPosition) =>
+        LMotion
+            .Create(transform.position, initialPosition, incorrectTransitionDuration)
+            .WithEase(Ease.InOutSine)
             .BindToPosition(transform)
             .AddTo(currentHandle);
 
