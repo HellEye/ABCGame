@@ -1,5 +1,9 @@
-<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/MainMenu/MainMenu_USS.uss?fileID=7433441132597879392&amp;guid=2ae076cb3d48201f7aae11fdaa07edaa&amp;type=3#MainMenu_USS"/>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd"
+         editor-extension-mode="False">
+    <Style
+        src="project://database/Assets/MainMenu/MainMenu_USS.uss?fileID=7433441132597879392&amp;guid=2ae076cb3d48201f7aae11fdaa07edaa&amp;type=3#MainMenu_USS"/>
+
+    <ui:Template name="settings" src="Settings_UXML.uxml"/>
     <ui:VisualElement class="wrapper">
         <ui:VisualElement class="menu-container">
             <ui:VisualElement class="nav-bar">
@@ -26,32 +30,8 @@
                 <ui:Button name="options" class="btn menu-btn" text="Options"/>
                 <ui:Button name="exit" class="btn menu-btn" text="Exit"/>
             </ui:VisualElement>
-        </ui:VisualElement>    
-    </ui:VisualElement>
-
-    <ui:VisualElement name="options-popup" class="overlay">
-        <ui:VisualElement class="popup-box">
-        <ui:Label text="Settings" class="popup-title"/>
-            <ui:VisualElement class='popup-column'>
-                <ui:VisualElement class='popup-subcolumn'>
-                    <ui:Slider name="sfx-slider" label="Sounds" title="SFX Volume" low-value="0" high-value="100" value="10" direction="horizontal"/>
-                    <ui:Slider name="music-slider" label="Music" title="Music Volume" low-value="0" high-value="100" direction="horizontal"/> 
-                    <ui:Toggle name="vo-toggle" title="VO Tog" label="VO On"/>
-                    <ui:Slider name="vo-slider" title="VO Vol" label="VO Volume" low-value="0" high-value="100" direction="horizontal"/>
-                    
-                </ui:VisualElement>
-                <ui:VisualElement class='popup-subcolumn'>
-                    <ui:DropdownField name="particle-dropdown" label="Particles"/>
-                    <ui:DropdownField name="motion-dropdown" label="Motion"/>
-                    <ui:DropdownField name="colorblind-dropdown" label="Colorblind"/>
-                    <ui:DropdownField name="vibration-dropdown" label="Vibrations"/>
-                </ui:VisualElement>
-            </ui:VisualElement>
-            <ui:VisualElement class='popup-row'>
-                <ui:Button name="btn-save-options" class="save-btn" text="Save"/>
-                <ui:Button name="btn-reset-options" class="reset-btn" text="Reset"/>
-                <ui:Button name="btn-close-options" class="close-btn" text="Close"/>
-            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
+    <ui:Instance name="SettingsContainer" template="settings"/>
+
 </ui:UXML>
