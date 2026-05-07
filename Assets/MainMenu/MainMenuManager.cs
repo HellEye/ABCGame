@@ -1,4 +1,5 @@
 using System.Linq;
+using Reflex.Attributes;
 using Unity.Properties;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -8,7 +9,7 @@ public class MainMenuManager : MonoBehaviour {
 
     public int buttonsPerPage = 4;
     public int maxButtons = 12;
-    public readonly MainMenuSettingsData settingsData = new();
+    [Inject] readonly MainMenuSettingsData settingsData;
     readonly Button[] slotButtons = new Button[4]; //need for new if you initialize onEnable?
     VisualElement popupOverlay;
     VisualElement rootElement;
@@ -19,7 +20,6 @@ public class MainMenuManager : MonoBehaviour {
     void Start() {
         EnumDropdownBinding.RegisterConverter(MainMenuSettingsData.IntensityTextGetter);
         rootElement = mainMenuDoc.rootVisualElement;
-        settingsData.Load();
         for (var i = 0; i < buttonsPerPage; i++)
             slotButtons[i] =
                 rootElement.Q<Button>($"slot-{i}"); //will throw a bug if it is different than uxml slot buttons number
