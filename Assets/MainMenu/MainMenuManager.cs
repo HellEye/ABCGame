@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using Unity.Properties;
 using UnityEngine;
@@ -11,7 +10,6 @@ public class MainMenuManager : MonoBehaviour {
     public int maxButtons = 12;
     public readonly MainMenuSettingsData settingsData = new();
     readonly Button[] slotButtons = new Button[4]; //need for new if you initialize onEnable?
-    Dictionary<string, LocalizedDropdown<SettingsIntensity>> dropdowns = new();
     VisualElement popupOverlay;
     VisualElement rootElement;
 

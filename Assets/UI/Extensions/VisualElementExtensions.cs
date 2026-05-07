@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using UnityEngine.UIElements;
 
@@ -39,8 +38,4 @@ public static class VisualElementExtensions {
 
         destination.dataSource ??= source.dataSource;
     }
-
-    public static LocalizedDropdown<T> ToLocalizedDropdown<T>(this DropdownField field, Func<T, string> getName)
-        where T : Enum =>
-        new(field, getName);
 }
