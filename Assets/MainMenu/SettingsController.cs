@@ -37,6 +37,9 @@ public class SettingsController : MonoBehaviour {
         SampleBinding();
     }
 
+    [ContextMenu("Test Binding")]
+    public void Test() => settingsData.VoVolume += 10;
+
     void SampleBinding() =>
         // Example of how to bind to settings data
         settingsData.propertyChanged += (sender, args) => {

@@ -16,17 +16,17 @@ public partial class ConditionalClassBinding : CustomBinding {
     [UxmlAttribute] public ConditionMode Mode { get; set; } = ConditionMode.Boolean;
     [UxmlAttribute] public float RangeMin { get; set; } = float.NegativeInfinity;
     [UxmlAttribute] public float RangeMax { get; set; } = float.PositiveInfinity;
-
+    [UxmlAttribute] public string DataSourcePath { get; set; } = string.Empty;
     protected override void OnDataSourceChanged(in DataSourceContextChanged context) { }
 
     protected override BindingResult Update(in BindingContext context) {
         var source = context.dataSource;
-        Debug.Log($"Custom binding update, {context.dataSource}.{context.dataSourcePath}");
+        Debug.Log($"Custom binding update, {context.dataSource}.{DataSourcePath}");
         if (source == null)
             return Failure("No data source found.");
 
         if (!TryEvaluateCondition(context, out var condition))
-            return Failure($"Could not read value at path '{context.dataSourcePath}'.");
+            return Failure($"Could not read value at path '{DataSourcePath}'.");
         Debug.Log($"Condition evaluated to {condition}");
         var element = context.targetElement;
         if (!string.IsNullOrEmpty(TrueClass))
@@ -53,7 +53,7 @@ public partial class ConditionalClassBinding : CustomBinding {
         var source = context.dataSource;
         return PropertyContainer.TryGetValue(
             ref source,
-            context.dataSourcePath,
+            PropertyPath.FromName(DataSourcePath),
             out value,
             out var _);
     }

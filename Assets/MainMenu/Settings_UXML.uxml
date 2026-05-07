@@ -7,7 +7,7 @@
         <ui:VisualElement class="popup-column">
             <ui:VisualElement class="popup-subcolumn">
                 <ui:Slider name="sfx-slider" label="Sounds" title="SFX Volume" low-value="0" high-value="100" value="10"
-                           direction="horizontal">
+                >
                     <Bindings>
                         <ui:DataBinding property="value" data-source-path="SoundVolume"/>
                     </Bindings>
@@ -23,10 +23,9 @@
                     </Bindings>
                 </ui:Toggle>
                 <ui:Slider name="vo-slider" title="VO Vol" label="VO Volume" low-value="0" high-value="100"
-                           data-source-type="MainMenuSettingsData, Assembly-CSharp" data-source-path="VoEnabled">
+                >
                     <Bindings>
-                        <ui:DataBinding property="value" data-source-path="VoVolume"
-                                        data-source-type="MainMenuSettingsData, Assembly-CSharp"/>
+                        <ui:DataBinding property="value" data-source-path="VoVolume"/>
                         <ConditionalClassBinding property="whatevs" false-class="hidden" data-source-path="VoEnabled"/>
                     </Bindings>
                 </ui:Slider>
