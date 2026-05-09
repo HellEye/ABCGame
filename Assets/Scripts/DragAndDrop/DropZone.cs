@@ -22,7 +22,7 @@ public class DropZone : MonoBehaviour {
     }
 
     public void Drop(Draggable draggable) {
-        if (draggable.item.item == target)
+        if (draggable.item.data == target)
             Correct(draggable);
         else
             Incorrect(draggable);

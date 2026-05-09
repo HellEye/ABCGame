@@ -5,11 +5,11 @@ using Reflex.Attributes;
 using UnityEngine;
 
 public class DropZoneGameManager : MonoBehaviour {
-    [SerializeField] List<ItemSO> allItems;
     [SerializeField] DropZone dropZonePrefab;
     readonly List<DropZone> dropZones = new();
 
     readonly List<Item> items = new();
+    [Inject] ISpawnableGroup allItems;
 
     [Inject] DropZoneGameDifficulty difficulty;
 
@@ -17,10 +17,9 @@ public class DropZoneGameManager : MonoBehaviour {
 
 
     void Start() {
-        var pickedItems = allItems.PickRandom(difficulty.itemTypes);
+        var (targets, pickedItems) = allItems.PickItems(difficulty);
         //itemSpawnerManager.TrySpawningItemsPerType(pickedItems);
         itemSpawnerManager.TrySpawningMaxItems(pickedItems);
-        var targets = pickedItems.PickRandom(difficulty.targetTypes);
         itemSpawnerManager.SpawnDropZones(targets);
         OnGameComplete += () => Debug.Log("Game Complete!!!");
     }
@@ -32,7 +31,7 @@ public class DropZoneGameManager : MonoBehaviour {
     public void RemoveItem(Item item) {
         items.Remove(item);
         // If there are no more items left that match the drop zones, the game is complete
-        if (!items.Any(i => dropZones.Exists(d => d.target == i.item))) OnGameComplete?.Invoke();
+        if (!items.Any(i => dropZones.Exists(d => d.target == i.data))) OnGameComplete?.Invoke();
     }
 
     public void AddDropZone(DropZone newDropZone) => dropZones.Add(newDropZone);
