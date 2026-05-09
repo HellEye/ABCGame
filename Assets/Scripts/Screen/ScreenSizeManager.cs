@@ -41,26 +41,24 @@ public class ScreenSizeManager : MonoBehaviour {
         newSize = new(width, height);
         if (SizePx == newSize) return false;
         SizePx = newSize;
-        CalcUnitSize(newSize);
         return true;
     }
 
     public event Action<Vector2> OnResize;
     public event Action<ScreenSizeManager> OnResizeUnits;
 
-    void CalcUnitSize(Vector2 newSize) {
-        // WorldBottomLeft = cam.ViewportToWorldPoint(new(0, 0, -cam.transform.position.z));
-        // WorldTopRight = cam.ViewportToWorldPoint(new(newSize.x, newSize.y, -cam.transform.position.z));
-    }
 
     public Vector3 FromNormalizedToWorldPos(Vector2 normalizedPos) =>
         cam.ViewportToWorldPoint(normalizedPos) - cam.transform.position;
 
-    // var x = Mathf.Lerp(WorldBottomLeft.x, WorldTopRight.x, normalizedPos.x);
-    // var y = Mathf.Lerp(WorldBottomLeft.y, WorldTopRight.y, normalizedPos.y);
-    // return new(x, y, 0f);
+
     public Vector2 FromWorldToNormalizedPos(Vector3 worldPos) => cam.WorldToViewportPoint(worldPos);
-    // var x = Mathf.InverseLerp(WorldBottomLeft.x, WorldTopRight.x, worldPos.x);
-    // var y = Mathf.InverseLerp(WorldBottomLeft.y, WorldTopRight.y, worldPos.y);
-    // return new(x, y);
+
+    public float FromWorldToNormalizedDistance(float worldDistance) {
+        var worldTopRight = cam.ViewportToWorldPoint(Vector3.one) - cam.transform.position;
+        var worldBottomLeft = cam.ViewportToWorldPoint(Vector3.zero) - cam.transform.position;
+        var worldSize = worldTopRight - worldBottomLeft;
+        var normalizedDistance = worldDistance / worldSize.magnitude;
+        return normalizedDistance;
+    }
 }

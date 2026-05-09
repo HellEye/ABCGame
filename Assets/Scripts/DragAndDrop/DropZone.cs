@@ -1,5 +1,7 @@
+using Cysharp.Threading.Tasks;
 using Reflex.Attributes;
 using UnityEngine;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.VFX;
 
 public class DropZone : MonoBehaviour {
@@ -9,16 +11,20 @@ public class DropZone : MonoBehaviour {
     [SerializeField] ScreenPositionPlacer placer;
     [Inject] DropZoneGameManager gameManager;
 
-    void OnValidate() {
-        if (targetSpriteRenderer != null && target != null) targetSpriteRenderer.sprite = target.Sprite2D;
-    }
 
-    public void Initialize(ItemSO item, Vector2 pos) {
+    AsyncOperationHandle<Sprite> handle;
+    void OnDestroy() => AssetReferenceExtensions.Release(handle);
+
+    public async UniTaskVoid Initialize(ItemSO item, Vector2 pos) {
         target = item;
-        if (targetSpriteRenderer != null)
-            targetSpriteRenderer.sprite = item.Sprite2D;
+
+        if (targetSpriteRenderer != null) {
+            handle = item.sprite.Load();
+            targetSpriteRenderer.sprite = await handle.Task;
+        }
+
         if (placer != null)
-            placer.Pos = pos;
+            placer.NormalizedPosition = pos;
     }
 
     public void Drop(Draggable draggable) {

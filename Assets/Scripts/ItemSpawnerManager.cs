@@ -30,8 +30,9 @@ public class ItemSpawnerManager : MonoBehaviour, IScreenSpaceBounds {
         var itemsPerType = difficulty.maxItems / items.Count;
         var remainingItemsToSpawn = difficulty.maxItems % items.Count;
 
-        var itemPositions = new List<Vector3>(items.Count * difficulty.itemsPerType);
-        var squareRadius = spawnProtectionRadius * spawnProtectionRadius;
+        var itemPositions = new List<Vector2>(items.Count * difficulty.itemsPerType);
+        var squareRadius =
+            screenSizeManager.FromWorldToNormalizedDistance(spawnProtectionRadius * spawnProtectionRadius);
 
         for (var i = 0; i < items.Count - 1; i++)
         for (var j = 0; j < itemsPerType; j++)
@@ -39,7 +40,7 @@ public class ItemSpawnerManager : MonoBehaviour, IScreenSpaceBounds {
                 CreateItem(
                     items[i],
                     RandomiseSpawnPos(itemPositions, squareRadius)
-                ).transform.position
+                ).screenPlacer.NormalizedPosition
             );
 
         for (var i = 0; i < itemsPerType + remainingItemsToSpawn; i++)
@@ -47,46 +48,48 @@ public class ItemSpawnerManager : MonoBehaviour, IScreenSpaceBounds {
                 CreateItem(
                     items[^1],
                     RandomiseSpawnPos(itemPositions, squareRadius)
-                ).transform.position
+                ).screenPlacer.NormalizedPosition
             );
     }
 
     public void TrySpawningMaxItems(List<ItemSO> items) {
-        var itemPositions = new List<Vector3>(items.Count * difficulty.itemsPerType);
-        var squareRadius = spawnProtectionRadius * spawnProtectionRadius;
+        var itemPositions = new List<Vector2>(items.Count * difficulty.itemsPerType);
+        var squareRadius =
+            screenSizeManager.FromWorldToNormalizedDistance(spawnProtectionRadius * spawnProtectionRadius);
         foreach (var t in items)
             for (var j = 0; j < difficulty.itemsPerType; j++)
                 itemPositions.Add(
                     CreateItem(
                         t,
                         RandomiseSpawnPos(itemPositions, squareRadius)
-                    ).transform.position
+                    ).screenPlacer.NormalizedPosition
                 );
     }
 
     Item CreateItem(ItemSO item, Vector3 pos) {
         var newItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
-        newItem.Initialize(item, pos);
+        newItem.Initialize(item, pos).Forget();
         gameManager.AddItem(newItem);
         return newItem;
     }
 
     void CreateDropZone(ItemSO item, float normalizedXPos) {
         var newDropZone = Instantiate(dropZonePrefab, Vector3.zero, Quaternion.identity);
-        newDropZone.Initialize(item, new(normalizedXPos, dropZoneNormalizedY));
+        newDropZone.Initialize(item, new(normalizedXPos, dropZoneNormalizedY)).Forget();
         gameManager.AddDropZone(newDropZone);
     }
 
-    Vector3 RandomiseSpawnPos(List<Vector3> existingPositions, float squareRadius) {
-        var pos = Vector3.zero;
+    Vector3 RandomiseSpawnPos(List<Vector2> existingPositions, float squareRadius) {
+        var pos = Vector2.zero;
         for (var i = 0; i < 100; i++) {
             var xPos = Random.Range(bounds.min.x, bounds.max.x);
             var yPos = Random.Range(bounds.min.y, bounds.max.y);
-            pos = new(xPos, yPos, 0);
-            if (existingPositions.Any(p => Vector3.SqrMagnitude(p - pos) < squareRadius))
+            pos = new(xPos, yPos);
+            if (existingPositions.All(p => Vector3.SqrMagnitude(p - pos) > squareRadius))
                 return pos;
         }
 
+        Debug.LogWarning("Could not find a non-overlapping spawn pos");
         return pos;
     }
 

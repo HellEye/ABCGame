@@ -1,25 +1,23 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
-[RequireComponent(typeof(SpriteRenderer), typeof(ScreenPositionPlacer))]
 public class Item : MonoBehaviour {
     public ItemSO data;
+    [SerializeField] SpriteRenderer spriteRenderer;
 
-    [SerializeField] [HideInInspector] SpriteRenderer spriteRenderer;
+    public ScreenPositionPlacer screenPlacer;
 
-    [SerializeField] ScreenPositionPlacer screenPlacer;
+    AsyncOperationHandle<Sprite> handle;
+    void OnDestroy() => AssetReferenceExtensions.Release(handle);
 
-    void OnValidate() {
-        if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null && data != null) spriteRenderer.sprite = data.Sprite2D;
-    }
-
-    public void Initialize(ItemSO itemData, Vector3 pos) {
+    public async UniTaskVoid Initialize(ItemSO itemData, Vector3 pos) {
         data = itemData;
         if (screenPlacer == null)
             screenPlacer = GetComponent<ScreenPositionPlacer>();
-        screenPlacer.Pos = pos;
-        if (spriteRenderer == null)
-            spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = data.Sprite2D;
+        screenPlacer.NormalizedPosition = pos;
+
+        handle = data.sprite.Load();
+        spriteRenderer.sprite = await handle.Task;
     }
 }

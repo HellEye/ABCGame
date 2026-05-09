@@ -18,11 +18,12 @@ public class DragAndDropSceneInstaller : MonoBehaviour, IInstaller {
 
     public void InstallBindings(ContainerBuilder builder) {
         builder.RegisterValue(cam);
+        builder.RegisterValue(difficulty);
+        builder.RegisterValue(spawnableGroup.Value, new[] { typeof(ISpawnableGroup) });
+        builder.RegisterType<DropZoneItems>();
         builder.RegisterValue(screenSizeManager);
         builder.RegisterValue(itemSpawnerManager);
         builder.RegisterValue(gameManager);
         builder.RegisterValue(uiController);
-        builder.RegisterValue(difficulty);
-        builder.RegisterValue(spawnableGroup);
     }
 }

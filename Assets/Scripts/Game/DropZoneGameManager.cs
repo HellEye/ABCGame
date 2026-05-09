@@ -12,15 +12,15 @@ public class DropZoneGameManager : MonoBehaviour {
     [Inject] ISpawnableGroup allItems;
 
     [Inject] DropZoneGameDifficulty difficulty;
+    [Inject] DropZoneItems dropZoneItems;
 
     [Inject] ItemSpawnerManager itemSpawnerManager;
 
 
     void Start() {
-        var (targets, pickedItems) = allItems.PickItems(difficulty);
         //itemSpawnerManager.TrySpawningItemsPerType(pickedItems);
-        itemSpawnerManager.TrySpawningMaxItems(pickedItems);
-        itemSpawnerManager.SpawnDropZones(targets);
+        itemSpawnerManager.TrySpawningMaxItems(dropZoneItems.items);
+        itemSpawnerManager.SpawnDropZones(dropZoneItems.targets);
         OnGameComplete += () => Debug.Log("Game Complete!!!");
     }
 

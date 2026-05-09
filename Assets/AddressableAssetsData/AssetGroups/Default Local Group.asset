@@ -15,8 +15,38 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: a9c65ab840a8f2efc9312697210c7eca
   m_SerializeEntries:
+  - m_GUID: 21b1145cfbe008d448ffdb6038749c56
+    m_Address: Assets/Sprites/Owoce/cherry.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 38698b2c507c92d169067d14f4939105
     m_Address: UIElements/Popup/uss
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a95d98a9ff4525e68dcd8c0b4667532
+    m_Address: Assets/Sprites/Owoce/pear.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c375416592a0dea4bfa75ccb4deaa45
+    m_Address: Assets/Sprites/Owoce/watermelon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 83ba8038d945c9210a1d3eb28de7caa0
+    m_Address: Assets/Sprites/Warzywa/carrot.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3d2c967f8b0e04d58148eebdf261e22
+    m_Address: "Assets/Sprites/Zwierz\u0119ta/cow.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d3d8040c14c4b22d586a64e7f775ca10
+    m_Address: Assets/Sprites/Owoce/banana.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
