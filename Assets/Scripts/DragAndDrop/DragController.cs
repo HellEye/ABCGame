@@ -63,7 +63,6 @@ public class DragController : MonoBehaviour {
         // Set the current element to the closest one
         if (!closest.TryGetComponent<Draggable>(out var draggable)) return;
         currentElement = draggable;
-        Debug.Log("Started dragging: " + draggable.name + " at " + touchPosition + "");
         draggable.Pickup();
         // offset for smoother dragging (not jumping the center of the element to the mouse)
         offset = (Vector2)draggable.transform.position - touchPosition;
@@ -72,7 +71,6 @@ public class DragController : MonoBehaviour {
 
     void OnTouchMoved(InputAction.CallbackContext callbackContext) {
         if (!isDragging) return;
-        Debug.Log("Dragging: " + currentElement.name);
         var worldPos = callbackContext.ReadValue<Vector2>().ScreenToWorldPoint2D(cam);
         // update the position of the draggable element
         currentElement.Move(worldPos + offset);
@@ -81,7 +79,6 @@ public class DragController : MonoBehaviour {
     void OnTouchEnded(InputAction.CallbackContext callbackContext) {
         isDragging = false;
         if (currentElement == null) return;
-        Debug.Log("Dropped: " + currentElement.name + " at " + currentElement.transform.position);
         var droppedElement = currentElement;
         currentElement = null;
 

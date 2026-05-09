@@ -1,10 +1,11 @@
 using System;
+using Reflex.Attributes;
 using UnityEngine;
 
 [DefaultExecutionOrder(-900)]
 [ExecuteAlways]
 public class ScreenSizeManager : MonoBehaviour {
-    [SerializeField] Camera cam;
+    [Inject] Camera cam;
 
     public static ScreenSizeManager Instance { get; private set; }
 

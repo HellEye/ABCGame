@@ -313,6 +313,7 @@ GameObject:
   - component: {fileID: 6363331035705915278}
   - component: {fileID: 7703318054763952947}
   - component: {fileID: 5753493264114650622}
+  - component: {fileID: 257430512701733745}
   m_Layer: 7
   m_Name: DropZone
   m_TagString: Untagged
@@ -329,7 +330,7 @@ Transform:
   m_GameObject: {fileID: 7707440617992212232}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.3656387, y: -2.3800004, z: 0}
+  m_LocalPosition: {x: 2.3656383, y: -2.3800004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -402,7 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de98a65e8b84213bf2988d95db4dee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScreenPositionPlacer
-  pos: {x: 0.6336674, y: 0.26199996}
+  pos: {x: 0.6602529, y: 0.26199996}
   screenSizeManager: {fileID: 0}
 --- !u!114 &5753493264114650622
 MonoBehaviour:
@@ -417,3 +418,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrowOnSpawn
   time: 0.5
+--- !u!114 &257430512701733745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7707440617992212232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20620ae30fdd0164c9bb5bdc717d3ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Reflex::Reflex.Components.GameObjectSelfInjector
+  _injectionStrategy: 2

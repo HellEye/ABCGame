@@ -1,18 +1,17 @@
+using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.VFX;
 
 public class DropZone : MonoBehaviour {
     public VisualEffect correctEffect;
     public ItemSO target;
-    public SpriteRenderer targetSpriteRenderer;
+    [SerializeField] SpriteRenderer targetSpriteRenderer;
     [SerializeField] ScreenPositionPlacer placer;
-    DropZoneGameManager gameManager;
+    [Inject] DropZoneGameManager gameManager;
 
     void OnValidate() {
         if (targetSpriteRenderer != null && target != null) targetSpriteRenderer.sprite = target.Sprite2D;
     }
-
-    public void SetManager(DropZoneGameManager manager) => gameManager = manager;
 
     public void Initialize(ItemSO item, Vector2 pos) {
         target = item;
@@ -23,7 +22,6 @@ public class DropZone : MonoBehaviour {
     }
 
     public void Drop(Draggable draggable) {
-        Debug.Log("Dropped " + draggable.name);
         if (draggable.item.item == target)
             Correct(draggable);
         else

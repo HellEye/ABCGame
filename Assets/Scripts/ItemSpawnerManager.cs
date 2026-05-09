@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
+using Reflex.Attributes;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class ItemSpawnerManager : MonoBehaviour {
+public class ItemSpawnerManager : MonoBehaviour, IScreenSpaceBounds {
     [Header("Settings")]
     [SerializeField] MinMaxRect bounds;
 
@@ -15,35 +16,14 @@ public class ItemSpawnerManager : MonoBehaviour {
 
     [SerializeField] DropZone dropZonePrefab;
 
+    [Inject] DropZoneGameDifficulty difficulty;
+
     [Header("References")]
-    [SerializeField] DropZoneGameManager gameManager;
+    [Inject] DropZoneGameManager gameManager;
 
-    [SerializeField] ScreenSizeManager screenSizeManager;
+    [Inject] ScreenSizeManager screenSizeManager;
 
-    DropZoneGameDifficulty difficulty;
-
-    /// <summary>
-    ///     Draws the spawning area
-    /// </summary>
-    void OnDrawGizmosSelected() {
-        if (screenSizeManager == null) {
-            Debug.LogError("Screen size manager not found on ItemSpawnerManager, bounds not drawn");
-            return;
-        }
-
-        screenSizeManager.RecalculateNewPosition(out var _);
-
-        Gizmos.color = Color.blue;
-        var pos = transform.position;
-        var bottomLeft = screenSizeManager.FromNormalizedToWorldPos(bounds.min);
-        var topRight = screenSizeManager.FromNormalizedToWorldPos(bounds.max);
-        var topLeft = new Vector3(bottomLeft.x, topRight.y, 0);
-        var bottomRight = new Vector3(topRight.x, bottomLeft.y, 0);
-        Gizmos.DrawLine(pos + bottomLeft, pos + topLeft);
-        Gizmos.DrawLine(pos + topRight, pos + bottomRight);
-        Gizmos.DrawLine(pos + bottomLeft, pos + bottomRight);
-        Gizmos.DrawLine(pos + topLeft, pos + topRight);
-    }
+    public MinMaxRect Bounds => bounds;
 
     //test one of these two
     public void TrySpawningItemsPerType(List<ItemSO> items) {
@@ -93,7 +73,6 @@ public class ItemSpawnerManager : MonoBehaviour {
 
     void CreateDropZone(ItemSO item, float normalizedXPos) {
         var newDropZone = Instantiate(dropZonePrefab, Vector3.zero, Quaternion.identity);
-        newDropZone.SetManager(gameManager);
         newDropZone.Initialize(item, new(normalizedXPos, dropZoneNormalizedY));
         gameManager.AddDropZone(newDropZone);
     }
@@ -119,6 +98,4 @@ public class ItemSpawnerManager : MonoBehaviour {
             CreateDropZone(target, spacing * (i + 1));
         }
     }
-
-    public void SetDifficulty(DropZoneGameDifficulty dropZoneGameDifficulty) => difficulty = dropZoneGameDifficulty;
 }

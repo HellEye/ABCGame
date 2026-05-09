@@ -1,10 +1,12 @@
+using Reflex.Attributes;
 using UnityEngine;
 
 [ExecuteAlways]
 public class ScreenPositionPlacer : MonoBehaviour {
     [SerializeField] Vector2 pos;
 
-    [SerializeField] ScreenSizeManager screenSizeManager;
+    [Inject] [SerializeField] [HideInInspector]
+    ScreenSizeManager screenSizeManager;
 
     Vector2 lastNormalizedPos;
 
@@ -23,10 +25,7 @@ public class ScreenPositionPlacer : MonoBehaviour {
         if (lastTransformPos != transform.position) OnValidate();
     }
 
-    void OnEnable() {
-        screenSizeManager ??= ScreenSizeManager.Instance;
-        screenSizeManager.OnResizeUnits += OnScreenResize;
-    }
+    void OnEnable() => screenSizeManager.OnResizeUnits += OnScreenResize;
 
     void OnDisable() {
         if (screenSizeManager != null) screenSizeManager.OnResizeUnits -= OnScreenResize;

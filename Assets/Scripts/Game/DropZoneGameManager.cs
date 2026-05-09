@@ -1,25 +1,23 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Reflex.Attributes;
 using UnityEngine;
 
 public class DropZoneGameManager : MonoBehaviour {
     [SerializeField] List<ItemSO> allItems;
     [SerializeField] DropZone dropZonePrefab;
-
-    [SerializeField] ItemSpawnerManager itemSpawnerManager;
-
-    [SerializeField] DropZoneGameDifficulty difficulty;
     readonly List<DropZone> dropZones = new();
 
     readonly List<Item> items = new();
 
+    [Inject] DropZoneGameDifficulty difficulty;
 
-    // This is allowed, but I guess resharper didn't get the memo
-    // ReSharper disable once Unity.IncorrectMethodSignature
+    [Inject] ItemSpawnerManager itemSpawnerManager;
+
+
     void Start() {
         var pickedItems = allItems.PickRandom(difficulty.itemTypes);
-        itemSpawnerManager.SetDifficulty(difficulty);
         //itemSpawnerManager.TrySpawningItemsPerType(pickedItems);
         itemSpawnerManager.TrySpawningMaxItems(pickedItems);
         var targets = pickedItems.PickRandom(difficulty.targetTypes);

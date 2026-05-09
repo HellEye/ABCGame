@@ -393,7 +393,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 683851788}
-  - component: {fileID: 683851787}
   - component: {fileID: 683851786}
   - component: {fileID: 683851789}
   m_Layer: 0
@@ -415,28 +414,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b8fdccdf1b4bbaaf9a09b90e976a9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScreenSizeManager
-  cam: {fileID: 98962039}
---- !u!114 &683851787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 683851785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e939a6e875665014a2ef2d01257e0f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ItemSpawnerManager
-  spawnDelay: 0.2
-  bounds:
-    min: {x: 0.05, y: 0.44}
-    max: {x: 0.95, y: 0.95}
-  dropZoneNormalizedY: 0.2
-  itemPrefab: {fileID: 2914334274141738977, guid: b6c297d7b059f422089adf4b62100b2d, type: 3}
-  dropZonePrefab: {fileID: 6363331035705915278, guid: ed289f47892866fe99ddcd883038865d, type: 3}
-  gameManager: {fileID: 683851789}
-  screenSizeManager: {fileID: 683851786}
 --- !u!4 &683851788
 Transform:
   m_ObjectHideFlags: 0
@@ -449,7 +426,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 717277210}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &683851789
@@ -469,8 +447,73 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 41340b97126ba654897e777c7b6d5279, type: 2}
   - {fileID: 11400000, guid: 278f5635c77b8a980afd498439d08ffa, type: 2}
   dropZonePrefab: {fileID: 6363331035705915278, guid: ed289f47892866fe99ddcd883038865d, type: 3}
-  itemSpawnerManager: {fileID: 683851787}
-  difficulty: {fileID: 11400000, guid: 453c59661d257cad889cfc4205695b92, type: 2}
+--- !u!1 &717277209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 717277210}
+  - component: {fileID: 717277212}
+  - component: {fileID: 717277211}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &717277210
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717277209}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 683851788}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &717277211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717277209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4329cf616844b19b0d6579278ae7a84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BoundsVisualizer
+  screenSizeManager: {fileID: 683851786}
+  screenBounds:
+    underlyingValue: {fileID: 717277212}
+--- !u!114 &717277212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717277209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e939a6e875665014a2ef2d01257e0f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemSpawnerManager
+  bounds:
+    min: {x: 0.05, y: 0.44}
+    max: {x: 0.95, y: 0.95}
+  dropZoneNormalizedY: 0.2
+  spawnProtectionRadius: 0.2
+  itemPrefab: {fileID: 2914334274141738977, guid: b6c297d7b059f422089adf4b62100b2d, type: 3}
+  dropZonePrefab: {fileID: 6363331035705915278, guid: ed289f47892866fe99ddcd883038865d, type: 3}
 --- !u!1 &994378220
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,6 +768,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573488003}
   m_CullTransparentMesh: 1
+--- !u!1 &1799227863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1799227866}
+  - component: {fileID: 1799227865}
+  - component: {fileID: 1799227864}
+  m_Layer: 0
+  m_Name: SceneScope
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1799227864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799227863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d8c9f2c3a9a4969b69e4e720b001746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DragAndDropSceneInstaller
+  cam: {fileID: 98962039}
+  screenSizeManager: {fileID: 683851786}
+  itemSpawnerManager: {fileID: 717277212}
+  gameManager: {fileID: 683851789}
+  uiController: {fileID: 1912318656}
+  difficulty: {fileID: 11400000, guid: 453c59661d257cad889cfc4205695b92, type: 2}
+--- !u!114 &1799227865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799227863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5312032623c34414a54ea00e35a7eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Reflex::Reflex.Core.ContainerScope
+--- !u!4 &1799227866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799227863}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1847662958
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,7 +1296,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4036085219978311628, guid: ed289f47892866fe99ddcd883038865d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.250917
+      value: 2.3656383
       objectReference: {fileID: 0}
     - target: {fileID: 4036085219978311628, guid: ed289f47892866fe99ddcd883038865d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1256,3 +1362,4 @@ SceneRoots:
   - {fileID: 683851788}
   - {fileID: 1912318660}
   - {fileID: 1847662961}
+  - {fileID: 1799227866}
