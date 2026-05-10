@@ -1,31 +1,26 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Cysharp.Threading.Tasks;
+using Reflex.Attributes;
 using UnityEngine;
 
 public class DropZoneGameManager : MonoBehaviour {
-    [SerializeField] List<ItemSO> allItems;
-
     [SerializeField] DropZone dropZonePrefab;
-
-    [SerializeField] ItemSpawnerManager itemSpawnerManager;
-
-    [SerializeField] DropZoneGameDifficulty difficulty;
     readonly List<DropZone> dropZones = new();
 
     readonly List<Item> items = new();
+    [Inject] ISpawnableGroup allItems;
+
+    [Inject] DropZoneGameDifficulty difficulty;
+    [Inject] DropZoneItems dropZoneItems;
+
+    [Inject] ItemSpawnerManager itemSpawnerManager;
 
 
-    // This is allowed, but I guess resharper didn't get the memo
-    // ReSharper disable once Unity.IncorrectMethodSignature
-    async UniTaskVoid Start() {
-        var pickedItems = allItems.PickRandom(difficulty.itemTypes);
-        itemSpawnerManager.SetDifficulty(difficulty);
+    void Start() {
         //itemSpawnerManager.TrySpawningItemsPerType(pickedItems);
-        await itemSpawnerManager.TrySpawningMaxItems(pickedItems);
-        var targets = pickedItems.PickRandom(difficulty.targetTypes);
-        await itemSpawnerManager.SpawnDropZones(targets);
+        itemSpawnerManager.TrySpawningMaxItems(dropZoneItems.items);
+        itemSpawnerManager.SpawnDropZones(dropZoneItems.targets);
         OnGameComplete += () => Debug.Log("Game Complete!!!");
     }
 
@@ -36,7 +31,7 @@ public class DropZoneGameManager : MonoBehaviour {
     public void RemoveItem(Item item) {
         items.Remove(item);
         // If there are no more items left that match the drop zones, the game is complete
-        if (!items.Any(i => dropZones.Exists(d => d.target == i.item))) OnGameComplete?.Invoke();
+        if (!items.Any(i => dropZones.Exists(d => d.target == i.data))) OnGameComplete?.Invoke();
     }
 
     public void AddDropZone(DropZone newDropZone) => dropZones.Add(newDropZone);
@@ -50,6 +45,6 @@ public class DropZoneGameManager : MonoBehaviour {
         dropZones.Clear();
 
         // Restart the game
-        Start().Forget();
+        Start();
     }
 }

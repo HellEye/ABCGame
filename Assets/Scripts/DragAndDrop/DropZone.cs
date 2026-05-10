@@ -1,30 +1,34 @@
+using Cysharp.Threading.Tasks;
+using Reflex.Attributes;
 using UnityEngine;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.VFX;
 
 public class DropZone : MonoBehaviour {
     public VisualEffect correctEffect;
     public ItemSO target;
-    public SpriteRenderer targetSpriteRenderer;
+    [SerializeField] SpriteRenderer targetSpriteRenderer;
     [SerializeField] ScreenPositionPlacer placer;
-    DropZoneGameManager gameManager;
+    [Inject] DropZoneGameManager gameManager;
 
-    void OnValidate() {
-        if (targetSpriteRenderer != null && target != null) targetSpriteRenderer.sprite = target.sprite2D;
-    }
 
-    public void SetManager(DropZoneGameManager manager) => gameManager = manager;
+    AsyncOperationHandle<Sprite> handle;
+    void OnDestroy() => AssetReferenceExtensions.Release(handle);
 
-    public void Initialize(ItemSO item, Vector2 pos) {
+    public async UniTaskVoid Initialize(ItemSO item, Vector2 pos) {
         target = item;
-        if (targetSpriteRenderer != null)
-            targetSpriteRenderer.sprite = item.sprite2D;
+
+        if (targetSpriteRenderer != null) {
+            handle = item.sprite.Load();
+            targetSpriteRenderer.sprite = await handle.Task;
+        }
+
         if (placer != null)
-            placer.Pos = pos;
+            placer.NormalizedPosition = pos;
     }
 
     public void Drop(Draggable draggable) {
-        Debug.Log("Dropped " + draggable.name);
-        if (draggable.item.item == target)
+        if (draggable.item.data == target)
             Correct(draggable);
         else
             Incorrect(draggable);

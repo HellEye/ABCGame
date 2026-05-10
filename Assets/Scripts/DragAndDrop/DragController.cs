@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,10 +15,10 @@ public class DragController : MonoBehaviour {
     public float dropZoneDetectRadius = 0.1f;
 
     Camera cam;
-    Draggable currentElement = null;
-    bool isDragging = false;
+    Draggable currentElement;
+    bool isDragging;
     Vector2 offset;
-    void Start() { cam = Camera.main; }
+    void Start() => cam = Camera.main;
 
     void OnEnable() {
         var input = Input.instance;
@@ -50,9 +49,8 @@ public class DragController : MonoBehaviour {
         foreach (var hit in hits) {
             var closestPosition = new Vector2(closest.transform.position.x, closest.transform.position.y);
             var hitPosition = new Vector2(hit.transform.position.x, hit.transform.position.y);
-            if (Vector2.SqrMagnitude(hitPosition - position) < Vector2.SqrMagnitude(closestPosition - position)) {
+            if (Vector2.SqrMagnitude(hitPosition - position) < Vector2.SqrMagnitude(closestPosition - position))
                 closest = hit;
-            }
         }
 
         return closest;
@@ -67,7 +65,7 @@ public class DragController : MonoBehaviour {
         currentElement = draggable;
         draggable.Pickup();
         // offset for smoother dragging (not jumping the center of the element to the mouse)
-        offset = ((Vector2)draggable.transform.position) - touchPosition;
+        offset = (Vector2)draggable.transform.position - touchPosition;
         isDragging = true;
     }
 

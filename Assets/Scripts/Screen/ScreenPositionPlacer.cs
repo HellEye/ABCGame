@@ -1,16 +1,18 @@
+using Reflex.Attributes;
 using UnityEngine;
 
 [ExecuteAlways]
 public class ScreenPositionPlacer : MonoBehaviour {
     [SerializeField] Vector2 pos;
 
-    [SerializeField] ScreenSizeManager screenSizeManager;
+    [Inject] [SerializeField] [HideInInspector]
+    ScreenSizeManager screenSizeManager;
 
     Vector2 lastNormalizedPos;
 
     Vector3 lastTransformPos;
 
-    public Vector2 Pos {
+    public Vector2 NormalizedPosition {
         get => pos;
         set {
             pos = value;
@@ -23,10 +25,7 @@ public class ScreenPositionPlacer : MonoBehaviour {
         if (lastTransformPos != transform.position) OnValidate();
     }
 
-    void OnEnable() {
-        screenSizeManager ??= ScreenSizeManager.Instance;
-        screenSizeManager.OnResizeUnits += OnScreenResize;
-    }
+    void OnEnable() => screenSizeManager.OnResizeUnits += OnScreenResize;
 
     void OnDisable() {
         if (screenSizeManager != null) screenSizeManager.OnResizeUnits -= OnScreenResize;
@@ -34,18 +33,19 @@ public class ScreenPositionPlacer : MonoBehaviour {
 
     void OnValidate() {
         if (screenSizeManager == null) screenSizeManager = FindFirstObjectByType<ScreenSizeManager>();
+        if (screenSizeManager == null) return;
         if (transform.position != lastTransformPos) {
-            Pos = screenSizeManager.FromWorldToNormalizedPos(transform.position);
-            lastNormalizedPos = Pos;
+            NormalizedPosition = screenSizeManager.FromWorldToNormalizedPos(transform.position);
+            lastNormalizedPos = NormalizedPosition;
             lastTransformPos = transform.position;
         }
-        else if (lastNormalizedPos != Pos) {
-            transform.position = screenSizeManager.FromNormalizedToWorldPos(Pos);
-            lastNormalizedPos = Pos;
+        else if (lastNormalizedPos != NormalizedPosition) {
+            transform.position = screenSizeManager.FromNormalizedToWorldPos(NormalizedPosition);
+            lastNormalizedPos = NormalizedPosition;
             lastTransformPos = transform.position;
         }
     }
 
     void OnScreenResize(ScreenSizeManager screenManager) =>
-        transform.position = screenManager.FromNormalizedToWorldPos(Pos);
+        transform.position = screenManager.FromNormalizedToWorldPos(NormalizedPosition);
 }
