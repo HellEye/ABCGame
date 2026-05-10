@@ -18,6 +18,7 @@ public class GameLoader : MonoBehaviour {
     readonly Dictionary<SceneReference, SceneLifecycle> lifecycle = new();
     Container container;
     SceneReference currentScene;
+    [Inject] DifficultyHolder difficultyHolder;
     [Inject] LoaderContainer loaderContainer;
     bool ready;
 
@@ -39,9 +40,12 @@ public class GameLoader : MonoBehaviour {
         if (!ready && !string.IsNullOrEmpty(lastScene) && lastScene != SceneManager.GetActiveScene().name) {
             var sceneToLoad = GetSceneByName(lastScene);
             if (sceneToLoad != null) {
+                // TODO need to load this differently, going through the LoadGameplayScene
                 EditorPrefs.DeleteKey("LastEditScene");
                 currentScene = GetSceneByName(lastScene);
-                ReloadCurrentScene().Forget();
+                if (currentScene.Name == "MainMenu") LoadMainMenu();
+                else
+                    Debug.LogWarning("Loading gameplay scene not supported yet... skipping");
                 ready = true;
             }
             else {
@@ -66,19 +70,24 @@ public class GameLoader : MonoBehaviour {
         return null;
     }
 
-    async UniTaskVoid ReloadCurrentScene() {
-        if (!isCurrentSceneValid) return;
-        await uiController.FadeOut();
-        await UnloadCurrentScene();
-        lifecycle[currentScene].OnBeforeLoad.Invoke();
-        await SceneManager.LoadSceneAsync(currentScene.Name, LoadSceneMode.Additive);
-        var loadedScene = SceneManager.GetSceneByName(currentScene.Name);
-        SceneManager.SetActiveScene(loadedScene);
-        lifecycle[currentScene].OnSceneLoaded.Invoke(loadedScene);
-        await uiController.FadeIn();
+    public void ReloadCurrentGameplayScene() => LoadGameplaySceneFromHolder().Forget();
+
+    public void LoadMainMenu() => LoadScene(mainMenuScene).Forget();
+
+    public async UniTask LoadGameplaySceneFromHolder() {
+        var scene = difficultyHolder.selectedScene;
+        var difficulty = difficultyHolder.selectedDifficulty;
+        lifecycle[scene].OnContainerBuilt += SetupDifficulty;
+        await LoadScene(scene);
+        lifecycle[scene].OnContainerBuilt -= SetupDifficulty;
+        return;
+
+        void SetupDifficulty(Scene scene, ContainerBuilder builder) =>
+            builder.RegisterValue(difficulty, new[] { difficulty.type });
     }
 
-    async UniTaskVoid LoadScene(SceneReference scene) {
+
+    async UniTask<Scene> LoadScene(SceneReference scene) {
         await uiController.FadeOut();
         await UnloadCurrentScene();
         lifecycle[scene].OnBeforeLoad.Invoke();
@@ -89,6 +98,7 @@ public class GameLoader : MonoBehaviour {
         currentScene = scene;
 
         await uiController.FadeIn();
+        return loadedScene;
     }
 
     async UniTask UnloadCurrentScene() {
@@ -105,6 +115,7 @@ public class GameLoader : MonoBehaviour {
 public class SceneLifecycle {
     readonly Container parentContainer;
     public Action OnBeforeLoad;
+    public Action<Scene, ContainerBuilder> OnContainerBuilt;
     public Action<Scene> OnSceneLoaded;
     public Action<Scene> OnSceneUnloaded;
 
@@ -118,22 +129,10 @@ public class SceneLifecycle {
             ContainerScope.OnSceneContainerBuilding -= ContainerBuiltCallback;
         };
         OnSceneUnloaded += _ => { };
+        OnContainerBuilt += (_, builder) => {
+            builder.SetParent(parentContainer);
+        };
     }
 
-    public SceneLifecycle AddOnBeforeLoad(Action action) {
-        OnBeforeLoad += action;
-        return this;
-    }
-
-    public SceneLifecycle AddOnSceneLoaded(Action<Scene> action) {
-        OnSceneLoaded += action;
-        return this;
-    }
-
-    public SceneLifecycle AddOnSceneUnloaded(Action<Scene> action) {
-        OnSceneUnloaded += action;
-        return this;
-    }
-
-    void ContainerBuiltCallback(Scene scene, ContainerBuilder builder) => builder.SetParent(parentContainer);
+    void ContainerBuiltCallback(Scene scene, ContainerBuilder builder) => OnContainerBuilt?.Invoke(scene, builder);
 }

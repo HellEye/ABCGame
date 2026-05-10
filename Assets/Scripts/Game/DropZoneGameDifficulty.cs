@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "DropZoneGameDifficulty", menuName = "ScriptableObjects/DropZoneGameDifficulty")]
-public class DropZoneGameDifficulty : ScriptableObject {
+public class DropZoneGameDifficulty : ScriptableObject, IDifficulty<DropZoneGameDifficulty> {
     [Header("Difficulty settings")]
     public string difficultyName = "Default";
 

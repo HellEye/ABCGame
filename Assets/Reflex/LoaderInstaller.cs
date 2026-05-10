@@ -10,15 +10,22 @@ public class LoaderUIDocument {
 }
 
 public class LoaderInstaller : MonoBehaviour, IInstaller {
+    [Header("Settings")]
+    [SerializeField] DifficultyRegistry difficultyRegistry;
+
+    [Header("References")]
     [SerializeField] UIDocument uiDocument;
+
     [SerializeField] GameLoader gameLoader;
     [SerializeField] LoaderUIController loaderUIController;
     [SerializeField] Camera cam;
 
     public void InstallBindings(ContainerBuilder builder) {
         builder.RegisterValue(cam);
+        builder.RegisterValue(difficultyRegistry);
         builder.RegisterValue(new LoaderUIDocument(uiDocument));
         builder.RegisterValue(loaderUIController);
         builder.RegisterValue(gameLoader);
+        builder.RegisterType<DifficultyHolder>();
     }
 }

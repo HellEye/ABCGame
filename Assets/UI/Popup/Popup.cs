@@ -1,3 +1,4 @@
+using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UIElements;
@@ -7,6 +8,7 @@ public partial class Popup : VisualElement {
     static StyleSheet popupStyleSheet;
     readonly VisualElement wrapper;
     bool isOpen;
+    public Action OnClose;
 
     public Popup() {
         // create the wrapper element
