@@ -1,5 +1,4 @@
 using Unity.Properties;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 [UxmlObject]
@@ -21,13 +20,11 @@ public partial class ConditionalClassBinding : CustomBinding {
 
     protected override BindingResult Update(in BindingContext context) {
         var source = context.dataSource;
-        Debug.Log($"Custom binding update, {context.dataSource}.{DataSourcePath}");
         if (source == null)
             return Failure("No data source found.");
 
         if (!TryEvaluateCondition(context, out var condition))
             return Failure($"Could not read value at path '{DataSourcePath}'.");
-        Debug.Log($"Condition evaluated to {condition}");
         var element = context.targetElement;
         if (!string.IsNullOrEmpty(TrueClass))
             element.EnableInClassList(TrueClass, condition);

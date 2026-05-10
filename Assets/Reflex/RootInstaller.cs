@@ -8,7 +8,7 @@ using Resolution = Reflex.Enums.Resolution;
 ///     It is responsible for registering all the singletons accessible across all scenes
 /// </summary>
 public class RootInstaller : MonoBehaviour, IInstaller {
-    public void InstallBindings(ContainerBuilder builder) =>
+    public void InstallBindings(ContainerBuilder builder) {
         // create the main menu settings object.
         // register value to be accessible from anywhere.
         // I'm using register factory, as we need to manually call the Load method.
@@ -28,7 +28,10 @@ public class RootInstaller : MonoBehaviour, IInstaller {
             // Eager means it will be created and initialized immediately.
             // Lazy means it will be created and initialized when first requested.
             Resolution.Eager);
-    // We could register type if we don't have anything to initialize,
-    // But here we need to call the Load method, and it doesn't work from constructors.
-    // builder.RegisterType(typeof(MainMenuSettingsData), Lifetime.Singleton, Resolution.Eager);
+        // We could register type if we don't have anything to initialize,
+        // But here we need to call the Load method, and it doesn't work from constructors.
+        // builder.RegisterType(typeof(MainMenuSettingsData), Lifetime.Singleton, Resolution.Eager);
+
+        builder.RegisterType<LoaderContainer>();
+    }
 }
