@@ -9,7 +9,6 @@ public class LoaderUIController : MonoBehaviour {
     [Inject] LoaderUIDocument document;
     VisualElement overlay;
     VisualElement root;
-    UniTask task;
 
     void Awake() {
         root = document.value.rootVisualElement;

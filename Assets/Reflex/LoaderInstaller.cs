@@ -11,7 +11,7 @@ public class LoaderUIDocument {
 
 public class LoaderInstaller : MonoBehaviour, IInstaller {
     [Header("Settings")]
-    [SerializeField] DifficultyRegistry difficultyRegistry;
+    [SerializeField] MinigameRegistry minigameRegistry;
 
     [Header("References")]
     [SerializeField] UIDocument uiDocument;
@@ -22,7 +22,7 @@ public class LoaderInstaller : MonoBehaviour, IInstaller {
 
     public void InstallBindings(ContainerBuilder builder) {
         builder.RegisterValue(cam);
-        builder.RegisterValue(difficultyRegistry);
+        builder.RegisterValue(minigameRegistry);
         builder.RegisterValue(new LoaderUIDocument(uiDocument));
         builder.RegisterValue(loaderUIController);
         builder.RegisterValue(gameLoader);

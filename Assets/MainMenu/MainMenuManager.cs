@@ -7,15 +7,17 @@ public class MainMenuManager : MonoBehaviour {
     public int buttonsPerPage = 4;
     public int maxButtons = 12;
     public int maxDifficulties = 3;
+
     readonly string[] buttonTexts = new string[1] { "Drag and Drop" };
     [Inject] readonly MainMenuSettingsData settingsData;
     readonly Button[] slotButtons = new Button[4]; //need for new if you initialize onEnable?
+
     [Inject] DifficultyHolder difficultyHolder;
     Popup difficultyPopup;
-    [Inject] DifficultyRegistry difficultyRegistry;
     int gameIndex;
     [Inject] GameLoader gameLoader;
     [Inject] UIDocument mainMenuDoc;
+    [Inject] MinigameRegistry minigameRegistry;
     VisualElement popupOverlay;
     VisualElement rootElement;
     int startIndex;
@@ -62,7 +64,7 @@ public class MainMenuManager : MonoBehaviour {
     void OnDifficultyButtonClicked(int difficultyIndex) {
         Debug.Log($"Scene {gameIndex} with difficulty {difficultyIndex} selected");
         difficultyPopup.IsOpen = false;
-        var (scene, difficulty) = difficultyRegistry.GetLevelData(gameIndex, difficultyIndex);
+        var (scene, difficulty) = minigameRegistry.GetLevelData(gameIndex, difficultyIndex);
         Debug.Log($"Scene {scene} with difficulty {difficulty} selected");
         if (scene == null || difficulty == null) return;
         difficultyHolder.selectedDifficulty = difficulty;

@@ -1,3 +1,4 @@
+using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,6 +15,8 @@ public class DragController : MonoBehaviour {
     [Tooltip("Drop zone detection radius offset (added to the collider radius)")]
     public float dropZoneDetectRadius = 0.1f;
 
+    [Inject] InputSystem_Actions actions;
+
     Camera cam;
     Draggable currentElement;
     bool isDragging;
@@ -21,23 +24,17 @@ public class DragController : MonoBehaviour {
     void Start() => cam = Camera.main;
 
     void OnEnable() {
-        var input = Input.instance;
-        if (input == null || input.actions == null) {
-            Debug.LogError("Input system not initialized");
-            return;
-        }
-
-        input.actions.Player.Touch.started += OnTouchStarted;
-        input.actions.Player.Touch.performed += OnTouchMoved;
-        input.actions.Player.Touch.canceled += OnTouchEnded;
+        actions.Player.Touch.Enable();
+        actions.Player.Touch.started += OnTouchStarted;
+        actions.Player.Touch.performed += OnTouchMoved;
+        actions.Player.Touch.canceled += OnTouchEnded;
     }
 
     void OnDisable() {
-        var input = Input.instance;
-        if (input?.actions == null) return;
-        input.actions.Player.Touch.started -= OnTouchStarted;
-        input.actions.Player.Touch.performed -= OnTouchMoved;
-        input.actions.Player.Touch.canceled -= OnTouchEnded;
+        actions.Player.Touch.Disable();
+        actions.Player.Touch.started -= OnTouchStarted;
+        actions.Player.Touch.performed -= OnTouchMoved;
+        actions.Player.Touch.canceled -= OnTouchEnded;
     }
 
     Collider2D GetClosestCollider(Vector2 position, LayerMask layerMask, float radius) {

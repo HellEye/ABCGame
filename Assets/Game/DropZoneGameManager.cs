@@ -9,9 +9,7 @@ public class DropZoneGameManager : MonoBehaviour {
     readonly List<DropZone> dropZones = new();
 
     readonly List<Item> items = new();
-    [Inject] ISpawnableGroup allItems;
 
-    [Inject] DropZoneGameDifficulty difficulty;
     [Inject] DropZoneItems dropZoneItems;
 
     [Inject] ItemSpawnerManager itemSpawnerManager;

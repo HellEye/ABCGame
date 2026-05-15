@@ -17,7 +17,7 @@ public struct LevelMapping {
 }
 
 [CreateAssetMenu(fileName = "DifficultyRegistry", menuName = "ScriptableObjects/DifficultyRegistry")]
-public class DifficultyRegistry : ScriptableObject {
+public class MinigameRegistry : ScriptableObject {
     [SerializeField] LevelMapping[] mappings;
 
     public (SceneReference sceneAsset, IDifficulty<ScriptableObject> difficulty) GetLevelData(int levelIndex,
@@ -34,7 +34,6 @@ public class DifficultyRegistry : ScriptableObject {
 
 public interface IDifficulty<out T> where T : ScriptableObject {
     Type type => typeof(T);
-    T Cast() => this as T;
 }
 
 

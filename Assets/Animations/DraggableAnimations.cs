@@ -1,4 +1,3 @@
-using System.Threading;
 using Cysharp.Threading.Tasks;
 using LitMotion;
 using LitMotion.Extensions;
@@ -15,7 +14,6 @@ public class DraggableAnimations : MonoBehaviour {
     [Header("Destroy animation")]
     public float destroyDuration = 0.5f;
 
-    CancellationTokenSource cts;
     CompositeMotionHandle currentHandle;
     Draggable draggable;
 
@@ -35,11 +33,7 @@ public class DraggableAnimations : MonoBehaviour {
         currentHandle = null;
     }
 
-    public void CancelAnimation() =>
-        // cts?.Cancel();
-        // cts?.Dispose();
-        // cts = new();
-        currentHandle?.Cancel();
+    public void CancelAnimation() => currentHandle?.Cancel();
 
     public void AnimateIncorrect(Vector3 initialPosition) =>
         LMotion

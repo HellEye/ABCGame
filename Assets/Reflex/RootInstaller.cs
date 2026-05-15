@@ -28,10 +28,7 @@ public class RootInstaller : MonoBehaviour, IInstaller {
             // Eager means it will be created and initialized immediately.
             // Lazy means it will be created and initialized when first requested.
             Resolution.Eager);
-        // We could register type if we don't have anything to initialize,
-        // But here we need to call the Load method, and it doesn't work from constructors.
-        // builder.RegisterType(typeof(MainMenuSettingsData), Lifetime.Singleton, Resolution.Eager);
 
-        builder.RegisterType<LoaderContainer>();
+        builder.RegisterType<InputSystem_Actions>();
     }
 }

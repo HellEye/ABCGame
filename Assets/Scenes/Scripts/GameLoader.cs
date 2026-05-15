@@ -19,7 +19,6 @@ public class GameLoader : MonoBehaviour {
     Container container;
     SceneReference currentScene;
     [Inject] DifficultyHolder difficultyHolder;
-    [Inject] LoaderContainer loaderContainer;
     bool ready;
 
     [Inject] LoaderUIController uiController;
@@ -27,7 +26,6 @@ public class GameLoader : MonoBehaviour {
 
     void Awake() {
         container = gameObject.scene.GetSceneContainer();
-        loaderContainer.container = container;
         lifecycle.Add(mainMenuScene, new(container));
         lifecycle.Add(dragAndDropScene, new(container));
         Debug.Log("Scene count: " + SceneManager.sceneCount);

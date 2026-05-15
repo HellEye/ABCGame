@@ -7,16 +7,7 @@ using UnityEngine;
 public class ScreenSizeManager : MonoBehaviour {
     [Inject] Camera cam;
 
-    public static ScreenSizeManager Instance { get; private set; }
-
     public Vector2 SizePx { get; private set; }
-    // public Vector2 WorldTopRight { get; private set; }
-    // public Vector2 WorldBottomLeft { get; private set; }
-
-    void Awake() {
-        if (Instance == null && Instance != this)
-            Instance = this;
-    }
 
     void Start() => cam = Camera.main;
 
@@ -26,9 +17,6 @@ public class ScreenSizeManager : MonoBehaviour {
         OnResizeUnits?.Invoke(this);
     }
 
-    void OnEnable() {
-        if (Instance == null) Instance = this;
-    }
 
     void OnValidate() {
         if (cam == null) cam = Camera.main;

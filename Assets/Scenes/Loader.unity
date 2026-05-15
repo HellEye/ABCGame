@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8bccc5fc518400cbf481f76b4184edd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoaderInstaller
-  difficultyRegistry: {fileID: 11400000, guid: 9cc53fd8039145471a31f27d7451cf78, type: 2}
+  minigameRegistry: {fileID: 11400000, guid: 9cc53fd8039145471a31f27d7451cf78, type: 2}
   uiDocument: {fileID: 485829054}
   gameLoader: {fileID: 1082186545}
   loaderUIController: {fileID: 485829053}

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d6663689fe69bc03b71ed821563651e, type: 3}
-  m_Name: DifficultyRegistry
+  m_Name: MinigameRegistry
   m_EditorClassIdentifier: Assembly-CSharp::DifficultyRegistry
   mappings:
   - levelIndex: 0
