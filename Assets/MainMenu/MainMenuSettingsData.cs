@@ -5,13 +5,15 @@ using Unity.Properties;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public enum SettingsIntensity {
+public enum SettingsIntensity
+{
     Off,
     Reduced,
     Full
 }
 
-public class MainMenuSettingsData : IDataSourceViewHashProvider, INotifyBindablePropertyChanged {
+public class MainMenuSettingsData : IDataSourceViewHashProvider, INotifyBindablePropertyChanged
+{
     long viewVersion;
 
     public static Dictionary<SettingsIntensity, string> IntensityText { get; } = new() {
@@ -25,12 +27,14 @@ public class MainMenuSettingsData : IDataSourceViewHashProvider, INotifyBindable
     public long GetViewHashCode() => viewVersion;
     public event EventHandler<BindablePropertyChangedEventArgs> propertyChanged;
 
-    void NotifyPropertyChanged([CallerMemberName] string propertyName = "") {
+    void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+    {
         viewVersion++;
         propertyChanged?.Invoke(this, new(propertyName));
     }
 
-    public void Save() {
+    public void Save()
+    {
         PlayerPrefs.SetInt("SoundVolume", _soundVolume);
         PlayerPrefs.SetInt("MusicVolume", _musicVolume);
         PlayerPrefs.SetInt("VoEnabled", _voEnabled ? 1 : 0);
@@ -38,10 +42,12 @@ public class MainMenuSettingsData : IDataSourceViewHashProvider, INotifyBindable
         PlayerPrefs.SetInt("ParticleIntensity", (int)_particleIntensity);
         PlayerPrefs.SetInt("MotionIntensity", (int)_motionIntensity);
         PlayerPrefs.SetInt("HapticIntensity", (int)_hapticIntensity);
+        PlayerPrefs.SetInt("SpriteScale", _spriteScale);
         PlayerPrefs.Save();
     }
 
-    public void Load() {
+    public void Load()
+    {
         SoundVolume = PlayerPrefs.GetInt("SoundVolume", 0);
         MusicVolume = PlayerPrefs.GetInt("MusicVolume", 0);
         VoEnabled = PlayerPrefs.GetInt("VoEnabled", 0) == 1;
@@ -49,9 +55,11 @@ public class MainMenuSettingsData : IDataSourceViewHashProvider, INotifyBindable
         ParticleIntensity = (SettingsIntensity)PlayerPrefs.GetInt("ParticleIntensity", 0);
         MotionIntensity = (SettingsIntensity)PlayerPrefs.GetInt("MotionIntensity", 0);
         HapticIntensity = (SettingsIntensity)PlayerPrefs.GetInt("HapticIntensity", 0);
+        SpriteScale = PlayerPrefs.GetInt("SpriteScale", 0);
     }
 
-    public void Reset() {
+    public void Reset()
+    {
         SoundVolume = 10;
         MusicVolume = 10;
         VoEnabled = false;
@@ -59,6 +67,7 @@ public class MainMenuSettingsData : IDataSourceViewHashProvider, INotifyBindable
         ParticleIntensity = SettingsIntensity.Full;
         MotionIntensity = SettingsIntensity.Full;
         HapticIntensity = SettingsIntensity.Full;
+        SpriteScale = 10;
     }
 
     #region Properties
@@ -70,66 +79,92 @@ public class MainMenuSettingsData : IDataSourceViewHashProvider, INotifyBindable
     int _soundVolume;
     bool _voEnabled;
     int _voVolume;
+    int _spriteScale;
 
     [CreateProperty]
-    public int SoundVolume {
+    public int SoundVolume
+    {
         get => _soundVolume;
-        set {
+        set
+        {
             _soundVolume = value;
             NotifyPropertyChanged();
         }
     }
 
     [CreateProperty]
-    public int MusicVolume {
+    public int MusicVolume
+    {
         get => _musicVolume;
-        set {
+        set
+        {
             _musicVolume = value;
             NotifyPropertyChanged();
         }
     }
 
     [CreateProperty]
-    public bool VoEnabled {
+    public bool VoEnabled
+    {
         get => _voEnabled;
-        set {
+        set
+        {
             _voEnabled = value;
             NotifyPropertyChanged();
         }
     }
 
     [CreateProperty]
-    public int VoVolume {
+    public int VoVolume
+    {
         get => _voVolume;
-        set {
+        set
+        {
             _voVolume = value;
             NotifyPropertyChanged();
         }
     }
 
     [CreateProperty]
-    public SettingsIntensity ParticleIntensity {
+    public SettingsIntensity ParticleIntensity
+    {
         get => _particleIntensity;
-        set {
+        set
+        {
             _particleIntensity = value;
             NotifyPropertyChanged();
         }
     }
 
     [CreateProperty]
-    public SettingsIntensity MotionIntensity {
+    public SettingsIntensity MotionIntensity
+    {
         get => _motionIntensity;
-        set {
+        set
+        {
             _motionIntensity = value;
             NotifyPropertyChanged();
         }
     }
 
     [CreateProperty]
-    public SettingsIntensity HapticIntensity {
+    public SettingsIntensity HapticIntensity
+    {
         get => _hapticIntensity;
-        set {
+        set
+        {
             _hapticIntensity = value;
+            NotifyPropertyChanged();
+        }
+    }
+
+    [CreateProperty]
+    public int SpriteScale
+    {
+        get => _spriteScale;
+        set
+        {
+            _spriteScale = value;
             NotifyPropertyChanged();
         }
     }

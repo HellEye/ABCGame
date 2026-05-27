@@ -4,15 +4,17 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.UIElements;
 
 [UxmlElement("Popup")]
-public partial class Popup : VisualElement {
+public partial class Popup : VisualElement
+{
     static StyleSheet popupStyleSheet;
     readonly VisualElement wrapper;
     bool isOpen;
     public Action OnClose;
-
-    public Popup() {
+    public Popup()
+    {
         // create the wrapper element
-        wrapper = new() {
+        wrapper = new()
+        {
             name = "wrapper"
         };
         wrapper.AddToClassList("popup-wrapper");
@@ -34,19 +36,23 @@ public partial class Popup : VisualElement {
     public override VisualElement contentContainer => wrapper;
 
     [UxmlAttribute]
-    public bool IsOpen {
+    public bool IsOpen
+    {
         get => isOpen;
-        set {
+        set
+        {
             if (isOpen == value) return;
             isOpen = value;
             OnOpenChange(value);
         }
     }
 
-    public async UniTask LoadStyleSheet() {
+    public async UniTask LoadStyleSheet()
+    {
         // try the cached styles first if already loaded, otherwise load via addressables
         var styleSheet = popupStyleSheet;
-        if (styleSheet == null) {
+        if (styleSheet == null)
+        {
             styleSheet = await Addressables.LoadAssetAsync<StyleSheet>("UIElements/Popup/uss").ToUniTask();
             popupStyleSheet = styleSheet;
         }
@@ -55,18 +61,21 @@ public partial class Popup : VisualElement {
         styleSheets.Add(styleSheet);
     }
 
-    void OnBackdropClick(PointerDownEvent evt) {
+    void OnBackdropClick(PointerDownEvent evt)
+    {
         // only close the popup if the click was on the backdrop specifically
         if (evt.target == this && CloseOnBackdropClick)
             IsOpen = false;
     }
 
-    public Popup WithOpenButton(Button button) {
+    public Popup WithOpenButton(Button button)
+    {
         button.clicked += () => IsOpen = true;
         return this;
     }
 
-    public Popup WithCloseButton(Button button) {
+    public Popup WithCloseButton(Button button)
+    {
         button.clicked += () => IsOpen = false;
         return this;
     }
