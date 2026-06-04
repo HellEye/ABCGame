@@ -11,6 +11,12 @@ public enum SettingsIntensity {
     Full
 }
 
+public enum ColorblindLevel {
+    None,
+    Reduced,
+    Full
+}
+
 public class MainMenuSettingsData : IDataSourceViewHashProvider, INotifyBindablePropertyChanged {
     long viewVersion;
 
@@ -20,7 +26,15 @@ public class MainMenuSettingsData : IDataSourceViewHashProvider, INotifyBindable
         { SettingsIntensity.Full, "Full" }
     };
 
+    // TODO better names for this?
+    public static Dictionary<ColorblindLevel, string> ColorblindText { get; } = new() {
+        { ColorblindLevel.None, "None" },
+        { ColorblindLevel.Reduced, "Reduced" },
+        { ColorblindLevel.Full, "Full" }
+    };
+
     public static Func<SettingsIntensity, string> IntensityTextGetter { get; } = v => IntensityText[v];
+    public static Func<ColorblindLevel, string> ColorblindTextGetter { get; } = v => ColorblindText[v];
 
     public long GetViewHashCode() => viewVersion;
     public event EventHandler<BindablePropertyChangedEventArgs> propertyChanged;
@@ -38,6 +52,7 @@ public class MainMenuSettingsData : IDataSourceViewHashProvider, INotifyBindable
         PlayerPrefs.SetInt("ParticleIntensity", (int)_particleIntensity);
         PlayerPrefs.SetInt("MotionIntensity", (int)_motionIntensity);
         PlayerPrefs.SetInt("HapticIntensity", (int)_hapticIntensity);
+        PlayerPrefs.SetInt("ColorblindLevel", (int)_colorblindLevel);
         PlayerPrefs.Save();
     }
 
@@ -49,6 +64,7 @@ public class MainMenuSettingsData : IDataSourceViewHashProvider, INotifyBindable
         ParticleIntensity = (SettingsIntensity)PlayerPrefs.GetInt("ParticleIntensity", 0);
         MotionIntensity = (SettingsIntensity)PlayerPrefs.GetInt("MotionIntensity", 0);
         HapticIntensity = (SettingsIntensity)PlayerPrefs.GetInt("HapticIntensity", 0);
+        ColorblindLevel = (ColorblindLevel)PlayerPrefs.GetInt("ColorblindLevel", 0);
     }
 
     public void Reset() {
@@ -59,10 +75,12 @@ public class MainMenuSettingsData : IDataSourceViewHashProvider, INotifyBindable
         ParticleIntensity = SettingsIntensity.Full;
         MotionIntensity = SettingsIntensity.Full;
         HapticIntensity = SettingsIntensity.Full;
+        ColorblindLevel = ColorblindLevel.None;
     }
 
     #region Properties
 
+    ColorblindLevel _colorblindLevel;
     SettingsIntensity _hapticIntensity;
     SettingsIntensity _motionIntensity;
     int _musicVolume;
@@ -130,6 +148,15 @@ public class MainMenuSettingsData : IDataSourceViewHashProvider, INotifyBindable
         get => _hapticIntensity;
         set {
             _hapticIntensity = value;
+            NotifyPropertyChanged();
+        }
+    }
+
+    [CreateProperty]
+    public ColorblindLevel ColorblindLevel {
+        get => _colorblindLevel;
+        set {
+            _colorblindLevel = value;
             NotifyPropertyChanged();
         }
     }

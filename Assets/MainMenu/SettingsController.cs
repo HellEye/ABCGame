@@ -10,6 +10,7 @@ public class SettingsController : MonoBehaviour {
 
     void Awake() {
         EnumDropdownBinding.RegisterConverter(MainMenuSettingsData.IntensityTextGetter);
+        EnumDropdownBinding.RegisterConverter(MainMenuSettingsData.ColorblindTextGetter);
         var rootElement = document.rootVisualElement;
 
         // settings popup
@@ -34,6 +35,9 @@ public class SettingsController : MonoBehaviour {
         EnumDropdownBinding.SetChoices(
             settingsPopup.Q<DropdownField>("vibration-dropdown"),
             MainMenuSettingsData.IntensityTextGetter);
+        EnumDropdownBinding.SetChoices(
+            settingsPopup.Q<DropdownField>("colorblind-dropdown"),
+            MainMenuSettingsData.ColorblindTextGetter);
         SampleBinding();
     }
 

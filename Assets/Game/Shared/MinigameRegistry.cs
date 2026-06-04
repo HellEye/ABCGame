@@ -34,6 +34,7 @@ public class MinigameRegistry : ScriptableObject {
 
 public interface IDifficulty<out T> where T : ScriptableObject {
     Type type => typeof(T);
+    Difficulty Difficulty { get; }
 }
 
 

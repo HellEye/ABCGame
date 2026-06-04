@@ -13,6 +13,9 @@ public class LoaderInstaller : MonoBehaviour, IInstaller {
     [Header("Settings")]
     [SerializeField] MinigameRegistry minigameRegistry;
 
+    [SerializeField] ItemRegistry itemRegistry;
+    [SerializeField] ExcludeItemsSO excludeItems;
+
     [Header("References")]
     [SerializeField] UIDocument uiDocument;
 
@@ -26,6 +29,8 @@ public class LoaderInstaller : MonoBehaviour, IInstaller {
         builder.RegisterValue(new LoaderUIDocument(uiDocument));
         builder.RegisterValue(loaderUIController);
         builder.RegisterValue(gameLoader);
+        builder.RegisterValue(excludeItems);
+        builder.RegisterValue(itemRegistry);
         builder.RegisterType<DifficultyHolder>();
     }
 }
