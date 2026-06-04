@@ -46,7 +46,13 @@
                                         source-to-ui-converters="SettingsIntensityBinding"/>
                     </Bindings>
                 </ui:DropdownField>
-                <ui:DropdownField name="colorblind-dropdown" label="Colorblind"/>
+                <ui:DropdownField name="colorblind-dropdown" label="Colorblind">
+                    <Bindings>
+                        <ui:DataBinding property="value" data-source-path="ColorblindLevel"
+                                        ui-to-source-converters="ColorblindLevelBinding"
+                                        source-to-ui-converters="ColorblindLevelBinding"/>
+                    </Bindings>
+                </ui:DropdownField>
                 <ui:DropdownField name="vibration-dropdown" label="Vibrations">
                     <Bindings>
                         <ui:DataBinding property="value" data-source-path="HapticIntensity"
