@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe59bab6271d4c6a81c6daa85c1dd497, type: 3}
-  m_Name: Everything
+  m_Name: Fruits
   m_EditorClassIdentifier: Assembly-CSharp::ItemGroup
+  groupName: Owoce
   items:
   - {fileID: 11400000, guid: 63d0d4ce0a3e6dd5c89ceb173698d350, type: 2}
-  - {fileID: 11400000, guid: 712d2db103609b33c8be165202508eae, type: 2}
   - {fileID: 11400000, guid: f5bcbf6449d2309b4b2490c8bc955753, type: 2}
-  - {fileID: 11400000, guid: 58eb0e560306bdbf5a7d76a878766bdb, type: 2}
   - {fileID: 11400000, guid: 04eb27090d0e65aadb96b272077bdea0, type: 2}
   - {fileID: 11400000, guid: 634548675b49b58fbab32953cc89eb69, type: 2}
+  targetText: Wybierz pokazane owoce
+  difficulty: 0

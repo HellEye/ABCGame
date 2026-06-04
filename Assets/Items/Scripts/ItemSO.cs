@@ -10,4 +10,6 @@ public class ItemSO : ScriptableObject {
 
     AsyncOperationHandle<Sprite> spriteHandle;
     public bool Matches(Item item) => item.data == this;
+
+    public override string ToString() => $"ItemSO: {itemName} ({name})";
 }

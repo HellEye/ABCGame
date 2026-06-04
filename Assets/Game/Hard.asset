@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3196fef668cd53c9699eb1807609fb35, type: 3}
   m_Name: Hard
   m_EditorClassIdentifier: Assembly-CSharp::DropZoneGameDifficulty
-  difficultyName: Medium
+  difficultyName: Hard
+  difficulty: 2
   itemTypes: 3
   targetTypes: 3
   maxItems: 12

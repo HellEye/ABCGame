@@ -177,6 +177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoaderInstaller
   minigameRegistry: {fileID: 11400000, guid: 9cc53fd8039145471a31f27d7451cf78, type: 2}
+  itemRegistry: {fileID: 11400000, guid: 875352a60c028d9988f78100a8bcbd21, type: 2}
+  excludeItems: {fileID: 11400000, guid: 3564e4fb497b11ecd9bce57982c7fd37, type: 2}
   uiDocument: {fileID: 485829054}
   gameLoader: {fileID: 1082186545}
   loaderUIController: {fileID: 485829053}
