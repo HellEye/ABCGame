@@ -13,10 +13,15 @@ MonoBehaviour:
   m_Name: Fruits
   m_EditorClassIdentifier: Assembly-CSharp::ItemGroup
   groupName: Owoce
+  targetText: Wybierz pokazane owoce
   items:
   - {fileID: 11400000, guid: 63d0d4ce0a3e6dd5c89ceb173698d350, type: 2}
   - {fileID: 11400000, guid: f5bcbf6449d2309b4b2490c8bc955753, type: 2}
   - {fileID: 11400000, guid: 04eb27090d0e65aadb96b272077bdea0, type: 2}
   - {fileID: 11400000, guid: 634548675b49b58fbab32953cc89eb69, type: 2}
-  targetText: Wybierz pokazane owoce
+  - {fileID: 11400000, guid: 7ca9cd27824980f4da6cd540052ed8b8, type: 2}
+  - {fileID: 11400000, guid: cab47158d5fa8a14a98f7732c32c2194, type: 2}
+  - {fileID: 11400000, guid: 13fa0f7b7dfd84a4c9afa2922a9b9d76, type: 2}
+  - {fileID: 11400000, guid: fea2a3b713b7a5d45a7c174064224f9b, type: 2}
+  - {fileID: 11400000, guid: 1f39927d1fc11a7478674b6ba76f0015, type: 2}
   difficulty: 0
