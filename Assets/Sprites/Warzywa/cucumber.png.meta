@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 21b1145cfbe008d448ffdb6038749c56
+guid: 1d89686cd0c402f4084a8e7fea26cc2e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -90375647409325229
-    second: cherry_0
+      213: -49827021452715039
+    second: cucumber_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cherry_0
+      name: cucumber_0
       rect:
         serializedVersion: 2
-        x: 26
-        y: 12
-        width: 451
-        height: 490
+        x: 44
+        y: 34
+        width: 429
+        height: 437
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 35b32d7d3dbeebef0800000000000000
-      internalID: -90375647409325229
+      spriteID: 1eb5816869afe4ff0800000000000000
+      internalID: -49827021452715039
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      cherry_0: -90375647409325229
+      cucumber_0: -49827021452715039
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
