@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba6ecc3b8d38499c80c934f99098f1af, type: 3}
   m_Name: Owoce
   m_EditorClassIdentifier: Assembly-CSharp::ItemCategorySO
-  groupName: 
+  groupName: Owoce
   targetText: 
   items:
   - {fileID: 11400000, guid: 63d0d4ce0a3e6dd5c89ceb173698d350, type: 2}
