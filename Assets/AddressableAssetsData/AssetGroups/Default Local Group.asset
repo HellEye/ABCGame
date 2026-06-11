@@ -15,6 +15,21 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: a9c65ab840a8f2efc9312697210c7eca
   m_SerializeEntries:
+  - m_GUID: 01a432970af4c3e47b1d8b2408e86057
+    m_Address: Assets/Sprites/Warzywa/tomato.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1200d9ddc5756d54ab3011292244e75c
+    m_Address: Assets/Sprites/Owoce/strawberry.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d89686cd0c402f4084a8e7fea26cc2e
+    m_Address: Assets/Sprites/Warzywa/cucumber.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 21b1145cfbe008d448ffdb6038749c56
     m_Address: Assets/Sprites/Owoce/cherry.png
     m_ReadOnly: 0
@@ -40,6 +55,31 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92d41633c07322a40b5331092d8961b8
+    m_Address: "Assets/Sprites/Zwierz\u0119ta/pig.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: abbde2a65457da045abc0af537c0140c
+    m_Address: Assets/Sprites/Owoce/orange.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1cea3abc66276849a30a8126530c200
+    m_Address: Assets/Sprites/Warzywa/potato_v2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bcdad1093113334409e77de272e45160
+    m_Address: Assets/Sprites/Owoce/blueberry_v2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf3073569a4bad946b2131a7493ef7c1
+    m_Address: Assets/Sprites/Owoce/lemon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c3d2c967f8b0e04d58148eebdf261e22
     m_Address: "Assets/Sprites/Zwierz\u0119ta/cow.png"
     m_ReadOnly: 0
@@ -47,6 +87,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d3d8040c14c4b22d586a64e7f775ca10
     m_Address: Assets/Sprites/Owoce/banana.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ddc5d46c8fe820e4b87e18ce10d51627
+    m_Address: Assets/Sprites/Owoce/apple.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
