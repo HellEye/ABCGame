@@ -55,6 +55,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92d41633c07322a40b5331092d8961b8
+    m_Address: "Assets/Sprites/Zwierz\u0119ta/pig.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: abbde2a65457da045abc0af537c0140c
     m_Address: Assets/Sprites/Owoce/orange.png
     m_ReadOnly: 0
