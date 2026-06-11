@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe59bab6271d4c6a81c6daa85c1dd497, type: 3}
-  m_Name: Fruits 1
+  m_Name: "Zwierz\u0119ta"
   m_EditorClassIdentifier: Assembly-CSharp::ItemGroup
   groupName: "Zwierz\u0119ta"
   targetText: "Wybierz pokazane zwierz\u0119ta"
