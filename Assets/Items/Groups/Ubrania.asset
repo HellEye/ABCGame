@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe59bab6271d4c6a81c6daa85c1dd497, type: 3}
+  m_Name: Ubrania
+  m_EditorClassIdentifier: Assembly-CSharp::ItemGroup
+  groupName: Ubrania
+  targetText: Wybierz pokazane ubrania
+  items:
+  - {fileID: 11400000, guid: 9974abc880fdc664484e499e7d420b1d, type: 2}
+  - {fileID: 11400000, guid: 13eb6fdb71ad76c469e87186be6cad01, type: 2}
+  - {fileID: 11400000, guid: 9f0da34e2835cc047a304109e218853a, type: 2}
+  - {fileID: 11400000, guid: b3ee3f46af8352b40a4dcd1fd9cd47fe, type: 2}
+  - {fileID: 11400000, guid: a3863de243be54d4e973539367722957, type: 2}
+  - {fileID: 11400000, guid: 28fef49aa4c3ebb449863e83a489a079, type: 2}
+  - {fileID: 11400000, guid: 1d92608670e9e924889aa919ebe56483, type: 2}
+  - {fileID: 11400000, guid: c70b67066ab394444b8bdc94144c9733, type: 2}
+  difficulty: 0

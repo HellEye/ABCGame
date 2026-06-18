@@ -20,8 +20,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 05ff22d98fa2a46408105f317b2cccd2
+    m_Address: Assets/Sprites/Jedzenie/burger.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1200d9ddc5756d54ab3011292244e75c
     m_Address: Assets/Sprites/Owoce/strawberry.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1556db3911bb8ff4fa69e3557773c343
+    m_Address: Assets/Sprites/Warzywa/broccoli.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1979bba7853293b4b8116c076e435254
+    m_Address: "Assets/Sprites/Zwierz\u0119ta/dog.png"
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -30,13 +45,48 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2036647f35c53c64bbd7e88c5010ed64
+    m_Address: "Assets/Sprites/Zwierz\u0119ta/fox.jpg"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 21b1145cfbe008d448ffdb6038749c56
     m_Address: Assets/Sprites/Owoce/cherry.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 248b94fa06c329c49a3c7aaf69c487df
+    m_Address: Assets/Sprites/Warzywa/onion.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2735fd39845fdd94da874dcf4c306c98
+    m_Address: Assets/Sprites/Jedzenie/fries.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 282be61eb615c7b4c821a65d36a5d481
+    m_Address: "Assets/Sprites/Zwierz\u0119ta/fish.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2dc339c008806534dba9a395f8541ded
+    m_Address: Assets/Sprites/Ubrania/shoes.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3098e6d1ccf135c4988b79c03aec4a94
+    m_Address: "Assets/Sprites/Zwierz\u0119ta/tiger.jpg"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 38698b2c507c92d169067d14f4939105
     m_Address: UIElements/Popup/uss
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 386fa6de31f646b4397cc87313f6ba2a
+    m_Address: "Assets/Sprites/Zwierz\u0119ta/duck.png"
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -50,8 +100,63 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 408f1dc81e6644e48a75483c14024fd7
+    m_Address: Assets/Sprites/Jedzenie/milkshake.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4c99011aaa3f0ed40b636793655bd2f0
+    m_Address: "Assets/Sprites/Zwierz\u0119ta/chicken.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b4dbee0286415f4da9cc3de6b5410e6
+    m_Address: "Assets/Sprites/Zwierz\u0119ta/deer.jpg"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74585e4c9d32a8b4884e30bbb5aa8672
+    m_Address: Assets/Sprites/Ubrania/pants.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7670c5ac858922649bdb4bc1bc513a60
+    m_Address: "Assets/Sprites/Zwierz\u0119ta/giraffe.jpg"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7cf0e2a65bd2f034aa3f5610b1b2e048
+    m_Address: Assets/Sprites/Jedzenie/hotdog.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8184c7bb4d82db74483e79c175d3b722
+    m_Address: Assets/Sprites/Jedzenie/coffee.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 83ba8038d945c9210a1d3eb28de7caa0
     m_Address: Assets/Sprites/Warzywa/carrot.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8578aceba2327bc4498711200556a837
+    m_Address: "Assets/Sprites/Zwierz\u0119ta/goat.jpg"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 88c6c5df194593c43a97cf18a483ee84
+    m_Address: Assets/Sprites/Warzywa/lettuce.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b9de055afac6f84ca00c2690d432297
+    m_Address: "Assets/Sprites/Zwierz\u0119ta/zebra.jpg"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8fbb328a09aac2e408111050c3b6b67b
+    m_Address: "Assets/Sprites/Zwierz\u0119ta/wolf.png"
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -60,13 +165,63 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9507f93efdd87ee4dbc856460396a2cc
+    m_Address: Assets/Sprites/Jedzenie/water.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 983be24a5237101499bcecc5cf4f093a
+    m_Address: "Assets/Sprites/Zwierz\u0119ta/sheep.jpg"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0855e9f48a1f1b48a7477c33ef26133
+    m_Address: Assets/Sprites/Ubrania/shirt.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a867f359f372ac24a8a7626f9a221d52
+    m_Address: Assets/Sprites/Jedzenie/juice.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: abbde2a65457da045abc0af537c0140c
     m_Address: Assets/Sprites/Owoce/orange.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: adc27167d49a8a740a2324a7ecd7f127
+    m_Address: Assets/Sprites/Jedzenie/chicken.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae22ed05982290e47936277982db3989
+    m_Address: "Assets/Sprites/Zwierz\u0119ta/monkey.jpg"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1157839fe4d6b741a2f84e45d7133b9
+    m_Address: Assets/Sprites/Ubrania/cap.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b1cea3abc66276849a30a8126530c200
     m_Address: Assets/Sprites/Warzywa/potato_v2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b436d46d3e0b45e4bbcba3543f5adfc8
+    m_Address: Assets/Sprites/Ubrania/hat.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b593660dd61da784babd9acebea01e16
+    m_Address: "Assets/Sprites/Zwierz\u0119ta/horse.jpg"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b752af01b0ce7504aac4a6142a7a1bdc
+    m_Address: Assets/Sprites/Warzywa/pepper.jpg
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -80,8 +235,33 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c15f499244c47174fbdfc868f273c112
+    m_Address: Assets/Sprites/Ubrania/socks.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c3d2c967f8b0e04d58148eebdf261e22
     m_Address: "Assets/Sprites/Zwierz\u0119ta/cow.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7d136aa1247447458e2277ad1577c31
+    m_Address: Assets/Sprites/Ubrania/boots.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c867dbb497bf4824bb62e0b88f7d801c
+    m_Address: "Assets/Sprites/Zwierz\u0119ta/elephant.jpg"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca3f804b20445e547a10ca38d7ec71f7
+    m_Address: Assets/Sprites/Warzywa/cauliflower.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca816654603fac24f984dd8903d5bc68
+    m_Address: Assets/Sprites/Jedzenie/tea.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -92,6 +272,51 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ddc5d46c8fe820e4b87e18ce10d51627
     m_Address: Assets/Sprites/Owoce/apple.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de9d3094b0b98774bad23442fa2d9feb
+    m_Address: Assets/Sprites/Jedzenie/soup.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e457360142f31cc4f8a000df0654b8c1
+    m_Address: "Assets/Sprites/Zwierz\u0119ta/lion.jpg"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ebe4b752cd6dff24787588044c0fa2d7
+    m_Address: Assets/Sprites/Ubrania/jacket.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eeab448315f5e714eac38593929b306e
+    m_Address: "Assets/Sprites/Zwierz\u0119ta/cat.jpg"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4f75cbc98ae736419927df5554f7fd5
+    m_Address: Assets/Sprites/Jedzenie/salad.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f65b647d7c328a943a96a1af212b039e
+    m_Address: "Assets/Sprites/Zwierz\u0119ta/bear.jpg"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f96926169425583449d11cf138e19e78
+    m_Address: Assets/Sprites/Jedzenie/pancakes.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f97a00e1f1fd3a44190945799cc213fc
+    m_Address: Assets/Sprites/Jedzenie/cheese.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc953a627f7c5394b9815c28f6dac968
+    m_Address: Assets/Sprites/Ubrania/scarf.jpg
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
