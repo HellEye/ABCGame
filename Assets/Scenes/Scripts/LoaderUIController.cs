@@ -17,9 +17,12 @@ public class LoaderUIController : MonoBehaviour {
 
     public async UniTask FadeOut() {
         root.style.display = DisplayStyle.Flex;
-        if (root.style.opacity != 0) return;
+        if (overlay.style.opacity != 0f) return;
         await LMotion.Create(0f, 1f, fadeTime)
             .WithEase(Ease.Linear)
+            .WithOnComplete(() => {
+                overlay.style.opacity = 1f;
+            })
             .Bind(
                 overlay.style,
                 (v, style) => {
@@ -32,7 +35,10 @@ public class LoaderUIController : MonoBehaviour {
     public async UniTask FadeIn() =>
         await LMotion.Create(1f, 0f, fadeTime)
             .WithEase(Ease.Linear)
-            .WithOnComplete(() => root.style.display = DisplayStyle.None)
+            .WithOnComplete(() => {
+                root.style.display = DisplayStyle.None;
+                overlay.style.opacity = 0f;
+            })
             .Bind(
                 overlay.style,
                 (v, style) => {

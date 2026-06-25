@@ -905,50 +905,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296050464}
   m_CullTransparentMesh: 1
---- !u!1 &1453534871
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1453534872}
-  - component: {fileID: 1453534873}
-  m_Layer: 0
-  m_Name: Input
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1453534872
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1453534871}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1453534873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1453534871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68401a77505d4b5a901df5972060ef0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Input
 --- !u!1 &1573488003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,8 +1072,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d8c9f2c3a9a4969b69e4e720b001746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DragAndDropSceneInstaller
-  spawnableGroup:
-    underlyingValue: {fileID: 11400000, guid: e3dcfc6ad97dbe045b95bfc7117b12bf, type: 2}
   screenSizeManager: {fileID: 683851786}
   itemSpawnerManager: {fileID: 717277212}
   gameManager: {fileID: 683851789}
@@ -1397,7 +1351,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df78980bde694630ab4e5234aaf70f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DropZoneUIController
-  gameManager: {fileID: 683851789}
   restartButton: {fileID: 2005173696}
   mainMenuButton: {fileID: 1296050466}
   canvas: {fileID: 1912318659}
@@ -1610,7 +1563,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 98962040}
-  - {fileID: 1453534872}
   - {fileID: 328399887}
   - {fileID: 683851788}
   - {fileID: 1912318660}

@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using Eflatun.SceneReference;
 using Reflex.Attributes;
 using Reflex.Core;
 using Reflex.Extensions;
 using UnityEngine;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 #if UNITY_EDITOR
@@ -78,10 +80,31 @@ public class GameLoader : MonoBehaviour {
     public async UniTask LoadGameplaySceneFromHolder() {
         var scene = difficultyHolder.selectedScene;
         var difficulty = difficultyHolder.selectedDifficulty;
+        var handles = new List<AsyncOperationHandle<Sprite>>();
+
         lifecycle[scene].OnContainerBuilt += SetupDifficulty;
-        await LoadScene(scene);
+        lifecycle[scene].OnSceneLoaded += LoadSprites;
+        lifecycle[scene].OnSceneUnloaded += UnloadSprites;
+
+        await LoadScene(scene, async _ => await EnsureLoad());
+
         lifecycle[scene].OnContainerBuilt -= SetupDifficulty;
+        lifecycle[scene].OnSceneLoaded -= LoadSprites;
+        lifecycle[scene].OnSceneUnloaded -= UnloadSprites;
         return;
+
+        void LoadSprites(Scene scene) {
+            var container = scene.GetSceneContainer();
+            var items = container.Resolve<IRandomItemContainer>();
+            foreach (var item in items.GetAllItems().Distinct()) handles.Add(item.sprite.Load());
+        }
+
+        async Task EnsureLoad() => await Task.WhenAll(handles.Select(h => h.Task));
+
+
+        void UnloadSprites(Scene scene) {
+            foreach (var handle in handles) AssetReferenceExtensions.Release(handle);
+        }
 
         void SetupDifficulty(Scene scene, ContainerBuilder builder) {
             builder.RegisterValue(difficulty, new[] { difficulty.type });
@@ -94,15 +117,21 @@ public class GameLoader : MonoBehaviour {
     }
 
 
-    async UniTask<Scene> LoadScene(SceneReference scene) {
+    async UniTask<Scene> LoadScene(SceneReference scene, Func<Scene, Task> beforeFadeIn = null) {
         await uiController.FadeOut();
+
         await UnloadCurrentScene();
+
         lifecycle[scene].OnBeforeLoad.Invoke();
+
         await SceneManager.LoadSceneAsync(scene.Name, LoadSceneMode.Additive);
         var loadedScene = SceneManager.GetSceneByName(scene.Name);
         SceneManager.SetActiveScene(loadedScene);
+
         lifecycle[scene].OnSceneLoaded.Invoke(loadedScene);
         currentScene = scene;
+
+        if (beforeFadeIn != null) await beforeFadeIn(loadedScene);
 
         await uiController.FadeIn();
         return loadedScene;
