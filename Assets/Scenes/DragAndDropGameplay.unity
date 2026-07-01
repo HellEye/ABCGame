@@ -641,8 +641,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSpawnerManager
   bounds:
-    min: {x: 0.05, y: 0.44}
-    max: {x: 0.95, y: 0.95}
+    min: {x: 0.1, y: 0.44}
+    max: {x: 0.9, y: 0.95}
   dropZoneNormalizedY: 0.2
   spawnProtectionRadius: 0.71
   itemPrefab: {fileID: 2914334274141738977, guid: b6c297d7b059f422089adf4b62100b2d, type: 3}

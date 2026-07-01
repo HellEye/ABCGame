@@ -1,28 +1,62 @@
+using System;
 using System.Linq;
+using Mono.Cecil.Cil;
 using Reflex.Attributes;
 using Unity.Properties;
 using UnityEngine;
 using UnityEngine.UIElements;
+using System.Collections.Generic;
+using UnityEngine.InputSystem.LowLevel;
 
-public class SettingsController : MonoBehaviour {
+public class SettingsController : MonoBehaviour
+{
     [Inject] UIDocument document;
     [Inject] MainMenuSettingsData settingsData;
 
-    void Awake() {
+    [SerializeField] GameObject spriteScalingReference;
+
+    //string[] tabsNamesWithoutScaling;
+
+    void Awake()
+    {
         EnumDropdownBinding.RegisterConverter(MainMenuSettingsData.IntensityTextGetter);
         EnumDropdownBinding.RegisterConverter(MainMenuSettingsData.ColorblindTextGetter);
         var rootElement = document.rootVisualElement;
+        //tabsNamesWithoutScaling[0] = "TabA";
 
         // settings popup
-        var settingsPopup = rootElement.Q<Popup>("settings-popup").WithOpenButton(rootElement.Q<Button>("options"));
+        Popup settingsPopup = rootElement.Q<Popup>("settings-popup");
         settingsPopup.dataSource = settingsData;
+        settingsPopup.WithOpenButton(rootElement.Q<Button>("options"));
+        settingsPopup.WithCloseButton(rootElement.Q<Button>("settings-close"));
 
         // settings button bindings
         settingsPopup.Q<Button>("settings-save").clicked += () => settingsData.Save();
-        settingsPopup.Q<Button>("settings-close").clicked += () => {
-            settingsPopup.IsOpen = false;
+        rootElement.Q<Button>("options").clicked += () =>
+        {
+            spriteScalingReference.SetActive(settingsPopup.Q<TabView>("settings-tabs").activeTab.name == "TabB");
+        };
+        settingsPopup.Q<Button>("settings-close").clicked += () =>
+        {
+            spriteScalingReference.SetActive(false);
             settingsData.Load();
         };
+        settingsPopup.Q<TabView>("settings-tabs").activeTabChanged += (oldTab, newTab) =>
+        {
+            if (newTab?.name == "TabB")
+            {
+                spriteScalingReference.SetActive(true);
+            }
+            else if (oldTab?.name == "TabB")
+            {
+                spriteScalingReference.SetActive(false);
+            }
+            else
+            {
+                spriteScalingReference.SetActive(false);
+            }
+        };
+
         settingsPopup.Q<Button>("settings-reset").clicked += () => settingsData.Reset();
 
         // dropdown bindings
@@ -46,13 +80,16 @@ public class SettingsController : MonoBehaviour {
 
     void SampleBinding() =>
         // Example of how to bind to settings data
-        settingsData.propertyChanged += (sender, args) => {
+        settingsData.propertyChanged += (sender, args) =>
+        {
             // If you need a specific property, check for the name
-            if (args.propertyName == nameof(settingsData.SoundVolume)) {
+            if (args.propertyName == nameof(settingsData.SoundVolume))
+            {
                 Debug.Log($"Sound volume changed to {settingsData.SoundVolume}");
             }
             // If you need to do something with the whole object, use the property bag
-            else {
+            else
+            {
                 var bag = PropertyBag.GetPropertyBag<MainMenuSettingsData>();
                 var data = (MainMenuSettingsData)sender;
                 // Don't use the bag collection with linq too often, it's slow, but this is a demo
@@ -60,8 +97,8 @@ public class SettingsController : MonoBehaviour {
 
                 var value = bag
                     .GetProperties() // Gets all the properties
-                    // prop has Name and Get/Set value methods, check docs for more.
-                    // Here I'm just finding the property that matches the event
+                                     // prop has Name and Get/Set value methods, check docs for more.
+                                     // Here I'm just finding the property that matches the event
                     .First(prop =>
                         prop.Name ==
                         args.propertyName)
@@ -69,10 +106,6 @@ public class SettingsController : MonoBehaviour {
                     .GetValue(ref data);
                 Debug.Log(
                     $"{args.propertyName} prop changed to {value}");
-
-                /*
-
-                 */
             }
         };
 }

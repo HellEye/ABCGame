@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 [Serializable]
-public class LoaderUIDocument {
+public class LoaderUIDocument
+{
     [SerializeField] public UIDocument value;
     public LoaderUIDocument(UIDocument value) => this.value = value;
 }
 
-public class LoaderInstaller : MonoBehaviour, IInstaller {
+public class LoaderInstaller : MonoBehaviour, IInstaller
+{
     [Header("Settings")]
     [SerializeField] MinigameRegistry minigameRegistry;
 
@@ -23,7 +25,10 @@ public class LoaderInstaller : MonoBehaviour, IInstaller {
     [SerializeField] LoaderUIController loaderUIController;
     [SerializeField] Camera cam;
 
-    public void InstallBindings(ContainerBuilder builder) {
+    [SerializeField] ScreenSizeManager screenSizeManager;
+
+    public void InstallBindings(ContainerBuilder builder)
+    {
         builder.RegisterValue(cam);
         builder.RegisterValue(minigameRegistry);
         builder.RegisterValue(new LoaderUIDocument(uiDocument));
@@ -32,5 +37,6 @@ public class LoaderInstaller : MonoBehaviour, IInstaller {
         builder.RegisterValue(excludeItems);
         builder.RegisterValue(itemRegistry);
         builder.RegisterType<DifficultyHolder>();
+        builder.RegisterValue(screenSizeManager);
     }
 }
