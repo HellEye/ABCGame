@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c753a999c34ab6885550725fa6d301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoaderUIController
-  fadeTime: 0.5
+  fadeTime: 0.25
 --- !u!114 &485829054
 MonoBehaviour:
   m_ObjectHideFlags: 0
