@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/UI Toolkit/PanelSettingsScreen.asset.meta
+guid: c6eb30d6a9f4169d29bb41bae987d4e2
+========
+guid: 3564e4fb497b11ecd9bce57982c7fd37
+>>>>>>>> main:Assets/Items/ExcludeItems.asset.meta
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

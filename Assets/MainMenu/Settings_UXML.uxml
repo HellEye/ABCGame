@@ -1,18 +1,22 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEngine.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/MainMenu/Settings.uss?fileID=7433441132597879392&amp;guid=f08de89200854833a1e805d48222f198&amp;type=3#Settings"/>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd"
+         editor-extension-mode="False">
+    <Style
+        src="project://database/Assets/MainMenu/Settings.uss?fileID=7433441132597879392&amp;guid=f08de89200854833a1e805d48222f198&amp;type=3#Settings"/>
     <Popup name="settings-popup" class="settings-popup">
         <ui:Label text="Settings" class="popup-title"/>
-   
+
         <ui:TabView class="settings-tabs" name="settings-tabs">
             <ui:Tab label="TabA" name="TabA">
                 <ui:VisualElement class="popup-column">
                     <ui:VisualElement class="popup-subcolumn">
-                        <ui:Slider name="sfx-slider" label="Sounds" title="SFX Volume" low-value="0" high-value="100" value="10">
+                        <ui:Slider name="sfx-slider" label="Sounds" title="SFX Volume" low-value="0" high-value="100"
+                                   value="10">
                             <Bindings>
                                 <ui:DataBinding property="value" data-source-path="SoundVolume"/>
                             </Bindings>
                         </ui:Slider>
-                        <ui:Slider name="music-slider" label="Music" title="Music Volume" low-value="0" high-value="100">
+                        <ui:Slider name="music-slider" label="Music" title="Music Volume" low-value="0"
+                                   high-value="100">
                             <Bindings>
                                 <ui:DataBinding property="value" data-source-path="MusicVolume"/>
                             </Bindings>
@@ -25,25 +29,38 @@
                         <ui:Slider name="vo-slider" title="VO Vol" label="VO Volume" low-value="0" high-value="100">
                             <Bindings>
                                 <ui:DataBinding property="value" data-source-path="VoVolume"/>
-                                <ConditionalClassBinding property="whatevs" false-class="hidden" data-source-path="VoEnabled"/>
+                                <ConditionalClassBinding property="whatevs" false-class="hidden"
+                                                         data-source-path="VoEnabled"/>
                             </Bindings>
                         </ui:Slider>
                     </ui:VisualElement>
                     <ui:VisualElement class="popup-subcolumn">
                         <ui:DropdownField name="particle-dropdown" label="Particles">
                             <Bindings>
-                                <ui:DataBinding property="value" data-source-path="ParticleIntensity" ui-to-source-converters="SettingsIntensityBinding" source-to-ui-converters="SettingsIntensityBinding"/>
+                                <ui:DataBinding property="value" data-source-path="ParticleIntensity"
+                                                ui-to-source-converters="SettingsIntensityBinding"
+                                                source-to-ui-converters="SettingsIntensityBinding"/>
                             </Bindings>
                         </ui:DropdownField>
                         <ui:DropdownField name="motion-dropdown" label="Motion">
                             <Bindings>
-                                <ui:DataBinding property="value" data-source-path="MotionIntensity" ui-to-source-converters="SettingsIntensityBinding" source-to-ui-converters="SettingsIntensityBinding"/>
+                                <ui:DataBinding property="value" data-source-path="MotionIntensity"
+                                                ui-to-source-converters="SettingsIntensityBinding"
+                                                source-to-ui-converters="SettingsIntensityBinding"/>
                             </Bindings>
                         </ui:DropdownField>
-                        <ui:DropdownField name="colorblind-dropdown" label="Colorblind"/>
+                        <ui:DropdownField name="colorblind-dropdown" label="Colorblind">
+                            <Bindings>
+                                <ui:DataBinding property="value" data-source-path="ColorblindLevel"
+                                                ui-to-source-converters="ColorblindLevelBinding"
+                                                source-to-ui-converters="ColorblindLevelBinding"/>
+                            </Bindings>
+                        </ui:DropdownField>
                         <ui:DropdownField name="vibration-dropdown" label="Vibrations">
                             <Bindings>
-                                <ui:DataBinding property="value" data-source-path="HapticIntensity" ui-to-source-converters="SettingsIntensityBinding" source-to-ui-converters="SettingsIntensityBinding"/>
+                                <ui:DataBinding property="value" data-source-path="HapticIntensity"
+                                                ui-to-source-converters="SettingsIntensityBinding"
+                                                source-to-ui-converters="SettingsIntensityBinding"/>
                             </Bindings>
                         </ui:DropdownField>
                     </ui:VisualElement>
@@ -52,14 +69,15 @@
             <ui:Tab label="TabB" name="TabB">
                 <ui:VisualElement class="popup-column">
                     <ui:VisualElement class="popup-subcolumn">
-                        <ui:Slider name="sprite-scale-slider" label="SpriteScale" title="Sprite Scale" low-value="0" high-value="100" value="10">
+                        <ui:Slider name="sprite-scale-slider" label="SpriteScale" title="Sprite Scale" low-value="0"
+                                   high-value="100" value="10">
                             <Bindings>
                                 <ui:DataBinding property="value" data-source-path="SpriteScale"/>
                             </Bindings>
                         </ui:Slider>
                     </ui:VisualElement>
                     <ui:VisualElement class="popup-subcolumn">
-                            
+
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:Tab>

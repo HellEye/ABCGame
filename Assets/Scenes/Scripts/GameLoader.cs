@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using Eflatun.SceneReference;
 using Reflex.Attributes;
@@ -7,6 +8,7 @@ using Reflex.Core;
 using Reflex.Extensions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -19,6 +21,7 @@ public class GameLoader : MonoBehaviour {
     Container container;
     SceneReference currentScene;
     [Inject] DifficultyHolder difficultyHolder;
+    [Inject] ItemRegistry itemRegistry;
     bool ready;
 
     [Inject] LoaderUIController uiController;
@@ -80,8 +83,14 @@ public class GameLoader : MonoBehaviour {
         lifecycle[scene].OnContainerBuilt -= SetupDifficulty;
         return;
 
-        void SetupDifficulty(Scene scene, ContainerBuilder builder) =>
+        void SetupDifficulty(Scene scene, ContainerBuilder builder) {
             builder.RegisterValue(difficulty, new[] { difficulty.type });
+
+            var spawnableGroupsForDifficulty = itemRegistry.GetGroupsFor(difficulty.Difficulty).ToList();
+            var spawnableGroup = spawnableGroupsForDifficulty[Random.Range(0, spawnableGroupsForDifficulty.Count)];
+            Debug.Log($"SpawnableGroup: {spawnableGroup.Title}");
+            builder.RegisterValue(spawnableGroup, new[] { typeof(ISpawnableGroup) });
+        }
     }
 
 
