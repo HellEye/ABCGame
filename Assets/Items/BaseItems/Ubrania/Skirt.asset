@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82cfb2eb6a58830eda8329321d51c153, type: 3}
-  m_Name: Broccoli
+  m_Name: Skirt
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  itemName: Broccoli
+  itemName: Spudniczka
   sprite:
-    m_AssetGUID: 1556db3911bb8ff4fa69e3557773c343
-    m_SubObjectName: broccoli
+    m_AssetGUID: 01b33c239033145489db51626d08050f
+    m_SubObjectName: skirt
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_SubObjectGUID: 

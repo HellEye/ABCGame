@@ -18,6 +18,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b3ee3f46af8352b40a4dcd1fd9cd47fe, type: 2}
   - {fileID: 11400000, guid: 9f0da34e2835cc047a304109e218853a, type: 2}
   - {fileID: 11400000, guid: 9974abc880fdc664484e499e7d420b1d, type: 2}
+  - {fileID: 11400000, guid: 078d3de581d5cb74496fd5f72e221c68, type: 2}
+  - {fileID: 11400000, guid: cfc5fb9e6f28332498df698d5c7b897a, type: 2}
   categories:
   - {fileID: 11400000, guid: 400964095e59f8845a39bb2c9c41f59a, type: 2}
   difficulty: 1

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Papryka
   sprite:
-    m_AssetGUID: b752af01b0ce7504aac4a6142a7a1bdc
+    m_AssetGUID: 2e5b135ea898b8a4fb9cda21b74f2c42
     m_SubObjectName: pepper
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null

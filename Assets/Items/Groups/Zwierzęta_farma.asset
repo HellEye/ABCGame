@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3689d58d32c7423ebbdfa5b9bac69e88, type: 3}
   m_Name: "Zwierz\u0119ta_farma"
   m_EditorClassIdentifier: Assembly-CSharp::ItemGroupFromCategory
-  groupName: Zielone owoce
-  targetText: "Wybierz warzywa rosn\u0105ce pod ziemi\u0105"
+  groupName: "Zwierz\u0119ta na farmie"
+  targetText: "Wybierz zwierz\u0119ta z gospodarstwa"
   targets:
   - {fileID: 11400000, guid: 58eb0e560306bdbf5a7d76a878766bdb, type: 2}
   - {fileID: 11400000, guid: 2cb71f61589bff54695ec45e596d67d9, type: 2}
   - {fileID: 11400000, guid: 9c659e2ef5e4d984fa801654553782bf, type: 2}
   - {fileID: 11400000, guid: 2f080edf06c44a747a891ddf2ec909d9, type: 2}
   - {fileID: 11400000, guid: c44c46fb5b9a51a418276cc1fcba6463, type: 2}
+  - {fileID: 11400000, guid: 69c58b40b15503b4f97f2268f06df2c1, type: 2}
   categories:
   - {fileID: 11400000, guid: ed35f334089ea1e4aa994dc188a05b90, type: 2}
   difficulty: 1

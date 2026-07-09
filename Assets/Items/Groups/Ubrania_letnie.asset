@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3689d58d32c7423ebbdfa5b9bac69e88, type: 3}
   m_Name: Ubrania_letnie
   m_EditorClassIdentifier: Assembly-CSharp::ItemGroupFromCategory
-  groupName: Zielone owoce
-  targetText: "Wybierz warzywa rosn\u0105ce pod ziemi\u0105"
+  groupName: Ubrania na lato
+  targetText: Wybierz ubrania na lato
   targets:
-  - {fileID: 11400000, guid: b3ee3f46af8352b40a4dcd1fd9cd47fe, type: 2}
-  - {fileID: 11400000, guid: 9f0da34e2835cc047a304109e218853a, type: 2}
-  - {fileID: 11400000, guid: 9974abc880fdc664484e499e7d420b1d, type: 2}
+  - {fileID: 11400000, guid: 13eb6fdb71ad76c469e87186be6cad01, type: 2}
+  - {fileID: 11400000, guid: 27d6402fcd1462d469501b4e38a051d5, type: 2}
+  - {fileID: 11400000, guid: 28fef49aa4c3ebb449863e83a489a079, type: 2}
+  - {fileID: 11400000, guid: b1e87155a71cfea4393ac825b0e3ee08, type: 2}
+  - {fileID: 11400000, guid: 2b047cc291db17041922e5d7c21f5c5a, type: 2}
   categories:
   - {fileID: 11400000, guid: 400964095e59f8845a39bb2c9c41f59a, type: 2}
   difficulty: 1
