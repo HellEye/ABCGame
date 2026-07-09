@@ -1,0 +1,84 @@
+.minigame-selection {
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.header-title {
+    flex-grow: 1;
+    unity-text-align: middle-center;
+    font-size: 48px;
+    color: rgb(70, 70, 70);
+    -unity-font-style: bold;
+}
+
+.content {
+    position: absolute;
+    left: 40px;
+    right: 40px;
+    top: 140px;
+    bottom: 40px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-container {
+    flex-grow: 1;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.card-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.page-arrow {
+    width: 90px;
+    height: 90px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    -unity-background-scale-mode: scale-to-fit;
+    transition-property: scale;
+    transition-duration: 0.15s;
+}
+
+.page-arrow:hover {
+    scale: 1.08;
+}
+
+.page-arrow:active {
+    scale: 0.95;
+}
+
+.footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+}

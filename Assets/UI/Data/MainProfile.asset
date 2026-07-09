@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b460cb5fe970604fae98793fd691a67, type: 3}
+  m_Name: MainProfile
+  m_EditorClassIdentifier: Assembly-CSharp::ResponsiveProfile
+  referenceResolution: {x: 1280, y: 800}
+  phoneWidth: 700
+  tabletWidth: 1100
+  minimumScale: 0.8
+  maximumScale: 1.5
+  desktop:
+    cardsPerRow: 3
+    spacing: 40
+    horizontalMargin: 40
+    verticalMargin: 40
+    minimumCardWidth: 260
+    maximumCardWidth: 320
+    aspectRatio: 1.5
+    borderRadius: 30
+    imagePadding: 15
+    imageBottomPadding: 30
+    cornerSize: 52
+    heartSize: 22
+    heartOffset: {x: 7, y: 7}
+    titleBottomPadding: 12
+    titleFont: 48
+    subtitleFont: 30
+    cardTitleFont: 24
+    buttonFont: 24
+    iconButtonSize: 96
+    arrowButtonSize: 90
+    logoSize: {x: 520, y: 240}
+  tablet:
+    cardsPerRow: 3
+    spacing: 40
+    horizontalMargin: 40
+    verticalMargin: 40
+    minimumCardWidth: 260
+    maximumCardWidth: 320
+    aspectRatio: 1.5
+    borderRadius: 30
+    imagePadding: 15
+    imageBottomPadding: 30
+    cornerSize: 52
+    heartSize: 22
+    heartOffset: {x: 7, y: 7}
+    titleBottomPadding: 12
+    titleFont: 48
+    subtitleFont: 30
+    cardTitleFont: 24
+    buttonFont: 24
+    iconButtonSize: 96
+    arrowButtonSize: 90
+    logoSize: {x: 520, y: 240}
+  phone:
+    cardsPerRow: 1
+    spacing: 40
+    horizontalMargin: 40
+    verticalMargin: 40
+    minimumCardWidth: 320
+    maximumCardWidth: 420
+    aspectRatio: 1.5
+    borderRadius: 30
+    imagePadding: 15
+    imageBottomPadding: 30
+    cornerSize: 52
+    heartSize: 22
+    heartOffset: {x: 7, y: 7}
+    titleBottomPadding: 12
+    titleFont: 48
+    subtitleFont: 30
+    cardTitleFont: 24
+    buttonFont: 24
+    iconButtonSize: 96
+    arrowButtonSize: 90
+    logoSize: {x: 520, y: 240}
