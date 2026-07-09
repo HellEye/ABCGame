@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 6559707495396496395}
   - component: {fileID: 4864220933220537400}
   - component: {fileID: 4464154226927068352}
+  - component: {fileID: 1527163768278287749}
+  - component: {fileID: -4296902771220521294}
   m_Layer: 6
   m_Name: Draggable
   m_TagString: Untagged
@@ -88,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Draggable
   collider: {fileID: 6761039107218869986}
-  item: {fileID: 0}
+  item: {fileID: 2914334274141738977}
 --- !u!114 &6226223324506803629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,9 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5d2802383c4b4bd95fc2a434615488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  data: {fileID: 0}
-  spriteRenderer: {fileID: 7760177900703104790}
   screenPlacer: {fileID: 6559707495396496395}
+  renderer:
+    underlyingValue: {fileID: -4296902771220521294}
 --- !u!114 &6559707495396496395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ScreenPositionPlacer
   pos: {x: -0.09592098, y: 0}
   screenSizeManager: {fileID: 0}
+  zIndex: 0
 --- !u!114 &4864220933220537400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,7 +144,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4024666350026777014}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f3465b430134e94b803d8489291b3d4, type: 3}
   m_Name: 
@@ -160,6 +163,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Reflex::Reflex.Components.GameObjectSelfInjector
   _injectionStrategy: 2
+--- !u!114 &1527163768278287749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4024666350026777014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae14ba19acc5113ba2d194622502d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scalable
+  _minScaleValue: 0.4
+  _maxScaleValue: 0.75
+--- !u!114 &-4296902771220521294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4024666350026777014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d576ef5a79fe6f44b57d4386dd2af57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemRenderer
+  spriteRenderer: {fileID: 7760177900703104790}
 --- !u!1 &5772465549582982533
 GameObject:
   m_ObjectHideFlags: 0

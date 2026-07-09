@@ -43,7 +43,7 @@ public class DraggableAnimations : MonoBehaviour {
             .AddTo(currentHandle);
 
     public async UniTaskVoid AnimateAndDestroy() {
-        await LMotion.Create(Vector3.one, Vector3.zero, destroyDuration)
+        await LMotion.Create(transform.localScale, Vector3.zero, destroyDuration)
             .BindToLocalScale(transform)
             .ToUniTask();
         Destroy(gameObject);

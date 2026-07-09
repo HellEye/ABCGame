@@ -1,0 +1,11 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/Common/Cards.uss?fileID=7433441132597879392&amp;guid=109dd6c00301f7f419f83a4f96311992&amp;type=3#Cards"/>
+    <ui:VisualElement name="Card" style="flex-grow: 1;">
+        <ui:VisualElement name="Corner" style="flex-grow: 1;">
+            <ui:Image name="CornerBackground" style="background-image: url(&quot;project://database/Assets/Sprites/UI/favorite-corner.png?fileID=2800000&amp;guid=4c7a2df86ee26d74995165c138634137&amp;type=3#favorite-corner&quot;);"/>
+            <ui:Image name="Heart" style="background-image: url(&quot;project://database/Assets/Sprites/UI/favorite-heart.png?fileID=2800000&amp;guid=c396f380667c9954f8814132cb8a6fe2&amp;type=3#favorite-heart&quot;);"/>
+        </ui:VisualElement>
+        <ui:Image name="Thumbnail"/>
+    </ui:VisualElement>
+    <ui:Label text="Label" name="Title"/>
+</ui:UXML>

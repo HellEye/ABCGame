@@ -1,0 +1,25 @@
+.card-grey
+{
+    background-color: rgb(221,221,221);
+}
+
+.panel-blue
+{
+    background-color: rgb(170,220,255);
+}
+
+.panel-green
+{
+    background-color: rgb(185,225,195);
+}
+
+.selected
+{
+    border-width: 5px;
+    border-color: rgb(255,220,100);
+}
+
+.disabled
+{
+    opacity: 0.4;
+}

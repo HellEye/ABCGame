@@ -14,6 +14,7 @@ public class LoaderInstaller : MonoBehaviour, IInstaller {
     [SerializeField] MinigameRegistry minigameRegistry;
 
     [SerializeField] ItemRegistry itemRegistry;
+
     [SerializeField] ExcludeItemsSO excludeItems;
 
     [Header("References")]
@@ -22,6 +23,8 @@ public class LoaderInstaller : MonoBehaviour, IInstaller {
     [SerializeField] GameLoader gameLoader;
     [SerializeField] LoaderUIController loaderUIController;
     [SerializeField] Camera cam;
+
+    [SerializeField] ScreenSizeManager screenSizeManager;
 
     public void InstallBindings(ContainerBuilder builder) {
         builder.RegisterValue(cam);
@@ -32,5 +35,6 @@ public class LoaderInstaller : MonoBehaviour, IInstaller {
         builder.RegisterValue(excludeItems);
         builder.RegisterValue(itemRegistry);
         builder.RegisterType<DifficultyHolder>();
+        builder.RegisterValue(screenSizeManager);
     }
 }

@@ -1,0 +1,41 @@
+.screen {
+    flex-grow: 1;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    -unity-background-scale-mode: stretch-to-fill;
+}
+
+.top-bar {
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    top: 30px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.content {
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-grid {
+    width: 1040px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 40px;
+    opacity: 1;
+}

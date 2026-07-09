@@ -1,0 +1,137 @@
+/* ==========================================================
+   MINIGAME CARD
+   Base design size: 300 x 200 (3:2)
+   ========================================================== */
+
+.minigame-card
+{
+    width: 300px;
+    height: 200px;
+
+    position: relative;
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    background-color: rgb(235,235,235);
+
+    flex-shrink: 0;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    transition-property: scale;
+    transition-duration: 0.15s;
+}
+
+/* ==========================================================
+   THUMBNAIL
+   ========================================================== */
+
+.card-thumbnail
+{
+    position: absolute;
+
+    left: 15px;
+    right: 15px;
+    top: 15px;
+    bottom: 36px;
+
+    -unity-background-scale-mode: scale-to-fit;
+
+    border-radius: 20px;
+}
+
+/* ==========================================================
+   FAVOURITE CORNER
+   ========================================================== */
+
+.favorite-corner
+{
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 52px;
+    height: 52px;
+
+    overflow: visible;
+}
+
+/* Blue triangle image */
+
+.favorite-corner-background
+{
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    -unity-background-scale-mode: stretch-to-fill;
+}
+
+/* ==========================================================
+   HEART
+   ========================================================== */
+
+.favorite-heart
+{
+    position: absolute;
+
+    left: 7px;
+    top: 7px;
+
+    width: 22px;
+    height: 22px;
+
+    -unity-background-scale-mode: scale-to-fit;
+
+    unity-image-tint-color: white;
+}
+
+/* ==========================================================
+   TITLE
+   ========================================================== */
+
+.card-title
+{
+    position: absolute;
+
+    left: 15px;
+    right: 15px;
+    bottom: 12px;
+
+    height: 28px;
+
+    unity-text-align: middle-center;
+
+    font-size: 24px;
+
+    color: rgb(70,70,70);
+
+    -unity-font-style: bold;
+}
+
+/* ==========================================================
+   HOVER
+   ========================================================== */
+
+.hover
+{
+    scale: 1.03;
+}
+
+/* ==========================================================
+   PRESSED
+   ========================================================== */
+
+.pressed
+{
+    scale: 0.98;
+}

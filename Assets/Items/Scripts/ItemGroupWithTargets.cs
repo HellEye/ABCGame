@@ -16,11 +16,11 @@ public class ItemGroupWithTargets : ScriptableObject, ISpawnableGroup {
     public string Title => groupName;
     public string TargetText => targetText;
 
-    public (List<ItemSO> targets, List<ItemSO> allItems) PickItems(DropZoneGameDifficulty difficulty,
+    public (IEnumerable<IElement> targets, IEnumerable<IElement> allItems) PickItems(DropZoneGameDifficulty difficulty,
         MainMenuSettingsData settings, ExcludeItemsSO excludeItems) {
         var joined = new List<ItemSO>(nonTargets);
         joined.AddRange(targets);
-        var excludedItems = new HashSet<ItemSO>(excludeItems.ExcludeFrom(joined, settings));
+        var excludedItems = excludeItems.ExcludeFrom(joined, settings).OfType<ItemSO>().ToHashSet();
         var excludedNonTargets = nonTargets.Where(i => !excludedItems.Contains(i)).ToList();
         var excludedTargets = targets.Where(i => !excludedItems.Contains(i)).ToList();
         var pickedItems = excludedNonTargets.PickRandom(difficulty.itemTypes - difficulty.targetTypes);

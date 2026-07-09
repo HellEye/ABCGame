@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="/LetterSetSO (snapshot).cs">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="/LetterSetSO (snapshot).cs" />
+              <option name="originalContent" value="using System.Collections.Generic;&#10;using System.Linq;&#10;using UnityEngine;&#10;&#10;[CreateAssetMenu(fileName = &quot;LetterSet&quot;, menuName = &quot;Items/LetterSet&quot;)]&#10;public class LetterSetSO : ScriptableObject, ISpawnableGroup {&#10;    [SerializeField] string groupName;&#10;    public string letters;&#10;&#10;    [SerializeField] [Tooltip(&quot;Text to display as a hint&quot;)]&#10;    string targetText;&#10;&#10;    public Difficulty difficulty;&#10;    public Difficulty Difficulty =&gt; difficulty;&#10;    public string Title =&gt; groupName;&#10;&#10;    public string TargetText =&gt; targetText;&#10;&#10;    public (IEnumerable&lt;IElement&gt; targets, IEnumerable&lt;IElement&gt; allItems) PickItems(DropZoneGameDifficulty difficulty,&#10;        MainMenuSettingsData data,&#10;        ExcludeItemsSO excludeItems = null) {&#10;        var uniqueLetters = letters.Distinct().Select(letter =&gt; new Letter(letter.ToString())).ToList();&#10;        var pickedItems = uniqueLetters.PickRandom(difficulty.itemTypes);&#10;        var targets = pickedItems.PickRandom(difficulty.targetTypes);&#10;        return (targets, pickedItems);&#10;    }&#10;}" />
+              <option name="updatedContent" value="using System.Collections.Generic;&#10;using System.Linq;&#10;using UnityEngine;&#10;&#10;[CreateAssetMenu(fileName = &quot;LetterSet&quot;, menuName = &quot;Items/LetterSet&quot;)]&#10;public class LetterSetSO : ScriptableObject, ISpawnableGroup {&#10;    [SerializeField] string groupName;&#10;    public string letters;&#10;&#10;    [SerializeField] [Tooltip(&quot;Text to display as a hint&quot;)]&#10;    string targetText;&#10;&#10;    public Difficulty difficulty;&#10;    public Difficulty Difficulty =&gt; difficulty;&#10;    public string Title =&gt; groupName;&#10;&#10;    public string TargetText =&gt; targetText;&#10;&#10;    public (IEnumerable&lt;IElement&gt; targets, IEnumerable&lt;IElement&gt; allItems) PickItems(DropZoneGameDifficulty gameDifficulty,&#10;        MainMenuSettingsData data,&#10;        ExcludeItemsSO excludeItems = null) {&#10;        var uniqueLetters = letters.Distinct().Select(letter =&gt; new Letter(letter.ToString())).ToList();&#10;        var pickedItems = uniqueLetters.PickRandom(gameDifficulty.itemTypes);&#10;        var targets = pickedItems.PickRandom(gameDifficulty.targetTypes);&#10;        return (targets, pickedItems);&#10;    }&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

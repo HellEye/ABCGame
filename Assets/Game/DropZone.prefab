@@ -314,6 +314,8 @@ GameObject:
   - component: {fileID: 7703318054763952947}
   - component: {fileID: 5753493264114650622}
   - component: {fileID: 257430512701733745}
+  - component: {fileID: 8578181518920954058}
+  - component: {fileID: 5709168110942319431}
   m_Layer: 7
   m_Name: DropZone
   m_TagString: Untagged
@@ -330,7 +332,7 @@ Transform:
   m_GameObject: {fileID: 7707440617992212232}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.3656383, y: -2.3800004, z: 0}
+  m_LocalPosition: {x: 2.3656387, y: -2.3800004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -388,9 +390,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DropZone
   correctEffect: {fileID: 4319147997119142063}
-  target: {fileID: 11400000, guid: 6d263761cbdce4c44ae964fb9449bedc, type: 2}
-  targetSpriteRenderer: {fileID: 7093284935214599492}
   placer: {fileID: 7703318054763952947}
+  itemRenderer:
+    underlyingValue: {fileID: 5709168110942319431}
 --- !u!114 &7703318054763952947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,8 +405,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de98a65e8b84213bf2988d95db4dee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScreenPositionPlacer
-  pos: {x: 0.6602529, y: 0.26199996}
+  pos: {x: 0.66203004, y: 0.26199996}
   screenSizeManager: {fileID: 0}
+  zIndex: 0
 --- !u!114 &5753493264114650622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,7 +415,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7707440617992212232}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f3465b430134e94b803d8489291b3d4, type: 3}
   m_Name: 
@@ -431,3 +434,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Reflex::Reflex.Components.GameObjectSelfInjector
   _injectionStrategy: 2
+--- !u!114 &8578181518920954058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7707440617992212232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae14ba19acc5113ba2d194622502d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scalable
+  _minScaleValue: 0.6
+  _maxScaleValue: 1.1
+--- !u!114 &5709168110942319431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7707440617992212232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d576ef5a79fe6f44b57d4386dd2af57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemRenderer
+  spriteRenderer: {fileID: 7093284935214599492}

@@ -3,7 +3,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
 [CreateAssetMenu(fileName = "Item", menuName = "Items/Item", order = 1)]
-public class ItemSO : ScriptableObject {
+public class ItemSO : ScriptableObject, IElement {
     public string itemName;
     public AssetReferenceT<Sprite> sprite;
 

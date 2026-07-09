@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 118942158}
   - component: {fileID: 118942157}
   - component: {fileID: 118942159}
+  - component: {fileID: 118942160}
   m_Layer: 0
   m_Name: SceneScope
   m_TagString: Untagged
@@ -178,11 +179,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LoaderInstaller
   minigameRegistry: {fileID: 11400000, guid: 9cc53fd8039145471a31f27d7451cf78, type: 2}
   itemRegistry: {fileID: 11400000, guid: 875352a60c028d9988f78100a8bcbd21, type: 2}
-  excludeItems: {fileID: 11400000, guid: 3564e4fb497b11ecd9bce57982c7fd37, type: 2}
+  excludeItems: {fileID: 11400000, guid: c6eb30d6a9f4169d29bb41bae987d4e2, type: 2}
   uiDocument: {fileID: 485829054}
   gameLoader: {fileID: 1082186545}
   loaderUIController: {fileID: 485829053}
   cam: {fileID: 991443397}
+  screenSizeManager: {fileID: 118942160}
+--- !u!114 &118942160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118942155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b8fdccdf1b4bbaaf9a09b90e976a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScreenSizeManager
 --- !u!1 &485829052
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c753a999c34ab6885550725fa6d301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoaderUIController
-  fadeTime: 0.5
+  fadeTime: 0.25
 --- !u!114 &485829054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
-  m_PanelSettings: {fileID: 11400000, guid: 630f24b394f159ddd897daf6d45d8d11, type: 2}
+  m_PanelSettings: {fileID: 11400000, guid: b0ba119c0d8bdd17ead87b2897ac235f, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 9dc3cdbfcb07e3c65b7cac9ec52cf420, type: 3}
   m_SortingOrder: 999

@@ -1,0 +1,35 @@
+/* ==========================================================
+   COMMON
+   ========================================================== */
+
+.screen
+{
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.background
+{
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    -unity-background-scale-mode: stretch-to-fill;
+}
+
+.hidden
+{
+    display: none;
+}

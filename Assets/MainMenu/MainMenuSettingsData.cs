@@ -52,6 +52,7 @@ public class MainMenuSettingsData : IDataSourceViewHashProvider, INotifyBindable
         PlayerPrefs.SetInt("ParticleIntensity", (int)_particleIntensity);
         PlayerPrefs.SetInt("MotionIntensity", (int)_motionIntensity);
         PlayerPrefs.SetInt("HapticIntensity", (int)_hapticIntensity);
+        PlayerPrefs.SetInt("SpriteScale", _spriteScale);
         PlayerPrefs.SetInt("ColorblindLevel", (int)_colorblindLevel);
         PlayerPrefs.Save();
     }
@@ -65,6 +66,7 @@ public class MainMenuSettingsData : IDataSourceViewHashProvider, INotifyBindable
         MotionIntensity = (SettingsIntensity)PlayerPrefs.GetInt("MotionIntensity", 0);
         HapticIntensity = (SettingsIntensity)PlayerPrefs.GetInt("HapticIntensity", 0);
         ColorblindLevel = (ColorblindLevel)PlayerPrefs.GetInt("ColorblindLevel", 0);
+        SpriteScale = PlayerPrefs.GetInt("SpriteScale", 0);
     }
 
     public void Reset() {
@@ -76,6 +78,7 @@ public class MainMenuSettingsData : IDataSourceViewHashProvider, INotifyBindable
         MotionIntensity = SettingsIntensity.Full;
         HapticIntensity = SettingsIntensity.Full;
         ColorblindLevel = ColorblindLevel.None;
+        SpriteScale = 10;
     }
 
     #region Properties
@@ -88,6 +91,7 @@ public class MainMenuSettingsData : IDataSourceViewHashProvider, INotifyBindable
     int _soundVolume;
     bool _voEnabled;
     int _voVolume;
+    int _spriteScale;
 
     [CreateProperty]
     public int SoundVolume {
@@ -148,6 +152,15 @@ public class MainMenuSettingsData : IDataSourceViewHashProvider, INotifyBindable
         get => _hapticIntensity;
         set {
             _hapticIntensity = value;
+            NotifyPropertyChanged();
+        }
+    }
+
+    [CreateProperty]
+    public int SpriteScale {
+        get => _spriteScale;
+        set {
+            _spriteScale = value;
             NotifyPropertyChanged();
         }
     }

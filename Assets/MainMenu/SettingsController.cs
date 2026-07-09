@@ -5,24 +5,42 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 public class SettingsController : MonoBehaviour {
+    [SerializeField] GameObject spriteScalingReference;
     [Inject] UIDocument document;
     [Inject] MainMenuSettingsData settingsData;
+
+    //string[] tabsNamesWithoutScaling;
 
     void Awake() {
         EnumDropdownBinding.RegisterConverter(MainMenuSettingsData.IntensityTextGetter);
         EnumDropdownBinding.RegisterConverter(MainMenuSettingsData.ColorblindTextGetter);
         var rootElement = document.rootVisualElement;
+        //tabsNamesWithoutScaling[0] = "TabA";
 
         // settings popup
-        var settingsPopup = rootElement.Q<Popup>("settings-popup").WithOpenButton(rootElement.Q<Button>("options"));
+        var settingsPopup = rootElement.Q<Popup>("settings-popup");
         settingsPopup.dataSource = settingsData;
+        settingsPopup.WithOpenButton(rootElement.Q<Button>("options"));
+        settingsPopup.WithCloseButton(rootElement.Q<Button>("settings-close"));
 
         // settings button bindings
         settingsPopup.Q<Button>("settings-save").clicked += () => settingsData.Save();
+        rootElement.Q<Button>("options").clicked += () => {
+            spriteScalingReference.SetActive(settingsPopup.Q<TabView>("settings-tabs").activeTab.name == "TabB");
+        };
         settingsPopup.Q<Button>("settings-close").clicked += () => {
-            settingsPopup.IsOpen = false;
+            spriteScalingReference.SetActive(false);
             settingsData.Load();
         };
+        settingsPopup.Q<TabView>("settings-tabs").activeTabChanged += (oldTab, newTab) => {
+            if (newTab?.name == "TabB")
+                spriteScalingReference.SetActive(true);
+            else if (oldTab?.name == "TabB")
+                spriteScalingReference.SetActive(false);
+            else
+                spriteScalingReference.SetActive(false);
+        };
+
         settingsPopup.Q<Button>("settings-reset").clicked += () => settingsData.Reset();
 
         // dropdown bindings
@@ -69,10 +87,6 @@ public class SettingsController : MonoBehaviour {
                     .GetValue(ref data);
                 Debug.Log(
                     $"{args.propertyName} prop changed to {value}");
-
-                /*
-
-                 */
             }
         };
 }

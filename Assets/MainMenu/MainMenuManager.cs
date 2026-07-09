@@ -8,7 +8,7 @@ public class MainMenuManager : MonoBehaviour {
     public int maxButtons = 12;
     public int maxDifficulties = 3;
 
-    readonly string[] buttonTexts = new string[1] { "Drag and Drop" };
+    readonly string[] buttonTexts = new string[2] { "Drag and Drop", "Drag Letters" };
     [Inject] readonly MainMenuSettingsData settingsData;
     readonly Button[] slotButtons = new Button[4]; //need for new if you initialize onEnable?
 
@@ -57,8 +57,8 @@ public class MainMenuManager : MonoBehaviour {
 
     void OnSlotButtonClicked(int slotIndex) {
         gameIndex = slotIndex + startIndex;
-        if (gameIndex != 0) return;
-        difficultyPopup.IsOpen = true;
+        if (gameIndex < minigameRegistry.Count)
+            difficultyPopup.IsOpen = true;
     }
 
     void OnDifficultyButtonClicked(int difficultyIndex) {
