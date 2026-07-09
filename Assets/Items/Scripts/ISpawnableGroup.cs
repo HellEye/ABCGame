@@ -11,6 +11,6 @@ public interface ISpawnableGroup {
     string Title { get; }
     string TargetText { get; }
 
-    (List<ItemSO> targets, List<ItemSO> allItems) PickItems(DropZoneGameDifficulty difficulty,
+    (IEnumerable<IElement> targets, IEnumerable<IElement> allItems) PickItems(DropZoneGameDifficulty difficulty,
         MainMenuSettingsData data, ExcludeItemsSO excludeItems = null);
 }

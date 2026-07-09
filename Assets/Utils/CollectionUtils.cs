@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Random = UnityEngine.Random;
 
 public static class CollectionUtils {
@@ -24,5 +25,11 @@ public static class CollectionUtils {
         }
 
         return result;
+    }
+
+    public static T PickRandom<T>(this IEnumerable<T> items) {
+        var count = items.Count();
+        var random = Random.Range(0, count);
+        return items.ElementAt(random);
     }
 }

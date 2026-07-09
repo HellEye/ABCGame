@@ -315,6 +315,7 @@ GameObject:
   - component: {fileID: 5753493264114650622}
   - component: {fileID: 257430512701733745}
   - component: {fileID: 8578181518920954058}
+  - component: {fileID: 5709168110942319431}
   m_Layer: 7
   m_Name: DropZone
   m_TagString: Untagged
@@ -389,9 +390,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DropZone
   correctEffect: {fileID: 4319147997119142063}
-  target: {fileID: 0}
-  targetSpriteRenderer: {fileID: 7093284935214599492}
   placer: {fileID: 7703318054763952947}
+  itemRenderer:
+    underlyingValue: {fileID: 5709168110942319431}
 --- !u!114 &7703318054763952947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,3 +448,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Scalable
   _minScaleValue: 0.6
   _maxScaleValue: 1.1
+--- !u!114 &5709168110942319431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7707440617992212232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d576ef5a79fe6f44b57d4386dd2af57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemRenderer
+  spriteRenderer: {fileID: 7093284935214599492}
