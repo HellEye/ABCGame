@@ -26,19 +26,20 @@ public class ItemSpawnerManager : MonoBehaviour, IScreenSpaceBounds {
     public MinMaxRect Bounds => bounds;
 
     //test one of these two
-    public void TrySpawningItemsPerType(List<ItemSO> items) {
-        var itemsPerType = difficulty.maxItems / items.Count;
-        var remainingItemsToSpawn = difficulty.maxItems % items.Count;
+    public void TrySpawningItemsPerType(IEnumerable<IElement> items) {
+        var itemList = items.ToList();
+        var itemsPerType = difficulty.maxItems / itemList.Count;
+        var remainingItemsToSpawn = difficulty.maxItems % itemList.Count;
 
-        var itemPositions = new List<Vector2>(items.Count * difficulty.itemsPerType);
+        var itemPositions = new List<Vector2>(itemList.Count * difficulty.itemsPerType);
         var squareRadius =
             screenSizeManager.FromWorldToNormalizedDistance(spawnProtectionRadius * spawnProtectionRadius);
 
-        for (var i = 0; i < items.Count - 1; i++)
+        for (var i = 0; i < itemList.Count - 1; i++)
         for (var j = 0; j < itemsPerType; j++)
             itemPositions.Add(
                 CreateItem(
-                    items[i],
+                    itemList[i],
                     RandomiseSpawnPos(itemPositions, squareRadius)
                 ).screenPlacer.NormalizedPosition
             );
@@ -46,14 +47,14 @@ public class ItemSpawnerManager : MonoBehaviour, IScreenSpaceBounds {
         for (var i = 0; i < itemsPerType + remainingItemsToSpawn; i++)
             itemPositions.Add(
                 CreateItem(
-                    items[^1],
+                    itemList[^1],
                     RandomiseSpawnPos(itemPositions, squareRadius)
                 ).screenPlacer.NormalizedPosition
             );
     }
 
-    public void TrySpawningMaxItems(List<ItemSO> items) {
-        var itemPositions = new List<Vector2>(items.Count * difficulty.itemsPerType);
+    public void TrySpawningMaxItems(IEnumerable<IElement> items) {
+        var itemPositions = new List<Vector2>(items.Count() * difficulty.itemsPerType);
         var squareRadius =
             screenSizeManager.FromWorldToNormalizedDistance(spawnProtectionRadius * spawnProtectionRadius);
         foreach (var t in items)
@@ -66,16 +67,16 @@ public class ItemSpawnerManager : MonoBehaviour, IScreenSpaceBounds {
                 );
     }
 
-    Item CreateItem(ItemSO item, Vector3 pos) {
+    Item CreateItem(IElement item, Vector3 pos) {
         var newItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
-        newItem.Initialize(item, pos).Forget();
+        newItem.Initialize(item, pos);
         gameManager.AddItem(newItem);
         return newItem;
     }
 
-    void CreateDropZone(ItemSO item, float normalizedXPos) {
+    void CreateDropZone(IElement item, float normalizedXPos) {
         var newDropZone = Instantiate(dropZonePrefab, Vector3.zero, Quaternion.identity);
-        newDropZone.Initialize(item, new(normalizedXPos, dropZoneNormalizedY)).Forget();
+        newDropZone.Initialize(item, new(normalizedXPos, dropZoneNormalizedY));
         gameManager.AddDropZone(newDropZone);
     }
 
@@ -93,11 +94,12 @@ public class ItemSpawnerManager : MonoBehaviour, IScreenSpaceBounds {
         return pos;
     }
 
-    public void SpawnDropZones(List<ItemSO> targets) {
-        var count = targets.Count;
+    public void SpawnDropZones(IEnumerable<IElement> targets) {
+        var targetList = targets.ToList();
+        var count = targetList.Count;
         var spacing = 1f / (count + 1f);
-        for (var i = 0; i < targets.Count; i++) {
-            var target = targets[i];
+        for (var i = 0; i < targetList.Count; i++) {
+            var target = targetList[i];
             CreateDropZone(target, spacing * (i + 1));
         }
     }

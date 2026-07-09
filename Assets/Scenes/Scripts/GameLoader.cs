@@ -12,15 +12,14 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 #if UNITY_EDITOR
-using UnityEditor;
 #endif
 
 public class GameLoader : MonoBehaviour {
     [SerializeField] SceneReference mainMenuScene;
     [SerializeField] SceneReference dragAndDropScene;
-
-    readonly Dictionary<SceneReference, SceneLifecycle> lifecycle = new();
     Container container;
+
+    SceneLifecycle currentLifecycle;
     SceneReference currentScene;
     [Inject] DifficultyHolder difficultyHolder;
     [Inject] ItemRegistry itemRegistry;
@@ -31,19 +30,18 @@ public class GameLoader : MonoBehaviour {
 
     void Awake() {
         container = gameObject.scene.GetSceneContainer();
-        lifecycle.Add(mainMenuScene, new(container));
-        lifecycle.Add(dragAndDropScene, new(container));
         Debug.Log("Scene count: " + SceneManager.sceneCount);
 
         // if we open a different scene, reload the current one for ordering
         // Editor only, since the full game will just start on the loader scene in the main menu
         // see EditorBootstrapHelper for always loading this scene
 #if UNITY_EDITOR
-        var lastScene = EditorPrefs.GetString("LastEditScene", "");
+        // LoadMainMenu();
+        // TODO need to load this differently, going through the LoadGameplayScene
+        /*var lastScene = EditorPrefs.GetString("LastEditScene", "");
         if (!ready && !string.IsNullOrEmpty(lastScene) && lastScene != SceneManager.GetActiveScene().name) {
             var sceneToLoad = GetSceneByName(lastScene);
             if (sceneToLoad != null) {
-                // TODO need to load this differently, going through the LoadGameplayScene
                 EditorPrefs.DeleteKey("LastEditScene");
                 currentScene = GetSceneByName(lastScene);
                 if (currentScene.Name == "MainMenu") LoadMainMenu();
@@ -54,49 +52,53 @@ public class GameLoader : MonoBehaviour {
             else {
                 Debug.LogError($"Scene {lastScene} not found in the scene list");
             }
-        }
+        }*/
 #endif
 
         // starting from loader scene, go to main menu
         var activeScene = SceneManager.GetActiveScene();
         if (!ready && activeScene.name == gameObject.scene.name) {
-            LoadScene(mainMenuScene).Forget();
+            LoadScene(mainMenuScene, CreateLifecycle()).Forget();
             ready = true;
         }
     }
 
-    SceneReference GetSceneByName(string name) {
+
+    /*SceneReference GetSceneByName(string name) {
         foreach (var kvp in lifecycle)
             if (kvp.Key.Name == name)
                 return kvp.Key;
 
         return null;
-    }
+    }*/
+    SceneLifecycle CreateLifecycle() => new(container);
 
     public void ReloadCurrentGameplayScene() => LoadGameplaySceneFromHolder().Forget();
 
-    public void LoadMainMenu() => LoadScene(mainMenuScene).Forget();
+    public void LoadMainMenu() => LoadScene(mainMenuScene, CreateLifecycle()).Forget();
 
     public async UniTask LoadGameplaySceneFromHolder() {
         var scene = difficultyHolder.selectedScene;
         var difficulty = difficultyHolder.selectedDifficulty;
         var handles = new List<AsyncOperationHandle<Sprite>>();
+        var lifecycle = CreateLifecycle();
+        lifecycle.OnContainerBuilt += SetupDifficulty;
+        lifecycle.OnSceneLoaded += LoadSprites;
 
-        lifecycle[scene].OnContainerBuilt += SetupDifficulty;
-        lifecycle[scene].OnSceneLoaded += LoadSprites;
-        lifecycle[scene].OnSceneUnloaded += UnloadSprites;
+        await LoadScene(scene, lifecycle, async _ => await EnsureLoad());
 
-        await LoadScene(scene, async _ => await EnsureLoad());
+        lifecycle.OnContainerBuilt -= SetupDifficulty;
+        lifecycle.OnSceneLoaded -= LoadSprites;
 
-        lifecycle[scene].OnContainerBuilt -= SetupDifficulty;
-        lifecycle[scene].OnSceneLoaded -= LoadSprites;
-        lifecycle[scene].OnSceneUnloaded -= UnloadSprites;
+        lifecycle.OnSceneUnloaded += UnloadSprites;
         return;
 
         void LoadSprites(Scene scene) {
             var container = scene.GetSceneContainer();
             var items = container.Resolve<IRandomItemContainer>();
-            foreach (var item in items.GetAllItems().Distinct()) handles.Add(item.sprite.Load());
+            foreach (var item in items.GetAllItems().Distinct())
+                if (item is ItemSO itemSo)
+                    handles.Add(itemSo.sprite.Load());
         }
 
         async Task EnsureLoad() => await Task.WhenAll(handles.Select(h => h.Task));
@@ -109,7 +111,7 @@ public class GameLoader : MonoBehaviour {
         void SetupDifficulty(Scene scene, ContainerBuilder builder) {
             builder.RegisterValue(difficulty, new[] { difficulty.type });
 
-            var spawnableGroupsForDifficulty = itemRegistry.GetGroupsFor(difficulty.Difficulty).ToList();
+            var spawnableGroupsForDifficulty = itemRegistry.GetGroupsFor(difficulty).ToList();
             var spawnableGroup = spawnableGroupsForDifficulty[Random.Range(0, spawnableGroupsForDifficulty.Count)];
             Debug.Log($"SpawnableGroup: {spawnableGroup.Title}");
             builder.RegisterValue(spawnableGroup, new[] { typeof(ISpawnableGroup) });
@@ -117,18 +119,19 @@ public class GameLoader : MonoBehaviour {
     }
 
 
-    async UniTask<Scene> LoadScene(SceneReference scene, Func<Scene, Task> beforeFadeIn = null) {
+    async UniTask<Scene> LoadScene(SceneReference scene, SceneLifecycle lifecycle,
+        Func<Scene, Task> beforeFadeIn = null) {
         await uiController.FadeOut();
 
         await UnloadCurrentScene();
-
-        lifecycle[scene].OnBeforeLoad.Invoke();
+        currentLifecycle = lifecycle;
+        lifecycle.OnBeforeLoad.Invoke();
 
         await SceneManager.LoadSceneAsync(scene.Name, LoadSceneMode.Additive);
         var loadedScene = SceneManager.GetSceneByName(scene.Name);
         SceneManager.SetActiveScene(loadedScene);
 
-        lifecycle[scene].OnSceneLoaded.Invoke(loadedScene);
+        lifecycle.OnSceneLoaded.Invoke(loadedScene);
         currentScene = scene;
 
         if (beforeFadeIn != null) await beforeFadeIn(loadedScene);
@@ -143,7 +146,7 @@ public class GameLoader : MonoBehaviour {
         if (!isCurrentSceneValid) return;
         var scene = SceneManager.GetSceneByName(currentScene.Name);
         if (!scene.isLoaded) return;
-        lifecycle[currentScene].OnSceneUnloaded.Invoke(scene);
+        currentLifecycle?.OnSceneUnloaded.Invoke(scene);
         await SceneManager.UnloadSceneAsync(currentScene.Name);
     }
 }

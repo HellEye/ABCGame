@@ -5,6 +5,7 @@ public class DropZoneGameDifficulty : ScriptableObject, IDifficulty<DropZoneGame
     [Header("Difficulty settings")]
     public string difficultyName = "Default";
 
+    public Variant variant;
     public Difficulty difficulty = Difficulty.Easy;
     public int itemTypes = 3;
     public int targetTypes = 1;
@@ -14,4 +15,5 @@ public class DropZoneGameDifficulty : ScriptableObject, IDifficulty<DropZoneGame
 
     public int itemsPerType = 3;
     public Difficulty Difficulty => difficulty;
+    public Variant Variant => variant;
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [Serializable]
@@ -15,16 +16,18 @@ public class ExcludeItemsSO : ScriptableObject {
         "If the colorblindness level is set to the same as in the group or higher, only one item from each group will be able to appear")]
     public List<ExcludeItemGroup> excludeItemGroups;
 
-    public List<ItemSO> ExcludeFrom(List<ItemSO> list, MainMenuSettingsData settings) {
+    public IEnumerable<IElement> ExcludeFrom(IEnumerable<IElement> elements, MainMenuSettingsData settings) {
+        var list = elements.ToList();
         // Filter exclude groups based on colorblind level
         // Only include groups where settings.ColorblindLevel >= group.colorblindLevel
         var activeGroups = excludeItemGroups.FindAll(group => settings.ColorblindLevel >= group.colorblindLevel);
 
-        if (activeGroups.Count == 0) return new(list);
+        if (activeGroups.Count == 0) return new List<IElement>(list);
 
-        var result = new List<ItemSO>();
+        var result = new List<IElement>();
         var itemsToExclude = new HashSet<ItemSO>();
         var itemsInList = new List<ItemSO>(10);
+        var listItems = list.OfType<ItemSO>().ToHashSet();
 
         // For each active exclude group
         foreach (var group in activeGroups) {
@@ -32,7 +35,7 @@ public class ExcludeItemsSO : ScriptableObject {
 
             // Find all items from this group that appear in the list
             foreach (var item in group.items)
-                if (list.Contains(item))
+                if (listItems.Contains(item))
                     itemsInList.Add(item);
 
             // If more than one item from this group appears, mark all but the first for exclusion
@@ -45,7 +48,7 @@ public class ExcludeItemsSO : ScriptableObject {
 
         // Build result list, excluding marked items
         foreach (var item in list)
-            if (!itemsToExclude.Contains(item))
+            if (item is not ItemSO itemSo || !itemsToExclude.Contains(itemSo))
                 result.Add(item);
 
         return result;

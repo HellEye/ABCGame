@@ -6,25 +6,25 @@ using UnityEngine.VFX;
 
 public class DropZone : MonoBehaviour {
     public VisualEffect correctEffect;
-    public ItemSO target;
-    [SerializeField] SpriteRenderer targetSpriteRenderer;
     [SerializeField] ScreenPositionPlacer placer;
+    [SerializeField] InterfaceReference<IElementRenderer> itemRenderer;
     [Inject] DropZoneGameManager gameManager;
 
-
     AsyncOperationHandle<Sprite> handle;
-    void OnDestroy() => AssetReferenceExtensions.Release(handle);
+    public IElement target;
 
-    public async UniTaskVoid Initialize(ItemSO item, Vector2 pos) {
+    public void Initialize(IElement item, Vector2 pos) {
         target = item;
 
-        if (targetSpriteRenderer != null) {
-            handle = item.sprite.Load();
-            targetSpriteRenderer.sprite = await handle.Task;
+        if (itemRenderer.Value == null) {
+            Debug.LogError($"{nameof(DropZone)} requires a component implementing {nameof(IElementRenderer)}", this);
+            return;
         }
 
         if (placer != null)
             placer.NormalizedPosition = pos;
+
+        itemRenderer.Value.Initialize(item).Forget();
     }
 
     public void Drop(Draggable draggable) {

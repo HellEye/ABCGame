@@ -17,3 +17,7 @@ MonoBehaviour:
   - underlyingValue: {fileID: 11400000, guid: bcfd84dc30237f6de9c326751f45158f, type: 2}
   - underlyingValue: {fileID: 11400000, guid: 10e5a580e1764924f95945b2a66c482a, type: 2}
   - underlyingValue: {fileID: 11400000, guid: b59c455ad3da31b4d97be2f06f8dccab, type: 2}
+  letters:
+  - underlyingValue: {fileID: 11400000, guid: 220b472ec68690d89afafb53a17edcbb, type: 2}
+  - underlyingValue: {fileID: 11400000, guid: fdb117e9ddcc25e6cb4995e837cdbc28, type: 2}
+  - underlyingValue: {fileID: 11400000, guid: 1a33b81ddb7741881b54efc34b0da96a, type: 2}

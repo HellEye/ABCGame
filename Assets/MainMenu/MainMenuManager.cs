@@ -3,13 +3,12 @@ using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class MainMenuManager : MonoBehaviour
-{
+public class MainMenuManager : MonoBehaviour {
     public int buttonsPerPage = 4;
     public int maxButtons = 12;
     public int maxDifficulties = 3;
 
-    readonly string[] buttonTexts = new string[1] { "Drag and Drop" };
+    readonly string[] buttonTexts = new string[2] { "Drag and Drop", "Drag Letters" };
     [Inject] readonly MainMenuSettingsData settingsData;
     readonly Button[] slotButtons = new Button[4]; //need for new if you initialize onEnable?
 
@@ -23,8 +22,7 @@ public class MainMenuManager : MonoBehaviour
     VisualElement rootElement;
     int startIndex;
 
-    void Awake()
-    {
+    void Awake() {
         rootElement = mainMenuDoc.rootVisualElement;
         for (var i = 0; i < buttonsPerPage; i++)
             slotButtons[i] =
@@ -41,35 +39,29 @@ public class MainMenuManager : MonoBehaviour
 
     void Start() => rootElement.FlattenTemplateContainers();
 
-    void SetupGameButtons()
-    {
-        for (var i = 0; i < slotButtons.Length; i++)
-        {
+    void SetupGameButtons() {
+        for (var i = 0; i < slotButtons.Length; i++) {
             var index = i;
             slotButtons[i].clicked += () => OnSlotButtonClicked(index);
         }
     }
 
-    void SetupDifficultyButtons()
-    {
+    void SetupDifficultyButtons() {
         var buttonList = rootElement.Q<VisualElement>("DifficultyButtons");
-        for (var i = 0; i < maxDifficulties; i++)
-        {
+        for (var i = 0; i < maxDifficulties; i++) {
             // I know there's some issues with indexes in lambdas, so this is a workaround
             var index = i;
             buttonList.Q<Button>($"difficulty-{index}").clicked += () => OnDifficultyButtonClicked(index);
         }
     }
 
-    void OnSlotButtonClicked(int slotIndex)
-    {
+    void OnSlotButtonClicked(int slotIndex) {
         gameIndex = slotIndex + startIndex;
-        if (gameIndex != 0) return;
-        difficultyPopup.IsOpen = true;
+        if (gameIndex < minigameRegistry.Count)
+            difficultyPopup.IsOpen = true;
     }
 
-    void OnDifficultyButtonClicked(int difficultyIndex)
-    {
+    void OnDifficultyButtonClicked(int difficultyIndex) {
         Debug.Log($"Scene {gameIndex} with difficulty {difficultyIndex} selected");
         difficultyPopup.IsOpen = false;
         var (scene, difficulty) = minigameRegistry.GetLevelData(gameIndex, difficultyIndex);
@@ -80,8 +72,7 @@ public class MainMenuManager : MonoBehaviour
         gameLoader.LoadGameplaySceneFromHolder().Forget();
     }
 
-    void ChangePage(int step)
-    {
+    void ChangePage(int step) {
         startIndex += step;
 
         if (startIndex >= maxButtons)
@@ -91,10 +82,8 @@ public class MainMenuManager : MonoBehaviour
         UpdateUI();
     }
 
-    void UpdateUI()
-    {
-        for (var i = 0; i < buttonsPerPage; i++)
-        {
+    void UpdateUI() {
+        for (var i = 0; i < buttonsPerPage; i++) {
             var index = i + startIndex;
             slotButtons[i].text =
                 index < buttonTexts.Length

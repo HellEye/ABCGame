@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Category", menuName = "Items/Category", order = 3)]
@@ -14,9 +15,9 @@ public class ItemCategorySO : ScriptableObject, ISpawnableGroup {
     public string Title => groupName;
     public string TargetText => targetText;
 
-    public (List<ItemSO> targets, List<ItemSO> allItems) PickItems(DropZoneGameDifficulty difficulty,
+    public (IEnumerable<IElement> targets, IEnumerable<IElement> allItems) PickItems(DropZoneGameDifficulty difficulty,
         MainMenuSettingsData data, ExcludeItemsSO excludedItems) {
-        var excludedList = excludedItems.ExcludeFrom(items, data);
+        var excludedList = excludedItems.ExcludeFrom(items, data).ToList();
         var pickedItems = excludedList.PickRandom(difficulty.itemTypes);
         var targets = pickedItems.PickRandom(difficulty.targetTypes);
         return (targets, pickedItems);
