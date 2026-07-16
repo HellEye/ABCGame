@@ -32,4 +32,9 @@ public static class CollectionUtils {
         var random = Random.Range(0, count);
         return items.ElementAt(random);
     }
+
+    public static IEnumerable<(T, int)> Indexed<T>(this IEnumerable<T> items) {
+        var i = 0;
+        foreach (var item in items) yield return (item, i++);
+    }
 }
