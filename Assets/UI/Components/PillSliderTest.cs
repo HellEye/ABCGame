@@ -40,15 +40,6 @@ public class PillSliderTest : MonoBehaviour {
         document = GetComponent<UIDocument>();
         var root = document.rootVisualElement;
         root.dataSource = data;
-
-        var slider = root.Q<PillSlider>("pill-slider");
-        slider.propertyChanged += (target, data) => {
-            Debug.Log($"Property changed on {target}");
-            Debug.Log($"name: {data.propertyName}");
-        };
-        slider.RegisterCallback<ChangeEvent<float>>(e => {
-            Debug.Log($"Value changed: {e.newValue}");
-        });
     }
 
 
