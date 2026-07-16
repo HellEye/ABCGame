@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using System.Runtime.CompilerServices;
 using Unity.Properties;
 using UnityEngine;
@@ -31,11 +30,19 @@ public partial class PillSlider : BaseField<float>, INotifyBindablePropertyChang
         Add(minusButton);
         Add(pillsContainer);
         Add(plusButton);
-
+        RegisterCallback<MouseOutEvent>(evt => {
+            if (evt.target == this)
+                DisableDrag();
+        });
+        RegisterCallback<MouseUpEvent>(e => {
+            DisableDrag();
+        });
         RecalculatePerStep();
         RedrawPillAmount();
         RefreshPills();
     }
+
+    bool IsDragging { get; set; }
 
     int CurrentStep {
         get => Mathf.FloorToInt((value - Min) / perStep);
@@ -58,20 +65,39 @@ public partial class PillSlider : BaseField<float>, INotifyBindablePropertyChang
 
     void RefreshPills() {
         var currentStep = CurrentStep;
-        foreach (var (pill, i) in pillsContainer.Children().OfType<Button>().Indexed())
+        foreach (var (pill, i) in pillsContainer.Children().Indexed())
             pill.EnableInClassList("PillSlider__pill--active", i < currentStep);
     }
 
     void RedrawPillAmount() {
         pillsContainer.Clear();
+
         for (var i = 0; i < Steps; i++) {
-            var pill = new Button();
+            var pill = new VisualElement();
             pill.AddToClassList("PillSlider__pill");
             pillsContainer.Add(pill);
             var index = i;
-            pill.clicked += () => CurrentStep = index + 1;
+            pill.RegisterCallback<MouseDownEvent>(e => {
+                EnableDrag();
+                OnDrag(index);
+            });
+
+
+            pill.RegisterCallback<MouseOverEvent>(evt => {
+                OnDrag(index);
+            });
         }
     }
+
+    void OnDrag(int index) {
+        if (IsDragging) CurrentStep = index + 1;
+        Debug.Log($"isDragging: {IsDragging}");
+    }
+
+    void EnableDrag() => IsDragging = true;
+
+    void DisableDrag() => IsDragging = false;
+
 
     void Notify([CallerMemberName] string prop = "") {
         propertyChanged?.Invoke(this, new(prop));
