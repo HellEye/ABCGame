@@ -1,25 +1,10 @@
 fileFormatVersion: 2
-guid: 2f9bacc0a8c432a47b6c8cb39516f6e1
+guid: 52f2c1a67a7e3ea4985ab8fa58fa496e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6415649246072548017
-    second: Check_0
-  - first:
-      213: -1979921342558087823
-    second: Check_1
-  - first:
-      213: 5319053307008639158
-    second: Check_2
-  - first:
-      213: -6153016676629552401
-    second: Check_3
-  - first:
-      213: 1959267935640788052
-    second: Check_4
-  - first:
-      213: -7213601941091939015
-    second: Check_5
+      213: 2554887061280865917
+    second: Settings2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -128,101 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Check_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 28
-        width: 26
-        height: 232
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f45d754900907f6a0800000000000000
-      internalID: -6415649246072548017
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Check_1
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 137
-        width: 106
-        height: 106
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1755c9d6708e584e0800000000000000
-      internalID: -1979921342558087823
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Check_2
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 17
-        width: 106
-        height: 106
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6b0ed991dc211d940800000000000000
-      internalID: 5319053307008639158
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Check_3
-      rect:
-        serializedVersion: 2
-        x: 28
-        y: 28
-        width: 112
-        height: 232
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fe2e074cee71c9aa0800000000000000
-      internalID: -6153016676629552401
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Check_4
+      name: Settings2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 26
-        height: 26
+        width: 102
+        height: 102
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,30 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 45c9eab8ec7b03b10800000000000000
-      internalID: 1959267935640788052
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Check_5
-      rect:
-        serializedVersion: 2
-        x: 28
-        y: 0
-        width: 112
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 93d852ef04324eb90800000000000000
-      internalID: -7213601941091939015
+      spriteID: d7e33e0fe38c47320800000000000000
+      internalID: 2554887061280865917
       vertices: []
       indices: 
       edges: []
@@ -273,12 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Check_0: -6415649246072548017
-      Check_1: -1979921342558087823
-      Check_2: 5319053307008639158
-      Check_3: -6153016676629552401
-      Check_4: 1959267935640788052
-      Check_5: -7213601941091939015
+      Settings2_0: 2554887061280865917
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
