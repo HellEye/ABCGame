@@ -6,7 +6,7 @@ using UnityEngine;
 public class ResponsiveProfile : ScriptableObject
 {
     [Header("Reference Resolution")]
-    public Vector2 referenceResolution = new(1280, 800);
+    public Vector2 referenceResolution = new(1280, 720);
 
     [Header("Breakpoints")]
     public float phoneWidth = 700;

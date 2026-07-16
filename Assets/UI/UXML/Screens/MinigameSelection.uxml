@@ -6,9 +6,8 @@
     <ui:VisualElement name="MinigameSelection" class="screen minigame-selection" style="flex-grow: 1;"/>
     <ui:Image name="Background" class="background" style="background-image: url(&quot;project://database/Assets/Sprites/UI/menu_background.png?fileID=2800000&amp;guid=924df9d52c2d6f34db97ffc1a1baa969&amp;type=3#menu_background&quot;);"/>
     <ui:VisualElement name="Header" class="header" style="flex-grow: 1;">
-        <ui:Button text="Button" name="BackButton" class="icon-button" style="background-image: url(&quot;project://database/Assets/Sprites/UI/Return.png?fileID=2800000&amp;guid=dc4806f0a1d807d428e0a1d60a512374&amp;type=3#Return&quot;);"/>
-        <ui:Label text="Label" name="HeaderTitle" class="header-title" style="align-items: flex-end; align-self: auto; align-content: flex-start;"/>
-        <ui:Button text="Button" name="SettingsButton" class="icon-button" style="background-image: url(&quot;project://database/Assets/Sprites/UI/Settings.png?fileID=2800000&amp;guid=533696a6e6f021445ada040120f3474b&amp;type=3#Settings&quot;);"/>
+        <ui:Button text="Button" name="BackButton" class="icon-button" style="background-image: url(&quot;project://database/Assets/Sprites/UI/Return.png?fileID=2800000&amp;guid=dc4806f0a1d807d428e0a1d60a512374&amp;type=3#Return&quot;); font-size: 0; position: relative;"/>
+        <ui:Button text="Button" name="SettingsButton" class="icon-button" style="background-image: url(&quot;project://database/Assets/Sprites/UI/Settings.png?fileID=2800000&amp;guid=533696a6e6f021445ada040120f3474b&amp;type=3#Settings&quot;); font-size: 0; top: auto; left: auto; right: auto; bottom: auto; position: relative;"/>
     </ui:VisualElement>
     <ui:VisualElement name="Content" class="content" style="flex-grow: 1;">
         <ui:Button text="Button" name="LeftArrow" class="page-arrow" style="background-image: url(&quot;project://database/Assets/Sprites/UI/Arrows.png?fileID=5287939958834139383&amp;guid=e42bc2009f4fe1e40a7193c987eefd47&amp;type=3#Arrows_1&quot;); font-size: 0;"/>

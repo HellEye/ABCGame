@@ -4,7 +4,7 @@
     <Style src="project://database/Assets/UI/USS/Screens/MainMenu.uss?fileID=7433441132597879392&amp;guid=4f0be8976d0182a418e8791fea9b8142&amp;type=3#MainMenu"/>
     <ui:VisualElement name="MainMenu" class="main-menu screen" style="flex-grow: 1;">
         <ui:VisualElement name="Background" class="background" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/UI/menu_background.png?fileID=2800000&amp;guid=924df9d52c2d6f34db97ffc1a1baa969&amp;type=3#menu_background&quot;);"/>
-        <ui:Image name="Logo" class="logo" style="background-image: url(&quot;project://database/Assets/Sprites/UI/logo.png?fileID=2800000&amp;guid=3f22bb56d73a6df429a91f4be2fcfb07&amp;type=3#logo&quot;);"/>
-        <ui:Label text="naciśnij aby rozpocząć" name="PressToStart" class="start-text press-start press-to-start" style="align-self: center; justify-content: center; align-items: center; align-content: auto; background-position-x: center; background-position-y: center; -unity-text-align: middle-center; position: absolute; top: 66%; left: auto; bottom: auto; right: auto; -unity-font-definition: url(&quot;project://database/Assets/Fonts/Super%20Warming.ttf?fileID=12800000&amp;guid=5b62f8b0e30230e4a8cd6d2a283c7f21&amp;type=3#Super Warming&quot;); font-size: 60px;"/>
+        <ui:Image name="Logo" class="logo" style="background-image: url(&quot;project://database/Assets/Sprites/UI/logo.png?fileID=2800000&amp;guid=3f22bb56d73a6df429a91f4be2fcfb07&amp;type=3#logo&quot;); bottom: auto; top: auto; left: auto; right: auto; height: 664px;"/>
+        <ui:Label text="naciśnij aby rozpocząć" name="PressToStart" class="start-text press-start press-to-start" style="-unity-text-align: upper-center; -unity-font-definition: url(&quot;project://database/Assets/Fonts/Super%20Warming.ttf?fileID=12800000&amp;guid=5b62f8b0e30230e4a8cd6d2a283c7f21&amp;type=3#Super Warming&quot;); top: 60%;"/>
     </ui:VisualElement>
 </ui:UXML>

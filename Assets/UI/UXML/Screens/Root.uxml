@@ -1,0 +1,10 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="MainMenu" src="project://database/Assets/UI/UXML/Screens/MainMenu.uxml?fileID=9197481963319205126&amp;guid=70163fbb3c1af5241a0d421bb458b5d4&amp;type=3#MainMenu"/>
+    <ui:Template name="MinigameSelection" src="project://database/Assets/UI/UXML/Screens/MinigameSelection.uxml?fileID=9197481963319205126&amp;guid=3ccb6e3559fcfdb4e9d642b2a93af0f2&amp;type=3#MinigameSelection"/>
+    <Style src="project://database/Assets/UI/USS/Common/Common.uss?fileID=7433441132597879392&amp;guid=fdae795555f391042bf8284f5e54613b&amp;type=3#Common"/>
+    <Style src="project://database/Assets/UI/USS/Screens/MainMenu.uss?fileID=7433441132597879392&amp;guid=4f0be8976d0182a418e8791fea9b8142&amp;type=3#MainMenu"/>
+    <Style src="project://database/Assets/UI/USS/Screens/MinigameSelection.uss?fileID=7433441132597879392&amp;guid=f8bdcde07a0a5034b9dfaa70849810b2&amp;type=3#MinigameSelection"/>
+    <Style src="project://database/Assets/UI/USS/Common/Buttons.uss?fileID=7433441132597879392&amp;guid=0719abd2b9b000047a5f18c51626a4f6&amp;type=3#Buttons"/>
+    <ui:Instance template="MinigameSelection" name="MinigameSelection" enabled="true" class="screen"/>
+    <ui:Instance template="MainMenu" name="MainMenu" enabled="true" class="screen"/>
+</ui:UXML>
