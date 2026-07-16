@@ -60,13 +60,9 @@ public partial class PillSlider : BaseField<float>, INotifyBindablePropertyChang
         var currentStep = CurrentStep;
         foreach (var (pill, i) in pillsContainer.Children().OfType<Button>().Indexed())
             pill.EnableInClassList("PillSlider__pill--active", i < currentStep);
-
-        Debug.Log("Pills Refreshed");
-        Debug.Log($"Current Step: {currentStep}, value: {currentValue}");
     }
 
     void RedrawPillAmount() {
-        Debug.Log("Drawing Pills");
         pillsContainer.Clear();
         for (var i = 0; i < Steps; i++) {
             var pill = new Button();
