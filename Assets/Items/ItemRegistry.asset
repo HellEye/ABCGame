@@ -14,9 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemRegistry
   items:
   - underlyingValue: {fileID: 11400000, guid: 5a47466387403b7a6aa384030732bfee, type: 2}
-  - underlyingValue: {fileID: 11400000, guid: bcfd84dc30237f6de9c326751f45158f, type: 2}
+  - underlyingValue: {fileID: 11400000, guid: cdf501469a7cf0145afcbbe16898cbbf, type: 2}
   - underlyingValue: {fileID: 11400000, guid: 10e5a580e1764924f95945b2a66c482a, type: 2}
   - underlyingValue: {fileID: 11400000, guid: b59c455ad3da31b4d97be2f06f8dccab, type: 2}
   - underlyingValue: {fileID: 11400000, guid: 1dde04cbaba7580408e69ba5837255fc, type: 2}
   - underlyingValue: {fileID: 11400000, guid: cdf501469a7cf0145afcbbe16898cbbf, type: 2}
   - underlyingValue: {fileID: 11400000, guid: b27c21832bd256947a3c8931abc28414, type: 2}
+  - underlyingValue: {fileID: 11400000, guid: d6f40237c2755ca4f9482e55dc1f0ffd, type: 2}
+  - underlyingValue: {fileID: 11400000, guid: 77027b7a8d36de248aff0b64a94ed010, type: 2}
+  - underlyingValue: {fileID: 11400000, guid: 779c18062bb86f245915f93763219ef8, type: 2}
+  - underlyingValue: {fileID: 11400000, guid: 21af7ded376b82e41871980291a8f8cd, type: 2}
+  letters: []
