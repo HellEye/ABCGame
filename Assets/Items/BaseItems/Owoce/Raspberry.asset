@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82cfb2eb6a58830eda8329321d51c153, type: 3}
-  m_Name: Onion
+  m_Name: Raspberry
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  itemName: Cebula
+  itemName: Malina
   sprite:
-    m_AssetGUID: 670beba2a3f455c45b69b8294e6d64ff
-    m_SubObjectName: onion
+    m_AssetGUID: cb87483d98bfdd6448701de9eb49b76c
+    m_SubObjectName: raspberry
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_SubObjectGUID: 

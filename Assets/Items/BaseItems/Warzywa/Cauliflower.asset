@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Kalafior
   sprite:
-    m_AssetGUID: ca3f804b20445e547a10ca38d7ec71f7
+    m_AssetGUID: 9ba2bb13d1539f143916278d2c7055ac
     m_SubObjectName: cauliflower
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null

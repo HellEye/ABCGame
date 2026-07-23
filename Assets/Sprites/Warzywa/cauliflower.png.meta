@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 248b94fa06c329c49a3c7aaf69c487df
+guid: 9ba2bb13d1539f143916278d2c7055ac
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5768364531109799046
-    second: onion_0
+      213: 8429711700039073009
+    second: cauliflower_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: onion_0
+      name: cauliflower_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2793
-        height: 2793
+        x: 12
+        y: 28
+        width: 489
+        height: 428
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a7bdc346507a2ffa0800000000000000
-      internalID: -5768364531109799046
+      spriteID: 1fc78cfe02a5cf470800000000000000
+      internalID: 8429711700039073009
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      onion_0: -5768364531109799046
+      cauliflower_0: 8429711700039073009
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

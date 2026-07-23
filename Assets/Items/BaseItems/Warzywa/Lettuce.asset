@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: "Sa\u0142ata"
   sprite:
-    m_AssetGUID: 88c6c5df194593c43a97cf18a483ee84
+    m_AssetGUID: 2c56a8a231e12bc408b8636cc954e6f9
     m_SubObjectName: lettuce
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null

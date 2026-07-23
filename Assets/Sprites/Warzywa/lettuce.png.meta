@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ca3f804b20445e547a10ca38d7ec71f7
+guid: 2c56a8a231e12bc408b8636cc954e6f9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8429711700039073009
-    second: cauliflower_0
+      213: 1476140979647752040
+    second: lettuce_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cauliflower_0
+      name: lettuce_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 600
-        height: 400
+        x: 39
+        y: 39
+        width: 452
+        height: 452
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1fc78cfe02a5cf470800000000000000
-      internalID: 8429711700039073009
+      spriteID: 8672d4a666e4c7410800000000000000
+      internalID: 1476140979647752040
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      cauliflower_0: 8429711700039073009
+      lettuce_0: 1476140979647752040
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -70,11 +70,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 248b94fa06c329c49a3c7aaf69c487df
-    m_Address: Assets/Sprites/Warzywa/onion.jpg
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2735fd39845fdd94da874dcf4c306c98
     m_Address: Assets/Sprites/Jedzenie/fries.png
     m_ReadOnly: 0
@@ -87,6 +82,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2908e333fe87dba4ca5d4cdecfe5bda4
     m_Address: Assets/Sprites/Jedzenie/milk.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2c56a8a231e12bc408b8636cc954e6f9
+    m_Address: Assets/Sprites/Warzywa/lettuce.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -155,6 +155,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 670beba2a3f455c45b69b8294e6d64ff
+    m_Address: Assets/Sprites/Warzywa/onion.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 74585e4c9d32a8b4884e30bbb5aa8672
     m_Address: Assets/Sprites/Ubrania/pants.jpg
     m_ReadOnly: 0
@@ -182,11 +187,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8578aceba2327bc4498711200556a837
     m_Address: "Assets/Sprites/Zwierz\u0119ta/goat.jpg"
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 88c6c5df194593c43a97cf18a483ee84
-    m_Address: Assets/Sprites/Warzywa/lettuce.jpg
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -222,6 +222,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 983be24a5237101499bcecc5cf4f093a
     m_Address: "Assets/Sprites/Zwierz\u0119ta/sheep.jpg"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ba2bb13d1539f143916278d2c7055ac
+    m_Address: Assets/Sprites/Warzywa/cauliflower.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -310,13 +315,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ca3f804b20445e547a10ca38d7ec71f7
-    m_Address: Assets/Sprites/Warzywa/cauliflower.jpg
+  - m_GUID: ca816654603fac24f984dd8903d5bc68
+    m_Address: Assets/Sprites/Jedzenie/tea.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ca816654603fac24f984dd8903d5bc68
-    m_Address: Assets/Sprites/Jedzenie/tea.png
+  - m_GUID: cb87483d98bfdd6448701de9eb49b76c
+    m_Address: Assets/Sprites/Owoce/raspberry.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
