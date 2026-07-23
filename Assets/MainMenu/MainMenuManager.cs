@@ -99,14 +99,14 @@ public class MainMenuManager : MonoBehaviour {
 
     void InitMaxDifficulties()
     {
-        int initMaxDifficulties = minigameRegistry.GetMapping.Select(level => level.difficultiesMappings.Count()).Max();
+        int initMaxDifficulties = minigameRegistry.Mappings.Select(level => level.difficultiesMappings.Count()).Max();
         maxDifficulties = initMaxDifficulties;
     }
     
     void InitMaxLevels()
     {
         int initMaxLevels = 0;
-        foreach (LevelMapping minigame in minigameRegistry.GetMapping)
+        foreach (LevelMapping minigame in minigameRegistry.Mappings)
         {
             initMaxLevels++;
         }

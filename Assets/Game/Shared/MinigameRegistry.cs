@@ -10,7 +10,7 @@ public struct DifficultyMapping {
 }
 
 [Serializable]
-public struct LevelMapping {
+public class LevelMapping {
     public int levelIndex;
     public string levelName;
     public Sprite levelIcon;
@@ -21,12 +21,13 @@ public struct LevelMapping {
 [CreateAssetMenu(fileName = "MinigameRegistry", menuName = "ScriptableObjects/MinigameRegistry")]
 public class MinigameRegistry : ScriptableObject {
     [SerializeField] private LevelMapping[] mappings;
-    public LevelMapping[] GetMapping
+    public LevelMapping[] Mappings
     {
         get => mappings;
     }
     public int Count => mappings.Length;
 
+    [Obsolete ("Kod pisany na szybko do zmiany lub wyrzucenia")]
     public (SceneReference sceneAsset, IDifficulty<ScriptableObject> difficulty) GetLevelData(int levelIndex,
         int difficultyIndex) {
         var levelMapping = mappings.FirstOrDefault(m => m.levelIndex == levelIndex);

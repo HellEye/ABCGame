@@ -129,8 +129,8 @@ GameObject:
   m_Component:
   - component: {fileID: 153866596}
   - component: {fileID: 153866599}
-  - component: {fileID: 153866597}
   - component: {fileID: 153866600}
+  - component: {fileID: 153866601}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -153,19 +153,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &153866597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153866595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 790bf82842fab514484b179e2e01331f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ResponsiveUIManager
-  profile: {fileID: 11400000, guid: f8478f7159b226841982f94538e57b6f, type: 2}
 --- !u!114 &153866599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +192,19 @@ MonoBehaviour:
   placeholderThumbnail: {fileID: 3310625005784379877, guid: 3f22bb56d73a6df429a91f4be2fcfb07, type: 3}
   cornerSprite: {fileID: -489222675259022805, guid: 4c7a2df86ee26d74995165c138634137, type: 3}
   heartSprite: {fileID: 3882163694322211731, guid: c396f380667c9954f8814132cb8a6fe2, type: 3}
+--- !u!114 &153866601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153866595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89e999446818a5d47a8d838401efe54e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResponsiveUIManager
+  profile: {fileID: 11400000, guid: f8478f7159b226841982f94538e57b6f, type: 2}
 --- !u!1 &356506195
 GameObject:
   m_ObjectHideFlags: 0

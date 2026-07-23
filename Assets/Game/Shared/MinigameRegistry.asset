@@ -19,23 +19,11 @@ MonoBehaviour:
     sceneReference:
       asset: {fileID: 102900000, guid: e0407bc4beee0ed8db9c4e4469602782, type: 3}
       guid: e0407bc4beee0ed8db9c4e4469602782
-    mappings:
-    - difficultyData:
-        underlyingValue: {fileID: 11400000, guid: 2034b22d734fb31d89a893f8482f98af, type: 2}
-    - difficultyData:
-        underlyingValue: {fileID: 11400000, guid: 453c59661d257cad889cfc4205695b92, type: 2}
-    - difficultyData:
-        underlyingValue: {fileID: 11400000, guid: 4b240e6606470111b9d8b515b4c8282a, type: 2}
+    difficultiesMappings: []
   - levelIndex: 1
-    levelName: 
-    levelIcon: {fileID: 0}
+    levelName: Letters
+    levelIcon: {fileID: 21300000, guid: b1cea3abc66276849a30a8126530c200, type: 3}
     sceneReference:
       asset: {fileID: 102900000, guid: 29435df7b7e152152b673fd0186a6174, type: 3}
       guid: 29435df7b7e152152b673fd0186a6174
-    mappings:
-    - difficultyData:
-        underlyingValue: {fileID: 11400000, guid: 5518a95bef4998ebea1c9de1a1305473, type: 2}
-    - difficultyData:
-        underlyingValue: {fileID: 11400000, guid: fcc3e3fcac61d77169dab23b0c05d017, type: 2}
-    - difficultyData:
-        underlyingValue: {fileID: 11400000, guid: 771817af54608bfc2b59ebad1eb31826, type: 2}
+    difficultiesMappings: []
