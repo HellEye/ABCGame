@@ -1,0 +1,44 @@
+.PillSlider__container {
+    min-height: 30px;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+
+}
+
+.PillSlider__pillsContainer {
+    display: flex;
+    flex-direction: row;
+    padding-left: 4px;
+}
+
+.PillSlider__pill {
+    border-radius: 20px;
+    width: 40px;
+    height: 80px;
+    border-width: 4px;
+
+    border-color: #aa33aa;
+    margin-right: 4px;
+    background-color: #333333;
+}
+
+.PillSlider__pill.PillSlider__pill--active {
+    background-color: #ffaaff;
+}
+
+.PillSlider__button {
+    border-radius: 999px;
+    border-width: 4px;
+    border-color: #aa33aa;
+    background-color: #ff66ff;
+    color: #881188;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    font-size: 24px;
+    font-weight: bold;
+    -unity-text-align: middle-center;
+    align-items: center;
+    justify-content: center;
+}
