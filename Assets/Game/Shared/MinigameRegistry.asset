@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DifficultyRegistry
   mappings:
   - levelIndex: 0
+    levelName: DragAndDrop
+    levelIcon: {fileID: 21300000, guid: ddc5d46c8fe820e4b87e18ce10d51627, type: 3}
     sceneReference:
       asset: {fileID: 102900000, guid: e0407bc4beee0ed8db9c4e4469602782, type: 3}
       guid: e0407bc4beee0ed8db9c4e4469602782
@@ -25,6 +27,8 @@ MonoBehaviour:
     - difficultyData:
         underlyingValue: {fileID: 11400000, guid: 4b240e6606470111b9d8b515b4c8282a, type: 2}
   - levelIndex: 1
+    levelName: 
+    levelIcon: {fileID: 0}
     sceneReference:
       asset: {fileID: 102900000, guid: 29435df7b7e152152b673fd0186a6174, type: 3}
       guid: 29435df7b7e152152b673fd0186a6174

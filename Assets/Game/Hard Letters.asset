@@ -17,5 +17,6 @@ MonoBehaviour:
   difficulty: 2
   itemTypes: 3
   targetTypes: 3
+  difficultyIcon: {fileID: 21300000, guid: 01a432970af4c3e47b1d8b2408e86057, type: 3}
   maxItems: 12
   itemsPerType: 4
