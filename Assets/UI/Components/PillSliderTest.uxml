@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
+         editor-extension-mode="False">
+    <Style
+        src="project://database/Assets/UI/Components/PillSliderStyles.uss?fileID=7433441132597879392&amp;guid=85a2f00ca1fab54609dd64ac623cb4c7&amp;type=3#PillSliderStyles"/>
+    <ui:VisualElement style="flex-grow: 1; background-color: rgb(55, 55, 55);">
+        <PillSlider max="10" steps="10" name="pill-slider">
+            <Bindings>
+                <ui:DataBinding property="value" data-source-path="Value" binding-mode="TwoWay"/>
+            </Bindings>
+        </PillSlider>
+        
+    </ui:VisualElement>
+</ui:UXML>
