@@ -433,8 +433,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameLoader
   mainMenuScene:
-    asset: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    asset: {fileID: 102900000, guid: 59adea5e46918e249a3c5ce591c213c7, type: 3}
+    guid: 59adea5e46918e249a3c5ce591c213c7
   dragAndDropScene:
     asset: {fileID: 102900000, guid: e0407bc4beee0ed8db9c4e4469602782, type: 3}
     guid: e0407bc4beee0ed8db9c4e4469602782

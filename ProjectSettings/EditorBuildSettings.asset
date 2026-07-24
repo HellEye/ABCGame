@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Loader.unity
     guid: 0333b9cccbcbe297795c436ee6785bee
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/MainMenu_UI.unity
+    guid: 59adea5e46918e249a3c5ce591c213c7
   - enabled: 1
     path: Assets/Scenes/DragAndDropGameplay.unity
     guid: e0407bc4beee0ed8db9c4e4469602782
