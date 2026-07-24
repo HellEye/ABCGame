@@ -26,7 +26,16 @@ public class MinigameCardView
 
     public VisualElement Root => root;
 
-    public MinigameCardData Data { get; private set; }
+    LevelMapping data;
+    public LevelMapping Data
+    {
+        get => data;
+        set
+        {
+            data = value;
+            SetData(value);
+        }
+    }
 
     private readonly VisualElement root;
 
@@ -58,27 +67,12 @@ public class MinigameCardView
         {
             Clicked?.Invoke(this);
         });
-
-        root.RegisterCallback<PointerEnterEvent>(_ =>
-        {
-            root.AddToClassList("hover");
-        });
-
-        root.RegisterCallback<PointerLeaveEvent>(_ =>
-        {
-            root.RemoveFromClassList("hover");
-        });
     }
 
-    public void SetData(MinigameCardData data)
+    public void SetData(LevelMapping data)
     {
-        Data = data;
-
-        Title = data.title;
-        Thumbnail = data.thumbnail;
-        CornerSprite = data.cornerSprite;
-        HeartSprite = data.heartSprite;
-        HeartColor = data.heartColor;
+        Title = data.levelName;
+        Thumbnail = data.levelIcon;
     }
 
     #region Properties

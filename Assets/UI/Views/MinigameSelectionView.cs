@@ -7,16 +7,16 @@ public class MinigameSelectionView
 {
     public event Action<int> CardClicked;
 
-    private readonly VisualElement root;
+    //private readonly VisualElement root;
     private readonly VisualElement cardContainer;
     private readonly VisualElement cardGrid;
 
-    private readonly Button leftArrow;
-    private readonly Button rightArrow;
+    //private readonly Button leftArrow;
+    //private readonly Button rightArrow;
 
     private readonly VisualTreeAsset cardTemplate;
 
-    private readonly List<MinigameCardData> cardData = new();
+    private readonly List<LevelMapping> cardData = new();
     private readonly List<MinigameCardView> cardViews = new();
 
     private int currentPage;
@@ -25,22 +25,22 @@ public class MinigameSelectionView
         VisualElement root,
         VisualTreeAsset cardTemplate)
     {
-        this.root = root;
+        //this.root = root;
         this.cardTemplate = cardTemplate;
 
         cardContainer = root.Q<VisualElement>("CardContainer");
         cardGrid = root.Q<VisualElement>("CardGrid");
 
-        leftArrow = root.Q<Button>("LeftArrow");
-        rightArrow = root.Q<Button>("RightArrow");
+        //leftArrow = root.Q<Button>("LeftArrow");
+        //rightArrow = root.Q<Button>("RightArrow");
 
-        leftArrow.clicked += PreviousPage;
-        rightArrow.clicked += NextPage;
+        //leftArrow.clicked += PreviousPage;
+        //rightArrow.clicked += NextPage;
 
         ResponsiveUIManager.Instance.LayoutChanged += RefreshLayout;
     }
 
-    public void SetCards(List<MinigameCardData> cards)
+    public void SetCards(LevelMapping[] cards)
     {
         cardData.Clear();
         cardData.AddRange(cards);
@@ -122,8 +122,8 @@ public class MinigameSelectionView
                 i < last;
         }
 
-        leftArrow.SetEnabled(currentPage > 0);
-        rightArrow.SetEnabled(last < cardViews.Count);
+        //leftArrow.SetEnabled(currentPage > 0);
+        //rightArrow.SetEnabled(last < cardViews.Count);
     }
 
     private void NextPage()

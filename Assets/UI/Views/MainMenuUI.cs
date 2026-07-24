@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Reflex.Attributes;
 
 [RequireComponent(typeof(UIDocument))]
 public class MainMenuUI : MonoBehaviour
@@ -12,6 +13,8 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private Sprite placeholderThumbnail;
     [SerializeField] private Sprite cornerSprite;
     [SerializeField] private Sprite heartSprite;
+    
+    [Inject] MinigameRegistry minigameRegistry;
 
     private UIDocument document;
     private MinigameSelectionView selectionView;
@@ -39,21 +42,9 @@ public class MainMenuUI : MonoBehaviour
 
     private void LoadDemoCards()
     {
-        List<MinigameCardData> cards = new();
+        
 
-        for (int i = 0; i < 8; i++)
-        {
-            cards.Add(new MinigameCardData
-            {
-                title = $"Minigame {i + 1}",
-                thumbnail = placeholderThumbnail,
-                cornerSprite = cornerSprite,
-                heartSprite = heartSprite,
-                heartColor = Color.white
-            });
-        }
-
-        selectionView.SetCards(cards);
+        selectionView.SetCards(minigameRegistry.Mappings);
     }
 
     private void OnCardClicked(int index)

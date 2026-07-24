@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Hard
   m_EditorClassIdentifier: Assembly-CSharp::DropZoneGameDifficulty
   difficultyName: Hard
+  variant: 0
   difficulty: 2
   itemTypes: 3
   targetTypes: 3
+  difficultyIcon: {fileID: 21300000, guid: 1200d9ddc5756d54ab3011292244e75c, type: 3}
   maxItems: 12
   itemsPerType: 4
