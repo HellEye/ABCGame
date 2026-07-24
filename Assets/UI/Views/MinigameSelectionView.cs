@@ -40,17 +40,17 @@ public class MinigameSelectionView
         ResponsiveUIManager.Instance.LayoutChanged += RefreshLayout;
     }
 
-    public void SetCards(LevelMapping[] cards)
+    public void SetCards(LevelMapping[] cards, Sprite heartSprite, Sprite cornerSprite)
     {
         cardData.Clear();
         cardData.AddRange(cards);
 
-        BuildCards();
+        BuildCards (heartSprite, cornerSprite);
 
         RefreshLayout();
     }
 
-    private void BuildCards()
+    private void BuildCards(Sprite heartSprite, Sprite cornerSprite)
     {
         var layout = ResponsiveUIManager.Instance.CurrentLayout;
         
@@ -61,9 +61,11 @@ public class MinigameSelectionView
         {
             int index = i;
 
-            var card = new MinigameCardView(cardTemplate);
+            var card = new MinigameCardView();
+            card.InitMinigameCardView(cardTemplate);
 
             card.SetData(cardData[index]);
+            card.SetFrame(heartSprite, cornerSprite);
 
             card.Clicked += _ =>
             {

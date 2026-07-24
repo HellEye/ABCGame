@@ -11,8 +11,8 @@
     position: relative;
 
     border-radius: 30px;
-
-    overflow: hidden;
+    border-width: 4px;
+    border-color: white;
 
     background-color: rgb(235,235,235);
 
@@ -24,6 +24,8 @@
 
     transition-property: scale;
     transition-duration: 0.15s;
+
+    overflow: visible;
 }
 
 
@@ -34,7 +36,7 @@
 .card-thumbnail
 {
     position: absolute;
-
+    
     left: 15px;
     right: 15px;
     top: 15px;
@@ -53,8 +55,8 @@
 {
     position: absolute;
 
-    left: 0;
-    top: 0;
+    left: -10px;
+    top: -10px;
 
     width: 52px;
     height: 52px;
@@ -66,7 +68,7 @@
 
 .favorite-corner-background
 {
-    position: absolute;
+    /*position: absolute;*/
 
     left: 0;
     top: 0;
@@ -88,8 +90,8 @@
     left: 7px;
     top: 7px;
 
-    width: 22px;
-    height: 22px;
+    width: 220px;
+    height: 220px;
 
     -unity-background-scale-mode: scale-to-fit;
 
@@ -123,8 +125,9 @@
    HOVER
    ========================================================== */
 
-.minigame-card:hover
+.minigame-card:hover, .minigame-card :hover
 {
+    background-color: red;
     scale: 1.03;
 }
 

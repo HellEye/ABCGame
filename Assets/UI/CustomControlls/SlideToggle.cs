@@ -88,7 +88,7 @@ public partial class SlideToggle: BaseField<bool>
 
     void UpdateVisuals()
     {
-        input.EnableInClassList(inputClassName, value);
+        input.EnableInClassList(inputCheckedClassName, value);
         
         input.style.backgroundColor = value ? enabledBackgroundColor : disabledBackgroundColor;
         

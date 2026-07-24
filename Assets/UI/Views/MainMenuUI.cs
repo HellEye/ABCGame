@@ -44,7 +44,7 @@ public class MainMenuUI : MonoBehaviour
     {
         
 
-        selectionView.SetCards(minigameRegistry.Mappings);
+        selectionView.SetCards(minigameRegistry.Mappings, heartSprite, cornerSprite);
     }
 
     private void OnCardClicked(int index)

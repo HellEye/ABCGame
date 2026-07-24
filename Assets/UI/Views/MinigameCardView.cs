@@ -2,7 +2,8 @@ using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class MinigameCardView
+[UxmlElement]
+public partial class MinigameCardView: Button
 {
     #region Design Constants
 
@@ -37,16 +38,18 @@ public class MinigameCardView
         }
     }
 
-    private readonly VisualElement root;
+    private VisualElement root;
 
-    private readonly Image thumbnail;
-    private readonly VisualElement corner;
-    private readonly Image cornerBackground;
-    private readonly Image heart;
+    private Image thumbnail;
+    private VisualElement corner;
+    private Image cornerBackground;
+    private Image heart;
 
-    private readonly Label title;
+    private Label title;
 
-    public MinigameCardView(VisualTreeAsset template)
+    public MinigameCardView() { }
+
+    public void InitMinigameCardView(VisualTreeAsset template)
     {
         root = template.Instantiate();
 
@@ -73,6 +76,12 @@ public class MinigameCardView
     {
         Title = data.levelName;
         Thumbnail = data.levelIcon;
+    }
+
+    public void SetFrame(Sprite cornerSprite, Sprite heartSprite)
+    {
+        HeartSprite = heartSprite;
+        CornerSprite = cornerSprite;
     }
 
     #region Properties
