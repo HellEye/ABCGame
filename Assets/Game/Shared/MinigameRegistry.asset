@@ -15,14 +15,14 @@ MonoBehaviour:
   mappings:
   - levelIndex: 0
     levelName: DragAndDrop
-    levelIcon: {fileID: 21300000, guid: ddc5d46c8fe820e4b87e18ce10d51627, type: 3}
+    levelIcon: {fileID: 0}
     sceneReference:
       asset: {fileID: 102900000, guid: e0407bc4beee0ed8db9c4e4469602782, type: 3}
       guid: e0407bc4beee0ed8db9c4e4469602782
     difficultiesMappings: []
   - levelIndex: 1
     levelName: Letters
-    levelIcon: {fileID: 21300000, guid: b1cea3abc66276849a30a8126530c200, type: 3}
+    levelIcon: {fileID: 0}
     sceneReference:
       asset: {fileID: 102900000, guid: 29435df7b7e152152b673fd0186a6174, type: 3}
       guid: 29435df7b7e152152b673fd0186a6174
