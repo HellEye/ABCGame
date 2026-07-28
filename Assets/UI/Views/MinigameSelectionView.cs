@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks.Triggers;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Reflex.Attributes;
 
 public class MinigameSelectionView
 {
-    public event Action<int> CardClicked;
+    public event Action<LevelMapping> CardClicked;
 
     //private readonly VisualElement root;
     private readonly VisualElement cardContainer;
@@ -64,12 +66,12 @@ public class MinigameSelectionView
             var card = new MinigameCardView();
             card.InitMinigameCardView(cardTemplate);
 
-            card.SetData(cardData[index]);
-            card.SetFrame(heartSprite, cornerSprite);
+            card.Data = (cardData[index]);
+            card.SetFrame(cornerSprite, heartSprite);
 
             card.Clicked += _ =>
             {
-                CardClicked?.Invoke(index);
+                CardClicked?.Invoke(card.Data);
             };
 
             cardViews.Add(card);

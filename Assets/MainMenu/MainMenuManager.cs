@@ -65,14 +65,14 @@ public class MainMenuManager : MonoBehaviour {
     }
 
     void OnDifficultyButtonClicked(int difficultyIndex) {
-        Debug.Log($"Scene {gameIndex} with difficulty {difficultyIndex} selected");
+        /*Debug.Log($"Scene {gameIndex} with difficulty {difficultyIndex} selected");
         difficultyPopup.IsOpen = false;
         var (scene, difficulty) = minigameRegistry.GetLevelData(gameIndex, difficultyIndex);
         Debug.Log($"Scene {scene} with difficulty {difficulty} selected");
         if (scene == null || difficulty == null) return;
         difficultyHolder.selectedDifficulty = difficulty;
         difficultyHolder.selectedScene = scene;
-        gameLoader.LoadGameplaySceneFromHolder().Forget();
+        gameLoader.LoadGameplaySceneFromHolder().Forget();*/
     }
 
     void ChangePage(int step)

@@ -63,7 +63,7 @@ public partial class MinigameCardView: Button
 
         RegisterEvents();
     }
-
+    
     private void RegisterEvents()
     {
         root.RegisterCallback<ClickEvent>(_ =>
@@ -72,7 +72,7 @@ public partial class MinigameCardView: Button
         });
     }
 
-    public void SetData(LevelMapping data)
+    private void SetData(LevelMapping data)
     {
         Title = data.levelName;
         Thumbnail = data.levelIcon;
@@ -81,6 +81,7 @@ public partial class MinigameCardView: Button
     public void SetFrame(Sprite cornerSprite, Sprite heartSprite)
     {
         HeartSprite = heartSprite;
+        HeartColor = Color.white;
         CornerSprite = cornerSprite;
     }
 

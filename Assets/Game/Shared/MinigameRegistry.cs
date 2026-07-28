@@ -27,18 +27,21 @@ public class MinigameRegistry : ScriptableObject {
     }
     public int Count => mappings.Length;
 
+    /*
     [Obsolete ("Kod pisany na szybko do zmiany lub wyrzucenia")]
     public (SceneReference sceneAsset, IDifficulty<ScriptableObject> difficulty) GetLevelData(int levelIndex,
         int difficultyIndex) {
         var levelMapping = mappings.FirstOrDefault(m => m.levelIndex == levelIndex);
         var difficultyMapping =
-            levelMapping.difficultiesMappings.Where(d => d.difficultyData.Value.Difficulty == (Difficulty)difficultyIndex)
+            
+            
                 .PickRandom();
 
         if (difficultyMapping.difficultyData == null) return (null, null);
 
         return (levelMapping.sceneReference, difficultyMapping.difficultyData.Value);
     }
+    */
 
     public LevelMapping[] GetMappings()
     {
@@ -50,6 +53,7 @@ public interface IDifficulty<out T> where T : ScriptableObject {
     Type type => typeof(T);
     Difficulty Difficulty { get; }
     Variant Variant { get; }
+    string Name { get; }
 }
 
 public enum Variant {

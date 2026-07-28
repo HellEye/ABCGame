@@ -10,8 +10,6 @@ public class DropZoneGameDifficulty : ScriptableObject, IDifficulty<DropZoneGame
     public int itemTypes = 3;
     public int targetTypes = 1;
     
-    public string DifficultyName => difficulty.ToString();
-    
     [Header("Difficulty sprites")]
     [SerializeField] private Sprite difficultyIcon;
     public Sprite DifficultyIcon => difficultyIcon;
@@ -22,4 +20,5 @@ public class DropZoneGameDifficulty : ScriptableObject, IDifficulty<DropZoneGame
     public int itemsPerType = 3;
     public Difficulty Difficulty => difficulty;
     public Variant Variant => variant;
+    public string Name => difficultyName;
 }
