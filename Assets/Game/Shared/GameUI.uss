@@ -1,0 +1,24 @@
+
+.objective-label-wrap {
+    position: absolute;
+    left: 32px;
+    right: 32px;
+    bottom: 32px;
+}
+
+.label-wrap {
+    background-color: #66666655;
+    border-radius: 8px;
+    border-width: 3px;
+    border-color: #888888;
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+}
+
+.objective-label {
+    -unity-text-align: middle-center;
+    font-size: 60px;
+    color: white;
+    white-space: normal;
+}

@@ -74,12 +74,6 @@ public class ItemSpawnerManager : MonoBehaviour, IScreenSpaceBounds {
         return newItem;
     }
 
-    void CreateDropZone(IElement item, float normalizedXPos) {
-        var newDropZone = Instantiate(dropZonePrefab, Vector3.zero, Quaternion.identity);
-        newDropZone.Initialize(item, new(normalizedXPos, dropZoneNormalizedY));
-        gameManager.AddDropZone(newDropZone);
-    }
-
     Vector3 RandomiseSpawnPos(List<Vector2> existingPositions, float squareRadius) {
         var pos = Vector2.zero;
         for (var i = 0; i < 100; i++) {
@@ -94,13 +88,9 @@ public class ItemSpawnerManager : MonoBehaviour, IScreenSpaceBounds {
         return pos;
     }
 
-    public void SpawnDropZones(IEnumerable<IElement> targets) {
-        var targetList = targets.ToList();
-        var count = targetList.Count;
-        var spacing = 1f / (count + 1f);
-        for (var i = 0; i < targetList.Count; i++) {
-            var target = targetList[i];
-            CreateDropZone(target, spacing * (i + 1));
-        }
+    public DropZone SpawnDropZone(IEnumerable<IElement> targets) {
+        var newDropZone = Instantiate(dropZonePrefab, Vector3.zero, Quaternion.identity);
+        newDropZone.Initialize(targets, new(0.5f, dropZoneNormalizedY));
+        return newDropZone;
     }
 }

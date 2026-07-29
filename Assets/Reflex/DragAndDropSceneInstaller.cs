@@ -10,7 +10,6 @@ public class DragAndDropSceneInstaller : MonoBehaviour, IInstaller {
 
     [SerializeField] ItemSpawnerManager itemSpawnerManager;
     [SerializeField] DropZoneGameManager gameManager;
-    [SerializeField] DropZoneUIController uiController;
 
     public void InstallBindings(ContainerBuilder builder) {
         builder.RegisterType(
@@ -20,7 +19,6 @@ public class DragAndDropSceneInstaller : MonoBehaviour, IInstaller {
             Resolution.Eager);
         builder.RegisterValue(screenSizeManager);
         builder.RegisterValue(itemSpawnerManager);
-        builder.RegisterValue(gameManager);
-        builder.RegisterValue(uiController);
+        builder.RegisterValue(gameManager, new[] { typeof(IGameManager), typeof(DropZoneGameManager) });
     }
 }
