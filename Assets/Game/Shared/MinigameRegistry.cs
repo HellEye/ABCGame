@@ -11,7 +11,6 @@ public struct DifficultyMapping {
 
 [Serializable]
 public class LevelMapping {
-    public int levelIndex;
     public string levelName;
     public Sprite levelIcon;
     public SceneReference sceneReference;

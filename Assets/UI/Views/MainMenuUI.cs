@@ -22,6 +22,7 @@ public class MainMenuUI : MonoBehaviour
 
     private UIDocument document;
     private MinigameSelectionView selectionView;
+    private MinigameCardView cardImageView;
 
     private void Awake()
     {
@@ -34,6 +35,7 @@ public class MainMenuUI : MonoBehaviour
         CreateSelectionView();
 
         LoadDemoCards();
+        BuildPopupCard();
     }
 
     private void CreateSelectionView()
@@ -53,6 +55,7 @@ public class MainMenuUI : MonoBehaviour
     private void OnCardClicked(LevelMapping mapping)
     {
         SetupDifficultyButtons(mapping);
+        cardImageView.Data = mapping;
         difficultyPopup.IsOpen = true;
         //Debug.Log("Clicked");
     }
@@ -64,7 +67,7 @@ public class MainMenuUI : MonoBehaviour
             var button = new Button();
             DifficultyMapping difficulty = mapping.difficultiesMappings[i];
             button.text = difficulty.difficultyData.Value.Name;
-            button.AddToClassList("btn difficulty-btn");
+            button.AddToClassList("difficulty-btn");
             buttonList.Add(button);
             button.clicked += () => OnDifficultyButtonClicked(mapping, difficulty);
         }
@@ -80,5 +83,16 @@ public class MainMenuUI : MonoBehaviour
         difficultyHolder.selectedDifficulty = difficulty;
         difficultyHolder.selectedScene = scene;
         gameLoader.LoadGameplaySceneFromHolder().Forget();
+    }
+
+    private void BuildPopupCard()
+    {
+        cardImageView = new MinigameCardView();
+        var cardImageContainer = document.rootVisualElement.Q<VisualElement>("difficultyIcon");
+        cardImageView.InitMinigameCardView(minigameCardTemplate);
+        
+        cardImageView.SetFrame(cornerSprite, heartSprite);
+
+        cardImageContainer.Add(cardImageView);
     }
 }

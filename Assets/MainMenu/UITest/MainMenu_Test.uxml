@@ -3,6 +3,7 @@
     <Style src="project://database/Assets/MainMenu/UITest/USS/Common/Common.uss?fileID=7433441132597879392&amp;guid=fdae795555f391042bf8284f5e54613b&amp;type=3#Common"/>
     <Style src="project://database/Assets/MainMenu/UITest/USS/Screens/MainMenu.uss?fileID=7433441132597879392&amp;guid=4f0be8976d0182a418e8791fea9b8142&amp;type=3#MainMenu"/>
     <Style src="project://database/Assets/MainMenu/UITest/USS/Common/Cards.uss?fileID=7433441132597879392&amp;guid=109dd6c00301f7f419f83a4f96311992&amp;type=3#Cards"/>
+    <Style src="project://database/Assets/UI/Popup/Popup.uss?fileID=7433441132597879392&amp;guid=38698b2c507c92d169067d14f4939105&amp;type=3#Popup"/>
     <ui:VisualElement name="MainMenu" class="main-menu screen" style="flex-grow: 1; width: 100%; height: 100%;">
         <ui:VisualElement name="Background" class="background" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/MainMenu/UITest/menu_background.png?fileID=2800000&amp;guid=924df9d52c2d6f34db97ffc1a1baa969&amp;type=3#menu_background&quot;);"/>
         <ui:Image name="Logo" class="logo" style="background-image: url(&quot;project://database/Assets/MainMenu/UITest/logo.png?fileID=2800000&amp;guid=3f22bb56d73a6df429a91f4be2fcfb07&amp;type=3#logo&quot;);"/>
@@ -10,10 +11,20 @@
         <ui:VisualElement name="CardGrid"/>
         <ui:VisualElement name="CardContainer"/>
     </ui:VisualElement>
-    <Popup name="DifficultyPopup">
+    <Popup name="DifficultyPopup" class="difficulty-popup">
         <ui:VisualElement class="difficulty-popup-wrap">
-            <ui:Label class="difficulty-text" text="Select difficulty"/>
-            <ui:VisualElement name="DifficultyButtons" class="difficulty-buttons">
+            <ui:VisualElement class="popup-body">
+                <ui:VisualElement class="popup-body-column-side"/>
+                <ui:VisualElement class="popup-body-column-center">
+                    <ui:VisualElement name="difficultyIcon" class="difficulty-icon-btn"/>
+                    <ui:Label text="Nazwa Minigry" class="difficulty-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="popup-body-column-side">
+                    <ui:Button class="difficulty-close-btn"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement class="popup-footer">
+                <ui:VisualElement name="DifficultyButtons" class="difficulty-buttons"/>
             </ui:VisualElement>
         </ui:VisualElement>
     </Popup>
