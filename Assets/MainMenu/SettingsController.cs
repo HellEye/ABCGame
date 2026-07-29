@@ -1,14 +1,17 @@
+using System.Collections.Generic;
 using System.Linq;
 using Reflex.Attributes;
-using Unity.Properties;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class SettingsController : MonoBehaviour {
     [SerializeField] GameObject spriteScalingReference;
-    [Inject] UIDocument document;
-    [Inject] MainMenuSettingsData settingsData;
+
     //string[] tabsNamesWithoutScaling;
+    [SerializeField] List<Sprite> tabSprites;
+    [Inject] UIDocument document;
+
+    [Inject] MainMenuSettingsData settingsData;
 
     void Awake() {
         EnumDropdownBinding.RegisterConverter(MainMenuSettingsData.IntensityTextGetter);
@@ -26,8 +29,7 @@ public class SettingsController : MonoBehaviour {
         rootElement.Q<Button>("options").clicked += () => {
             spriteScalingReference.SetActive(settingsPopup.Q<TabView>("settings-tabs").activeTab.name == "TabB");
         };
-        settingsPopup.Q<Button>("settings-close").clicked += () =>
-        {
+        settingsPopup.Q<Button>("settings-close").clicked += () => {
             spriteScalingReference.SetActive(false);
         };
         settingsPopup.Q<TabView>("settings-tabs").activeTabChanged += (oldTab, newTab) => {
@@ -39,14 +41,13 @@ public class SettingsController : MonoBehaviour {
                 spriteScalingReference.SetActive(false);
         };
 
-        settingsPopup.Q<Button>("settings-reset").clicked += () =>
-        {
+        settingsPopup.Q<Button>("settings-reset").clicked += () => {
             settingsData.Reset();
             settingsData.Save();
         };
 
         // dropdown bindings
-        EnumDropdownBinding.SetChoices(
+        /*EnumDropdownBinding.SetChoices(
             settingsPopup.Q<DropdownField>("motion-dropdown"),
             MainMenuSettingsData.IntensityTextGetter);
         EnumDropdownBinding.SetChoices(
@@ -57,20 +58,29 @@ public class SettingsController : MonoBehaviour {
             MainMenuSettingsData.IntensityTextGetter);
         EnumDropdownBinding.SetChoices(
             settingsPopup.Q<DropdownField>("colorblind-dropdown"),
-            MainMenuSettingsData.ColorblindTextGetter);
+            MainMenuSettingsData.ColorblindTextGetter);*/
         SetupAutoSave();
+        SetTabs(settingsPopup);
+    }
+
+    void SetTabs(VisualElement popup) {
+        var tabView = popup.Q<TabView>("settings-tabs");
+        var tabHeader = tabView.Q("unity-tab-view__header-container");
+        var tabs = tabHeader.Children().ToList();
+        for (var i = 0; i < tabs.Count; i++) {
+            var tab = tabs[i];
+            var tabImg = tab.Q<Image>("unity-tab__header-image");
+            tabImg.sprite = tabSprites[i];
+        }
     }
 
     [ContextMenu("Test Binding")]
     public void Test() => settingsData.VoVolume += 10;
 
-    void SetupAutoSave()
-    {
-        settingsData.propertyChanged += (sender, args) =>
-        {
+    void SetupAutoSave() =>
+        settingsData.propertyChanged += (sender, args) => {
             settingsData.Save();
 
             Debug.Log($"Settings changed: {args.propertyName} - autosaved.");
         };
-    }
 }
