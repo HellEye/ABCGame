@@ -3,130 +3,64 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 [UxmlElement]
-public partial class MinigameCardView: Button
-{
-    #region Design Constants
-
-    // Original design size: 300 x 200
-
-    private const float AspectRatio = 3f / 2f;
-
-    private const float CornerRatio = 52f / 300f;
-    private const float HeartRatio = 22f / 300f;
-
-    private const float ImagePaddingRatio = 15f / 300f;
-
-    private const float TitleBottomRatio = 12f / 200f;
-
-    private const float HeartOffsetX = 7f / 300f;
-    private const float HeartOffsetY = 7f / 200f;
-
-    #endregion
-
-    public event Action<MinigameCardView> Clicked;
-
-    public VisualElement Root => root;
+public partial class MinigameCardView : VisualElement {
+    VisualElement corner;
+    Image cornerBackground;
 
     LevelMapping data;
-    public LevelMapping Data
-    {
+    Image heart;
+
+    Image thumbnail;
+
+    Label title;
+
+    public VisualElement Root { get; private set; }
+
+    public LevelMapping Data {
         get => data;
-        set
-        {
+        set {
             data = value;
             SetData(value);
         }
     }
 
-    private VisualElement root;
+    public event Action<MinigameCardView> Clicked;
 
-    private Image thumbnail;
-    private VisualElement corner;
-    private Image cornerBackground;
-    private Image heart;
+    public void InitMinigameCardView(VisualTreeAsset template) {
+        Root = template.Instantiate();
+        Add(Root);
+        thumbnail = Root.Q<Image>("Thumbnail");
 
-    private Label title;
+        corner = Root.Q<VisualElement>("Corner");
+        cornerBackground = Root.Q<Image>("CornerBackground");
+        heart = Root.Q<Image>("Heart");
 
-    public MinigameCardView() { }
-
-    public void InitMinigameCardView(VisualTreeAsset template)
-    {
-        root = template.Instantiate();
-
-        thumbnail = root.Q<Image>("Thumbnail");
-
-        corner = root.Q<VisualElement>("Corner");
-        cornerBackground = root.Q<Image>("CornerBackground");
-        heart = root.Q<Image>("Heart");
-
-        title = root.Q<Label>("Title");
+        title = Root.Q<Label>("Title");
 
         RegisterEvents();
     }
-    
-    private void RegisterEvents()
-    {
-        root.RegisterCallback<ClickEvent>(_ =>
-        {
+
+    void RegisterEvents() =>
+        Root.RegisterCallback<ClickEvent>(_ => {
             Clicked?.Invoke(this);
         });
-    }
 
-    private void SetData(LevelMapping data)
-    {
+    void SetData(LevelMapping data) {
         Title = data.levelName;
         Thumbnail = data.levelIcon;
     }
 
-    public void SetFrame(Sprite cornerSprite, Sprite heartSprite)
-    {
+    public void SetFrame(Sprite cornerSprite, Sprite heartSprite) {
         HeartSprite = heartSprite;
         HeartColor = Color.white;
         CornerSprite = cornerSprite;
     }
 
-    #region Properties
+    public void ApplyLayout(float width, ResponsiveLayout layout) {
+        var height = width / layout.aspectRatio;
 
-    public string Title
-    {
-        get => title.text;
-        set => title.text = value;
-    }
-
-    public Sprite Thumbnail
-    {
-        set => thumbnail.sprite = value;
-    }
-
-    public Sprite CornerSprite
-    {
-        set => cornerBackground.sprite = value;
-    }
-
-    public Sprite HeartSprite
-    {
-        set => heart.sprite = value;
-    }
-
-    public Color HeartColor
-    {
-        set => heart.tintColor = value;
-    }
-
-    public bool Visible
-    {
-        set => root.style.display =
-            value ? DisplayStyle.Flex : DisplayStyle.None;
-    }
-
-    #endregion
-
-    public void ApplyLayout(float width, ResponsiveLayout layout)
-    {
-        float height = width / layout.aspectRatio;
-        
-        root.style.width = width;
-        root.style.height = height;
+        Root.style.width = width;
+        Root.style.height = height;
 
         corner.style.width = width * layout.cornerSize;
         corner.style.height = width * layout.cornerSize;
@@ -137,7 +71,7 @@ public partial class MinigameCardView: Button
         heart.style.left = width * layout.heartOffset.x;
         heart.style.top = height * layout.heartOffset.y;
 
-        float padding = width * layout.imagePadding;
+        var padding = width * layout.imagePadding;
 
         thumbnail.style.left = padding;
         thumbnail.style.right = padding;
@@ -148,4 +82,42 @@ public partial class MinigameCardView: Button
 
         title.style.fontSize = layout.cardTitleFont;
     }
+
+    #region Design Constants
+
+    // Original design size: 300 x 200
+
+    const float AspectRatio = 3f / 2f;
+
+    const float CornerRatio = 52f / 300f;
+    const float HeartRatio = 22f / 300f;
+
+    const float ImagePaddingRatio = 15f / 300f;
+
+    const float TitleBottomRatio = 12f / 200f;
+
+    const float HeartOffsetX = 7f / 300f;
+    const float HeartOffsetY = 7f / 200f;
+
+    #endregion
+
+    #region Properties
+
+    public string Title { get => title.text; set => title.text = value; }
+
+    public Sprite Thumbnail { set => thumbnail.sprite = value; }
+
+    public Sprite CornerSprite { set => cornerBackground.sprite = value; }
+
+    public Sprite HeartSprite { set => heart.sprite = value; }
+
+    public Color HeartColor { set => heart.tintColor = value; }
+
+    public bool Visible {
+        set =>
+            Root.style.display =
+                value ? DisplayStyle.Flex : DisplayStyle.None;
+    }
+
+    #endregion
 }
