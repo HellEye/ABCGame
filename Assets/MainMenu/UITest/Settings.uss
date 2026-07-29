@@ -1,0 +1,392 @@
+/* =========================================================
+   SETTINGS POPUP OVERLAY
+   ========================================================= */
+
+#settings-popup {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 100%;
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Existing Popup overlay */
+
+.overlay {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(17, 17, 17, 0.65);
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================================================
+   POPUP WRAPPER
+   ========================================================= */
+
+#settings-popup .popup-wrapper {
+    width: 68%;
+    height: 85%;
+
+    position: relative;
+
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    background-color: rgba(0, 0, 0, 0);
+
+    padding: 0;
+    border-width: 0;
+}
+
+
+/* Disable old responsive wrapper rules for this popup */
+
+.tight #settings-popup .popup-wrapper {
+    width: 1300px;
+    height: 920px;
+
+    min-width: 0;
+
+    padding: 0;
+}
+
+
+/* =========================================================
+   TAB VIEW
+   ========================================================= */
+
+#settings-popup .settings-tabs {
+    width: 100%;
+    height: 90%;
+
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+}
+
+
+/* =========================================================
+   HEADER AREA
+   ========================================================= */
+
+#settings-popup .settings-tabs > .unity-tab-view__header-container {
+    width: 100%;
+    height: 200px;
+
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: flex-end;
+
+    padding: 0;
+
+    background-color: rgba(0, 0, 0, 0);
+
+    border-width: 0;
+}
+
+
+/* =========================================================
+   TAB
+   ========================================================= */
+
+#settings-popup .settings-tabs .unity-tab__header {
+    width: 200px;
+    height: 175px;
+
+    min-width: 200px;
+    min-height: 175px;
+
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    margin-left: 15px;
+    margin-right: 15px;
+
+    padding: 0;
+
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgb(180, 180, 180);
+
+    border-width: 0;
+
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+
+/* =========================================================
+   HOVER
+
+   ========================================================= */
+
+#settings-popup .settings-tabs .unity-tab__header:hover {
+    background-color: rgb(205, 205, 205);
+}
+
+
+/* =========================================================
+   ACTIVE TAB
+   ========================================================= */
+
+#settings-popup .settings-tabs .unity-tab__header:checked {
+    background-color: rgb(245, 245, 245);
+}
+
+
+/* =========================================================
+   REMOVE DEFAULT TAB TEXT
+   ========================================================= */
+
+#settings-popup .settings-tabs .unity-tab__header-label {
+    display: none;
+}
+
+
+/* =========================================================
+   CONTENT PANEL
+   ========================================================= */
+
+#settings-popup .settings-tabs > .unity-tab-view__content-container {
+    width: 100%;
+    height: 720px;
+
+    min-height: 720px;
+
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    margin-top: -25px;
+
+    padding: 0;
+
+    background-color: rgb(245, 245, 245);
+
+    border-width: 0;
+
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   EACH TAB PAGE
+   ========================================================= */
+
+#settings-popup .settings-page {
+    width: 100%;
+    height: 100%;
+
+    flex-grow: 1;
+
+    padding: 0;
+
+    background-color: rgba(0, 0, 0, 0);
+}
+
+
+/* =========================================================
+   ICON
+   ========================================================= */
+
+.settings-tab-icon {
+    width: 80px;
+    height: 80px;
+
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+
+/* =========================================================
+   CLOSE RESET SAVE BUTTONS
+   ========================================================= */
+
+#settings-popup .settings-close {
+    position: absolute;
+
+    right: 20px;
+    top: 20px;
+
+    width: 70px;
+    height: 70px;
+
+    flex-shrink: 0;
+
+    padding: 0;
+
+    border-width: 0;
+
+    background-color: rgba(0, 0, 0, 0);
+
+    -unity-background-scale-mode: scale-to-fit;
+    
+}
+
+#settings-bottom-buttons {
+    width: 100%;
+    height: 10%;
+
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    margin-top: auto;
+    
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/* =========================================================
+   EXISTING GENERIC CLASSES
+
+   Keep these for later when we design the actual pages.
+   ========================================================= */
+.settings-bottom-button {
+    width: 300px;
+    height: 80px;
+
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    padding: 0;
+
+    border-width: 0;
+
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    /* Main purple */
+    background-color: rgb(202, 116, 255);
+
+    /* Light text */
+    color: rgb(255, 255, 255);
+
+    font-size: 28px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}
+
+.settings-bottom-button:hover {
+    background-color: rgb(218, 157, 255);
+}
+
+.settings-bottom-button:active {
+    background-color: rgb(175, 85, 230);
+}
+
+.popup-subcolumn {
+    width: 45%;
+    flex-direction: column;
+}
+
+.tight .popup-subcolumn {
+    width: 100%;
+    flex-direction: column;
+}
+
+.popup-column {
+    width: 100%;
+
+    justify-content: space-between;
+
+    flex-direction: row;
+}
+
+.tight .popup-column {
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.popup-row {
+    width: 100%;
+
+    justify-content: center;
+
+    flex-direction: row;
+
+    margin-top: auto;
+}
+
+.popup-title {
+    color: black;
+
+    font-size: 25px;
+
+    margin-bottom: 20px;
+}
+
+
+/* Existing controls */
+
+.unity-control__slider,
+.unity-dropdown-field__container {
+    margin-bottom: 10px;
+}
+
+.unity-toggle__input {
+    min-width: 80px;
+}
+
+
+/* Existing buttons */
+
+.save-btn {
+    background-color: #308822;
+    color: black;
+    border-color: black;
+}
+
+.close-btn {
+    background-color: #706868;
+    color: black;
+    border-color: black;
+}
+
+
+.hidden {
+    display: none;
+}
+
+/*!* TEMPORARY: UI Builder preview only *!*/
+/*#settings-popup {*/
+/*    display: flex;*/
+/*}*/
+
+/* Hide Unity's automatic TabView navigation arrows */
+#settings-popup .unity-tab-view__next-button,
+#settings-popup .unity-tab-view__previous-button {
+    display: none;
+}

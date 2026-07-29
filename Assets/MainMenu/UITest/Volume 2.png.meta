@@ -122,12 +122,12 @@ TextureImporter:
       name: Volume 2_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 15
-        width: 51
-        height: 72
+        x: 0
+        y: 0
+        width: 102
+        height: 102
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -140,55 +140,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Volume 2_1
-      rect:
-        serializedVersion: 2
-        x: 60
-        y: 30
-        width: 19
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 98c53ffafab7ab2c0800000000000000
-      internalID: -4415080490181895031
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Volume 2_2
-      rect:
-        serializedVersion: 2
-        x: 75
-        y: 15
-        width: 25
-        height: 72
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 037c4ddbae483c740800000000000000
-      internalID: 5171122940893513520
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: dc112597060343a47aaf8fb26581f698
     internalID: 0
     vertices: []
     indices: 
@@ -196,11 +152,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":102.0,"y":102.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Volume 2_0: -8881052032439965351
-      Volume 2_1: -4415080490181895031
-      Volume 2_2: 5171122940893513520
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
