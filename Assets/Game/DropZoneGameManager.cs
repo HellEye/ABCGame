@@ -11,9 +11,9 @@ public class DropZoneGameManager : MonoBehaviour, IGameManager {
     DropZone dropZone;
 
     [Inject] DropZoneItems dropZoneItems;
+    [Inject] GameLoader gameLoader;
 
     [Inject] ItemSpawnerManager itemSpawnerManager;
-
 
     void Start() {
         //itemSpawnerManager.TrySpawningItemsPerType(pickedItems);
@@ -25,15 +25,7 @@ public class DropZoneGameManager : MonoBehaviour, IGameManager {
 
     public event Action OnGameComplete;
 
-    public void RestartGame() {
-        // Clear existing items and drop zones
-        foreach (var item in items) Destroy(item.gameObject);
-        items.Clear();
-        if (dropZone != null)
-            Destroy(dropZone.gameObject);
-        // Restart the game
-        Start();
-    }
+    public void RestartGame() => gameLoader.ReloadCurrentGameplayScene();
 
     public void AddItem(Item item) => items.Add(item);
 
