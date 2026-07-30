@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Reflex.Attributes;
 using System.Linq;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(UIDocument))]
 public class MainMenuUI : MonoBehaviour
@@ -14,6 +15,8 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private Sprite placeholderThumbnail;
     [SerializeField] private Sprite cornerSprite;
     [SerializeField] private Sprite heartSprite;
+    
+    private Dictionary <Difficulty, string> difficultiesButtonsClasses;
     
     [Inject] MinigameRegistry minigameRegistry;
     [Inject] GameLoader gameLoader;
@@ -28,6 +31,7 @@ public class MainMenuUI : MonoBehaviour
     {
         document = GetComponent<UIDocument>();
         difficultyPopup = document.rootVisualElement.Q<Popup>("DifficultyPopup");
+        difficultiesButtonsClasses = new();
     }
 
     private void Start()
@@ -36,6 +40,9 @@ public class MainMenuUI : MonoBehaviour
 
         LoadDemoCards();
         BuildPopupCard();
+        difficultiesButtonsClasses.Add(Difficulty.Easy, "difficulty-btn-easy");
+        difficultiesButtonsClasses.Add(Difficulty.Medium, "difficulty-btn-medium");
+        difficultiesButtonsClasses.Add(Difficulty.Hard, "difficulty-btn-hard");
     }
 
     private void CreateSelectionView()
@@ -68,6 +75,7 @@ public class MainMenuUI : MonoBehaviour
             DifficultyMapping difficulty = mapping.difficultiesMappings[i];
             button.text = difficulty.difficultyData.Value.Name;
             button.AddToClassList("difficulty-btn");
+            button.AddToClassList(difficultiesButtonsClasses[difficulty.difficultyData.Value.Difficulty]);
             buttonList.Add(button);
             button.clicked += () => OnDifficultyButtonClicked(mapping, difficulty);
         }

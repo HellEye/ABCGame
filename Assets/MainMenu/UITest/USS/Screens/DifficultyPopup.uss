@@ -1,0 +1,90 @@
+.difficulty-popup-wrap {
+    display: flex;
+    flex-direction: column;
+    /*min-width: 60%;
+    max-width: 80%;*/
+    width: 1200px;
+    height: 720px;
+    padding: 20px 10px;
+}
+
+.difficulty-popup .popup-wrapper{
+    background-color: blueviolet;
+    padding: 0;
+}
+
+.difficulty-popup-body {
+    width:100%;
+    height:78%;
+    flex-direction:row;
+}
+
+.difficulty-popup-body-column-side {
+    width:25%;
+    align-items: flex-end;
+}
+
+.difficulty-popup-body-column-center {
+    width:50%;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.difficulty-popup-footer {
+    width:100%;
+    height:22%;
+    align-items: center;
+}
+
+.difficulty-text {
+    font-size: 50px;
+    color: black;
+    margin-top: 30px;
+}
+
+.difficulty-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.difficulty-close-btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 0;
+    border-width: 0;
+    padding:0;
+    margin:0;
+    background-color: transparent;
+}
+.difficulty-close-btn:hover {
+    -unity-image-tint-color: rgba(0, 0, 0, 0.1);
+}
+
+.difficulty-icon-btn .minigame-card:hover {
+    scale:1;
+}
+
+.difficulty-btn {
+    width: 32%;
+    height: 150px;
+
+    border-radius: 30px;
+    border-width: 2px;
+    border-color: black;
+
+    font-size: 50px;
+}
+
+.difficulty-btn-easy{
+    background-color: green;
+}
+
+.difficulty-btn-medium{
+    background-color: orange;
+}
+
+.difficulty-btn-hard{
+    background-color: red;
+}
