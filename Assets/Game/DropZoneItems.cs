@@ -13,4 +13,5 @@ public class DropZoneItems : IRandomItemContainer {
         (targets, items) = spawnableGroup.PickItems(difficulty, settings, excludeItems);
 
     public IEnumerable<IElement> GetAllItems() => items.Concat(targets);
+    public IEnumerable<IElement> GetTargets() => targets;
 }

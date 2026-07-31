@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
-  m_PanelSettings: {fileID: 11400000, guid: 630f24b394f159ddd897daf6d45d8d11, type: 2}
+  m_PanelSettings: {fileID: 11400000, guid: dea2a84506f0c6701b7feb7003eccb69, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 70163fbb3c1af5241a0d421bb458b5d4, type: 3}
   m_SortingOrder: 0
@@ -306,6 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SettingsController
   spriteScalingReference: {fileID: 1867320573}
+  tabSprites: []
 --- !u!114 &356506201
 MonoBehaviour:
   m_ObjectHideFlags: 0

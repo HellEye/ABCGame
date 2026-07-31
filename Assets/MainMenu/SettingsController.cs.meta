@@ -1,3 +1,15 @@
 fileFormatVersion: 2
 guid: e71fe75a99ed463db10dfe09f8a47335
-timeCreated: 1778174547
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - spriteScalingReference: {instanceID: 0}
+  - soundTabIcon: {fileID: -8881052032439965351, guid: 81f5a96203f00914db25896fd9c14f07, type: 3}
+  - settingsTabIcon: {fileID: 2554887061280865917, guid: 52f2c1a67a7e3ea4985ab8fa58fa496e, type: 3}
+  - profileTabIcon: {fileID: 4705431711564689963, guid: edb762fc7c7e6c54fae59dee76e8ac28, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

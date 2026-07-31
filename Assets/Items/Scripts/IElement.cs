@@ -1,1 +1,3 @@
-public interface IElement { }
+public interface IElement {
+    string TargetDisplayName { get; }
+}

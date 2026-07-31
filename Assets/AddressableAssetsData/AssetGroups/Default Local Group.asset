@@ -60,6 +60,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9dd31479377ecaeac8e21f7062487f02
+    m_Address: Assets/Sprites/Misc/basket.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: abbde2a65457da045abc0af537c0140c
     m_Address: Assets/Sprites/Owoce/orange.png
     m_ReadOnly: 0
