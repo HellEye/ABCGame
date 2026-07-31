@@ -43,6 +43,7 @@ public class MainMenuUI : MonoBehaviour
         difficultiesButtonsClasses.Add(Difficulty.Easy, "difficulty-btn-easy");
         difficultiesButtonsClasses.Add(Difficulty.Medium, "difficulty-btn-medium");
         difficultiesButtonsClasses.Add(Difficulty.Hard, "difficulty-btn-hard");
+        SetupCancelButton();
     }
 
     private void CreateSelectionView()
@@ -74,13 +75,26 @@ public class MainMenuUI : MonoBehaviour
             var button = new Button();
             DifficultyMapping difficulty = mapping.difficultiesMappings[i];
             button.text = difficulty.difficultyData.Value.Name;
+            SetupMinigameLabel(mapping);
             button.AddToClassList("difficulty-btn");
             button.AddToClassList(difficultiesButtonsClasses[difficulty.difficultyData.Value.Difficulty]);
             buttonList.Add(button);
             button.clicked += () => OnDifficultyButtonClicked(mapping, difficulty);
         }
     }
-    
+
+    void SetupCancelButton()
+    {
+        var cancelButton = document.rootVisualElement.Q<Button>("DifficultyPopupCloseBtn");
+        cancelButton.clicked += () => OnCancelButtonClicked();
+    }
+
+    void SetupMinigameLabel(LevelMapping mapping)
+    {
+        var label = document.rootVisualElement.Q<Label>("DifficultyText");
+        label.text = mapping.levelName;
+    }
+
     void OnDifficultyButtonClicked(LevelMapping mapping, DifficultyMapping difficultyMap) {
         Debug.Log($"Scene {mapping.levelName} with difficulty {difficultyMap} selected");
         difficultyPopup.IsOpen = false;
@@ -91,6 +105,11 @@ public class MainMenuUI : MonoBehaviour
         difficultyHolder.selectedDifficulty = difficulty;
         difficultyHolder.selectedScene = scene;
         gameLoader.LoadGameplaySceneFromHolder().Forget();
+    }
+
+    void OnCancelButtonClicked()
+    {
+        difficultyPopup.IsOpen = false;
     }
 
     private void BuildPopupCard()
