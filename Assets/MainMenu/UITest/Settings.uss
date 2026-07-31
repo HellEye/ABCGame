@@ -121,7 +121,6 @@
 
     margin-left: 15px;
     margin-right: 15px;
-
     padding: 0;
 
     align-items: center;
@@ -389,4 +388,10 @@
 #settings-popup .unity-tab-view__next-button,
 #settings-popup .unity-tab-view__previous-button {
     display: none;
+}
+
+#settings-popup .unity-tab__header-image {
+    display: flex;
+    height: 60%;
+    width: 60%;
 }
