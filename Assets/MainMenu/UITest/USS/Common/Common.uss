@@ -1,0 +1,75 @@
+/* ==========================================================
+   COMMON
+   ========================================================== */
+
+.screen
+{
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.background
+{
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    -unity-background-scale-mode: stretch-to-fill;
+}
+
+.hidden
+{
+    display: none;
+}
+
+.slide-toggle {
+    width: 200px;
+    height: 200px;
+}
+
+.slide-toggle__input{
+    width: 18%;
+    height: 83%;
+    border-radius: 22px;
+    justify-content: center;
+    
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+.slide-toggle__input-knob{
+    position: absolute;
+    width: 25%;
+    aspect-ratio:1;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    
+    transition-property: translate;
+    transition-duration: 0.5s;
+}
+
+.slide-toggle__input--checked{
+    
+}
+
+.slide-toggle__input--checked > .slide-toggle__input-knob{
+    translate: 200% 0;
+}
+
+.slide-toggle .unity-label {
+    font-size: 45px;
+    -unity-text-align: middle-right;
+    margin-right: 5%;
+}

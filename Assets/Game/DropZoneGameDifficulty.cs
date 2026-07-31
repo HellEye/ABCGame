@@ -3,12 +3,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DropZoneGameDifficulty", menuName = "ScriptableObjects/DropZoneGameDifficulty")]
 public class DropZoneGameDifficulty : ScriptableObject, IDifficulty<DropZoneGameDifficulty> {
     [Header("Difficulty settings")]
-    public string difficultyName = "Default";
-
+    [SerializeField] private string difficultyName = "Default";
+    
     public Variant variant;
     public Difficulty difficulty = Difficulty.Easy;
     public int itemTypes = 3;
     public int targetTypes = 1;
+    
+    [Header("Difficulty sprites")]
+    [SerializeField] private Sprite difficultyIcon;
+    public Sprite DifficultyIcon => difficultyIcon;
 
     [Header("Spawn settings")]
     public int maxItems = 10;
@@ -16,4 +20,5 @@ public class DropZoneGameDifficulty : ScriptableObject, IDifficulty<DropZoneGame
     public int itemsPerType = 3;
     public Difficulty Difficulty => difficulty;
     public Variant Variant => variant;
+    public string Name => difficultyName;
 }

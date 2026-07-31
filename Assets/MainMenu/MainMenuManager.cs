@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.UIElements;
+using System.Linq;
 
 public class MainMenuManager : MonoBehaviour {
     public int buttonsPerPage = 4;
@@ -31,6 +32,8 @@ public class MainMenuManager : MonoBehaviour {
         rootElement.Q<Button>("btn-left").clicked += () => ChangePage(-buttonsPerPage);
         rootElement.Q<Button>("btn-right").clicked += () => ChangePage(buttonsPerPage);
         difficultyPopup = rootElement.Q<Popup>("DifficultyPopup");
+        InitMaxDifficulties();
+        InitMaxLevels();
         UpdateUI();
         SetupGameButtons();
         SetupDifficultyButtons();
@@ -62,19 +65,21 @@ public class MainMenuManager : MonoBehaviour {
     }
 
     void OnDifficultyButtonClicked(int difficultyIndex) {
-        Debug.Log($"Scene {gameIndex} with difficulty {difficultyIndex} selected");
+        /*Debug.Log($"Scene {gameIndex} with difficulty {difficultyIndex} selected");
         difficultyPopup.IsOpen = false;
         var (scene, difficulty) = minigameRegistry.GetLevelData(gameIndex, difficultyIndex);
         Debug.Log($"Scene {scene} with difficulty {difficulty} selected");
         if (scene == null || difficulty == null) return;
         difficultyHolder.selectedDifficulty = difficulty;
         difficultyHolder.selectedScene = scene;
-        gameLoader.LoadGameplaySceneFromHolder().Forget();
+        gameLoader.LoadGameplaySceneFromHolder().Forget();*/
     }
 
-    void ChangePage(int step) {
+    void ChangePage(int step)
+    {
+        if (step >= maxButtons) return;
         startIndex += step;
-
+        
         if (startIndex >= maxButtons)
             startIndex = 0;
         else if (startIndex < 0) startIndex = maxButtons - buttonsPerPage;
@@ -90,5 +95,21 @@ public class MainMenuManager : MonoBehaviour {
                     ? buttonTexts[index]
                     : "Coming soon";
         }
+    }
+
+    void InitMaxDifficulties()
+    {
+        int initMaxDifficulties = minigameRegistry.Mappings.Select(level => level.difficultiesMappings.Count()).Max();
+        maxDifficulties = initMaxDifficulties;
+    }
+    
+    void InitMaxLevels()
+    {
+        int initMaxLevels = 0;
+        foreach (LevelMapping minigame in minigameRegistry.Mappings)
+        {
+            initMaxLevels++;
+        }
+        maxButtons = initMaxLevels;
     }
 }

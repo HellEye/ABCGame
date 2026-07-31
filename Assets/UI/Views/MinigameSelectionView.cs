@@ -3,78 +3,74 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class MinigameSelectionView
-{
-    public event Action<int> CardClicked;
+public class MinigameSelectionView {
+    //private readonly VisualElement root;
+    readonly VisualElement cardContainer;
 
-    private readonly VisualElement root;
-    private readonly VisualElement cardContainer;
-    private readonly VisualElement cardGrid;
+    readonly List<LevelMapping> cardData = new();
+    readonly VisualElement cardGrid;
 
-    private readonly Button leftArrow;
-    private readonly Button rightArrow;
+    //private readonly Button leftArrow;
+    //private readonly Button rightArrow;
 
-    private readonly VisualTreeAsset cardTemplate;
+    readonly VisualTreeAsset cardTemplate;
+    readonly List<MinigameCardView> cardViews = new();
 
-    private readonly List<MinigameCardData> cardData = new();
-    private readonly List<MinigameCardView> cardViews = new();
-
-    private int currentPage;
+    int currentPage;
 
     public MinigameSelectionView(
         VisualElement root,
-        VisualTreeAsset cardTemplate)
-    {
-        this.root = root;
+        VisualTreeAsset cardTemplate) {
+        //this.root = root;
         this.cardTemplate = cardTemplate;
 
         cardContainer = root.Q<VisualElement>("CardContainer");
         cardGrid = root.Q<VisualElement>("CardGrid");
 
-        leftArrow = root.Q<Button>("LeftArrow");
-        rightArrow = root.Q<Button>("RightArrow");
+        //leftArrow = root.Q<Button>("LeftArrow");
+        //rightArrow = root.Q<Button>("RightArrow");
 
-        leftArrow.clicked += PreviousPage;
-        rightArrow.clicked += NextPage;
+        //leftArrow.clicked += PreviousPage;
+        //rightArrow.clicked += NextPage;
 
         ResponsiveUIManager.Instance.LayoutChanged += RefreshLayout;
     }
 
-    public void SetCards(List<MinigameCardData> cards)
-    {
+    public event Action<LevelMapping> CardClicked;
+
+    public void SetCards(LevelMapping[] cards, Sprite heartSprite, Sprite cornerSprite) {
         cardData.Clear();
         cardData.AddRange(cards);
 
-        BuildCards();
+        BuildCards(heartSprite, cornerSprite);
 
         RefreshLayout();
     }
 
-    private void BuildCards()
-    {
+    void BuildCards(Sprite heartSprite, Sprite cornerSprite) {
         var layout = ResponsiveUIManager.Instance.CurrentLayout;
-        
+
         cardGrid.Clear();
         cardViews.Clear();
 
-        for (int i = 0; i < cardData.Count; i++)
-        {
-            int index = i;
+        for (var i = 0; i < cardData.Count; i++) {
+            var index = i;
 
-            var card = new MinigameCardView(cardTemplate);
+            var card = new MinigameCardView();
+            card.InitMinigameCardView(cardTemplate);
 
-            card.SetData(cardData[index]);
+            card.Data = cardData[index];
+            card.SetFrame(cornerSprite, heartSprite);
 
-            card.Clicked += _ =>
-            {
-                CardClicked?.Invoke(index);
+            card.Clicked += _ => {
+                CardClicked?.Invoke(card.Data);
             };
 
-            cardViews.Add(card);
+            // cardViews.Add(card);
 
-            cardGrid.Add(card.Root);
-            
-            float halfSpacing = layout.spacing * 0.5f;
+            cardGrid.Add(card);
+
+            var halfSpacing = layout.spacing * 0.5f;
 
             card.Root.style.marginLeft = halfSpacing;
             card.Root.style.marginRight = halfSpacing;
@@ -83,58 +79,49 @@ public class MinigameSelectionView
         }
     }
 
-    private void RefreshLayout()
-    {
+    void RefreshLayout() {
         if (cardContainer.resolvedStyle.width <= 0)
             return;
 
         var layout = ResponsiveUIManager.Instance.CurrentLayout;
 
-        float availableWidth =
+        var availableWidth =
             cardContainer.resolvedStyle.width -
             layout.horizontalMargin * 2;
 
-        float cardWidth =
+        var cardWidth =
             ResponsiveUIManager.Instance
                 .CalculateCardWidth(availableWidth);
 
-        foreach (var card in cardViews)
-        {
-            card.ApplyLayout(cardWidth, layout);
-        }
+        foreach (var card in cardViews) card.ApplyLayout(cardWidth, layout);
 
         RefreshPage();
     }
 
-    private void RefreshPage()
-    {
+    void RefreshPage() {
         var layout = ResponsiveUIManager.Instance.CurrentLayout;
 
-        int cardsPerPage = layout.cardsPerRow * 2;
+        var cardsPerPage = layout.cardsPerRow * 2;
 
-        int first = currentPage * cardsPerPage;
-        int last = first + cardsPerPage;
+        var first = currentPage * cardsPerPage;
+        var last = first + cardsPerPage;
 
-        for (int i = 0; i < cardViews.Count; i++)
-        {
+        for (var i = 0; i < cardViews.Count; i++)
             cardViews[i].Visible =
                 i >= first &&
                 i < last;
-        }
 
-        leftArrow.SetEnabled(currentPage > 0);
-        rightArrow.SetEnabled(last < cardViews.Count);
+        //leftArrow.SetEnabled(currentPage > 0);
+        //rightArrow.SetEnabled(last < cardViews.Count);
     }
 
-    private void NextPage()
-    {
+    void NextPage() {
         currentPage++;
 
         RefreshPage();
     }
 
-    private void PreviousPage()
-    {
+    void PreviousPage() {
         if (currentPage > 0)
             currentPage--;
 
