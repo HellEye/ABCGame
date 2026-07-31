@@ -17,6 +17,7 @@
     background-color: rgb(235,235,235);
 
     flex-shrink: 0;
+    flex-direction: column;
 
     justify-content: flex-end;
 
@@ -35,14 +36,10 @@
 
 .card-thumbnail
 {
-    position: absolute;
+    flex-shrink: 1;
     
-    left: 15px;
-    right: 15px;
-    top: 15px;
-    bottom: 36px;
-
     -unity-background-scale-mode: scale-to-fit;
+    /*background-color: red;*/
 
     border-radius: 20px;
 }
@@ -58,8 +55,8 @@
     left: -10px;
     top: -10px;
 
-    width: 52px;
-    height: 52px;
+    width: 72px;
+    height: 72px;
 
     overflow: visible;
 }
@@ -90,12 +87,14 @@
     left: 7px;
     top: 7px;
 
-    width: 220px;
-    height: 220px;
+    width: 30px;
+    height: 30px;
+    
+    flex-shrink:0;
 
     -unity-background-scale-mode: scale-to-fit;
 
-    unity-image-tint-color: white;
+    -unity-image-tint-color: white;
 }
 
 /* ==========================================================
@@ -104,12 +103,6 @@
 
 .card-title
 {
-    position: absolute;
-
-    left: 15px;
-    right: 15px;
-    bottom: 12px;
-
     height: 28px;
 
     unity-text-align: middle-center;
@@ -125,10 +118,9 @@
    HOVER
    ========================================================== */
 
-.minigame-card:hover, .minigame-card :hover
+.minigame-card:hover
 {
-    background-color: red;
-    scale: 1.03;
+    scale: 1.06;
 }
 
 /* ==========================================================

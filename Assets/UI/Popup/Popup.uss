@@ -17,10 +17,8 @@
 .popup-wrapper {
     min-width: 30px;
     min-height: 30px;
-    border-radius: 5px;
+    border-radius: 30px;
     border-color: #404040;
-    border-width: 2px;
+    border-width: 5px;
     background-color: #b0b0b0;
 }
-
-
