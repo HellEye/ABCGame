@@ -1,9 +1,11 @@
+using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Reflex.Attributes;
 using System.Linq;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(UIDocument))]
 public class MainMenuUI : MonoBehaviour
@@ -22,20 +24,28 @@ public class MainMenuUI : MonoBehaviour
     [Inject] GameLoader gameLoader;
     [Inject] DifficultyHolder difficultyHolder;
     Popup difficultyPopup;
+    VisualElement mainMenuOpening;
+    VisualElement mainMenuSceneButtons;
 
     private UIDocument document;
     private MinigameSelectionView selectionView;
     private MinigameCardView cardImageView;
+    [Inject] InputSystem_Actions actions;
 
     private void Awake()
     {
         document = GetComponent<UIDocument>();
         difficultyPopup = document.rootVisualElement.Q<Popup>("DifficultyPopup");
+        mainMenuOpening = document.rootVisualElement.Q<VisualElement>("MainMenuOpening");
+        mainMenuSceneButtons = document.rootVisualElement.Q<VisualElement>("MainMenuMinigame");
+        mainMenuSceneButtons.style.display = DisplayStyle.None;
         difficultiesButtonsClasses = new();
     }
 
     private void Start()
     {
+        actions.Player.Continue.performed += TransitionToSceneSelect;
+        
         CreateSelectionView();
 
         LoadDemoCards();
@@ -121,5 +131,17 @@ public class MainMenuUI : MonoBehaviour
         cardImageView.SetFrame(cornerSprite, heartSprite);
 
         cardImageContainer.Add(cardImageView);
+    }
+
+    void OnEnable()
+    {
+        actions.Player.Continue.Enable();
+    }
+
+    void TransitionToSceneSelect(InputAction.CallbackContext ctx)
+    {
+        mainMenuOpening.style.display = DisplayStyle.None;
+        mainMenuSceneButtons.style.display = DisplayStyle.Flex;
+        actions.Player.Continue.Disable();
     }
 }
