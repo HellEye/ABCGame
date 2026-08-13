@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Salad
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: "Sa\u0142atka"
+  pluralName: "sa\u0142atki"
   sprite:
     m_AssetGUID: f4f75cbc98ae736419927df5554f7fd5
     m_SubObjectName: salad

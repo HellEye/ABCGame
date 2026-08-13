@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Shirt
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Koszulka
+  pluralName: koszulki
   sprite:
     m_AssetGUID: a0855e9f48a1f1b48a7477c33ef26133
     m_SubObjectName: shirt

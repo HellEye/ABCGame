@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Wolf
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Wilk
+  pluralName: wilki
   sprite:
     m_AssetGUID: 8fbb328a09aac2e408111050c3b6b67b
     m_SubObjectName: wolf

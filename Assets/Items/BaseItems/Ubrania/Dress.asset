@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Dress
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Sukienka
+  pluralName: sukienki
   sprite:
     m_AssetGUID: 8923ef2ff8c4d964893e55b452f7dd62
     m_SubObjectName: 

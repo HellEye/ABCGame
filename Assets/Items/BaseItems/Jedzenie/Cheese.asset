@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Cheese
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Ser
+  pluralName: "kawa\u0142ki sera"
   sprite:
     m_AssetGUID: f97a00e1f1fd3a44190945799cc213fc
     m_SubObjectName: cheese

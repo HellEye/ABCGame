@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Goat
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Koza
+  pluralName: kozy
   sprite:
     m_AssetGUID: 8578aceba2327bc4498711200556a837
     m_SubObjectName: goat

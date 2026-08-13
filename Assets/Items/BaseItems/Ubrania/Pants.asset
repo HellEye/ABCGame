@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Pants
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Spodnie
+  pluralName: spodnie
   sprite:
     m_AssetGUID: 74585e4c9d32a8b4884e30bbb5aa8672
     m_SubObjectName: pants

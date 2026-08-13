@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Socks
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Skarpetki
+  pluralName: skarpetki
   sprite:
     m_AssetGUID: c15f499244c47174fbdfc868f273c112
     m_SubObjectName: socks

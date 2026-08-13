@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Raspberry
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Malina
+  pluralName: maliny
   sprite:
     m_AssetGUID: cb87483d98bfdd6448701de9eb49b76c
     m_SubObjectName: raspberry

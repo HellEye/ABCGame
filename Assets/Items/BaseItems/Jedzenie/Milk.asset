@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Milk
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Mleko
+  pluralName: kartony mleka
   sprite:
     m_AssetGUID: 2908e333fe87dba4ca5d4cdecfe5bda4
     m_SubObjectName: milk

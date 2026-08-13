@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Lion
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Lew
+  pluralName: lwy
   sprite:
     m_AssetGUID: e457360142f31cc4f8a000df0654b8c1
     m_SubObjectName: lion

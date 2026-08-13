@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Boots
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Buty zimowe
+  pluralName: buty zimowe
   sprite:
     m_AssetGUID: c7d136aa1247447458e2277ad1577c31
     m_SubObjectName: boots

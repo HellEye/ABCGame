@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Hotdog
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Hotdog
+  pluralName: hotdogi
   sprite:
     m_AssetGUID: 7cf0e2a65bd2f034aa3f5610b1b2e048
     m_SubObjectName: hotdog

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Fish
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Ryba
+  pluralName: ryby
   sprite:
     m_AssetGUID: 282be61eb615c7b4c821a65d36a5d481
     m_SubObjectName: fish

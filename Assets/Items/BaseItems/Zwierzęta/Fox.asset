@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Fox
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Lis
+  pluralName: lisy
   sprite:
     m_AssetGUID: 2036647f35c53c64bbd7e88c5010ed64
     m_SubObjectName: fox

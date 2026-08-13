@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Sausage
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: "Kie\u0142basa"
+  pluralName: "kie\u0142basy"
   sprite:
     m_AssetGUID: fb679fbb9234385458bfefbb49aa1326
     m_SubObjectName: sausage

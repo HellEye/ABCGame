@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Hat
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Czapka zimowa
+  pluralName: czapki zimowe
   sprite:
     m_AssetGUID: b436d46d3e0b45e4bbcba3543f5adfc8
     m_SubObjectName: hat

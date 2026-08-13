@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Sunglasses
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: "Okulary przeciws\u0142oneczne"
+  pluralName: "okulary przeciws\u0142oneczne"
   sprite:
     m_AssetGUID: b74df5d5d759b304f9c78a251d03e0d8
     m_SubObjectName: sunglasses

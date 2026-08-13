@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Zebra
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Zebra
+  pluralName: zebry
   sprite:
     m_AssetGUID: 8b9de055afac6f84ca00c2690d432297
     m_SubObjectName: zebra

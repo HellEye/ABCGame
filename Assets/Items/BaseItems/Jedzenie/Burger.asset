@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Burger
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Hamburger
+  pluralName: hamburgery
   sprite:
     m_AssetGUID: 05ff22d98fa2a46408105f317b2cccd2
     m_SubObjectName: burger

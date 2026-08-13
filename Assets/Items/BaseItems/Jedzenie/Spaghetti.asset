@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Spaghetti
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Spaghetti
+  pluralName: talerze spaghetti
   sprite:
     m_AssetGUID: faf75a4fe8a56a341851396cc2624bb4
     m_SubObjectName: spaghetti

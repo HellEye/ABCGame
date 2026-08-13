@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Shorts
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: "Kr\xF3tkie spodenki"
+  pluralName: "kr\xF3tkie spodenki"
   sprite:
     m_AssetGUID: 4090a1e24dbe025469b441d232976b18
     m_SubObjectName: shorts

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82cfb2eb6a58830eda8329321d51c153, type: 3}
   m_Name: Waffles
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  itemName: Waffles
+  itemName: Gofry
+  pluralName: gofry
   sprite:
     m_AssetGUID: 1909ffd6b49e4da4f829ffb518fa8a1e
     m_SubObjectName: waffles

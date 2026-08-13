@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Fried-egg
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Jajko sadzone
+  pluralName: jajka sadzone
   sprite:
     m_AssetGUID: e056e52496614b94e9e284908f929939
     m_SubObjectName: fried-egg

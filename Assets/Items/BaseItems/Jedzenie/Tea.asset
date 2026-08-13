@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Tea
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Herbata
+  pluralName: kubki herbaty
   sprite:
     m_AssetGUID: ca816654603fac24f984dd8903d5bc68
     m_SubObjectName: tea

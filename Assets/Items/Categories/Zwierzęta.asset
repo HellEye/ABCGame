@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba6ecc3b8d38499c80c934f99098f1af, type: 3}
   m_Name: "Zwierz\u0119ta"
   m_EditorClassIdentifier: Assembly-CSharp::ItemCategorySO
-  groupName: Warzywa
+  groupName: "Zwierz\u0119ta"
   targetText: 
   items:
   - {fileID: 11400000, guid: 2cb71f61589bff54695ec45e596d67d9, type: 2}

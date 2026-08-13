@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Shoes
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Buty
+  pluralName: buty
   sprite:
     m_AssetGUID: 2dc339c008806534dba9a395f8541ded
     m_SubObjectName: shoes

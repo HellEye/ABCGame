@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Scarf
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Szalik
+  pluralName: szaliki
   sprite:
     m_AssetGUID: fc953a627f7c5394b9815c28f6dac968
     m_SubObjectName: scarf

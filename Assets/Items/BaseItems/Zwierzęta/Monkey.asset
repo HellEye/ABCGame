@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Monkey
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: "Ma\u0142pa"
+  pluralName: "ma\u0142py"
   sprite:
     m_AssetGUID: ae22ed05982290e47936277982db3989
     m_SubObjectName: monkey

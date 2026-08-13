@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Tiger
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Tygrys
+  pluralName: tygrysy
   sprite:
     m_AssetGUID: 3098e6d1ccf135c4988b79c03aec4a94
     m_SubObjectName: tiger

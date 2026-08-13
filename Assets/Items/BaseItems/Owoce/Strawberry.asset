@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Strawberry
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Truskawka
+  pluralName: truskawki
   sprite:
     m_AssetGUID: 1200d9ddc5756d54ab3011292244e75c
     m_SubObjectName: strawberry

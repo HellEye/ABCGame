@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Pepper
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Papryka
+  pluralName: papryki
   sprite:
     m_AssetGUID: 2e5b135ea898b8a4fb9cda21b74f2c42
     m_SubObjectName: pepper

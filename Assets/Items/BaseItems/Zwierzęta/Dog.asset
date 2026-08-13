@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Dog
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Pies
+  pluralName: psy
   sprite:
     m_AssetGUID: 1979bba7853293b4b8116c076e435254
     m_SubObjectName: dog

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Sheep
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Owca
+  pluralName: owce
   sprite:
     m_AssetGUID: 983be24a5237101499bcecc5cf4f093a
     m_SubObjectName: sheep

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Giraffe
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: "\u017Byrafa"
+  pluralName: "\u017Cyrafy"
   sprite:
     m_AssetGUID: 7670c5ac858922649bdb4bc1bc513a60
     m_SubObjectName: giraffe

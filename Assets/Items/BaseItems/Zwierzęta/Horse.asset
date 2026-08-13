@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Horse
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: "Ko\u0144"
+  pluralName: konie
   sprite:
     m_AssetGUID: b593660dd61da784babd9acebea01e16
     m_SubObjectName: horse

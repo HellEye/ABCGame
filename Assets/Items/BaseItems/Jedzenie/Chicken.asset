@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Chicken
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Kurczak
+  pluralName: "kawa\u0142ki kurczaka"
   sprite:
     m_AssetGUID: adc27167d49a8a740a2324a7ecd7f127
     m_SubObjectName: chicken

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Pizza
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Pizza
+  pluralName: pizze
   sprite:
     m_AssetGUID: 62e328f0baa45964ea5e99c14066ee9b
     m_SubObjectName: pizza

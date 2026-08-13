@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Cat
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Kot
+  pluralName: koty
   sprite:
     m_AssetGUID: eeab448315f5e714eac38593929b306e
     m_SubObjectName: cat

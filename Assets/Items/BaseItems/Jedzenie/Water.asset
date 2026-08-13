@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Water
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Woda
+  pluralName: szklanki wody
   sprite:
     m_AssetGUID: 9507f93efdd87ee4dbc856460396a2cc
     m_SubObjectName: water

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Lettuce
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: "Sa\u0142ata"
+  pluralName: "sa\u0142aty"
   sprite:
     m_AssetGUID: 2c56a8a231e12bc408b8636cc954e6f9
     m_SubObjectName: lettuce

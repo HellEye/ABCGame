@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Milkshake
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Milkshake
+  pluralName: "szklanki milkshake'\xF3w"
   sprite:
     m_AssetGUID: 408f1dc81e6644e48a75483c14024fd7
     m_SubObjectName: milkshake

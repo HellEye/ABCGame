@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Jacket
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Kurtka
+  pluralName: kurtki
   sprite:
     m_AssetGUID: ebe4b752cd6dff24787588044c0fa2d7
     m_SubObjectName: jacket

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82cfb2eb6a58830eda8329321d51c153, type: 3}
   m_Name: Skirt
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  itemName: Spudniczka
+  itemName: "Sp\xF3dniczka"
+  pluralName: "sp\xF3dniczki"
   sprite:
     m_AssetGUID: 01b33c239033145489db51626d08050f
     m_SubObjectName: skirt

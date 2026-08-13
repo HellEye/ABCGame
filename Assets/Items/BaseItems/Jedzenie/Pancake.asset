@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Pancake
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: "Nale\u015Bniki"
+  pluralName: "nale\u015Bniki"
   sprite:
     m_AssetGUID: f96926169425583449d11cf138e19e78
     m_SubObjectName: pancakes

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Coffee
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Kawa
+  pluralName: kubki kawy
   sprite:
     m_AssetGUID: 8184c7bb4d82db74483e79c175d3b722
     m_SubObjectName: coffee

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Cap
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Czapka z daszkiem
+  pluralName: czapki z daszkiem
   sprite:
     m_AssetGUID: b1157839fe4d6b741a2f84e45d7133b9
     m_SubObjectName: cap

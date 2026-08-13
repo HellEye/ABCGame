@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Glasses
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Okulary
+  pluralName: okulary
   sprite:
     m_AssetGUID: 8ac4dbb3731182941b55d5beb5bb8408
     m_SubObjectName: glasses

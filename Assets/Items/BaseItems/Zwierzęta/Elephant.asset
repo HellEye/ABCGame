@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Elephant
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: "S\u0142o\u0144"
+  pluralName: "s\u0142onie"
   sprite:
     m_AssetGUID: c867dbb497bf4824bb62e0b88f7d801c
     m_SubObjectName: elephant

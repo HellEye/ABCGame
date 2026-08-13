@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Gloves
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: "R\u0119kawiczki"
+  pluralName: "r\u0119kawiczki"
   sprite:
     m_AssetGUID: 002df0440a9e3e643a1e74c748540d27
     m_SubObjectName: gloves

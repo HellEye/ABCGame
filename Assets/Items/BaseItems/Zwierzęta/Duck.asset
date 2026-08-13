@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Duck
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Kaczka
+  pluralName: kaczki
   sprite:
     m_AssetGUID: 386fa6de31f646b4397cc87313f6ba2a
     m_SubObjectName: duck

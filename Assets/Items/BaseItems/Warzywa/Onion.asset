@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Onion
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Cebula
+  pluralName: cebule
   sprite:
     m_AssetGUID: 670beba2a3f455c45b69b8294e6d64ff
     m_SubObjectName: onion

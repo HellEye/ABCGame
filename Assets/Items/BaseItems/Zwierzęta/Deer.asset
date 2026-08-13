@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Deer
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Sarna
+  pluralName: sarny
   sprite:
     m_AssetGUID: 5b4dbee0286415f4da9cc3de6b5410e6
     m_SubObjectName: deer

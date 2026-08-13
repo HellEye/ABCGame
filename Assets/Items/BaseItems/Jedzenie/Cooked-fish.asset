@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Cooked-fish
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: "Sma\u017Cona ryba"
+  pluralName: "sma\u017Cone ryby"
   sprite:
     m_AssetGUID: b2afca3395dbe4143a720b7a639a2e9b
     m_SubObjectName: cooked-fish

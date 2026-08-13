@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Umbrella
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Parasol
+  pluralName: parasole
   sprite:
     m_AssetGUID: 3dd8ae3e98edc984b83139f3ec518359
     m_SubObjectName: umbrella

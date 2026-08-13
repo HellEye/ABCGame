@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Juice
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Sok
+  pluralName: szklanki soku
   sprite:
     m_AssetGUID: a867f359f372ac24a8a7626f9a221d52
     m_SubObjectName: juice

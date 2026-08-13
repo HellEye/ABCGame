@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Fries
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Frytki
+  pluralName: frytki
   sprite:
     m_AssetGUID: 2735fd39845fdd94da874dcf4c306c98
     m_SubObjectName: fries

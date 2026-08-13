@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Bear
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: "Nied\u017Awied\u017A"
+  pluralName: "nied\u017Awiedzie"
   sprite:
     m_AssetGUID: f65b647d7c328a943a96a1af212b039e
     m_SubObjectName: bear

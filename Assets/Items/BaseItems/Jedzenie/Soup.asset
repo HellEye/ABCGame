@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Soup
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Zupa
+  pluralName: miski zupy
   sprite:
     m_AssetGUID: de9d3094b0b98774bad23442fa2d9feb
     m_SubObjectName: soup

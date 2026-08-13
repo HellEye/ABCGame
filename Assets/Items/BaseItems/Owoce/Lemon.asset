@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Lemon
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Cytryna
+  pluralName: cytryny
   sprite:
     m_AssetGUID: bf3073569a4bad946b2131a7493ef7c1
     m_SubObjectName: lemon

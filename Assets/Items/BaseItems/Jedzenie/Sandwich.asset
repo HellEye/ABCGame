@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Sandwich
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Kanapka
+  pluralName: kanapki
   sprite:
     m_AssetGUID: d12d105e897de7b4499b69a911753de3
     m_SubObjectName: sandwich
