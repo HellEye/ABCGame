@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3689d58d32c7423ebbdfa5b9bac69e88, type: 3}
+  m_Name: "Zwierz\u0119ta_dzikie"
+  m_EditorClassIdentifier: Assembly-CSharp::ItemGroupFromCategory
+  groupName: "Dzikie zwierz\u0119ta"
+  targetText: "Wybierz dzikie zwierz\u0119ta"
+  targets:
+  - {fileID: 11400000, guid: bc90c32d8d6966642ab3af400e3aac31, type: 2}
+  - {fileID: 11400000, guid: 26e1215e0b4c9f24eb770ed085e10fd9, type: 2}
+  - {fileID: 11400000, guid: f712cc4d5c1ee054d93b13db479e8137, type: 2}
+  - {fileID: 11400000, guid: d2df7a436cac0bf478389c83a3f339e3, type: 2}
+  - {fileID: 11400000, guid: 8b5ce92986345554e9465bf92ee7fd95, type: 2}
+  - {fileID: 11400000, guid: 09057f890a396bd4ea91daca5539f670, type: 2}
+  - {fileID: 11400000, guid: 91ef2d74f3db6fb49ad2bf7c7cbf7f7c, type: 2}
+  - {fileID: 11400000, guid: 11c540fc8ccc4ee419e9fef1be247701, type: 2}
+  - {fileID: 11400000, guid: 2ab54ceb5c7c5b24cb86b27454b1dddd, type: 2}
+  - {fileID: 11400000, guid: 63512d8aaa34cb74ca0bdcb353a451fd, type: 2}
+  - {fileID: 11400000, guid: 9e0f88523f8697945b5d68481594287d, type: 2}
+  categories:
+  - {fileID: 11400000, guid: ed35f334089ea1e4aa994dc188a05b90, type: 2}
+  difficulty: 1

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3689d58d32c7423ebbdfa5b9bac69e88, type: 3}
+  m_Name: "Jedzenie_na_ciep\u0142o"
+  m_EditorClassIdentifier: Assembly-CSharp::ItemGroupFromCategory
+  groupName: "Jedzenie na ciep\u0142o"
+  targetText: "Wybierz jedzenie i picie, kt\xF3re jemy lub pijemy na ciep\u0142o"
+  targets:
+  - {fileID: 11400000, guid: 22d8938367c554648b54ab12d0ff875b, type: 2}
+  - {fileID: 11400000, guid: e0c47cb86677a554f8b5c7a8475a2519, type: 2}
+  - {fileID: 11400000, guid: e93a556686d44d249a2de52d93589920, type: 2}
+  - {fileID: 11400000, guid: e11d87747b7de574b86823a304a24276, type: 2}
+  - {fileID: 11400000, guid: f21bdee396ff7b944ae7dfb0b1f5f5ee, type: 2}
+  - {fileID: 11400000, guid: f5a2e9ee159ffea4db87926b16cb5d5e, type: 2}
+  - {fileID: 11400000, guid: 4015bb30140741c4b93dcaa378cfba34, type: 2}
+  - {fileID: 11400000, guid: 71d0544491273ed4da44012444a9ee44, type: 2}
+  - {fileID: 11400000, guid: 2f54e7ae1e237964e9378d0eff97352c, type: 2}
+  - {fileID: 11400000, guid: e1cb8e56cae8d5046917590381806e1e, type: 2}
+  - {fileID: 11400000, guid: 3a3ae4c6b824662488e2991df8db593f, type: 2}
+  - {fileID: 11400000, guid: 87523b2b1579a3c4b903da5310e8fe63, type: 2}
+  - {fileID: 11400000, guid: dbe3d6efb779042499c41a591d6ecb0e, type: 2}
+  categories:
+  - {fileID: 11400000, guid: d38f2f1adf3b3c7ada8f955544e45ea8, type: 2}
+  - {fileID: 11400000, guid: 5c4c96205654a0a4c91fc389df087906, type: 2}
+  - {fileID: 11400000, guid: 40d21281620acef4a97d61971d889e3c, type: 2}
+  difficulty: 1
