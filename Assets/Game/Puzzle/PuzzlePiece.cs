@@ -9,9 +9,12 @@ public class PuzzlePiece : MonoBehaviour {
         meshFilter.mesh = data.Mesh;
         meshRenderer.material = material;
         boxCollider.size = new(data.Bounds.size.x, data.Bounds.size.y);
+<<<<<<< HEAD
 
         var block = new MaterialPropertyBlock();
         data.ApplyTo(block);
         meshRenderer.SetPropertyBlock(block);
+=======
+>>>>>>> 3501407 (Puzzle game proof of concept)
     }
 }
