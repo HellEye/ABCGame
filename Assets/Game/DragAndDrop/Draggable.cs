@@ -1,16 +1,12 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D), typeof(Item))]
+[RequireComponent(typeof(Collider2D))]
 public class Draggable : MonoBehaviour {
     public new Collider2D collider;
-    public Item item;
     Vector3 startPos;
 
-    void Awake() {
-        collider = GetComponent<Collider2D>();
-        item = GetComponent<Item>();
-    }
+    void Awake() => collider = GetComponent<Collider2D>();
 
     public event Action<Vector3> OnDroppedIncorrect;
     public event Action OnDroppedCorrect;

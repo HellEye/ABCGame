@@ -31,16 +31,17 @@ public class DropZone : MonoBehaviour {
     }
 
     public void Drop(Draggable draggable) {
-        if (targets.Contains(draggable.item.data))
-            Correct(draggable);
+        var item = draggable.GetComponent<Item>();
+        if (targets.Contains(item.data))
+            Correct(draggable, item);
         else
             Incorrect(draggable);
     }
 
-    void Correct(Draggable draggable) {
+    void Correct(Draggable draggable, Item item) {
         correctEffect.Play();
         draggable.DropCorrect();
-        gameManager.RemoveItem(draggable.item);
+        gameManager.RemoveItem(item);
     }
 
     void Incorrect(Draggable draggable) => draggable.DropIncorrect();

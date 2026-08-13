@@ -2,14 +2,16 @@
 using System.Linq;
 using UnityEditor;
 using UnityEditor.SceneManagement;
+using UnityEngine;
 
 [InitializeOnLoad]
 public class EditorBootstrapHelper {
     const string LOADER_SCENE_NAME = "Loader";
-    static readonly string[] IGNORED_SCENES = { "UI Test" };
+    static readonly string[] IGNORED_SCENES = { "UI Test", "PuzzleGameplay" };
 
     static EditorBootstrapHelper() {
         var activeScene = EditorSceneManager.GetActiveScene();
+        Debug.Log("Active scene: " + activeScene.path + " " + activeScene.name);
         if (IGNORED_SCENES.Contains(activeScene.name)) {
             EditorSceneManager.playModeStartScene = AssetDatabase.LoadAssetAtPath<SceneAsset>(activeScene.path);
             return;
