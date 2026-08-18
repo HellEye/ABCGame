@@ -113,7 +113,7 @@ public partial class PillSlider : BaseField<float>, INotifyBindablePropertyChang
 
     float perStep;
 
-    [UxmlAttribute("max")]
+    [UxmlAttribute("high-value")]
     [CreateProperty]
     public float Max {
         get => max;
@@ -125,7 +125,7 @@ public partial class PillSlider : BaseField<float>, INotifyBindablePropertyChang
         }
     }
 
-    [UxmlAttribute("min")]
+    [UxmlAttribute("low-value")]
     [CreateProperty]
     public float Min {
         get => min;

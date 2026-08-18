@@ -1,12 +1,42 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/MainMenu/UITest/Settings.uss?fileID=7433441132597879392&amp;guid=ecc810964ba17e94c93eb549b0099fe9&amp;type=3#Settings"/>
-    <Popup name="settings-popup">
         <ui:TabView name="settings-tabs" class="settings-tabs">
             <ui:Tab label="Tab" name="TabA" class="settings-page sound-tab">
-                <ui:VisualElement name="SoundPage" class="settings-page" style="flex-grow: 1;"/>
+                <ui:VisualElement name="SoundPage" class="settings-page" style="flex-grow: 1;">
+                    <PillSlider name="sfx-slider" label="Sounds" title="SFX Volume" low-value="0" high-value="100"
+                               value="10" steps="10">
+                        <Bindings>
+                            <ui:DataBinding property="value" data-source-path="SoundVolume"/>
+                        </Bindings>
+                    </PillSlider>
+                    <PillSlider name="music-slider" label="Music" title="Music Volume" low-value="0"
+                               high-value="100" steps="10">
+                        <Bindings>
+                            <ui:DataBinding property="value" data-source-path="MusicVolume"/>
+                        </Bindings>
+                    </PillSlider>
+                    <ui:Toggle name="vo-toggle" title="VO Tog" label="VO On">
+                        <Bindings>
+                            <ui:DataBinding property="value" data-source-path="VoEnabled"/>
+                        </Bindings>
+                    </ui:Toggle>
+                    <PillSlider name="vo-slider" title="VO Vol" label="VO Volume" low-value="0" high-value="100" steps="10">
+                        <Bindings>
+                            <ui:DataBinding property="value" data-source-path="VoVolume"/>
+                            <ConditionalClassBinding property="whatevs" false-class="hidden"
+                                                     data-source-path="VoEnabled"/>
+                        </Bindings>
+                    </PillSlider>
+                </ui:VisualElement>
             </ui:Tab>
             <ui:Tab label="Tab" name="TabB" class="settings-page settings-tab">
-                <ui:VisualElement name="GeneralPage" class="settings-page" style="flex-grow: 1;"/>
+                <ui:VisualElement name="GeneralPage" class="settings-page" style="flex-grow: 1;">
+                    <PillSlider name="sprite-scale-slider" label="SpriteScale" title="Sprite Scale" low-value="0"
+                               high-value="100" steps="10">
+                        <Bindings>
+                            <ui:DataBinding property="value" data-source-path="SpriteScale"/>
+                        </Bindings>
+                    </PillSlider>
+                </ui:VisualElement>
             </ui:Tab>
             <ui:Tab label="Tab" name="TabC" class="settings-page profile-tab">
                 <ui:VisualElement name="AccessibilityPage" class="settings-page" style="flex-grow: 1;"/>
@@ -16,5 +46,4 @@
         <ui:VisualElement name="settings-bottom-buttons" style="flex-grow: 1;">
             <ui:Button text="Resetuj" name="settings-reset" class="reset-btn settings-bottom-button" style="bottom: 56px;"/>
         </ui:VisualElement>
-    </Popup>
 </ui:UXML>

@@ -2,7 +2,7 @@
          editor-extension-mode="False">
     <Style
         src="project://database/Assets/MainMenu/Settings.uss?fileID=7433441132597879392&amp;guid=f08de89200854833a1e805d48222f198&amp;type=3#Settings"/>
-    <Popup name="settings-popup" class="settings-popup">
+    <Popup name="settingsPopup" class="settings-popup">
         <ui:Label text="Settings" class="popup-title"/>
 
         <ui:TabView class="settings-tabs" name="settings-tabs">

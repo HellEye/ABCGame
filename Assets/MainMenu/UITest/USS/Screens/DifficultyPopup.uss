@@ -9,29 +9,30 @@
 }
 
 .difficulty-popup .popup-wrapper {
-    background-color: blueviolet;
     padding: 0;
+    border-radius: 70px;
 }
 
-.difficulty-popup-body {
+.difficulty-popup-main {
     width: 100%;
-    height: 78%;
+    height: 76%;
     flex-direction: column;
     align-items: center;
-    padding-top: 50px;
+    padding-top: 30px;
 }
 
 
 .difficulty-popup-footer {
     width: 100%;
-    height: 22%;
+    height: 24%;
     align-items: center;
+    padding-bottom: 40px;
 }
 
 .difficulty-text {
-    font-size: 50px;
+    font-size: 64px;
     color: black;
-    margin-top: 30px;
+    margin-top: 80px;
 }
 
 .difficulty-popup .card-title {
@@ -66,29 +67,52 @@
     --unity-image-tint-color: rgb(255, 255, 255);
 }
 
+
+.difficulty-icon-btn .minigame-card {
+    height: 290px;
+    width: 440px;
+}
+
 .difficulty-icon-btn .minigame-card:hover {
     scale: 1;
 }
 
 .difficulty-btn {
-    width: 32%;
+    width: 26%;
     height: 150px;
 
     border-radius: 30px;
-    border-width: 2px;
+    border-width: 10px;
     border-color: black;
 
-    font-size: 50px;
+    font-size: 64px;
+    
 }
 
 .difficulty-btn-easy {
-    background-color: green;
+    background-color: #97E545;
+    border-color: #97E545;
+}
+
+.difficulty-btn-easy:active {
+    background-color: #364626;
 }
 
 .difficulty-btn-medium {
-    background-color: orange;
+    background-color: #FFD900;
+    border-color: #FFD900;
+}
+
+.difficulty-btn-medium:active {
+    background-color: #4b4318;
 }
 
 .difficulty-btn-hard {
-    background-color: red;
+    background-color: #FF8000;
+    border-color: #FF8000;
 }
+
+.difficulty-btn-hard:active {
+    background-color: #4b3218;
+}
+

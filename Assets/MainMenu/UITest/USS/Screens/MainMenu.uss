@@ -53,6 +53,7 @@
    SETTINGS BUTTON
    ========================================================== */
 
+/*
 .settings-button
 {
     position: absolute;
@@ -60,4 +61,19 @@
     right: 32px;
 
     bottom: 32px;
+}
+*/
+
+.settings-button {
+    top: 75px;
+    left: 75px;
+    width: 5%;
+    height: 8%;
+    position: absolute;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+Label, Text, Button {
+    -unity-font-definition:  url("/Assets/Fonts/Super Warming.ttf");
 }

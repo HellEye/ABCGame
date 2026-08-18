@@ -23,7 +23,10 @@ public class MainMenuUI : MonoBehaviour
     [Inject] MinigameRegistry minigameRegistry;
     [Inject] GameLoader gameLoader;
     [Inject] DifficultyHolder difficultyHolder;
+    [Inject] MainMenuData  mainMenuData;
     Popup difficultyPopup;
+    Popup settingsPopup;
+    Button settingsButton;
     VisualElement mainMenuOpening;
     VisualElement mainMenuSceneButtons;
 
@@ -36,14 +39,18 @@ public class MainMenuUI : MonoBehaviour
     {
         document = GetComponent<UIDocument>();
         difficultyPopup = document.rootVisualElement.Q<Popup>("DifficultyPopup");
+        settingsPopup = document.rootVisualElement.Q<Popup>("settings-popup");
+        settingsButton = document.rootVisualElement.Q<Button>("SettingsButton");
         mainMenuOpening = document.rootVisualElement.Q<VisualElement>("MainMenuOpening");
         mainMenuSceneButtons = document.rootVisualElement.Q<VisualElement>("MainMenuMinigame");
         mainMenuSceneButtons.style.display = DisplayStyle.None;
+        settingsButton.style.display = DisplayStyle.None;
         difficultiesButtonsClasses = new();
     }
 
     private void Start()
     {
+        settingsButton.clicked += () => OnOptionsClicked();
         actions.Player.Continue.performed += TransitionToSceneSelect;
         
         CreateSelectionView();
@@ -53,7 +60,12 @@ public class MainMenuUI : MonoBehaviour
         difficultiesButtonsClasses.Add(Difficulty.Easy, "difficulty-btn-easy");
         difficultiesButtonsClasses.Add(Difficulty.Medium, "difficulty-btn-medium");
         difficultiesButtonsClasses.Add(Difficulty.Hard, "difficulty-btn-hard");
-        SetupCancelButton();
+        SetupButtons();
+
+        if (mainMenuData.initialized)
+        {
+            TransitionToSceneSelect();
+        }
     }
 
     private void CreateSelectionView()
@@ -77,6 +89,13 @@ public class MainMenuUI : MonoBehaviour
         difficultyPopup.IsOpen = true;
         //Debug.Log("Clicked");
     }
+    
+    void OnOptionsClicked()
+    {
+        settingsPopup.IsOpen = true;
+        actions.Player.Continue.Disable();
+    }
+    
     void SetupDifficultyButtons(LevelMapping mapping) {
         var buttonList = document.rootVisualElement.Q<VisualElement>("DifficultyButtons");
         buttonList.Clear();
@@ -93,11 +112,14 @@ public class MainMenuUI : MonoBehaviour
         }
     }
 
-    void SetupCancelButton()
+    void SetupButtons()
     {
-        var cancelButton = document.rootVisualElement.Q<Button>("DifficultyPopupCloseBtn");
-        cancelButton.clicked += () => OnCancelButtonClicked();
+        var difficultyCancelButton = document.rootVisualElement.Q<Button>("DifficultyPopupCloseBtn");
+        var settingsCancelButton = document.rootVisualElement.Q<Button>("settings-close");
+        difficultyCancelButton.clicked += () => OnDifficultyCancelButtonClicked();
+        settingsCancelButton.clicked += () => OnSettingsCancelButtonClicked();
     }
+    
 
     void SetupMinigameLabel(LevelMapping mapping)
     {
@@ -107,7 +129,7 @@ public class MainMenuUI : MonoBehaviour
 
     void OnDifficultyButtonClicked(LevelMapping mapping, DifficultyMapping difficultyMap) {
         Debug.Log($"Scene {mapping.levelName} with difficulty {difficultyMap} selected");
-        difficultyPopup.IsOpen = false;
+        //difficultyPopup.IsOpen = false;
         var scene = mapping.sceneReference;
         var difficulty = difficultyMap.difficultyData.Value;
         Debug.Log($"Scene {scene} with difficulty {difficulty} selected");
@@ -117,9 +139,14 @@ public class MainMenuUI : MonoBehaviour
         gameLoader.LoadGameplaySceneFromHolder().Forget();
     }
 
-    void OnCancelButtonClicked()
+    void OnDifficultyCancelButtonClicked()
     {
         difficultyPopup.IsOpen = false;
+    }
+    
+    void OnSettingsCancelButtonClicked()
+    {
+        settingsPopup.IsOpen = false;
     }
 
     private void BuildPopupCard()
@@ -140,8 +167,16 @@ public class MainMenuUI : MonoBehaviour
 
     void TransitionToSceneSelect(InputAction.CallbackContext ctx)
     {
+        TransitionToSceneSelect();
+        mainMenuData.initialized = true;
+    }
+    //transition may fix one click double transition problem
+    
+    void TransitionToSceneSelect()
+    {
         mainMenuOpening.style.display = DisplayStyle.None;
         mainMenuSceneButtons.style.display = DisplayStyle.Flex;
+        settingsButton.style.display = DisplayStyle.Flex;
         actions.Player.Continue.Disable();
     }
 }

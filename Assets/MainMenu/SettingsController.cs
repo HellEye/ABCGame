@@ -9,26 +9,29 @@ public class SettingsController : MonoBehaviour {
 
     //string[] tabsNamesWithoutScaling;
     [SerializeField] List<Sprite> tabSprites;
-    [Inject] UIDocument document;
+    private UIDocument document;
 
     [Inject] MainMenuSettingsData settingsData;
 
     void Awake() {
+        document = GetComponent<UIDocument>();
         EnumDropdownBinding.RegisterConverter(MainMenuSettingsData.IntensityTextGetter);
         EnumDropdownBinding.RegisterConverter(MainMenuSettingsData.ColorblindTextGetter);
         var rootElement = document.rootVisualElement;
         //tabsNamesWithoutScaling[0] = "TabA";
-        var tabView = rootElement.Q<TabView>("settings-tabs");
+        //var tabView = rootElement.Q<TabView>("settings-tabs");
         // settings popup
         var settingsPopup = rootElement.Q<Popup>("settings-popup");
         settingsPopup.dataSource = settingsData;
-        settingsPopup.WithOpenButton(rootElement.Q<Button>("options"));
+        //settingsPopup.WithOpenButton(rootElement.Q<Button>("options"));
         settingsPopup.WithCloseButton(rootElement.Q<Button>("settings-close"));
 
         // settings button bindings
+        /*
         rootElement.Q<Button>("options").clicked += () => {
             spriteScalingReference.SetActive(settingsPopup.Q<TabView>("settings-tabs").activeTab.name == "TabB");
         };
+        */
         settingsPopup.Q<Button>("settings-close").clicked += () => {
             spriteScalingReference.SetActive(false);
         };

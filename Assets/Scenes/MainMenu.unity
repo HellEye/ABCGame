@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 153866599}
   - component: {fileID: 153866600}
   - component: {fileID: 153866601}
+  - component: {fileID: 153866602}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -205,6 +206,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResponsiveUIManager
   profile: {fileID: 11400000, guid: f8478f7159b226841982f94538e57b6f, type: 2}
+--- !u!114 &153866602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153866595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71fe75a99ed463db10dfe09f8a47335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsController
+  spriteScalingReference: {fileID: 1867320573}
+  tabSprites:
+  - {fileID: -8881052032439965351, guid: 81f5a96203f00914db25896fd9c14f07, type: 3}
+  - {fileID: 2554887061280865917, guid: 52f2c1a67a7e3ea4985ab8fa58fa496e, type: 3}
+  - {fileID: 4705431711564689963, guid: edb762fc7c7e6c54fae59dee76e8ac28, type: 3}
 --- !u!1 &356506195
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,7 +324,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SettingsController
   spriteScalingReference: {fileID: 1867320573}
-  tabSprites: []
+  tabSprites:
+  - {fileID: -8881052032439965351, guid: 81f5a96203f00914db25896fd9c14f07, type: 3}
+  - {fileID: 2554887061280865917, guid: 52f2c1a67a7e3ea4985ab8fa58fa496e, type: 3}
+  - {fileID: 4705431711564689963, guid: edb762fc7c7e6c54fae59dee76e8ac28, type: 3}
 --- !u!114 &356506201
 MonoBehaviour:
   m_ObjectHideFlags: 0
