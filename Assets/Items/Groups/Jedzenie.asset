@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Jedzenie
   m_EditorClassIdentifier: Assembly-CSharp::ItemGroup
   groupName: Jedzenie
-  targetText: Wybierz pokazane jedzenie
+  targetText: 'Wybierz wszystkie: {name}'
   items:
   - {fileID: 11400000, guid: 63d0d4ce0a3e6dd5c89ceb173698d350, type: 2}
   - {fileID: 11400000, guid: f5bcbf6449d2309b4b2490c8bc955753, type: 2}

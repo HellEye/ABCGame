@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "Zwierz\u0119ta_dzikie"
   m_EditorClassIdentifier: Assembly-CSharp::ItemGroupFromCategory
   groupName: "Dzikie zwierz\u0119ta"
-  targetText: "Wybierz dzikie zwierz\u0119ta"
+  targetText: "Wybierz wszystkie: dzikie zwierz\u0119ta"
   targets:
   - {fileID: 11400000, guid: bc90c32d8d6966642ab3af400e3aac31, type: 2}
   - {fileID: 11400000, guid: 26e1215e0b4c9f24eb770ed085e10fd9, type: 2}

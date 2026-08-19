@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ubrania_letnie
   m_EditorClassIdentifier: Assembly-CSharp::ItemGroupFromCategory
   groupName: Ubrania na lato
-  targetText: Wybierz ubrania na lato
+  targetText: 'Wybierz wszystkie: ubrania na lato'
   targets:
   - {fileID: 11400000, guid: 13eb6fdb71ad76c469e87186be6cad01, type: 2}
   - {fileID: 11400000, guid: 27d6402fcd1462d469501b4e38a051d5, type: 2}

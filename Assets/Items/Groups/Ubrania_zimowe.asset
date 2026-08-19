@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3689d58d32c7423ebbdfa5b9bac69e88, type: 3}
   m_Name: Ubrania_zimowe
   m_EditorClassIdentifier: Assembly-CSharp::ItemGroupFromCategory
-  groupName: Zielone owoce
-  targetText: "Wybierz warzywa rosn\u0105ce pod ziemi\u0105"
+  groupName: Ubrania zimowe
+  targetText: "Wybierz wszystkie: ubrania na zim\u0119"
   targets:
   - {fileID: 11400000, guid: b3ee3f46af8352b40a4dcd1fd9cd47fe, type: 2}
   - {fileID: 11400000, guid: 9f0da34e2835cc047a304109e218853a, type: 2}

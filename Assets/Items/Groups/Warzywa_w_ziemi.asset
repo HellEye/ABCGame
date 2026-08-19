@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Warzywa_w_ziemi
   m_EditorClassIdentifier: Assembly-CSharp::ItemGroupFromCategory
   groupName: Zielone owoce
-  targetText: "Wybierz warzywa rosn\u0105ce pod ziemi\u0105"
+  targetText: "Wybierz wszystkie: warzywa rosn\u0105ce pod ziemi\u0105"
   targets:
   - {fileID: 11400000, guid: 712d2db103609b33c8be165202508eae, type: 2}
   - {fileID: 11400000, guid: 1bfcbfc20aa0bfe419edeadee19a1ff9, type: 2}
