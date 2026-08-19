@@ -66,16 +66,7 @@ public class MinigameSelectionView {
                 CardClicked?.Invoke(card.Data);
             };
 
-            // cardViews.Add(card);
-
             cardGrid.Add(card);
-
-            var halfSpacing = layout.spacing * 0.5f;
-
-            card.Root.style.marginLeft = halfSpacing;
-            card.Root.style.marginRight = halfSpacing;
-            card.Root.style.marginTop = halfSpacing;
-            card.Root.style.marginBottom = halfSpacing;
         }
     }
 
@@ -93,7 +84,6 @@ public class MinigameSelectionView {
             ResponsiveUIManager.Instance
                 .CalculateCardWidth(availableWidth);
 
-        foreach (var card in cardViews) card.ApplyLayout(cardWidth, layout);
 
         RefreshPage();
     }

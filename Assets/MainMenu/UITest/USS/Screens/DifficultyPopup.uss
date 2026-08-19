@@ -1,42 +1,39 @@
-.difficulty-popup-wrap {
-    display: flex;
-    flex-direction: column;
-    /*min-width: 60%;
-    max-width: 80%;*/
-    width: 1200px;
-    height: 720px;
-    padding: 20px 10px;
-}
 
 .difficulty-popup .popup-wrapper {
-    padding: 0;
     border-radius: 70px;
-}
-
-.difficulty-popup-main {
-    width: 100%;
-    height: 76%;
+    min-width: 60%;
+    min-height: 60%;
+    overflow: hidden;
     flex-direction: column;
-    align-items: center;
-    padding-top: 30px;
+    padding: 20px 10px;
+    background-image: url("project://database/Assets/MainMenu/UITest/popup_background.png?fileID=5831718440945433681&guid=c1611caa6a633de4b817b4ff308e9555&type=3#popup_background_0");
 }
 
+.difficulty-popup #difficultyIcon {
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 1;
+    margin-bottom: 5%;
+}
 
 .difficulty-popup-footer {
     width: 100%;
-    height: 24%;
+    height: 20%;
+    flex-shrink: 0;
     align-items: center;
-    padding-bottom: 40px;
+    flex-grow: 1;
+    min-height: 100px;
 }
 
 .difficulty-text {
-    font-size: 64px;
+    font-size: 50px;
     color: black;
-    margin-top: 80px;
 }
 
 .difficulty-popup .card-title {
-    display: none;
+    color: black;
+    font-size: 40px;
+    margin-top: 30px;
 }
 
 .difficulty-buttons {
@@ -50,8 +47,8 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     border-radius: 0;
     border-width: 0;
     padding: 0;
@@ -68,9 +65,8 @@
 }
 
 
-.difficulty-icon-btn .minigame-card {
-    height: 290px;
-    width: 440px;
+.difficulty-icon-btn .minigame-card-view-root {
+    height: 350px;
 }
 
 .difficulty-icon-btn .minigame-card:hover {
@@ -79,14 +75,13 @@
 
 .difficulty-btn {
     width: 26%;
-    height: 150px;
-
+    height: 100%;
     border-radius: 30px;
     border-width: 10px;
     border-color: black;
 
-    font-size: 64px;
-    
+    font-size: 40px;
+
 }
 
 .difficulty-btn-easy {

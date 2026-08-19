@@ -1,12 +1,11 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-        <ui:VisualElement name="DifficultyPopupWrap" class="difficulty-popup-wrap" style="background-image: url(&quot;project://database/Assets/MainMenu/UITest/popup_background.png?fileID=5831718440945433681&amp;guid=c1611caa6a633de4b817b4ff308e9555&amp;type=3#popup_background_0&quot;);">
-            <ui:VisualElement name="DifficultyPopupMain" class="difficulty-popup-main">
-                <ui:VisualElement name="difficultyIcon" class="difficulty-icon-btn"/>
-                <ui:Label name="DifficultyText" text="Nazwa Minigry" class="difficulty-text"/>
-                <ui:Button name="DifficultyPopupCloseBtn" icon-image="project://database/Assets/MainMenu/UITest/Cancel.png?fileID=2800000&amp;guid=bc74311713d4f2c48bd2a6c8d986abd4&amp;type=3#Cancel" class="difficulty-close-btn"/>
-            </ui:VisualElement>
-            <ui:VisualElement name="DifficultyPopupFooter" class="difficulty-popup-footer">
-                <ui:VisualElement name="DifficultyButtons" class="difficulty-buttons"/>
-            </ui:VisualElement>
-        </ui:VisualElement>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
+         editor-extension-mode="False">
+    <ui:Button name="DifficultyPopupCloseBtn" icon-image="project:
+    //database/Assets/MainMenu/UITest/Cancel.png?fileID=2800000&amp;guid=bc74311713d4f2c48bd2a6c8d986abd4&amp;type=3#Cancel"
+               class="difficulty-close-btn"/>
+    <ui:VisualElement name="difficultyIcon" class="difficulty-icon-btn"/>
+
+    <ui:VisualElement name="DifficultyPopupFooter" class="difficulty-popup-footer">
+        <ui:VisualElement name="DifficultyButtons" class="difficulty-buttons"/>
+    </ui:VisualElement>
 </ui:UXML>

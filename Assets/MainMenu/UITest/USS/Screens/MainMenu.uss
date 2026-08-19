@@ -1,21 +1,12 @@
-/* ==========================================================
-   MAIN MENU
-   ========================================================== */
 
-.main-menu
-{
+.main-menu {
     flex-grow: 1;
 
     justify-content: center;
     align-items: center;
 }
 
-/* ==========================================================
-   LOGO
-   ========================================================== */
-
-.logo
-{
+.logo {
     width: 520px;
     height: 240px;
 
@@ -26,54 +17,44 @@
     -unity-background-scale-mode: scale-to-fit;
 }
 
-/* ==========================================================
-   PRESS TO START
-   ========================================================== */
-
-.press-to-start
-{
+.press-to-start {
     position: absolute;
-
     top: 54%;
-
     width: 600px;
-
     height: 60px;
-
     unity-text-align: middle-center;
-
     font-size: 36px;
-
-    color: rgb(255,255,255);
-
+    color: rgb(255, 255, 255);
     -unity-font-style: bold;
 }
 
-/* ==========================================================
-   SETTINGS BUTTON
-   ========================================================== */
-
-/*
-.settings-button
-{
-    position: absolute;
-
-    right: 32px;
-
-    bottom: 32px;
+#MainMenuMinigame {
+    width: 100%;
+    height: 100%;
 }
-*/
+
+.card-grid-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 80%;
+    height: 60%;
+}
+
+#CardGrid {
+    flex-shrink: 1;
+}
 
 .settings-button {
-    top: 75px;
-    left: 75px;
-    width: 5%;
-    height: 8%;
+    top: 50px;
+    right: 50px;
+    width: 64px;
+    height: 64px;
     position: absolute;
     background-color: transparent;
     border-color: transparent;
 }
 
 Label, Text, Button {
-    -unity-font-definition:  url("/Assets/Fonts/Super Warming.ttf");
+    -unity-font-definition: url("/Assets/Fonts/Super Warming.ttf");
 }

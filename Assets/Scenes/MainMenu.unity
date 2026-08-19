@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 153866600}
   - component: {fileID: 153866601}
   - component: {fileID: 153866602}
+  - component: {fileID: 153866603}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -223,6 +224,20 @@ MonoBehaviour:
   - {fileID: -8881052032439965351, guid: 81f5a96203f00914db25896fd9c14f07, type: 3}
   - {fileID: 2554887061280865917, guid: 52f2c1a67a7e3ea4985ab8fa58fa496e, type: 3}
   - {fileID: 4705431711564689963, guid: edb762fc7c7e6c54fae59dee76e8ac28, type: 3}
+--- !u!114 &153866603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153866595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0659eb2bc1e48648b4728701e915a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpritePreview
+  document: {fileID: 153866599}
+  previewCamera: {fileID: 519420031}
 --- !u!1 &356506195
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,23 +366,14 @@ GameObject:
   m_Component:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
-  - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   m_Layer: 0
-  m_Name: Main Camera
-  m_TagString: MainCamera
+  m_Name: SpriteScaleCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!81 &519420029
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_IsActive: 1
 --- !u!114 &519420030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,7 +457,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 256
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -636,11 +642,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2905729424648277258, guid: b6c297d7b059f422089adf4b62100b2d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.8299518
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2905729424648277258, guid: b6c297d7b059f422089adf4b62100b2d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.6278162
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2905729424648277258, guid: b6c297d7b059f422089adf4b62100b2d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -684,11 +690,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4024666350026777014, guid: b6c297d7b059f422089adf4b62100b2d, type: 3}
       propertyPath: m_Layer
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4024666350026777014, guid: b6c297d7b059f422089adf4b62100b2d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4464154226927068352, guid: b6c297d7b059f422089adf4b62100b2d, type: 3}
       propertyPath: m_Enabled
@@ -700,7 +706,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5772465549582982533, guid: b6c297d7b059f422089adf4b62100b2d, type: 3}
       propertyPath: m_Layer
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6226223324506803629, guid: b6c297d7b059f422089adf4b62100b2d, type: 3}
       propertyPath: m_Enabled
@@ -709,6 +715,10 @@ PrefabInstance:
     - target: {fileID: 6559707495396496395, guid: b6c297d7b059f422089adf4b62100b2d, type: 3}
       propertyPath: zIndex
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6559707495396496395, guid: b6c297d7b059f422089adf4b62100b2d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6761039107218869986, guid: b6c297d7b059f422089adf4b62100b2d, type: 3}
       propertyPath: m_Enabled
@@ -722,6 +732,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7760177900703104790, guid: b6c297d7b059f422089adf4b62100b2d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

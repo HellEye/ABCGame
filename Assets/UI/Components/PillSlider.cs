@@ -91,7 +91,6 @@ public partial class PillSlider : BaseField<float>, INotifyBindablePropertyChang
 
     void OnDrag(int index) {
         if (IsDragging) CurrentStep = index + 1;
-        Debug.Log($"isDragging: {IsDragging}");
     }
 
     void EnableDrag() => IsDragging = true;

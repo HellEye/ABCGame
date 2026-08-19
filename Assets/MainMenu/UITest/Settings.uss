@@ -1,50 +1,18 @@
-/* =========================================================
-   SETTINGS POPUP OVERLAY
-   ========================================================= */
 
-#settings-popup {
-    position: absolute;
-
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-
+#settings-popup TemplateContainer {
+    flex-grow: 0;
     width: 100%;
     height: 100%;
-
-    justify-content: center;
-    align-items: center;
+    font-size: 40px;
 }
-
-
-/* Existing Popup overlay */
-
-.overlay {
-    position: absolute;
-
-    width: 100%;
-    height: 100%;
-
-    background-color: rgba(17, 17, 17, 0.65);
-
-    align-items: center;
-    justify-content: center;
-}
-
-
-/* =========================================================
-   POPUP WRAPPER
-   ========================================================= */
 
 #settings-popup .popup-wrapper {
-    width: 1200px;
-    height: 720px;
+    width: 80%;
+    height: 80%;
 
     position: relative;
 
     flex-grow: 0;
-    flex-shrink: 0;
 
     background-color: transparent;
     border-color: transparent;
@@ -53,22 +21,6 @@
     border-width: 0;
 }
 
-
-/* Disable old responsive wrapper rules for this popup */
-
-.tight #settings-popup .popup-wrapper {
-    width: 1300px;
-    height: 920px;
-
-    min-width: 0;
-
-    padding: 0;
-}
-
-
-/* =========================================================
-   TAB VIEW
-   ========================================================= */
 
 #settings-popup .settings-tabs {
     width: 100%;
@@ -81,22 +33,23 @@
     border-width: 0;
 }
 
+#settings-popup .unity-tab-view__content-viewport {
+    height: 80px;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
 
-/* =========================================================
-   HEADER AREA
-   ========================================================= */
-
-#settings-popup .settings-tabs > .unity-tab-view__header-container {
+#settings-popup .settings-tabs .unity-tab-view__header-container {
     width: 100%;
-    height: 200px;
+    height: 100%;
 
     flex-grow: 0;
     flex-shrink: 0;
 
     flex-direction: row;
 
-    justify-content: center;
-    align-items: flex-end;
+    justify-content: flex-start;
+    align-items: flex-start;
 
     padding: 0;
 
@@ -106,16 +59,9 @@
 }
 
 
-/* =========================================================
-   TAB
-   ========================================================= */
-
 #settings-popup .settings-tabs .unity-tab__header {
-    width: 200px;
-    height: 175px;
-
-    min-width: 200px;
-    min-height: 175px;
+    width: 20%;
+    height: 80px;
 
     flex-grow: 0;
     flex-shrink: 0;
@@ -130,6 +76,7 @@
     background-color: rgb(180, 180, 180);
 
     border-width: 0;
+    border-color: transparent;
 
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -139,52 +86,36 @@
 }
 
 
-/* =========================================================
-   HOVER
-
-   ========================================================= */
-
 #settings-popup .settings-tabs .unity-tab__header:hover {
     background-color: rgb(205, 205, 205);
 }
 
-
-/* =========================================================
-   ACTIVE TAB
-   ========================================================= */
+#settings-popup .unity-tab__header-underline {
+    display: none;
+}
 
 #settings-popup .settings-tabs .unity-tab__header:checked {
     background-color: rgb(245, 245, 245);
 }
 
 
-/* =========================================================
-   REMOVE DEFAULT TAB TEXT
-   ========================================================= */
-
 #settings-popup .settings-tabs .unity-tab__header-label {
     display: none;
 }
 
 
-/* =========================================================
-   CONTENT PANEL
-   ========================================================= */
-
 #settings-popup .settings-tabs > .unity-tab-view__content-container {
-    width: 1200px;
-    height: 720px;
+    width: 100%;
+    height: 100%;
 
-    min-height: 720px;
 
-    flex-grow: 0;
+    flex-grow: 1;
     flex-shrink: 0;
 
-    margin-top: -25px;
+    margin-top: -2px;
+    padding: 5%;
 
-    padding: 0;
-
-    background-color: rgb(245, 245, 245);
+    background-color: rgba(245, 245, 245, 50);
 
     border-width: 0;
 
@@ -196,10 +127,6 @@
     overflow: hidden;
 }
 
-
-/* =========================================================
-   EACH TAB PAGE
-   ========================================================= */
 
 #settings-popup .settings-page {
     width: 100%;
@@ -213,10 +140,6 @@
 }
 
 
-/* =========================================================
-   ICON
-   ========================================================= */
-
 .settings-tab-icon {
     width: 80px;
     height: 80px;
@@ -228,18 +151,14 @@
 }
 
 
-/* =========================================================
-   CLOSE RESET SAVE BUTTONS
-   ========================================================= */
-
 #settings-popup .settings-close {
     position: absolute;
 
     right: 20px;
     top: 20px;
 
-    width: 70px;
-    height: 70px;
+    width: 40px;
+    height: 40px;
 
     flex-shrink: 0;
 
@@ -250,7 +169,7 @@
     background-color: rgba(0, 0, 0, 0);
 
     -unity-background-scale-mode: scale-to-fit;
-    
+
 }
 
 #settings-bottom-buttons {
@@ -261,20 +180,15 @@
     flex-shrink: 0;
 
     margin-top: auto;
-    
+
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-/* =========================================================
-   EXISTING GENERIC CLASSES
-
-   Keep these for later when we design the actual pages.
-   ========================================================= */
 .settings-bottom-button {
-    width: 300px;
-    height: 80px;
+    width: 30%;
+    height: 100%;
 
     flex-grow: 0;
     flex-shrink: 0;
@@ -283,10 +197,7 @@
 
     border-width: 0;
 
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-radius: 20px;
 
     /* Main purple */
     background-color: rgb(202, 116, 255);
@@ -393,6 +304,6 @@
 
 #settings-popup .unity-tab__header-image {
     display: flex;
-    height: 60%;
-    width: 60%;
+    height: 64px;
+    width: 64px;
 }

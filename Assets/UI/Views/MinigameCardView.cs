@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -27,9 +28,12 @@ public partial class MinigameCardView : VisualElement {
     public event Action<MinigameCardView> Clicked;
 
     public void InitMinigameCardView(VisualTreeAsset template) {
-        Root = template.Instantiate();
+        Root = template.Instantiate().Children().FirstOrDefault();
         Add(Root);
+
+
         thumbnail = Root.Q<Image>("Thumbnail");
+        AddToClassList("minigame-card-view-root");
 
         corner = Root.Q<VisualElement>("Corner");
         cornerBackground = Root.Q<Image>("CornerBackground");
@@ -56,32 +60,6 @@ public partial class MinigameCardView : VisualElement {
         CornerSprite = cornerSprite;
     }
 
-    public void ApplyLayout(float width, ResponsiveLayout layout) {
-        var height = width / layout.aspectRatio;
-
-        Root.style.width = width;
-        Root.style.height = height;
-
-        corner.style.width = width * layout.cornerSize;
-        corner.style.height = width * layout.cornerSize;
-
-        heart.style.width = width * layout.heartSize;
-        heart.style.height = width * layout.heartSize;
-
-        heart.style.left = width * layout.heartOffset.x;
-        heart.style.top = height * layout.heartOffset.y;
-
-        var padding = width * layout.imagePadding;
-
-        thumbnail.style.left = padding;
-        thumbnail.style.right = padding;
-        thumbnail.style.top = padding;
-        thumbnail.style.bottom = height * layout.imageBottomPadding;
-
-        title.style.bottom = height * layout.titleBottomPadding;
-
-        title.style.fontSize = layout.cardTitleFont;
-    }
 
     #region Design Constants
 
