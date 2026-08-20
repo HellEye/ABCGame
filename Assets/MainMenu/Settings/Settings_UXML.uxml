@@ -3,24 +3,24 @@
     <ui:TabView name="settings-tabs" class="settings-tabs">
         <ui:Tab label="Tab" name="TabA" class="settings-page sound-tab">
             <ui:VisualElement name="SoundPage" class="settings-page" style="flex-grow: 1;">
-                <PillSlider name="sfx-slider" label="Sounds" title="SFX Volume" low-value="0" high-value="100"
+                <PillSlider name="sfx-slider" label="Dźwięki" title="SFX Volume" low-value="0" high-value="100"
                             value="10" steps="10">
                     <Bindings>
                         <ui:DataBinding property="value" data-source-path="SoundVolume"/>
                     </Bindings>
                 </PillSlider>
-                <PillSlider name="music-slider" label="Music" title="Music Volume" low-value="0"
+                <PillSlider name="music-slider" label="Muzyka" title="Music Volume" low-value="0"
                             high-value="100" steps="10">
                     <Bindings>
                         <ui:DataBinding property="value" data-source-path="MusicVolume"/>
                     </Bindings>
                 </PillSlider>
-                <ui:Toggle name="vo-toggle" title="VO Tog" label="VO On">
+                <ui:Toggle name="vo-toggle" title="VO Tog" label="Włącz dubbing">
                     <Bindings>
                         <ui:DataBinding property="value" data-source-path="VoEnabled"/>
                     </Bindings>
                 </ui:Toggle>
-                <PillSlider name="vo-slider" title="VO Vol" label="VO Volume" low-value="0" high-value="100" steps="10">
+                <PillSlider name="vo-slider" title="VO Vol" label="Głośność dubbingu" low-value="0" high-value="100" steps="10">
                     <Bindings>
                         <ui:DataBinding property="value" data-source-path="VoVolume"/>
                         <ConditionalClassBinding property="whatevs" false-class="hidden"
@@ -31,7 +31,7 @@
         </ui:Tab>
         <ui:Tab label="Tab" name="TabB" class="settings-page settings-tab">
             <ui:VisualElement name="GeneralPage" class="settings-page" style="flex-grow: 1;">
-                <PillSlider name="sprite-scale-slider" label="SpriteScale" title="Sprite Scale" low-value="0"
+                <PillSlider name="sprite-scale-slider" label="Rozmiar obrazków" title="Sprite Scale" low-value="0"
                             high-value="100" steps="10">
                     <Bindings>
                         <ui:DataBinding property="value" data-source-path="SpriteScale"/>
