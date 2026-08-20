@@ -31,8 +31,6 @@ public class MinigameSelectionView {
 
         //leftArrow.clicked += PreviousPage;
         //rightArrow.clicked += NextPage;
-
-        ResponsiveUIManager.Instance.LayoutChanged += RefreshLayout;
     }
 
     public event Action<LevelMapping> CardClicked;
@@ -42,8 +40,6 @@ public class MinigameSelectionView {
         cardData.AddRange(cards);
 
         BuildCards();
-
-        RefreshLayout();
     }
 
     void BuildCards() {
@@ -61,20 +57,5 @@ public class MinigameSelectionView {
 
             cardGrid.Add(card);
         }
-    }
-
-    void RefreshLayout() {
-        if (cardContainer.resolvedStyle.width <= 0)
-            return;
-
-        var layout = ResponsiveUIManager.Instance.CurrentLayout;
-
-        var availableWidth =
-            cardContainer.resolvedStyle.width -
-            layout.horizontalMargin * 2;
-
-        var cardWidth =
-            ResponsiveUIManager.Instance
-                .CalculateCardWidth(availableWidth);
     }
 }

@@ -25,9 +25,6 @@ public class ItemGroupFromCategory : ScriptableObject, ISpawnableGroup {
         var pickedItems = nonTargets.PickRandom(difficulty.itemTypes - difficulty.targetTypes);
         var targets = excludedTargets.PickRandom(difficulty.targetTypes);
         pickedItems.AddRange(targets);
-        Debug.Log($"Picked {pickedItems.Count} items and {targets.Count} targets");
-        Debug.Log($"Picked items: {string.Join(", ", pickedItems.Select(DescribeElement))}");
-        Debug.Log($"Picked targets: {string.Join(", ", targets.Select(DescribeElement))}");
         return (targets, pickedItems);
     }
 

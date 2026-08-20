@@ -55,11 +55,9 @@ public class DifficultyPopupController : MonoBehaviour {
     void OnDifficultyCancelButtonClicked() => difficultyPopup.IsOpen = false;
 
     void OnDifficultyButtonClicked(LevelMapping mapping, DifficultyMapping difficultyMap) {
-        Debug.Log($"Scene {mapping.levelName} with difficulty {difficultyMap} selected");
         //difficultyPopup.IsOpen = false;
         var scene = mapping.sceneReference;
         var difficulty = difficultyMap.difficultyData.Value;
-        Debug.Log($"Scene {scene} with difficulty {difficulty} selected");
         if (scene == null || difficulty == null) return;
         difficultyHolder.selectedDifficulty = difficulty;
         difficultyHolder.selectedScene = scene;

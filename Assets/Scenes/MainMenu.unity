@@ -130,7 +130,6 @@ GameObject:
   - component: {fileID: 153866596}
   - component: {fileID: 153866599}
   - component: {fileID: 153866600}
-  - component: {fileID: 153866601}
   - component: {fileID: 153866602}
   - component: {fileID: 153866603}
   - component: {fileID: 153866604}
@@ -193,19 +192,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuUI
   minigameCardTemplate: {fileID: 9197481963319205126, guid: 1d1fb35abc6733447850fad38485ef17, type: 3}
   placeholderThumbnail: {fileID: -3092956421908063085, guid: dc4806f0a1d807d428e0a1d60a512374, type: 3}
---- !u!114 &153866601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153866595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89e999446818a5d47a8d838401efe54e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ResponsiveUIManager
-  profile: {fileID: 11400000, guid: f8478f7159b226841982f94538e57b6f, type: 2}
 --- !u!114 &153866602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,7 +597,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6559707495396496395, guid: b6c297d7b059f422089adf4b62100b2d, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6761039107218869986, guid: b6c297d7b059f422089adf4b62100b2d, type: 3}
       propertyPath: m_Enabled

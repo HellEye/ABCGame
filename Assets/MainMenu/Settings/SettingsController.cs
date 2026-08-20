@@ -9,7 +9,7 @@ public class SettingsController : MonoBehaviour {
 
     //string[] tabsNamesWithoutScaling;
     [SerializeField] List<Sprite> tabSprites;
-    private UIDocument document;
+    UIDocument document;
 
     [Inject] MainMenuSettingsData settingsData;
 
@@ -83,7 +83,5 @@ public class SettingsController : MonoBehaviour {
     void SetupAutoSave() =>
         settingsData.propertyChanged += (sender, args) => {
             settingsData.Save();
-
-            Debug.Log($"Settings changed: {args.propertyName} - autosaved.");
         };
 }

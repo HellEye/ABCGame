@@ -52,7 +52,7 @@ public partial class PillSlider : BaseField<float>, INotifyBindablePropertyChang
     public event EventHandler<BindablePropertyChangedEventArgs> propertyChanged;
 
 
-    public void SetValueWithoutNotify(float newValue) {
+    new void SetValueWithoutNotify(float newValue) {
         currentValue = newValue;
         RefreshPills();
         // no events
