@@ -1,0 +1,10 @@
+@import url("/Assets/UI/Styles/Buttons.uss");
+@import url("/Assets/UI/Styles/Cards.uss");
+@import url("/Assets/UI/Styles/Colors.uss");
+@import url("/Assets/UI/Styles/Common.uss");
+/*
+breaks the main menu screen, so not sure why it exists
+@import url("/Assets/UI/Styles/Layout.uss");
+*/
+@import url("/Assets/UI/Styles/Text.uss");
+@import url("/Assets/UI/Components/PillSliderStyles.uss");

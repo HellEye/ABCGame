@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 public class MinigameSelectionView {
@@ -38,29 +37,23 @@ public class MinigameSelectionView {
 
     public event Action<LevelMapping> CardClicked;
 
-    public void SetCards(LevelMapping[] cards, Sprite heartSprite, Sprite cornerSprite) {
+    public void SetCards(LevelMapping[] cards) {
         cardData.Clear();
         cardData.AddRange(cards);
 
-        BuildCards(heartSprite, cornerSprite);
+        BuildCards();
 
         RefreshLayout();
     }
 
-    void BuildCards(Sprite heartSprite, Sprite cornerSprite) {
-        var layout = ResponsiveUIManager.Instance.CurrentLayout;
-
+    void BuildCards() {
         cardGrid.Clear();
         cardViews.Clear();
 
         for (var i = 0; i < cardData.Count; i++) {
-            var index = i;
-
             var card = new MinigameCardView();
-            card.InitMinigameCardView(cardTemplate);
 
-            card.Data = cardData[index];
-            card.SetFrame(cornerSprite, heartSprite);
+            card.Data = cardData[i];
 
             card.Clicked += _ => {
                 CardClicked?.Invoke(card.Data);
@@ -83,38 +76,5 @@ public class MinigameSelectionView {
         var cardWidth =
             ResponsiveUIManager.Instance
                 .CalculateCardWidth(availableWidth);
-
-
-        RefreshPage();
-    }
-
-    void RefreshPage() {
-        var layout = ResponsiveUIManager.Instance.CurrentLayout;
-
-        var cardsPerPage = layout.cardsPerRow * 2;
-
-        var first = currentPage * cardsPerPage;
-        var last = first + cardsPerPage;
-
-        for (var i = 0; i < cardViews.Count; i++)
-            cardViews[i].Visible =
-                i >= first &&
-                i < last;
-
-        //leftArrow.SetEnabled(currentPage > 0);
-        //rightArrow.SetEnabled(last < cardViews.Count);
-    }
-
-    void NextPage() {
-        currentPage++;
-
-        RefreshPage();
-    }
-
-    void PreviousPage() {
-        if (currentPage > 0)
-            currentPage--;
-
-        RefreshPage();
     }
 }

@@ -7,14 +7,14 @@ using UnityEngine.UIElements;
 /// </summary>
 public class MainMenuInstaller : MonoBehaviour, IInstaller {
     // Add any monobehaviour dependencies here
-    [SerializeField] MainMenuManager mainMenuManager;
+    [SerializeField] MainMenuUI mainMenuUi;
     [SerializeField] UIDocument mainMenuDoc;
     [SerializeField] SettingsController settingsController;
 
     public void InstallBindings(ContainerBuilder builder) {
         // register them all here
         builder.RegisterValue(mainMenuDoc);
-        builder.RegisterValue(mainMenuManager);
+        builder.RegisterValue(mainMenuUi);
         builder.RegisterValue(settingsController);
     }
 }

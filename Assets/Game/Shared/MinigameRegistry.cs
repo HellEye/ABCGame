@@ -1,6 +1,6 @@
 using System;
-using System.Linq;
 using Eflatun.SceneReference;
+using Unity.Properties;
 using UnityEngine;
 
 [Serializable]
@@ -11,19 +11,20 @@ public struct DifficultyMapping {
 
 [Serializable]
 public class LevelMapping {
-    public string levelName;
-    public Sprite levelIcon;
+    [CreateProperty] public string levelName;
+
+    [CreateProperty] public Sprite levelIcon;
+
     public SceneReference sceneReference;
     public DifficultyMapping[] difficultiesMappings;
 }
 
 [CreateAssetMenu(fileName = "MinigameRegistry", menuName = "ScriptableObjects/MinigameRegistry")]
 public class MinigameRegistry : ScriptableObject {
-    [SerializeField] private LevelMapping[] mappings;
-    public LevelMapping[] Mappings
-    {
-        get => mappings;
-    }
+    [SerializeField] LevelMapping[] mappings;
+
+    public LevelMapping[] Mappings => mappings;
+
     public int Count => mappings.Length;
 
     /*
@@ -32,8 +33,8 @@ public class MinigameRegistry : ScriptableObject {
         int difficultyIndex) {
         var levelMapping = mappings.FirstOrDefault(m => m.levelIndex == levelIndex);
         var difficultyMapping =
-            
-            
+
+
                 .PickRandom();
 
         if (difficultyMapping.difficultyData == null) return (null, null);
@@ -42,10 +43,7 @@ public class MinigameRegistry : ScriptableObject {
     }
     */
 
-    public LevelMapping[] GetMappings()
-    {
-        return mappings;
-    }
+    public LevelMapping[] GetMappings() => mappings;
 }
 
 public interface IDifficulty<out T> where T : ScriptableObject {

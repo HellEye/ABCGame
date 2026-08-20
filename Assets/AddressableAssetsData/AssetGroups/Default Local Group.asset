@@ -25,6 +25,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d1fb35abc6733447850fad38485ef17
+    m_Address: MinigameCard.uxml
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1d89686cd0c402f4084a8e7fea26cc2e
     m_Address: Assets/Sprites/Warzywa/cucumber.png
     m_ReadOnly: 0

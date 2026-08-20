@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 153866601}
   - component: {fileID: 153866602}
   - component: {fileID: 153866603}
+  - component: {fileID: 153866604}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -192,8 +193,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuUI
   minigameCardTemplate: {fileID: 9197481963319205126, guid: 1d1fb35abc6733447850fad38485ef17, type: 3}
   placeholderThumbnail: {fileID: -3092956421908063085, guid: dc4806f0a1d807d428e0a1d60a512374, type: 3}
-  cornerSprite: {fileID: -489222675259022805, guid: 4c7a2df86ee26d74995165c138634137, type: 3}
-  heartSprite: {fileID: 3882163694322211731, guid: c396f380667c9954f8814132cb8a6fe2, type: 3}
 --- !u!114 &153866601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,124 +237,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpritePreview
   document: {fileID: 153866599}
   previewCamera: {fileID: 519420031}
---- !u!1 &356506195
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 356506197}
-  - component: {fileID: 356506196}
-  - component: {fileID: 356506198}
-  - component: {fileID: 356506199}
-  - component: {fileID: 356506200}
-  - component: {fileID: 356506201}
-  m_Layer: 5
-  m_Name: MainMenu
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &356506196
+--- !u!114 &153866604
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 356506195}
+  m_GameObject: {fileID: 153866595}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Script: {fileID: 11500000, guid: 4861c8b836fb93725a63b77712ba851f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
-  m_PanelSettings: {fileID: 11400000, guid: 630f24b394f159ddd897daf6d45d8d11, type: 2}
-  m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: 70163fbb3c1af5241a0d421bb458b5d4, type: 3}
-  m_SortingOrder: 0
-  m_Position: 0
-  m_WorldSpaceSizeMode: 1
-  m_WorldSpaceWidth: 1920
-  m_WorldSpaceHeight: 1080
-  m_PivotReferenceSize: 0
-  m_Pivot: 0
-  m_WorldSpaceCollider: {fileID: 0}
---- !u!4 &356506197
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 356506195}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &356506198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 356506195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ce6b00b7cb3e7bf0a6aa41b859b06f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MainMenuManager
-  buttonsPerPage: 4
-  maxButtons: 12
-  maxDifficulties: 3
---- !u!114 &356506199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 356506195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3415721d27346dd019bd5ec6482dd973, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MainMenuAspect
-  mainMenuDoc: {fileID: 356506196}
-  camera: {fileID: 519420031}
---- !u!114 &356506200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 356506195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e71fe75a99ed463db10dfe09f8a47335, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SettingsController
-  spriteScalingReference: {fileID: 1867320573}
-  tabSprites:
-  - {fileID: -8881052032439965351, guid: 81f5a96203f00914db25896fd9c14f07, type: 3}
-  - {fileID: 2554887061280865917, guid: 52f2c1a67a7e3ea4985ab8fa58fa496e, type: 3}
-  - {fileID: 4705431711564689963, guid: edb762fc7c7e6c54fae59dee76e8ac28, type: 3}
---- !u!114 &356506201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 356506195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20620ae30fdd0164c9bb5bdc717d3ada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Reflex::Reflex.Components.GameObjectSelfInjector
-  _injectionStrategy: 1
+  m_EditorClassIdentifier: Assembly-CSharp::DifficultyPopupController
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,9 +491,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31aeaa79e31fcc9ac9376af4149f4531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuInstaller
-  mainMenuManager: {fileID: 356506198}
-  mainMenuDoc: {fileID: 356506196}
-  settingsController: {fileID: 356506200}
+  mainMenuUi: {fileID: 153866600}
+  mainMenuDoc: {fileID: 153866599}
+  settingsController: {fileID: 153866602}
 --- !u!4 &835740315
 Transform:
   m_ObjectHideFlags: 0
@@ -752,7 +645,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 619394802}
-  - {fileID: 356506197}
   - {fileID: 835740315}
   - {fileID: 1425516498}
   - {fileID: 153866596}

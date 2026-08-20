@@ -11,7 +11,7 @@ public class ItemSO : ScriptableObject, IElement {
 
     AsyncOperationHandle<Sprite> spriteHandle;
     public string TargetDisplayName => pluralName;
-    public bool Matches(Item item) => item.data == this;
+    public bool Matches(Item item) => ReferenceEquals(item.data, this);
 
     public override string ToString() => $"ItemSO: {itemName} ({name})";
 }
