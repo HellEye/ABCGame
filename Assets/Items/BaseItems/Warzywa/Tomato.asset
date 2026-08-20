@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Tomato
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Pomidor
+  pluralName: pomidory
   sprite:
     m_AssetGUID: 01a432970af4c3e47b1d8b2408e86057
     m_SubObjectName: tomato

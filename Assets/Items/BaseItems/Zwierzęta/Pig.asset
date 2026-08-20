@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Pig
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: "\u015Awinia"
+  pluralName: "\u015Bwinki"
   sprite:
     m_AssetGUID: 92d41633c07322a40b5331092d8961b8
     m_SubObjectName: pig

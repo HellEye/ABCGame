@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Carrot
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Marchewka
+  pluralName: marchewki
   sprite:
     m_AssetGUID: 83ba8038d945c9210a1d3eb28de7caa0
     m_SubObjectName: carrot

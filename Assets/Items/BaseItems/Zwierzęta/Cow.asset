@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Cow
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Krowa
+  pluralName: krowy
   sprite:
     m_AssetGUID: c3d2c967f8b0e04d58148eebdf261e22
     m_SubObjectName: cow

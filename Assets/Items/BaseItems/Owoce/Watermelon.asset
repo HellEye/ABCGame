@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Watermelon
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Arbuz
+  pluralName: arbuzy
   sprite:
     m_AssetGUID: 3c375416592a0dea4bfa75ccb4deaa45
     m_SubObjectName: watermelon

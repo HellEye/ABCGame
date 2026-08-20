@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Blueberry
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: "Bor\xF3wka"
+  pluralName: "bor\xF3wki"
   sprite:
     m_AssetGUID: bcdad1093113334409e77de272e45160
     m_SubObjectName: blueberry_v2
