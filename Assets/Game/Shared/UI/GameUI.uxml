@@ -1,0 +1,24 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
+         editor-extension-mode="False">
+    <Style
+        src="project://database/Assets/Game/Shared/GameUI.uss?fileID=7433441132597879392&amp;guid=b548f1e591b0515e5bc077693b83dc27&amp;type=3#GameUI"/>
+
+    <ui:Button name="PauseButton" class="pause-button"/>
+    <ui:VisualElement class="objective-label-wrap">
+        <ui:VisualElement class="label-wrap">
+            <ui:Label name="ObjectiveLabel" text="Cel: ########### ####### #######" class="objective-label"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+
+    <Popup name="EndGamePopup" close-on-backdrop="false" is-open="false">
+        <ui:VisualElement class="end-game-wrap">
+            <ui:Label text="Gratulacje!" class="only-end title"/>
+            <ui:Label text="Menu" class="only-pause title"/>
+            <ui:VisualElement>
+                <ui:Button name="ContinueButton" text="Kontynuuj" class="button only-pause easy"/>
+                <ui:Button name="RestartButton" text="Restart" class="button warning"/>
+                <ui:Button name="ExitButton" text="Wróć do Menu" class="button danger"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </Popup>
+</ui:UXML>

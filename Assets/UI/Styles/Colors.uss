@@ -1,25 +1,71 @@
-.card-grey
-{
-    background-color: rgb(221,221,221);
+:root {
+    --color-text-dark: #ffffff;
+    --color-text-light: #000000;
+    --color-easy: #97E545;
+    --color-easy-hover: #75b036;
+    --color-easy-active: #364626;
+    --color-medium: #ffd900;
+    --color-medium-hover: #bda000;
+    --color-medium-active: #4b4318;
+    --color-hard: #ff8000;
+    --color-hard-hover: #b35c00;
+    --color-hard-active: #4b3218;
+    --color-disabled: #888888;
+    --color-danger: #b92626;
+    --color-danger-hover: #851a1a;
+    --color-danger-active: #541111;
+    --color-warning: #d3a000;
+    --color-warning-hover: #ab7f00;
+    --color-warning-active: #8a6600;
 }
 
-.panel-blue
-{
-    background-color: rgb(170,220,255);
+.easy {
+    --color-button-base: var(--color-easy);
+    --color-button-hover: var(--color-easy-hover);
+    --color-button-active: var(--color-easy-active);
 }
 
-.panel-green
-{
-    background-color: rgb(185,225,195);
+.medium {
+    --color-button-base: var(--color-medium);
+    --color-button-hover: var(--color-medium-hover);
+    --color-button-active: var(--color-medium-active);
 }
 
-.selected
-{
+.hard {
+    --color-button-base: var(--color-hard);
+    --color-button-hover: var(--color-hard-hover);
+    --color-button-active: var(--color-hard-active);
+}
+
+.danger {
+    --color-button-base: var(--color-danger);
+    --color-button-hover: var(--color-danger-hover);
+    --color-button-active: var(--color-danger-active);
+}
+
+.warning {
+    --color-button-base: var(--color-warning);
+    --color-button-hover: var(--color-warning-hover);
+    --color-button-active: var(--color-warning-active);
+}
+
+.card-grey {
+    background-color: rgb(221, 221, 221);
+}
+
+.panel-blue {
+    background-color: rgb(170, 220, 255);
+}
+
+.panel-green {
+    background-color: rgb(185, 225, 195);
+}
+
+.selected {
     border-width: 5px;
-    border-color: rgb(255,220,100);
+    border-color: rgb(255, 220, 100);
 }
 
-.disabled
-{
+.disabled {
     opacity: 0.4;
 }

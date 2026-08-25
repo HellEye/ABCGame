@@ -40,13 +40,13 @@ public class DifficultyPopupController : MonoBehaviour {
     void SetupDifficultyButtons(LevelMapping mapping) {
         var buttonList = document.rootVisualElement.Q<VisualElement>("DifficultyButtons");
         buttonList.Clear();
-        for (var i = 0; i < mapping.difficultiesMappings.Length; i++) {
-            var button = new Button();
-            var difficulty = mapping.difficultiesMappings[i];
-            button.text = difficulty.difficultyData.Value.Name;
-            // SetupMinigameLabel(mapping);
+        foreach (var difficulty in mapping.difficultiesMappings) {
+            var button = new Button {
+                text = difficulty.difficultyData.Value.Name
+            };
+            button.AddToClassList("button");
             button.AddToClassList("difficulty-btn");
-            button.AddToClassList($"difficulty-btn-{difficulty.difficultyData.Value.Difficulty.ToString().ToLower()}");
+            button.AddToClassList(difficulty.difficultyData.Value.Difficulty.ToString().ToLower());
             buttonList.Add(button);
             button.clicked += () => OnDifficultyButtonClicked(mapping, difficulty);
         }

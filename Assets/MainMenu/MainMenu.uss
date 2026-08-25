@@ -21,7 +21,7 @@
     top: 54%;
     width: 600px;
     height: 60px;
-    unity-text-align: middle-center;
+    -unity-text-align: middle-center;
     font-size: 36px;
     color: rgb(255, 255, 255);
     -unity-font-style: bold;
@@ -54,10 +54,5 @@
     border-color: transparent;
 }
 
-Label,
-Text,
-Button {
-    -unity-font-definition: url("project://database/Assets/Fonts/Super%20Warming.ttf?fileID=12800000&guid=5b62f8b0e30230e4a8cd6d2a283c7f21&type=3#Super Warming");
-}
 
 

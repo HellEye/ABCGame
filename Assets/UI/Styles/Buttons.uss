@@ -17,4 +17,19 @@
     scale: 0.95;
 }
 
+.button {
+    font-size: 40px;
+    color: var(--color-text-light);
+    background-color: var(--color-button-base);
+    border-color: var(--color-button-base);
+    border-radius: 30px;
+    border-width: 10px;
+}
 
+.button:hover {
+    background-color: var(--color-button-hover);
+}
+
+.button:active {
+    background-color: var(--color-button-active);
+}
