@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
          editor-extension-mode="False">
     <Style
-        src="project://database/Assets/Game/Shared/GameUI.uss?fileID=7433441132597879392&amp;guid=b548f1e591b0515e5bc077693b83dc27&amp;type=3#GameUI"/>
+        src="project://database/Assets/Game/Shared/UI/GameUI.uss?fileID=7433441132597879392&amp;guid=b548f1e591b0515e5bc077693b83dc27&amp;type=3#GameUI"/>
 
     <ui:Button name="PauseButton" class="pause-button"/>
     <ui:VisualElement class="objective-label-wrap">
