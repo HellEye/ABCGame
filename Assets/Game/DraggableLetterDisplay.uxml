@@ -1,3 +1,3 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:Label name="text" text="#" style="font-size: 404px; -unity-text-align: middle-center; position: absolute; bottom: 0; top: 0; left: 0; right: 0; -unity-text-outline-width: 10px; -unity-text-outline-color: rgb(255, 255, 255);"/>
+    <ui:Label name="text" text="#" style="font-size: 503px; -unity-text-align: middle-center; position: absolute; bottom: 0; top: 0; left: 0; right: 0; -unity-text-outline-width: 10px; -unity-text-outline-color: rgb(255, 255, 255); -unity-font-definition: url(&quot;project://database/Assets/Fonts/Super%20Warming.ttf?fileID=12800000&amp;guid=5b62f8b0e30230e4a8cd6d2a283c7f21&amp;type=3#Super Warming&quot;);"/>
 </ui:UXML>
