@@ -60,5 +60,6 @@ public enum Variant {
 
 public class DifficultyHolder {
     public IDifficulty<ScriptableObject> selectedDifficulty;
+    public LevelMapping selectedMapping;
     public SceneReference selectedScene;
 }

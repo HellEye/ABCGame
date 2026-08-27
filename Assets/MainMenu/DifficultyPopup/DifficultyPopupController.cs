@@ -61,6 +61,7 @@ public class DifficultyPopupController : MonoBehaviour {
         if (scene == null || difficulty == null) return;
         difficultyHolder.selectedDifficulty = difficulty;
         difficultyHolder.selectedScene = scene;
+        difficultyHolder.selectedMapping = mapping;
         gameLoader.LoadGameplaySceneFromHolder().Forget();
     }
 }

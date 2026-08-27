@@ -17,6 +17,7 @@ using Random = UnityEngine.Random;
 public class GameLoader : MonoBehaviour {
     [SerializeField] SceneReference mainMenuScene;
     [SerializeField] SceneReference dragAndDropScene;
+    [Inject] BackgroundStore backgroundStore;
     Container container;
 
     SceneLifecycle currentLifecycle;
@@ -98,6 +99,8 @@ public class GameLoader : MonoBehaviour {
             foreach (var item in items.GetAllItems().Distinct())
                 if (item is ItemSO itemSo)
                     handles.Add(itemSo.sprite.Load());
+            var background = container.Resolve<BackgroundController>();
+            handles.Add(backgroundStore.LoadNextBackground(background.backgrounds, difficultyHolder.selectedMapping));
         }
 
         async Task EnsureLoad() => await Task.WhenAll(handles.Select(h => h.Task));
