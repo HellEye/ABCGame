@@ -647,6 +647,74 @@ MonoBehaviour:
   spawnProtectionRadius: 0.71
   itemPrefab: {fileID: 6062728932229676126, guid: d2ddca8a39319cf6aaaa4850b8ac9c87, type: 3}
   dropZonePrefab: {fileID: 5885397100838375799, guid: 50be5f5435389000a8ff9af00cfa18bd, type: 3}
+--- !u!1001 &905152876
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2329053350647406628, guid: 85c8db0dc07d9c4db9a679b8f9878ed3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329053350647406628, guid: 85c8db0dc07d9c4db9a679b8f9878ed3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329053350647406628, guid: 85c8db0dc07d9c4db9a679b8f9878ed3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329053350647406628, guid: 85c8db0dc07d9c4db9a679b8f9878ed3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329053350647406628, guid: 85c8db0dc07d9c4db9a679b8f9878ed3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329053350647406628, guid: 85c8db0dc07d9c4db9a679b8f9878ed3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329053350647406628, guid: 85c8db0dc07d9c4db9a679b8f9878ed3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329053350647406628, guid: 85c8db0dc07d9c4db9a679b8f9878ed3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329053350647406628, guid: 85c8db0dc07d9c4db9a679b8f9878ed3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329053350647406628, guid: 85c8db0dc07d9c4db9a679b8f9878ed3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432881169080135776, guid: 85c8db0dc07d9c4db9a679b8f9878ed3, type: 3}
+      propertyPath: m_Name
+      value: Background
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 85c8db0dc07d9c4db9a679b8f9878ed3, type: 3}
+--- !u!114 &905152877 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2870347646849755216, guid: 85c8db0dc07d9c4db9a679b8f9878ed3, type: 3}
+  m_PrefabInstance: {fileID: 905152876}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc97fc648c4b2669eba04d60ff121f71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BackgroundController
 --- !u!1 &994378220
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,6 +1143,7 @@ MonoBehaviour:
   screenSizeManager: {fileID: 683851786}
   itemSpawnerManager: {fileID: 717277212}
   gameManager: {fileID: 683851789}
+  backgroundController: {fileID: 905152877}
 --- !u!114 &1799227865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1625,3 +1694,4 @@ SceneRoots:
   - {fileID: 1847662961}
   - {fileID: 1799227866}
   - {fileID: 1937331872}
+  - {fileID: 905152876}
