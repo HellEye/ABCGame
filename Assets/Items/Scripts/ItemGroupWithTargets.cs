@@ -13,6 +13,8 @@ public class ItemGroupWithTargets : ScriptableObject, ISpawnableGroup {
     public List<ItemSO> targets;
     [SerializeField] Difficulty difficulty;
 
+    [InfoBanner("This group doesn't have enough items that are not placeholders")]
+
     public bool IsPlaceholder =>
         targets.All(i => i.IsPlaceholder)
         || nonTargets.Count(i => !i.IsPlaceholder) < 3;

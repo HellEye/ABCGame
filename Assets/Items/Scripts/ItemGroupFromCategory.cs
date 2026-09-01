@@ -13,6 +13,8 @@ public class ItemGroupFromCategory : ScriptableObject, ISpawnableGroup {
     public List<ItemCategorySO> categories;
     [SerializeField] Difficulty difficulty;
 
+    [InfoBanner("This group doesn't have enough items that are not placeholders")]
+
     public bool IsPlaceholder =>
         categories.SelectMany(c => c.items).Count(i => !i.IsPlaceholder) < 3 ||
         targets.All(item => item.IsPlaceholder);

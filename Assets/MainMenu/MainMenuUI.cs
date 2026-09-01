@@ -35,8 +35,7 @@ public class MainMenuUI : MonoBehaviour {
     }
 
     void Start() {
-        settingsButton.clicked += OnOptionsClicked;
-        actions.Player.Continue.performed += TransitionToSceneSelect;
+        actions.Player.Continue.canceled += TransitionToSceneSelect;
 
         CreateSelectionView();
 
@@ -50,17 +49,22 @@ public class MainMenuUI : MonoBehaviour {
     void OnEnable() => actions.Player.Continue.Enable();
     public event Action<LevelMapping> OnMinigameCardClicked;
 
-    void CreateSelectionView() {
+    void CreateSelectionView() =>
         selectionView = new(
             document.rootVisualElement,
             minigameCardTemplate);
 
-        selectionView.CardClicked += OnCardClicked;
-    }
-
     void LoadDemoCards() => selectionView.SetCards(minigameRegistry.Mappings);
 
     void OnCardClicked(LevelMapping mapping) => OnMinigameCardClicked?.Invoke(mapping);
+
+
+    void SetupButtons() {
+        var settingsCancelButton = document.rootVisualElement.Q<Button>("settings-close");
+        settingsCancelButton.clicked += settingsPopup.Close;
+        settingsButton.clicked += OnOptionsClicked;
+        selectionView.CardClicked += OnCardClicked;
+    }
 
     void OnOptionsClicked() {
         settingsPopup.IsOpen = true;
@@ -68,15 +72,9 @@ public class MainMenuUI : MonoBehaviour {
     }
 
 
-    void SetupButtons() {
-        var settingsCancelButton = document.rootVisualElement.Q<Button>("settings-close");
-        settingsCancelButton.clicked += settingsPopup.Close;
-    }
-
-
     void TransitionToSceneSelect(InputAction.CallbackContext ctx) {
-        TransitionToSceneSelect();
         mainMenuData.initialized = true;
+        TransitionToSceneSelect();
     }
     //transition may fix one click double transition problem
 
@@ -85,5 +83,6 @@ public class MainMenuUI : MonoBehaviour {
         mainMenuSceneButtons.style.display = DisplayStyle.Flex;
         settingsButton.style.display = DisplayStyle.Flex;
         actions.Player.Continue.Disable();
+        SetupButtons();
     }
 }
