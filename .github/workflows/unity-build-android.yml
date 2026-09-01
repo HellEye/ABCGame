@@ -25,10 +25,10 @@ jobs:
       - name: Checkout"
         uses: actions/checkout@v7
       - name: Install Unity CLI
-          run: |
-            curl -fsSL https://public-cdn.cloud.unity3d.com/hub/prod/cli/install.sh | UNITY_CLI_CHANNEL=beta bash
-            echo "$HOME/.local/bin" >> "$GITHUB_PATH"
-            unity --version
+        run: |
+          curl -fsSL https://public-cdn.cloud.unity3d.com/hub/prod/cli/install.sh | UNITY_CLI_CHANNEL=beta bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          unity --version
 
       - name: Install Unity Editor
         run: |
