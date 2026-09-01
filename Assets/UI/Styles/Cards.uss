@@ -1,7 +1,7 @@
 .minigame-card {
     width: 100%;
     position: relative;
-    border-radius: 30px;
+    border-radius: 20px;
     border-width: 4px;
     border-color: white;
     background-color: rgb(235, 235, 235);
@@ -33,7 +33,6 @@
 .card-thumbnail {
     flex-shrink: 1;
     -unity-background-scale-mode: scale-to-fit;
-    border-radius: 20px;
 }
 
 .card-title {

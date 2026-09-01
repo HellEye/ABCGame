@@ -12,6 +12,7 @@ public class LetterSetSO : ScriptableObject, ISpawnableGroup {
 
     public Difficulty difficulty;
     public Difficulty Difficulty => difficulty;
+    public bool IsPlaceholder => false;
     public string Title => groupName;
 
     public string TargetText => targetText;

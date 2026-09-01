@@ -1,25 +1,10 @@
 fileFormatVersion: 2
-guid: e42bc2009f4fe1e40a7193c987eefd47
+guid: dfaebd105fb127ecd8bd23a6de2344e7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1033766676993296678
-    second: Arrows_0
-  - first:
-      213: 5287939958834139383
-    second: Arrows_1
-  - first:
-      213: 3318904089994504119
-    second: Arrows_2
-  - first:
-      213: 2319643638384702094
-    second: Arrows_3
-  - first:
-      213: 7762582236204482122
-    second: Arrows_4
-  - first:
-      213: -7389299311667654144
-    second: Arrows_5
+      213: 4236892553360603001
+    second: LetterSorting_Mode_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -124,49 +109,40 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Arrows_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 138
-        width: 137
-        height: 138
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ad6bd253fa257a1f0800000000000000
-      internalID: -1033766676993296678
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Arrows_1
+      name: LetterSorting_Mode_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 137
-        height: 138
+        width: 450
+        height: 300
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7f017e73069826940800000000000000
-      internalID: 5287939958834139383
+      spriteID: 9777e8a44577cca30800000000000000
+      internalID: 4236892553360603001
       vertices: []
       indices: 
       edges: []
@@ -175,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0d4286f6ffae68d4b8e5071bab4abcc7
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -183,12 +159,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":2.0},"gridSpriteSize":{"x":137.0,"y":138.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Arrows_0: -1033766676993296678
-      Arrows_1: 5287939958834139383
+      LetterSorting_Mode_0: 4236892553360603001
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

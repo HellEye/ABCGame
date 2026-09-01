@@ -3,6 +3,7 @@ public class Letter : IElement {
 
     public Letter(string letter) => this.letter = letter;
     public string TargetDisplayName => letter;
+    public bool IsPlaceholder => false;
 
     public override bool Equals(object obj) => obj is Letter other && letter == other.letter;
 

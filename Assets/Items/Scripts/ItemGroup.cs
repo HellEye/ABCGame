@@ -12,6 +12,7 @@ public class ItemGroup : ScriptableObject, ISpawnableGroup {
     public List<ItemSO> items;
 
     [SerializeField] Difficulty difficulty;
+    public bool IsPlaceholder => items.Count(item => !item.IsPlaceholder) <= 3;
     public Difficulty Difficulty => difficulty;
     public string Title => groupName;
     public string TargetText => targetText;
@@ -19,7 +20,8 @@ public class ItemGroup : ScriptableObject, ISpawnableGroup {
     public (IEnumerable<IElement> targets, IEnumerable<IElement> allItems) PickItems(DropZoneGameDifficulty difficulty,
         MainMenuSettingsData settings, ExcludeItemsSO excludeItems) {
         var excludedItems = excludeItems.ExcludeFrom(items, settings).ToList();
-        var pickedItems = excludedItems.PickRandom(difficulty.itemTypes);
+        var pickedItems = excludedItems.Where(i => Debug.isDebugBuild || !i.IsPlaceholder)
+            .PickRandom(difficulty.itemTypes);
         var targets = pickedItems.PickRandom(difficulty.targetTypes);
         return (targets, pickedItems);
     }
