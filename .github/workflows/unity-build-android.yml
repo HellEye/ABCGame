@@ -28,7 +28,16 @@ jobs:
           key: unity-editor-${{ env.UNITY_VERSION }}
           restore-keys: |
             unity-editor-
-
+            
+      - name: Cache Library
+        uses: actions/cache@v6
+        with:
+          path: $GITHUB_WORKSPACE/Library
+          key: Library-Lumisie-TargetPlatform
+          restore-keys: |
+            Library-Lumisie-
+            Library-
+            
       - name: Build Android
         uses: game-ci/unity-builder@v4
         env:
@@ -39,7 +48,7 @@ jobs:
           unityVersion: ${{ env.UNITY_VERSION }}
           targetPlatform: Android
           buildName: ${{ env.ARTIFACT_NAME }}
-          buildsDirectory: ${{ env.BUILD_OUTPUT }}
+          buildsPath: ${{ env.BUILD_OUTPUT }}
 
       - name: Upload Build Artifact
         if: always()
