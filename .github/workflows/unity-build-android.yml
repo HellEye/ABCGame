@@ -22,7 +22,7 @@ jobs:
           fetch-depth: 0
 
       - name: Cache Unity Editor
-        uses: actions/cache@v7
+        uses: actions/cache@v6
         with:
           path: /opt/Unity
           key: unity-editor-${{ env.UNITY_VERSION }}
