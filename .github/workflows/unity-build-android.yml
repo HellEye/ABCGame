@@ -1,14 +1,9 @@
 name: Unity Build Android
 
-#on:
-#  push:
-#    tags:
-#      - 'v*'
-
 on:
-  pull_request:
-    branches:
-      - main
+  push:
+    tags:
+      - v*
 
 env:
   ARTIFACT_NAME: Lumisie
@@ -23,69 +18,36 @@ jobs:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-          
-      - name: Install Unity CLI
-        run: |
-          curl -fsSL https://public-cdn.cloud.unity3d.com/hub/prod/cli/install.sh | UNITY_CLI_CHANNEL=beta bash
-          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
-          unity --version
-          
-      - name: Cache Editor
+
+      - name: Cache Library Restore
         uses: actions/cache/restore@v6
-        id: cache-editor
-        if: always()
         with:
-          path: /home/runner/Unity/Hub/Editor/${{ env.UNITY_EDITOR_VERSION }}
-          key: unity-editor-${{ env.UNITY_EDITOR_VERSION }}-${{ runner.os }}
+          path: Library
+          key: Library-Lumisie
           restore-keys: |
-            unity-editor-${{ env.UNITY_EDITOR_VERSION }}-${{ runner.os }}
-      
-      - name: Cache Library
-        uses: actions/cache/restore@v6
-        if: always()
-        with:
-          path: $GITHUB_WORKSPACE/Library
-          key: Library-Lumisie-Android
-          restore-keys: |
-            Library-Lumisie-
             Library-
-        
-      - name: Install Unity Editor
-        if: steps.cache-editor.outputs.cache-hit != 'true'
-        run: |
-          unity install "$UNITY_EDITOR_VERSION" -m android --yes --accept-eula
-          unity editors -i
-        
-      - name: Activate license
+
+      - name: Build Android
+        uses: game-ci/unity-builder@v4
         env:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-        run: |
-          unity license activate --personal --accept-eula 
-          
-      - name: Build Android
-        run: |
-          unity build "$GITHUB_WORKSPACE" \
-          --target Android \
-          --execute-method Builder.AndroidBuild \
-          --output-path ${{ env.BUILD_OUTPUT }}/${{ env.ARTIFACT_NAME }}
+        with:
+          unityVersion: ${{ env.UNITY_VERSION }}
+          targetPlatform: Android
+          buildName: ${{ env.ARTIFACT_NAME }}
+          buildsPath: ${{ env.BUILD_OUTPUT }}
+          cacheCheckpointInterval: 10
 
       - name: Upload Build Artifact
+        uses: actions/upload-artifact@v7
         uses: softprops/action-gh-release@v3
         with:
           files: ${{ env.BUILD_OUTPUT }}/${{ env.ARTIFACT_NAME }}.apk
-      
-      - name: Upload cache library
+
+      - name: Cache Library Save
         uses: actions/cache/save@v6
-        if: always()
         with:
-          path: $GITHUB_WORKSPACE/Library
-          key: Library-Lumisie-Android
-      
-      - name: Upload cache editor
-        uses: actions/cache/save@v6
-        if: always()
-        with:
-          path: /home/runner/Unity/Hub/Editor/${{ env.UNITY_EDITOR_VERSION }}
-          key: unity-editor-${{ env.UNITY_EDITOR_VERSION }}-${{ runner.os }}
+          path: Library
+          key: Library-Lumisie
