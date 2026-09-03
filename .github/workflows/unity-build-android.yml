@@ -9,7 +9,7 @@ env:
   ARTIFACT_NAME: Lumisie
   BUILD_OUTPUT: build/android
   UNITY_VERSION: 6000.3.11f1
-
+  
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -44,9 +44,12 @@ jobs:
         uses: softprops/action-gh-release@v3
         with:
           files: ${{ env.BUILD_OUTPUT }}/${{ env.ARTIFACT_NAME }}.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Cache Library Save
         uses: actions/cache/save@v6
+        if: always()
         with:
           path: Library
           key: Library-Lumisie
