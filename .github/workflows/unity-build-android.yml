@@ -6,8 +6,6 @@ on:
       - v*
 
 env:
-  ARTIFACT_NAME: Lumisie
-  BUILD_OUTPUT: build/android
   UNITY_VERSION: 6000.3.11f1
   
 jobs:
@@ -36,14 +34,12 @@ jobs:
         with:
           unityVersion: ${{ env.UNITY_VERSION }}
           targetPlatform: Android
-          buildName: ${{ env.ARTIFACT_NAME }}
-          buildsPath: ${{ env.BUILD_OUTPUT }}
-          cacheCheckpointInterval: 10
+          buildName: Lumisie
 
       - name: Upload Build Artifact
         uses: softprops/action-gh-release@v3
         with:
-          files: ${{ env.BUILD_OUTPUT }}/${{ env.ARTIFACT_NAME }}.apk
+          files: build/android/Lumisie.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
