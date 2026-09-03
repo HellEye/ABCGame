@@ -3,9 +3,10 @@ name: Unity Build Android
 on:
   push:
     tags:
-      - 'v*'
+      - v*
+
 env:
-  ARTIFACT_NAME: Lumisie.apk
+  ARTIFACT_NAME: Lumisie
   BUILD_OUTPUT: build/android
   UNITY_VERSION: 6000.3.11f1
 
@@ -18,23 +19,14 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Cache Unity Editor
-        uses: actions/cache@v6
+      - name: Cache Library Restore
+        uses: actions/cache/restore@v6
         with:
-          path: /opt/Unity
-          key: unity-editor-${{ env.UNITY_VERSION }}
+          path: Library
+          key: Library-Lumisie
           restore-keys: |
-            unity-editor-
-            
-      - name: Cache Library
-        uses: actions/cache@v6
-        with:
-          path: $GITHUB_WORKSPACE/Library
-          key: Library-Lumisie-TargetPlatform
-          restore-keys: |
-            Library-Lumisie-
             Library-
-            
+
       - name: Build Android
         uses: game-ci/unity-builder@v4
         env:
@@ -46,8 +38,16 @@ jobs:
           targetPlatform: Android
           buildName: ${{ env.ARTIFACT_NAME }}
           buildsPath: ${{ env.BUILD_OUTPUT }}
+          cacheCheckpointInterval: 10
 
       - name: Upload Build Artifact
+        uses: actions/upload-artifact@v7
         uses: softprops/action-gh-release@v3
         with:
-          files: ${{ env.BUILD_OUTPUT }}/${{ env.ARTIFACT_NAME }}
+          files: ${{ env.BUILD_OUTPUT }}/${{ env.ARTIFACT_NAME }}.apk
+
+      - name: Cache Library Save
+        uses: actions/cache/save@v6
+        with:
+          path: Library
+          key: Library-Lumisie
