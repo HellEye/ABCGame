@@ -12,6 +12,11 @@ public class LetterSetSO : ScriptableObject, ISpawnableGroup {
 
     public Difficulty difficulty;
     public Difficulty Difficulty => difficulty;
+
+    [InfoBanner("This group doesn't have enough items that are not placeholders")]
+
+    public bool IsPlaceholder => false;
+
     public string Title => groupName;
 
     public string TargetText => targetText;

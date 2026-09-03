@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour {
     public ScreenPositionPlacer screenPlacer;
-    [SerializeField] InterfaceReference<IElementRenderer> renderer;
+    [SerializeField] new InterfaceReference<IElementRenderer> renderer;
     public IElement data;
 
     public void Initialize(IElement itemData, Vector3 pos) {

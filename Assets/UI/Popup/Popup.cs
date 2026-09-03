@@ -62,14 +62,21 @@ public partial class Popup : VisualElement {
     }
 
     public Popup WithOpenButton(Button button) {
-        button.clicked += () => IsOpen = true;
+        button.clicked += Open;
         return this;
     }
 
     public Popup WithCloseButton(Button button) {
-        button.clicked += () => IsOpen = false;
+        button.clicked += Close;
         return this;
     }
 
-    void OnOpenChange(bool value) => EnableInClassList("show", value);
+    public void Open() => IsOpen = true;
+
+    public void Close() => IsOpen = false;
+
+    void OnOpenChange(bool value) {
+        EnableInClassList("show", value);
+        if (!value) OnClose?.Invoke();
+    }
 }

@@ -25,13 +25,7 @@ public class Draggable : MonoBehaviour {
 
     public void Drop() => OnDropped?.Invoke();
 
-    public void DropCorrect() {
-        OnDroppedCorrect?.Invoke();
-        Debug.Log("Correct");
-    }
+    public void DropCorrect() => OnDroppedCorrect?.Invoke();
 
-    public void DropIncorrect() {
-        OnDroppedIncorrect?.Invoke(startPos);
-        Debug.Log("Incorrect");
-    }
+    public void DropIncorrect() => OnDroppedIncorrect?.Invoke(startPos);
 }

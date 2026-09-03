@@ -55,6 +55,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d1fb35abc6733447850fad38485ef17
+    m_Address: MinigameCard.uxml
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1d89686cd0c402f4084a8e7fea26cc2e
     m_Address: Assets/Sprites/Warzywa/cucumber.png
     m_ReadOnly: 0
@@ -245,6 +250,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9e10f5688d08ba5288b66a7710ac366
+    m_Address: Assets/Sprites/Background/Sorting_BG_03.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Background/Sorting
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: abbde2a65457da045abc0af537c0140c
     m_Address: Assets/Sprites/Owoce/orange.png
     m_ReadOnly: 0
@@ -365,10 +376,22 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec57fa244c84135bd98acb5c8c118cc5
+    m_Address: Assets/Sprites/Background/Sorting_BG_02.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Background/Sorting
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eeab448315f5e714eac38593929b306e
     m_Address: "Assets/Sprites/Zwierz\u0119ta/cat.png"
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: effa47f0304494db4bba4a55e6c3e08e
+    m_Address: Assets/Sprites/Background/Sorting_BG_01.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Background/Sorting
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f4f75cbc98ae736419927df5554f7fd5
     m_Address: Assets/Sprites/Jedzenie/salad.png

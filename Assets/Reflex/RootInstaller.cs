@@ -30,5 +30,6 @@ public class RootInstaller : MonoBehaviour, IInstaller {
             Resolution.Eager);
 
         builder.RegisterType<InputSystem_Actions>();
+        builder.RegisterType<BackgroundStore>();
     }
 }

@@ -52,7 +52,7 @@ public partial class PillSlider : BaseField<float>, INotifyBindablePropertyChang
     public event EventHandler<BindablePropertyChangedEventArgs> propertyChanged;
 
 
-    public void SetValueWithoutNotify(float newValue) {
+    new void SetValueWithoutNotify(float newValue) {
         currentValue = newValue;
         RefreshPills();
         // no events
@@ -91,7 +91,6 @@ public partial class PillSlider : BaseField<float>, INotifyBindablePropertyChang
 
     void OnDrag(int index) {
         if (IsDragging) CurrentStep = index + 1;
-        Debug.Log($"isDragging: {IsDragging}");
     }
 
     void EnableDrag() => IsDragging = true;
@@ -113,7 +112,7 @@ public partial class PillSlider : BaseField<float>, INotifyBindablePropertyChang
 
     float perStep;
 
-    [UxmlAttribute("max")]
+    [UxmlAttribute("high-value")]
     [CreateProperty]
     public float Max {
         get => max;
@@ -125,7 +124,7 @@ public partial class PillSlider : BaseField<float>, INotifyBindablePropertyChang
         }
     }
 
-    [UxmlAttribute("min")]
+    [UxmlAttribute("low-value")]
     [CreateProperty]
     public float Min {
         get => min;

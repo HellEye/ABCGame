@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: MinigameRegistry
   m_EditorClassIdentifier: Assembly-CSharp::DifficultyRegistry
   mappings:
-  - levelIndex: 0
-    levelName: DragAndDrop
-    levelIcon: {fileID: 21300000, guid: ddc5d46c8fe820e4b87e18ce10d51627, type: 3}
+  - levelName: SortowanieRzeczy
+    levelIcon: {fileID: -3552177032949837198, guid: ad3b610ae99b5eefcbdf1f205547d7d5, type: 3}
     sceneReference:
       asset: {fileID: 102900000, guid: e0407bc4beee0ed8db9c4e4469602782, type: 3}
       guid: e0407bc4beee0ed8db9c4e4469602782
@@ -26,9 +25,8 @@ MonoBehaviour:
         underlyingValue: {fileID: 11400000, guid: 453c59661d257cad889cfc4205695b92, type: 2}
     - difficultyData:
         underlyingValue: {fileID: 11400000, guid: 4b240e6606470111b9d8b515b4c8282a, type: 2}
-  - levelIndex: 1
-    levelName: Letters
-    levelIcon: {fileID: 21300000, guid: d3d8040c14c4b22d586a64e7f775ca10, type: 3}
+  - levelName: SortowanieLiter
+    levelIcon: {fileID: 4236892553360603001, guid: dfaebd105fb127ecd8bd23a6de2344e7, type: 3}
     sceneReference:
       asset: {fileID: 102900000, guid: 29435df7b7e152152b673fd0186a6174, type: 3}
       guid: 29435df7b7e152152b673fd0186a6174

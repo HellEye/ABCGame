@@ -36,5 +36,6 @@ public class LoaderInstaller : MonoBehaviour, IInstaller {
         builder.RegisterValue(itemRegistry);
         builder.RegisterType<DifficultyHolder>();
         builder.RegisterValue(screenSizeManager);
+        builder.RegisterValue(new MainMenuData());
     }
 }

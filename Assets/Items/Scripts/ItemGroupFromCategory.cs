@@ -12,6 +12,13 @@ public class ItemGroupFromCategory : ScriptableObject, ISpawnableGroup {
     public List<ItemSO> targets;
     public List<ItemCategorySO> categories;
     [SerializeField] Difficulty difficulty;
+
+    [InfoBanner("This group doesn't have enough items that are not placeholders")]
+
+    public bool IsPlaceholder =>
+        categories.SelectMany(c => c.items).Count(i => !i.IsPlaceholder) < 3 ||
+        targets.All(item => item.IsPlaceholder);
+
     public Difficulty Difficulty => difficulty;
     public string Title => groupName;
     public string TargetText => targetText;
@@ -22,12 +29,11 @@ public class ItemGroupFromCategory : ScriptableObject, ISpawnableGroup {
         var excludedAllItems = excludedItems.ExcludeFrom(allItems, data).ToList();
         var excludedTargets = excludedItems.ExcludeFrom(this.targets, data).ToList();
         var nonTargets = excludedAllItems.Except(excludedTargets).ToList();
-        var pickedItems = nonTargets.PickRandom(difficulty.itemTypes - difficulty.targetTypes);
-        var targets = excludedTargets.PickRandom(difficulty.targetTypes);
+        var pickedItems = nonTargets.Where(i => Debug.isDebugBuild || !i.IsPlaceholder)
+            .PickRandom(difficulty.itemTypes - difficulty.targetTypes);
+        var targets = excludedTargets.Where(i => Debug.isDebugBuild || !i.IsPlaceholder)
+            .PickRandom(difficulty.targetTypes);
         pickedItems.AddRange(targets);
-        Debug.Log($"Picked {pickedItems.Count} items and {targets.Count} targets");
-        Debug.Log($"Picked items: {string.Join(", ", pickedItems.Select(DescribeElement))}");
-        Debug.Log($"Picked targets: {string.Join(", ", targets.Select(DescribeElement))}");
         return (targets, pickedItems);
     }
 

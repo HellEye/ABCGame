@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3196fef668cd53c9699eb1807609fb35, type: 3}
   m_Name: Easy Letters
   m_EditorClassIdentifier: Assembly-CSharp::DropZoneGameDifficulty
-  difficultyName: Easy
+  difficultyName: "\u0141atwy"
   variant: 1
   difficulty: 0
   itemTypes: 2
