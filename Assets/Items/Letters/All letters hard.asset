@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LetterSetSO
   groupName: All Letters
   letters: abcdefghijklmnopqrstuvwxyz
-  targetText: Wybierz litery {name}
+  targetText: Wybierz wszystkie litery {name}
   difficulty: 2

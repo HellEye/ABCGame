@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: All letters medium
   m_EditorClassIdentifier: Assembly-CSharp::LetterSetSO
   groupName: All Letters
-  letters: abcdefghijklmnopqrstuvwxyz
-  targetText: Wybierz litery {name}
+  letters: abcdefghijklmnoprstuwyz
+  targetText: Wybierz wszystkie litery {name}
   difficulty: 1
