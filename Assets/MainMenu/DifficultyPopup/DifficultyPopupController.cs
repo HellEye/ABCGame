@@ -11,6 +11,7 @@ public class DifficultyPopupController : MonoBehaviour {
     Popup difficultyPopup;
     [Inject] UIDocument document;
     [Inject] GameLoader gameLoader;
+    [Inject] ItemRegistry itemRegistry;
     [Inject] MainMenuUI mainMenu;
 
     void Awake() {
@@ -48,11 +49,12 @@ public class DifficultyPopupController : MonoBehaviour {
             button.AddToClassList("difficulty-btn");
             button.AddToClassList(difficulty.difficultyData.Value.Difficulty.ToString().ToLower());
             buttonList.Add(button);
-            button.clicked += () => OnDifficultyButtonClicked(mapping, difficulty);
+            if (difficulty.IsValid(itemRegistry))
+                button.clicked += () => OnDifficultyButtonClicked(mapping, difficulty);
+            else
+                button.AddToClassList("disabled");
         }
     }
-
-    void OnDifficultyCancelButtonClicked() => difficultyPopup.IsOpen = false;
 
     void OnDifficultyButtonClicked(LevelMapping mapping, DifficultyMapping difficultyMap) {
         //difficultyPopup.IsOpen = false;

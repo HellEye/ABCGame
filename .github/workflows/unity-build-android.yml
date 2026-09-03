@@ -2,13 +2,10 @@ name: Unity Build Android
 
 on:
   push:
-    branches:
-      - main
-  pull_request: 
-    branches:
-      - main
+    tags:
+      - 'v*'
 env:
-  ARTIFACT_NAME: Lumisie
+  ARTIFACT_NAME: Lumisie.apk
   BUILD_OUTPUT: build/android
   UNITY_VERSION: 6000.3.11f1
 
@@ -51,8 +48,6 @@ jobs:
           buildsPath: ${{ env.BUILD_OUTPUT }}
 
       - name: Upload Build Artifact
-        if: always()
-        uses: actions/upload-artifact@v7
+        uses: softprops/action-gh-release@v3
         with:
-          name: ${{ env.ARTIFACT_NAME }}
-          path: ${{ env.BUILD_OUTPUT }}
+          files: ${{ env.BUILD_OUTPUT }}/${{ env.ARTIFACT_NAME }}

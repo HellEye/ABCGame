@@ -47,7 +47,7 @@
     width: 50px;
     height: 50px;
     overflow: visible;
-    background-image: url("project://database/Assets/MainMenu/Sprites/favorite-corner.png?fileID=2800000&guid=4c7a2df86ee26d74995165c138634137&type=3#favorite-corner");
+    background-image: url("project://database/Assets/MainMenu/Sprites/UI/favorite-corner.png?fileID=2800000&guid=4c7a2df86ee26d74995165c138634137&type=3#favorite-corner");
 }
 
 .favorite-corner-background {
@@ -67,7 +67,7 @@
     flex-shrink: 0;
     -unity-background-scale-mode: scale-to-fit;
     -unity-image-tint-color: white;
-    background-image: url("project://database/Assets/MainMenu/Sprites/favorite-heart.png?fileID=2800000&guid=c396f380667c9954f8814132cb8a6fe2&type=3#favorite-heart");
+    background-image: url("project://database/Assets/MainMenu/Sprites/UI/favorite-heart.png?fileID=2800000&guid=c396f380667c9954f8814132cb8a6fe2&type=3#favorite-heart");
 }
 
 .card-title {

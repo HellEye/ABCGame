@@ -3,30 +3,34 @@
     <ui:TabView name="settings-tabs" class="settings-tabs">
         <ui:Tab label="Tab" name="TabA" class="settings-page sound-tab">
             <ui:VisualElement name="SoundPage" class="settings-page" style="flex-grow: 1;">
-                <PillSlider name="sfx-slider" label="Dźwięki" title="SFX Volume" low-value="0" high-value="100"
-                            value="10" steps="10">
-                    <Bindings>
-                        <ui:DataBinding property="value" data-source-path="SoundVolume"/>
-                    </Bindings>
-                </PillSlider>
-                <PillSlider name="music-slider" label="Muzyka" title="Music Volume" low-value="0"
-                            high-value="100" steps="10">
-                    <Bindings>
-                        <ui:DataBinding property="value" data-source-path="MusicVolume"/>
-                    </Bindings>
-                </PillSlider>
-                <ui:Toggle name="vo-toggle" title="VO Tog" label="Włącz dubbing">
-                    <Bindings>
-                        <ui:DataBinding property="value" data-source-path="VoEnabled"/>
-                    </Bindings>
-                </ui:Toggle>
-                <PillSlider name="vo-slider" title="VO Vol" label="Głośność dubbingu" low-value="0" high-value="100" steps="10">
-                    <Bindings>
-                        <ui:DataBinding property="value" data-source-path="VoVolume"/>
-                        <ConditionalClassBinding property="whatevs" false-class="hidden"
-                                                 data-source-path="VoEnabled"/>
-                    </Bindings>
-                </PillSlider>
+                <ui:ScrollView class="settings-scroll" style="flex-grow: 1; flex-shrink: 1;">
+                    <ui:Label text="Brak dźwięków w wersji beta"/>
+                    <PillSlider name="sfx-slider" label="Dźwięki" title="SFX Volume" low-value="0" high-value="100"
+                                value="10" steps="10">
+                        <Bindings>
+                            <ui:DataBinding property="value" data-source-path="SoundVolume"/>
+                        </Bindings>
+                    </PillSlider>
+                    <PillSlider name="music-slider" label="Muzyka" title="Music Volume" low-value="0"
+                                high-value="100" steps="10">
+                        <Bindings>
+                            <ui:DataBinding property="value" data-source-path="MusicVolume"/>
+                        </Bindings>
+                    </PillSlider>
+                    <ui:Toggle name="vo-toggle" title="VO Tog" label="Włącz dubbing">
+                        <Bindings>
+                            <ui:DataBinding property="value" data-source-path="VoEnabled"/>
+                        </Bindings>
+                    </ui:Toggle>
+                    <PillSlider name="vo-slider" title="VO Vol" label="Głośność dubbingu" low-value="0" high-value="100"
+                                steps="10">
+                        <Bindings>
+                            <ui:DataBinding property="value" data-source-path="VoVolume"/>
+                            <ConditionalClassBinding property="whatevs" false-class="hidden"
+                                                     data-source-path="VoEnabled"/>
+                        </Bindings>
+                    </PillSlider>
+                </ui:ScrollView>
             </ui:VisualElement>
         </ui:Tab>
         <ui:Tab label="Tab" name="TabB" class="settings-page settings-tab">
@@ -37,16 +41,18 @@
                         <ui:DataBinding property="value" data-source-path="SpriteScale"/>
                     </Bindings>
                 </PillSlider>
-                <ui:VisualElement name="SettingsScalePreview" style="height: 300px;"></ui:VisualElement>
+                <ui:VisualElement name="SettingsScalePreview" style="height: 300px;"/>
             </ui:VisualElement>
         </ui:Tab>
         <ui:Tab label="Tab" name="TabC" class="settings-page profile-tab">
             <ui:VisualElement name="AccessibilityPage" class="settings-page" style="flex-grow: 1;"/>
+            <ui:Label text="Dostępność, jeszcze nic tu nie ma"/>
         </ui:Tab>
     </ui:TabView>
     <ui:Button text="" name="settings-close" class="settings-close close-btn"
                style="background-image: url(&quot;project://database/Assets/MainMenu/UITest/Cancel.png?fileID=2800000&amp;guid=bc74311713d4f2c48bd2a6c8d986abd4&amp;type=3#Cancel&quot;);"/>
     <ui:VisualElement name="settings-bottom-buttons" style="flex-grow: 1;">
-        <ui:Button text="Resetuj" name="settings-reset" class="reset-btn settings-bottom-button" style="bottom: 56px;"/>
+        <ui:Button text="Resetuj" name="settings-reset" class="button accent settings-bottom-button"
+        />
     </ui:VisualElement>
 </ui:UXML>

@@ -17,6 +17,10 @@
     --color-warning: #d3a000;
     --color-warning-hover: #ab7f00;
     --color-warning-active: #8a6600;
+    --color-accent: #CA74FF;
+    --color-accent-hover: #DA9DFF;
+    --color-accent-active: #af55e6;
+    --color-settings-bg: #F5F5F5
 }
 
 .easy {
@@ -47,6 +51,12 @@
     --color-button-base: var(--color-warning);
     --color-button-hover: var(--color-warning-hover);
     --color-button-active: var(--color-warning-active);
+}
+
+.accent {
+    --color-button-base: var(--color-accent);
+    --color-button-hover: var(--color-accent-hover);
+    --color-button-active: var(--color-accent-active);
 }
 
 .card-grey {

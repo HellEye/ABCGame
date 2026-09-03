@@ -6,7 +6,7 @@
     overflow: hidden;
     flex-direction: column;
     padding: 20px 10px;
-    background-image: url("project://database/Assets/MainMenu/UITest/popup_background.png?fileID=5831718440945433681&guid=c1611caa6a633de4b817b4ff308e9555&type=3#popup_background_0");
+    background-image: url("project://database/Assets/MainMenu/Sprites/Background/popup_background.png?fileID=5831718440945433681&guid=c1611caa6a633de4b817b4ff308e9555&type=3#popup_background_0");
 }
 
 #DifficultyPopupInstance {
@@ -81,7 +81,4 @@
 .difficulty-btn {
     width: 26%;
     height: 100%;
-
-
 }
-
