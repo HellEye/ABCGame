@@ -31,19 +31,21 @@ jobs:
           unity --version
           
       - name: Cache Editor
-        uses: actions/cache@v6
+        uses: actions/cache/restore@v6
         id: cache-editor
         if: always()
         with:
           path: /home/runner/Unity/Hub/Editor/${{ env.UNITY_EDITOR_VERSION }}
           key: unity-editor-${{ env.UNITY_EDITOR_VERSION }}-${{ runner.os }}
+        restore-keys: |
+          unity-editor-${{ env.UNITY_EDITOR_VERSION }}-${{ runner.os }}
       
       - name: Cache Library
-        uses: actions/cache@v6
+        uses: actions/cache/restore@v6
         if: always()
         with:
           path: $GITHUB_WORKSPACE/Library
-          key: Library-Lumisie-TargetPlatform
+          key: Library-Lumisie-Android
           restore-keys: |
             Library-Lumisie-
             Library-
@@ -61,15 +63,15 @@ jobs:
         run: |
           mkdir -p ~/.local/share/unity3d/Unity
           echo "$UNITY_LICENSE" > ~/.local/share/unity3d/Unity/Unity_lic.ulf
-          EDITOR_PATH=$(unity editors -i --format json | jq -r --arg v "$UNITY_EDITOR_VERSION" '.data.[] | select(.version==$v) | .location' | head -n1)
-          if [ -z "$EDITOR_PATH" ]; then
-            EDITOR_PATH=$(find /opt /home -name Unity -type f 2>/dev/null | head -n1)
-          fi
-          echo "Using editor: $EDITOR_PATH"
-          "$EDITOR_PATH" -batchmode -nographics -quit \
-            -username "$UNITY_EMAIL" \
-            -password "$UNITY_PASSWORD" \
-            -logFile -
+#          EDITOR_PATH=$(unity editors -i --format json | jq -r --arg v "$UNITY_EDITOR_VERSION" '.data.[] | select(.version==$v) | .location' | head -n1)
+#          if [ -z "$EDITOR_PATH" ]; then
+#            EDITOR_PATH=$(find /opt /home -name Unity -type f 2>/dev/null | head -n1)
+#          fi
+#          echo "Using editor: $EDITOR_PATH"
+#          "$EDITOR_PATH" -batchmode -nographics -quit \
+#            -username "$UNITY_EMAIL" \
+#            -password "$UNITY_PASSWORD" \
+#            -logFile -
           
       - name: Build Android
         run: |
@@ -82,3 +84,17 @@ jobs:
         uses: softprops/action-gh-release@v3
         with:
           files: ${{ env.BUILD_OUTPUT }}/${{ env.ARTIFACT_NAME }}.apk
+      
+      - name: Upload cache library
+        uses: actions/cache/save@v6
+        if: always()
+        with:
+          path: $GITHUB_WORKSPACE/Library
+          key: Library-Lumisie-Android
+      
+      - name: Upload cache editor
+        uses: actions/cache/save@v6
+        if: always()
+        with:
+          path: /home/runner/Unity/Hub/Editor/${{ env.UNITY_EDITOR_VERSION }}
+          key: unity-editor-${{ env.UNITY_EDITOR_VERSION }}-${{ runner.os }}
