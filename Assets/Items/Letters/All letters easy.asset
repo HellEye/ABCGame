@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: All letters easy
   m_EditorClassIdentifier: Assembly-CSharp::LetterSetSO
   groupName: All Letters
-  letters: abcdefghijklmnoprstuwyz
-  targetText: "Wybierz poprawn\u0105 liter\u0119"
+  letters: abcdefghijklmnopqrstuvwxyz
+  targetText: "Wybierz liter\u0119 {name}"
   difficulty: 0

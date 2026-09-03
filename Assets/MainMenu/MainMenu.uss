@@ -1,0 +1,58 @@
+@import url("/Assets/UI/globals.uss");
+@import url("/Assets/MainMenu/DifficultyPopup/DifficultyPopup.uss");
+@import url("/Assets/MainMenu/Settings/Settings.uss");
+
+.main-menu {
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 520px;
+    height: 240px;
+    position: absolute;
+    top: 18%;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.press-to-start {
+    position: absolute;
+    top: 54%;
+    width: 600px;
+    height: 60px;
+    -unity-text-align: middle-center;
+    font-size: 36px;
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+}
+
+#MainMenuMinigame {
+    width: 100%;
+    height: 100%;
+}
+
+.card-grid-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 80%;
+    height: 60%;
+}
+
+#CardGrid {
+    flex-shrink: 1;
+}
+
+.settings-button {
+    top: 50px;
+    right: 50px;
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+
+

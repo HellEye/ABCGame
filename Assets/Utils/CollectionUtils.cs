@@ -5,23 +5,23 @@ using Random = UnityEngine.Random;
 
 public static class CollectionUtils {
     public static List<T> PickRandom<T>(
-        this IReadOnlyList<T> items,
+        this IEnumerable<T> items,
         int count) {
         if (items is null)
             throw new ArgumentNullException(nameof(items));
-
-        if (count < 0 || count > items.Count)
+        var enumerable = items as T[] ?? items.ToArray();
+        if (count < 0 || count > enumerable.Length)
             throw new ArgumentOutOfRangeException(nameof(count));
 
-        var indices = new int[items.Count];
+        var indices = new int[enumerable.Length];
         for (var i = 0; i < indices.Length; i++) indices[i] = i;
 
         var result = new List<T>(count);
 
         for (var i = 0; i < count; i++) {
-            var j = Random.Range(i, items.Count);
+            var j = Random.Range(i, enumerable.Length);
             (indices[i], indices[j]) = (indices[j], indices[i]);
-            result.Add(items[indices[i]]);
+            result.Add(enumerable[indices[i]]);
         }
 
         return result;

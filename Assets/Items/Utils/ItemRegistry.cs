@@ -14,6 +14,10 @@ public class ItemRegistry : ScriptableObject {
             Variant.Letters => letters,
             var _ => throw new NotImplementedException()
         };
-        return list.Where(i => i.Value.Difficulty == difficulty.Difficulty).Select(i => i.Value);
+        return list
+            // Hide placeholders in release build
+            .Where(i => Debug.isDebugBuild || !i.Value.IsPlaceholder)
+            .Where(i => i.Value.Difficulty == difficulty.Difficulty)
+            .Select(i => i.Value);
     }
 }

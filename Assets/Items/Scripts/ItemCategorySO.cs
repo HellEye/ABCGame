@@ -11,6 +11,11 @@ public class ItemCategorySO : ScriptableObject, ISpawnableGroup {
 
     public List<ItemSO> items;
     [SerializeField] Difficulty difficulty;
+
+    [InfoBanner("This group doesn't have enough items that are not placeholders")]
+
+    public bool IsPlaceholder => items.Count(item => !item.IsPlaceholder) <= 3;
+
     public Difficulty Difficulty => difficulty;
     public string Title => groupName;
     public string TargetText => targetText;
@@ -18,7 +23,8 @@ public class ItemCategorySO : ScriptableObject, ISpawnableGroup {
     public (IEnumerable<IElement> targets, IEnumerable<IElement> allItems) PickItems(DropZoneGameDifficulty difficulty,
         MainMenuSettingsData data, ExcludeItemsSO excludedItems) {
         var excludedList = excludedItems.ExcludeFrom(items, data).ToList();
-        var pickedItems = excludedList.PickRandom(difficulty.itemTypes);
+        var pickedItems = excludedList.Where(item => Debug.isDebugBuild || !item.IsPlaceholder)
+            .PickRandom(difficulty.itemTypes);
         var targets = pickedItems.PickRandom(difficulty.targetTypes);
         return (targets, pickedItems);
     }

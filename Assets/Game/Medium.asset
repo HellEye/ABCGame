@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3196fef668cd53c9699eb1807609fb35, type: 3}
   m_Name: Medium
   m_EditorClassIdentifier: Assembly-CSharp::DropZoneGameDifficulty
-  difficultyName: Medium
+  difficultyName: "\u015Aredni"
   variant: 0
   difficulty: 1
   itemTypes: 3

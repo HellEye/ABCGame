@@ -17,6 +17,7 @@ using Random = UnityEngine.Random;
 public class GameLoader : MonoBehaviour {
     [SerializeField] SceneReference mainMenuScene;
     [SerializeField] SceneReference dragAndDropScene;
+    [Inject] BackgroundStore backgroundStore;
     Container container;
 
     SceneLifecycle currentLifecycle;
@@ -30,7 +31,6 @@ public class GameLoader : MonoBehaviour {
 
     void Awake() {
         container = gameObject.scene.GetSceneContainer();
-        Debug.Log("Scene count: " + SceneManager.sceneCount);
 
         // if we open a different scene, reload the current one for ordering
         // Editor only, since the full game will just start on the loader scene in the main menu
@@ -99,6 +99,8 @@ public class GameLoader : MonoBehaviour {
             foreach (var item in items.GetAllItems().Distinct())
                 if (item is ItemSO itemSo)
                     handles.Add(itemSo.sprite.Load());
+            var background = container.Resolve<BackgroundController>();
+            handles.Add(backgroundStore.LoadNextBackground(background.backgrounds, difficultyHolder.selectedMapping));
         }
 
         async Task EnsureLoad() => await Task.WhenAll(handles.Select(h => h.Task));
@@ -113,7 +115,6 @@ public class GameLoader : MonoBehaviour {
 
             var spawnableGroupsForDifficulty = itemRegistry.GetGroupsFor(difficulty).ToList();
             var spawnableGroup = spawnableGroupsForDifficulty[Random.Range(0, spawnableGroupsForDifficulty.Count)];
-            Debug.Log($"SpawnableGroup: {spawnableGroup.Title}");
             builder.RegisterValue(spawnableGroup, new[] { typeof(ISpawnableGroup) });
         }
     }
@@ -141,8 +142,6 @@ public class GameLoader : MonoBehaviour {
     }
 
     async UniTask UnloadCurrentScene() {
-        Debug.Log(
-            !isCurrentSceneValid ? "No current scene to unload" : $"Unloading current scene: {currentScene.Name}");
         if (!isCurrentSceneValid) return;
         var scene = SceneManager.GetSceneByName(currentScene.Name);
         if (!scene.isLoaded) return;
