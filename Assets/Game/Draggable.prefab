@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Scalable
   _minScaleValue: 0.4
-  _maxScaleValue: 0.75
+  _maxScaleValue: 1.5
 --- !u!114 &-4296902771220521294
 MonoBehaviour:
   m_ObjectHideFlags: 0
