@@ -16,9 +16,9 @@ MonoBehaviour:
   pluralName: sukienki
   sprite:
     m_AssetGUID: 8923ef2ff8c4d964893e55b452f7dd62
-    m_SubObjectName: 
+    m_SubObjectName: dress
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_SubObjectGUID: 
-    m_EditorAssetChanged: 0
+    m_EditorAssetChanged: 1
   placeholder: 1
