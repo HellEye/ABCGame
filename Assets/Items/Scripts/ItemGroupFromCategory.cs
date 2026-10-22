@@ -23,16 +23,16 @@ public class ItemGroupFromCategory : ScriptableObject, ISpawnableGroup {
     public string Title => groupName;
     public string TargetText => targetText;
 
-    public (IEnumerable<IElement> targets, IEnumerable<IElement> allItems) PickItems(DropZoneGameDifficulty difficulty,
+    public (IEnumerable<IElement> targets, IEnumerable<IElement> allItems) PickItems(IDifficulty difficulty,
         MainMenuSettingsData data, ExcludeItemsSO excludedItems) {
         var allItems = categories.SelectMany(c => c.items).Cast<IElement>().ToList();
         var excludedAllItems = excludedItems.ExcludeFrom(allItems, data).ToList();
         var excludedTargets = excludedItems.ExcludeFrom(this.targets, data).ToList();
         var nonTargets = excludedAllItems.Except(excludedTargets).ToList();
         var pickedItems = nonTargets.Where(i => Debug.isDebugBuild || !i.IsPlaceholder)
-            .PickRandom(difficulty.itemTypes - difficulty.targetTypes);
+            .PickRandom(difficulty.ItemTypes - difficulty.TargetTypes);
         var targets = excludedTargets.Where(i => Debug.isDebugBuild || !i.IsPlaceholder)
-            .PickRandom(difficulty.targetTypes);
+            .PickRandom(difficulty.TargetTypes);
         pickedItems.AddRange(targets);
         return (targets, pickedItems);
     }

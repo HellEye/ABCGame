@@ -21,12 +21,12 @@ public class ItemGroup : ScriptableObject, ISpawnableGroup {
     public string Title => groupName;
     public string TargetText => targetText;
 
-    public (IEnumerable<IElement> targets, IEnumerable<IElement> allItems) PickItems(DropZoneGameDifficulty difficulty,
+    public (IEnumerable<IElement> targets, IEnumerable<IElement> allItems) PickItems(IDifficulty difficulty,
         MainMenuSettingsData settings, ExcludeItemsSO excludeItems) {
         var excludedItems = excludeItems.ExcludeFrom(items, settings).ToList();
         var pickedItems = excludedItems.Where(i => Debug.isDebugBuild || !i.IsPlaceholder)
-            .PickRandom(difficulty.itemTypes);
-        var targets = pickedItems.PickRandom(difficulty.targetTypes);
+            .PickRandom(difficulty.ItemTypes);
+        var targets = pickedItems.PickRandom(difficulty.TargetTypes);
         return (targets, pickedItems);
     }
 }

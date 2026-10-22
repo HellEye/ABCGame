@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 public class MinigameSelectionView {
@@ -37,7 +39,7 @@ public class MinigameSelectionView {
 
     public void SetCards(LevelMapping[] cards) {
         cardData.Clear();
-        cardData.AddRange(cards);
+        cardData.AddRange(Debug.isDebugBuild ? cards : cards.Where(c => !c.WIP));
 
         BuildCards();
     }

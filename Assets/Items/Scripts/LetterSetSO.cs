@@ -22,13 +22,13 @@ public class LetterSetSO : ScriptableObject, ISpawnableGroup {
     public string TargetText => targetText;
 
     public (IEnumerable<IElement> targets, IEnumerable<IElement> allItems) PickItems(
-        DropZoneGameDifficulty gameDifficulty,
+        IDifficulty gameDifficulty,
         MainMenuSettingsData data,
         ExcludeItemsSO excludeItems = null) {
         var uniqueLetters = (letters ?? string.Empty).Distinct().Select(letter => new Letter(letter.ToString()))
             .ToList();
-        var pickedItems = uniqueLetters.PickRandom(gameDifficulty.itemTypes);
-        var targets = pickedItems.PickRandom(gameDifficulty.targetTypes);
+        var pickedItems = uniqueLetters.PickRandom(gameDifficulty.ItemTypes);
+        var targets = pickedItems.PickRandom(gameDifficulty.TargetTypes);
         return (targets, pickedItems);
     }
 }

@@ -9,23 +9,30 @@ public class DropZoneGameManager : MonoBehaviour, IGameManager {
 
     readonly List<Item> items = new();
     DropZone dropZone;
-
-    [Inject] DropZoneItems dropZoneItems;
     [Inject] GameLoader gameLoader;
+
+    [Inject] ItemContainer itemContainer;
 
     [Inject] ItemSpawnerManager itemSpawnerManager;
 
     void Start() {
         //itemSpawnerManager.TrySpawningItemsPerType(pickedItems);
-        itemSpawnerManager.TrySpawningMaxItems(dropZoneItems.items);
-        dropZone = itemSpawnerManager.SpawnDropZone(dropZoneItems.targets);
+        itemSpawnerManager.TrySpawningMaxItems(itemContainer.items);
+        dropZone = itemSpawnerManager.SpawnDropZone(itemContainer.targets);
         OnGameComplete += () => Debug.Log("Game Complete!!!");
+        foreach (var item in items)
+            if (item.Draggable != null)
+                item.Draggable.OnDropped += HandleItemDrop;
     }
 
 
     public event Action OnGameComplete;
 
     public void RestartGame() => gameLoader.ReloadCurrentGameplayScene();
+
+    void HandleItemDrop(DropInfo dropInfo) {
+        if (dropInfo.dropType == DropType.Correct) RemoveItem(dropInfo.item);
+    }
 
     public void AddItem(Item item) => items.Add(item);
 

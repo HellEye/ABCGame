@@ -23,7 +23,7 @@ public class ItemGroupWithTargets : ScriptableObject, ISpawnableGroup {
     public string Title => groupName;
     public string TargetText => targetText;
 
-    public (IEnumerable<IElement> targets, IEnumerable<IElement> allItems) PickItems(DropZoneGameDifficulty difficulty,
+    public (IEnumerable<IElement> targets, IEnumerable<IElement> allItems) PickItems(IDifficulty difficulty,
         MainMenuSettingsData settings, ExcludeItemsSO excludeItems) {
         var joined = new List<ItemSO>(nonTargets);
         joined.AddRange(targets);
@@ -32,9 +32,9 @@ public class ItemGroupWithTargets : ScriptableObject, ISpawnableGroup {
         var excludedNonTargets = nonTargets.Where(i => !excludedItems.Contains(i)).ToList();
         var excludedTargets = targets.Where(i => !excludedItems.Contains(i)).ToList();
         var pickedItems = excludedNonTargets.Where(i => Debug.isDebugBuild || !i.IsPlaceholder)
-            .PickRandom(difficulty.itemTypes - difficulty.targetTypes);
+            .PickRandom(difficulty.ItemTypes - difficulty.TargetTypes);
         var targetItems = excludedTargets.Where(i => Debug.isDebugBuild || !i.IsPlaceholder)
-            .PickRandom(difficulty.targetTypes);
+            .PickRandom(difficulty.TargetTypes);
         pickedItems.AddRange(targetItems);
         return (targetItems, pickedItems);
     }

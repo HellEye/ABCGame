@@ -10,7 +10,6 @@ using Reflex.Extensions;
 using UnityEngine;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.SceneManagement;
-using Random = UnityEngine.Random;
 #if UNITY_EDITOR
 #endif
 
@@ -111,10 +110,10 @@ public class GameLoader : MonoBehaviour {
         }
 
         void SetupDifficulty(Scene scene, ContainerBuilder builder) {
-            builder.RegisterValue(difficulty, new[] { difficulty.type });
+            builder.RegisterValue(difficulty, new[] { typeof(IDifficulty), difficulty.type });
 
             var spawnableGroupsForDifficulty = itemRegistry.GetGroupsFor(difficulty).ToList();
-            var spawnableGroup = spawnableGroupsForDifficulty[Random.Range(0, spawnableGroupsForDifficulty.Count)];
+            var spawnableGroup = spawnableGroupsForDifficulty.PickRandom();
             builder.RegisterValue(spawnableGroup, new[] { typeof(ISpawnableGroup) });
         }
     }
