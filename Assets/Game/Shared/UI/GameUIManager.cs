@@ -42,5 +42,5 @@ public class GameUIManager : MonoBehaviour {
     }
 
     string TransformLabel(string label, IEnumerable<IElement> elements) =>
-        label.Replace("{name}", string.Join(", ", elements.Select(e => e.TargetDisplayName)));
+        label.Replace("{name}", string.Join(", ", elements.Select(e => e.DisplayNamePlural)));
 }

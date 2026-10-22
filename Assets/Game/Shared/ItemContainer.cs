@@ -12,6 +12,7 @@ public class ItemContainer : IRandomItemContainer {
         ExcludeItemsSO excludeItems, MainMenuSettingsData settings) =>
         (targets, items) = spawnableGroup.PickItems(difficulty, settings, excludeItems);
 
-    public IEnumerable<IElement> GetAllItems() => items.Concat(targets);
+    public IEnumerable<IElement> GetAllItems() => items;
     public IEnumerable<IElement> GetTargets() => targets;
+    public IEnumerable<IElement> GetNonTargets() => items.Except(targets);
 }

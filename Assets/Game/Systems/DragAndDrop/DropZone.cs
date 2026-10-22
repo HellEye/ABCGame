@@ -21,7 +21,7 @@ public class DropZone : MonoBehaviour {
 
     public void Drop(Draggable draggable) {
         Debug.Log(
-            $"Dropped {draggable.item.data.TargetDisplayName}, targets: {string.Join(", ", targets.Select(t => t.TargetDisplayName))}");
+            $"Dropped {draggable.item.data.DisplayNamePlural}, targets: {string.Join(", ", targets.Select(t => t.DisplayNamePlural))}");
         if (targets.Contains(draggable.item.data))
             Correct(draggable);
         else

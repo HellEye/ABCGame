@@ -1,4 +1,5 @@
 public interface IElement {
-    string TargetDisplayName { get; }
+    string DisplayNamePlural { get; }
+    string DisplayNameSingular { get; }
     bool IsPlaceholder { get; }
 }

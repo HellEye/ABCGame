@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Reflex.Attributes;
 using UnityEngine;
 
@@ -14,11 +15,14 @@ public class ConnectGameManager : MonoBehaviour, IGameManager {
     void Start() {
         currentCorrect = 0;
         items.Clear();
-        connectSpawner.SpawnItems(itemContainer.GetTargets());
+        var targets = itemContainer.GetTargets().ToList();
+        var fakeItems = itemContainer.GetNonTargets();
+        connectSpawner.SpawnItems(targets, fakeItems);
         foreach (var item in items)
-            if (item.Draggable != null)
+            if (targets.Contains(item.data) && item.Draggable != null)
                 item.Draggable.OnDropped += HandleItemDrop;
 
+        Debug.Log("Targets: " + string.Join(", ", targets.Select(t => t.DisplayNameSingular)));
         OnGameComplete += () => Debug.Log("Game Complete!!!");
     }
 

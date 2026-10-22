@@ -10,7 +10,8 @@ public class ItemSO : ScriptableObject, IElement {
     public bool placeholder;
 
     AsyncOperationHandle<Sprite> spriteHandle;
-    public string TargetDisplayName => pluralName;
+    public string DisplayNamePlural => pluralName;
+    public string DisplayNameSingular => itemName;
     public bool IsPlaceholder => placeholder;
     public bool Matches(Item item) => ReferenceEquals(item.data, this);
 
