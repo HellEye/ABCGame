@@ -7,7 +7,7 @@ public class LabelRenderer : MonoBehaviour, IElementRenderer {
 
     public UniTask Initialize(IElement element) {
         var label = document.rootVisualElement.Q<Label>();
-        label.text = element.TargetDisplayName;
+        label.text = element.DisplayNameSingular;
         return UniTask.CompletedTask;
     }
 }

@@ -18,6 +18,6 @@ public class ConnectDifficulty : ScriptableObject, IDifficulty {
     public Variant Variant => variant;
     public Type type => typeof(ConnectDifficulty);
     public string Name => difficultyName;
-    public int ItemTypes => numberOfItems;
-    public int TargetTypes => numberOfItems - unconnectedItems;
+    public int ItemTypes => numberOfItems + unconnectedItems * 2;
+    public int TargetTypes => numberOfItems;
 }

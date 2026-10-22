@@ -46,21 +46,25 @@ public class ConnectSpawner : MonoBehaviour {
         return res;
     }
 
-    public void SpawnItems(IEnumerable<IElement> items) {
-        var itemList = items.ToList();
-        var count = difficulty.numberOfItems;
-        Debug.Assert(itemList.Count == count, $"Expected {count} items, got {itemList.Count}", this);
-        if (itemList.Count != count) {
-            Debug.LogError($"Expected {count} items, got {itemList.Count}", this);
-            return;
-        }
+    public (IEnumerable<IElement> fakeItems, IEnumerable<IElement> fakeLabels) PickFakes(IEnumerable<IElement> fakes) {
+        Debug.Assert(fakes.Count() % 2 == 0, "Something went wrong with generating items, expecting an even number");
+        List<IElement> fakeItems = new();
+        List<IElement> fakeLabels = new();
+        foreach (var (fake, i) in fakes.Indexed())
+            if (i % 2 == 0) fakeItems.Add(fake);
+            else fakeLabels.Add(fake);
 
-        // Items get a random order; labels are a cyclic permutation of that order,
-        // so no label ends up at the same height as its own item
+        return (fakeItems, fakeLabels);
+    }
+
+    public void SpawnItems(IEnumerable<IElement> items, IEnumerable<IElement> fakes) {
+        var (fakeItems, fakeLabels) = PickFakes(fakes);
+        var itemList = items.Concat(fakeItems).ToList();
+        var labelList = items.Concat(fakeLabels).ToList();
+        var count = difficulty.numberOfItems + difficulty.unconnectedItems;
         Shuffle(itemList);
-        var labelList = new List<IElement>(itemList);
         CyclicShuffle(labelList);
-
+        Debug.Log("Items " + itemList.Count + " Labels " + labelList.Count);
         var itemPlacements = GetItemPlacement(count, itemX);
         var labelPlacements = GetItemPlacement(count, labelX);
         for (var i = 0; i < count; i++) {
