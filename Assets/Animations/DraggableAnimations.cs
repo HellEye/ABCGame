@@ -1,3 +1,4 @@
+using System;
 using Cysharp.Threading.Tasks;
 using LitMotion;
 using LitMotion.Extensions;
@@ -21,16 +22,29 @@ public class DraggableAnimations : MonoBehaviour {
         draggable ??= GetComponent<Draggable>();
         currentHandle = new();
         draggable.OnPickedUp += CancelAnimation;
-        draggable.OnDroppedIncorrect += AnimateIncorrect;
-        draggable.OnDroppedCorrect += UniTask.Action(AnimateAndDestroy);
+        draggable.OnDropped += HandleDrop;
     }
 
     void OnDisable() {
         draggable.OnPickedUp -= CancelAnimation;
-        draggable.OnDroppedIncorrect -= AnimateIncorrect;
-        draggable.OnDroppedCorrect -= UniTask.Action(AnimateAndDestroy);
+        draggable.OnDropped -= HandleDrop;
         currentHandle?.Cancel();
         currentHandle = null;
+    }
+
+    void HandleDrop(DropInfo dropInfo) {
+        switch (dropInfo.dropType) {
+            case DropType.Empty:
+                break;
+            case DropType.Correct:
+                AnimateAndDestroy(dropInfo.targetPos).Forget();
+                break;
+            case DropType.Incorrect:
+                AnimateIncorrect(dropInfo.startPos);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 
     public void CancelAnimation() => currentHandle?.Cancel();
@@ -42,7 +56,7 @@ public class DraggableAnimations : MonoBehaviour {
             .BindToPosition(transform)
             .AddTo(currentHandle);
 
-    public async UniTaskVoid AnimateAndDestroy() {
+    public async UniTask AnimateAndDestroy(Vector3 targetPosition) {
         await LMotion.Create(transform.localScale, Vector3.zero, destroyDuration)
             .BindToLocalScale(transform)
             .ToUniTask();

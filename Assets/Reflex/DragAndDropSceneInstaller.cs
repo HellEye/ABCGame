@@ -8,16 +8,18 @@ public class DragAndDropSceneInstaller : MonoBehaviour, IInstaller {
     [Header("References")]
     [SerializeField] ScreenSizeManager screenSizeManager;
 
-    [SerializeField] ItemSpawnerManager itemSpawnerManager;
-    [SerializeField] DropZoneGameManager gameManager;
     [SerializeField] BackgroundController backgroundController;
+    [SerializeField] DropZoneGameManager gameManager;
+
+    [SerializeField] ItemSpawnerManager itemSpawnerManager;
 
     public void InstallBindings(ContainerBuilder builder) {
-        builder.RegisterType(
-            typeof(DropZoneItems),
-            new[] { typeof(IRandomItemContainer), typeof(DropZoneItems) },
+        builder.RegisterType<ItemContainer>(
             Lifetime.Singleton,
-            Resolution.Eager);
+            Resolution.Eager,
+            typeof(IRandomItemContainer),
+            typeof(ItemContainer)
+        );
         builder.RegisterValue(screenSizeManager);
         builder.RegisterValue(itemSpawnerManager);
         builder.RegisterValue(gameManager, new[] { typeof(IGameManager), typeof(DropZoneGameManager) });

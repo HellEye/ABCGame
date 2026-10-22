@@ -27,7 +27,7 @@ public class LoaderInstaller : MonoBehaviour, IInstaller {
     [SerializeField] ScreenSizeManager screenSizeManager;
 
     public void InstallBindings(ContainerBuilder builder) {
-        builder.RegisterValue(cam);
+        builder.RegisterValue(cam, typeof(Camera));
         builder.RegisterValue(minigameRegistry);
         builder.RegisterValue(new LoaderUIDocument(uiDocument));
         builder.RegisterValue(loaderUIController);

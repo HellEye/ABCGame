@@ -25,34 +25,6 @@ public class ItemSpawnerManager : MonoBehaviour, IScreenSpaceBounds {
 
     public MinMaxRect Bounds => bounds;
 
-    //test one of these two
-    public void TrySpawningItemsPerType(IEnumerable<IElement> items) {
-        var itemList = items.ToList();
-        var itemsPerType = difficulty.maxItems / itemList.Count;
-        var remainingItemsToSpawn = difficulty.maxItems % itemList.Count;
-
-        var itemPositions = new List<Vector2>(itemList.Count * difficulty.itemsPerType);
-        var squareRadius =
-            screenSizeManager.FromWorldToNormalizedDistance(spawnProtectionRadius * spawnProtectionRadius);
-
-        for (var i = 0; i < itemList.Count - 1; i++)
-        for (var j = 0; j < itemsPerType; j++)
-            itemPositions.Add(
-                CreateItem(
-                    itemList[i],
-                    RandomiseSpawnPos(itemPositions, squareRadius)
-                ).screenPlacer.NormalizedPosition
-            );
-
-        for (var i = 0; i < itemsPerType + remainingItemsToSpawn; i++)
-            itemPositions.Add(
-                CreateItem(
-                    itemList[^1],
-                    RandomiseSpawnPos(itemPositions, squareRadius)
-                ).screenPlacer.NormalizedPosition
-            );
-    }
-
     public void TrySpawningMaxItems(IEnumerable<IElement> items) {
         var itemPositions = new List<Vector2>(items.Count() * difficulty.itemsPerType);
         var squareRadius =

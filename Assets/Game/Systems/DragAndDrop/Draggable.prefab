@@ -122,6 +122,7 @@ MonoBehaviour:
   screenPlacer: {fileID: 6559707495396496395}
   renderer:
     underlyingValue: {fileID: -4296902771220521294}
+  draggable: {fileID: 1414928096690302995}
 --- !u!114 &6559707495396496395
 MonoBehaviour:
   m_ObjectHideFlags: 0

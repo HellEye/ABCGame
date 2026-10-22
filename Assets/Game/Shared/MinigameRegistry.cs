@@ -7,7 +7,7 @@ using UnityEngine;
 [Serializable]
 public struct DifficultyMapping {
     // can add different data here later if necessary
-    public InterfaceReference<IDifficulty<ScriptableObject>> difficultyData;
+    public InterfaceReference<IDifficulty> difficultyData;
 
     public bool IsValid(ItemRegistry itemRegistry) => itemRegistry.GetGroupsFor(difficultyData.Value).Any();
 }
@@ -20,6 +20,7 @@ public class LevelMapping {
 
     public SceneReference sceneReference;
     public DifficultyMapping[] difficultiesMappings;
+    public bool WIP;
 }
 
 [CreateAssetMenu(fileName = "MinigameRegistry", menuName = "ScriptableObjects/MinigameRegistry")]
@@ -33,11 +34,13 @@ public class MinigameRegistry : ScriptableObject {
     public LevelMapping[] GetMappings() => mappings;
 }
 
-public interface IDifficulty<out T> where T : ScriptableObject {
-    Type type => typeof(T);
+public interface IDifficulty {
+    Type type { get; }
     Difficulty Difficulty { get; }
     Variant Variant { get; }
     string Name { get; }
+    int ItemTypes { get; }
+    int TargetTypes { get; }
 }
 
 public enum Variant {
@@ -46,7 +49,7 @@ public enum Variant {
 }
 
 public class DifficultyHolder {
-    public IDifficulty<ScriptableObject> selectedDifficulty;
+    public IDifficulty selectedDifficulty;
     public LevelMapping selectedMapping;
     public SceneReference selectedScene;
 }

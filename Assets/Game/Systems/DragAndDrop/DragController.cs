@@ -58,7 +58,7 @@ public class DragController : MonoBehaviour {
         var closest = GetClosestCollider(touchPosition, draggableLayer, dragDetectRadius);
         if (closest == null) return;
         // Set the current element to the closest one
-        if (!closest.TryGetComponent<Draggable>(out var draggable)) return;
+        if (!closest.TryGetComponent<Draggable>(out var draggable) || !draggable.enabled) return;
         currentElement = draggable;
         draggable.Pickup();
         // offset for smoother dragging (not jumping the center of the element to the mouse)
@@ -86,11 +86,8 @@ public class DragController : MonoBehaviour {
         var dropDetectRadius = dropZoneDetectRadius + droppedElement.collider.bounds.size.x / 2;
         var dropZoneCollider = GetClosestCollider(position, dropLayer, dropDetectRadius);
 
-        // not found, do nothing
-        if (dropZoneCollider == null) return;
-
         // found, trigger the drop zone
-        if (!dropZoneCollider.TryGetComponent<DropZone>(out var dropZone)) {
+        if (dropZoneCollider == null || !dropZoneCollider.TryGetComponent<DropZone>(out var dropZone)) {
             droppedElement.Drop();
             return;
         }

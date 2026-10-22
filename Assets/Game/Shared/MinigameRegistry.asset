@@ -25,6 +25,7 @@ MonoBehaviour:
         underlyingValue: {fileID: 11400000, guid: 453c59661d257cad889cfc4205695b92, type: 2}
     - difficultyData:
         underlyingValue: {fileID: 11400000, guid: 4b240e6606470111b9d8b515b4c8282a, type: 2}
+    WIP: 0
   - levelName: SortowanieLiter
     levelIcon: {fileID: 4236892553360603001, guid: dfaebd105fb127ecd8bd23a6de2344e7, type: 3}
     sceneReference:
@@ -37,3 +38,17 @@ MonoBehaviour:
         underlyingValue: {fileID: 11400000, guid: fcc3e3fcac61d77169dab23b0c05d017, type: 2}
     - difficultyData:
         underlyingValue: {fileID: 11400000, guid: 771817af54608bfc2b59ebad1eb31826, type: 2}
+    WIP: 0
+  - levelName: "\u0141\u0105czenieRzeczy"
+    levelIcon: {fileID: 4236892553360603001, guid: dfaebd105fb127ecd8bd23a6de2344e7, type: 3}
+    sceneReference:
+      asset: {fileID: 102900000, guid: bf31df99d9d69760b93f40891d01cff1, type: 3}
+      guid: bf31df99d9d69760b93f40891d01cff1
+    difficultiesMappings:
+    - difficultyData:
+        underlyingValue: {fileID: 11400000, guid: adbf35b8f105a96ef8099852eb685a2d, type: 2}
+    - difficultyData:
+        underlyingValue: {fileID: 11400000, guid: 21eece6af38a0ab81a3218880e2538ca, type: 2}
+    - difficultyData:
+        underlyingValue: {fileID: 11400000, guid: 0451b40e36348e48fa7aed7cdf9cbafd, type: 2}
+    WIP: 1
