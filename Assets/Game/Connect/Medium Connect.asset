@@ -16,4 +16,4 @@ MonoBehaviour:
   variant: 0
   difficulty: 1
   numberOfItems: 3
-  unconnectedItems: 0
+  unconnectedItems: 1

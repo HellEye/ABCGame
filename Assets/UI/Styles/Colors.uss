@@ -20,43 +20,64 @@
     --color-accent: #CA74FF;
     --color-accent-hover: #DA9DFF;
     --color-accent-active: #af55e6;
-    --color-settings-bg: #F5F5F5
+    --color-settings-bg: #F5F5F5;
+    --color-light: #ffffff;
+    --color-light-text: #314D79;
+    --color-light-hover: #e6e6e6;
+    --color-light-active: #cccccc;
 }
 
 .easy {
     --color-button-base: var(--color-easy);
     --color-button-hover: var(--color-easy-hover);
     --color-button-active: var(--color-easy-active);
+    --color-button-text: var(--color-text-dark);
+    
 }
 
 .medium {
     --color-button-base: var(--color-medium);
     --color-button-hover: var(--color-medium-hover);
     --color-button-active: var(--color-medium-active);
+    --color-button-text: var(--color-text-dark);
+
 }
 
 .hard {
     --color-button-base: var(--color-hard);
     --color-button-hover: var(--color-hard-hover);
     --color-button-active: var(--color-hard-active);
+    --color-button-text: var(--color-text-dark);
+
 }
 
 .danger {
     --color-button-base: var(--color-danger);
     --color-button-hover: var(--color-danger-hover);
     --color-button-active: var(--color-danger-active);
+    --color-button-text: var(--color-text-dark);
+
 }
 
 .warning {
     --color-button-base: var(--color-warning);
     --color-button-hover: var(--color-warning-hover);
     --color-button-active: var(--color-warning-active);
+    --color-button-text: var(--color-text-dark);
 }
 
 .accent {
     --color-button-base: var(--color-accent);
     --color-button-hover: var(--color-accent-hover);
     --color-button-active: var(--color-accent-active);
+    --color-button-text: var(--color-text-dark);
+}
+
+.light {
+    --color-button-base: var(--color-light);
+    --color-button-hover: var(--color-light-hover);
+    --color-button-active: var(--color-light-active);
+    --color-button-text: var(--color-light-text);
 }
 
 .card-grey {

@@ -10,8 +10,10 @@ public class GameUIManager : MonoBehaviour {
     [Inject] GameLoader gameLoader;
     [Inject] IGameManager gameManager;
     [Inject] ISpawnableGroup group;
-    [Inject] IRandomItemContainer itemContainer;
+    Popup instructionPopup;
 
+    [Inject] IRandomItemContainer itemContainer;
+    [Inject] GameProgressData progressData;
 
     void Start() {
         gameManager.OnGameComplete += OpenEndScreen;
@@ -19,11 +21,30 @@ public class GameUIManager : MonoBehaviour {
         endGamePopup = root.Q<Popup>("EndGamePopup");
 
         root.Q<Button>("ContinueButton").clicked += endGamePopup.Close;
-        root.Q<Button>("RestartButton").clicked += () => gameManager.RestartGame();
-        root.Q<Button>("ExitButton").clicked += () => gameLoader.LoadMainMenu();
-        var objectiveLabel = uiDocument.rootVisualElement.Q<Label>("ObjectiveLabel");
-        objectiveLabel.text = TransformLabel(group.TargetText, itemContainer.GetTargets());
+        root.Q<Button>("RestartButton").clicked += gameManager.RestartGame;
+        root.Q<Button>("ExitButton").clicked += gameLoader.LoadMainMenu;
+        root.Q<CustomProgress>("ProgressBar").dataSource = progressData;
+        SetupInstructionPopup(root);
+        root.Q<Button>("OpenInstructionsButton").clicked += instructionPopup.Open;
+
         uiDocument.rootVisualElement.Q<Button>("PauseButton").clicked += OpenPauseMenu;
+    }
+
+    void SetupInstructionPopup(VisualElement root) {
+        instructionPopup = root.Q<Popup>("InstructionPopup");
+        instructionPopup.Open();
+        instructionPopup.Q<Button>("InstructionContinueButton").clicked += () => {
+            instructionPopup.Close();
+            instructionPopup.Q<Button>("InstructionContinueButton").text = "Gram Dalej!";
+        };
+        instructionPopup.Q<Label>("instruction-text").text =
+            TransformLabel(group.TargetText, itemContainer.GetTargets());
+        // TODO setup image
+
+
+        // TODO setup audio here
+        var audioButton = instructionPopup.Q<Button>("InstructionAudioButton");
+        audioButton.SetEnabled(false);
     }
 
 

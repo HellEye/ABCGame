@@ -1,0 +1,25 @@
+.progress-wrapper {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-width: 4px;
+    border-color: white;
+    padding: 4px;
+    flex-grow: 0;
+}
+
+.tick {
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    flex-grow: 0;
+    aspect-ratio: 1;
+}
+
+.tick-false {
+    --unity-image: url("project://database/Assets/MainMenu/Sprites/UI/tick-false.png");
+}
+
+.tick-true {
+    --unity-image: url("project://database/Assets/MainMenu/Sprites/UI/tick-true.png");
+}
