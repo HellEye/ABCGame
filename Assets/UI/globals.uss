@@ -7,4 +7,5 @@ breaks the main menu screen, so not sure why it exists
 @import url("/Assets/UI/Styles/Layout.uss");
 */
 @import url("/Assets/UI/Styles/Text.uss");
-@import url("/Assets/UI/Components/PillSliderStyles.uss");
+@import url("/Assets/UI/Components/PillSlider/PillSliderStyles.uss");
+@import url("/Assets/UI/Components/Progress/CustomProgress.uss");

@@ -18,7 +18,6 @@ public partial class Popup : VisualElement {
         wrapper.AddToClassList("popup-wrapper");
         // have to use hierarchy.Add instead of Add because we're overriding contentContainer
         hierarchy.Add(wrapper);
-
         // treat this element as the backdrop
         AddToClassList("popup-backdrop");
 
@@ -42,6 +41,7 @@ public partial class Popup : VisualElement {
             OnOpenChange(value);
         }
     }
+
 
     public async UniTask LoadStyleSheet() {
         // try the cached styles first if already loaded, otherwise load via addressables

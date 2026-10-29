@@ -31,5 +31,6 @@ public class RootInstaller : MonoBehaviour, IInstaller {
 
         builder.RegisterType<InputSystem_Actions>();
         builder.RegisterType<BackgroundStore>();
+        builder.RegisterType<GameProgressData>();
     }
 }
