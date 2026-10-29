@@ -412,7 +412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ConnectSpawner
   itemX: 0.212
   labelX: 0.745
-  spacingRelative: 0.312
+  spacingRelative: 0.173
   screenSizeManager: {fileID: 1997416156}
   previewItemCount: 4
   itemPrefab: {fileID: 7799946431164404700, guid: 3573f1e7d8fc5c12db8f62521dd9357c, type: 3}
