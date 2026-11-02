@@ -14,6 +14,8 @@ public class GameUIManager : MonoBehaviour {
 
     [Inject] IRandomItemContainer itemContainer;
     [Inject] GameProgressData progressData;
+    [Inject] ITextToSpeech textToSpeech;
+    string Instructions => TransformLabel(group.TargetText, itemContainer.GetTargets());
 
     void Start() {
         gameManager.OnGameComplete += OpenEndScreen;
@@ -30,6 +32,13 @@ public class GameUIManager : MonoBehaviour {
         uiDocument.rootVisualElement.Q<Button>("PauseButton").clicked += OpenPauseMenu;
     }
 
+    void PlayTTSInstructions() {
+        var audioClip = textToSpeech.GenerateAudio(Instructions);
+        var audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = audioClip;
+        audioSource.Play();
+    }
+
     void SetupInstructionPopup(VisualElement root) {
         instructionPopup = root.Q<Popup>("InstructionPopup");
         instructionPopup.Open();
@@ -38,13 +47,16 @@ public class GameUIManager : MonoBehaviour {
             instructionPopup.Q<Button>("InstructionContinueButton").text = "Gram Dalej!";
         };
         instructionPopup.Q<Label>("instruction-text").text =
-            TransformLabel(group.TargetText, itemContainer.GetTargets());
+            Instructions;
         // TODO setup image
 
 
         // TODO setup audio here
         var audioButton = instructionPopup.Q<Button>("InstructionAudioButton");
-        audioButton.SetEnabled(false);
+        if (textToSpeech == null)
+            audioButton.SetEnabled(false);
+        else
+            audioButton.clicked += PlayTTSInstructions;
     }
 
 
