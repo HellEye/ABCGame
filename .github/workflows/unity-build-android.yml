@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - v*
+      - dev*
 
 env:
   UNITY_VERSION: 6000.3.11f1
