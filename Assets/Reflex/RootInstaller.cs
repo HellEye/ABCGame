@@ -32,5 +32,14 @@ public class RootInstaller : MonoBehaviour, IInstaller {
         builder.RegisterType<InputSystem_Actions>();
         builder.RegisterType<BackgroundStore>();
         builder.RegisterType<GameProgressData>();
+        builder.RegisterFactory(
+            _ => {
+                if (PlatformInfo.IsMobile)
+                    return new AndroidTextToSpeech();
+                return null;
+            },
+            new[] { typeof(ITextToSpeech) },
+            Lifetime.Singleton,
+            Resolution.Lazy);
     }
 }
