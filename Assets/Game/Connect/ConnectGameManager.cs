@@ -19,7 +19,7 @@ public class ConnectGameManager : MonoBehaviour, IGameManager {
         progressData.Progress = 0;
         var targets = itemContainer.GetTargets().ToList();
         var fakeItems = itemContainer.GetNonTargets();
-        progressData.TotalProgress = targets.Count;
+        progressData.TotalProgress = difficulty.TargetTypes;
         connectSpawner.SpawnItems(targets, fakeItems);
         foreach (var item in items)
             if (targets.Contains(item.data) && item.Draggable != null)
@@ -37,7 +37,7 @@ public class ConnectGameManager : MonoBehaviour, IGameManager {
             currentCorrect++;
             progressData.Progress = currentCorrect;
             Debug.Log("Dropped correct " + currentCorrect);
-            if (currentCorrect >= difficulty.numberOfItems) OnGameComplete?.Invoke();
+            if (currentCorrect >= difficulty.TargetTypes) OnGameComplete?.Invoke();
         }
     }
 
