@@ -34,9 +34,7 @@ public class RootInstaller : MonoBehaviour, IInstaller {
         builder.RegisterType<GameProgressData>();
         builder.RegisterFactory(
             _ => {
-                if (PlatformInfo.IsMobile)
-                    return new AndroidTextToSpeech();
-                return null;
+                return new SherpaTextToSpeech();
             },
             new[] { typeof(ITextToSpeech) },
             Lifetime.Singleton,

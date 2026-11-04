@@ -98,9 +98,6 @@ public partial class CustomProgress : VisualElement {
             var isActive = value >= min + valueStep * (i + 1);
             tick.image = isActive ? ImageTrue : ImageFalse;
         }
-
-        Debug.Log(ticks[0]?.image);
-        Debug.Log("Discrete steps: " + DiscreteSteps + ", value: " + value + ", min: " + min + ", max: " + max);
     }
 
     void UpdateContinuous() { }
