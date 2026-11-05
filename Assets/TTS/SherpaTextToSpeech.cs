@@ -23,6 +23,8 @@ public class SherpaTextToSpeech : ITextToSpeech {
         float rate = 1f,
         float volume = 1f) {
         var time = Stopwatch.StartNew();
+        var phonemizeTime = Stopwatch.StartNew();
+        Stopwatch generateTime;
         var tts = GetTts();
         float[] samples;
         int sampleRate;
@@ -42,6 +44,9 @@ public class SherpaTextToSpeech : ITextToSpeech {
                 codepoints[i] = cps;
             }
 
+            phonemizeTime.Stop();
+            generateTime = Stopwatch.StartNew();
+
             var genConfig = new OfflineTtsGenerationConfig {
                 Sid = SpeakerId,
                 Speed = rate,
@@ -52,14 +57,18 @@ public class SherpaTextToSpeech : ITextToSpeech {
             var audio = tts.GenerateWithConfig("", genConfig, null);
             samples = audio.Samples;
             sampleRate = audio.SampleRate;
+            generateTime.Stop();
         }
+
 
         if (!Mathf.Approximately(volume, 1f))
             for (var i = 0; i < samples.Length; i++)
                 samples[i] = Mathf.Clamp(samples[i] * volume, -1f, 1f);
 
         time.Stop();
-        Debug.Log("TTS generation took: " + time.ElapsedMilliseconds + " ms");
+        Debug.Log("TTS generation took: " + time.ElapsedTicks + " ticks / " + time.ElapsedMilliseconds + " ms");
+        Debug.Log(
+            $"Split: {phonemizeTime.ElapsedMilliseconds}/{phonemizeTime.ElapsedTicks} phonemize, {generateTime.ElapsedMilliseconds}/{generateTime.ElapsedTicks} generate");
         var clip = AudioClip.Create(
             "SherpaTTS",
             samples.Length,
@@ -71,6 +80,7 @@ public class SherpaTextToSpeech : ITextToSpeech {
     }
 
     static OfflineTts GetTts() {
+        // This load takes a while, preload it later, maybe constructor or something, but should be async/threaded
         lock (InitLock) {
             if (_tts != null)
                 return _tts;
