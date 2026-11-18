@@ -32,12 +32,6 @@ public class RootInstaller : MonoBehaviour, IInstaller {
         builder.RegisterType<InputSystem_Actions>();
         builder.RegisterType<BackgroundStore>();
         builder.RegisterType<GameProgressData>();
-        builder.RegisterFactory(
-            _ => {
-                return new SherpaTextToSpeech();
-            },
-            new[] { typeof(ITextToSpeech) },
-            Lifetime.Singleton,
-            Resolution.Lazy);
+        builder.RegisterType<TtsState>();
     }
 }

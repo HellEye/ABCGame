@@ -4,7 +4,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.4);
     display: none;
     align-items: center;
     justify-content: center;
@@ -19,6 +19,6 @@
     min-height: 30px;
     border-radius: 30px;
     border-color: #404040;
-    border-width: 5px;
-    background-color: #b0b0b0;
+    border-width: 0px;
+    background-color: var(--color-settings-bg);
 }
