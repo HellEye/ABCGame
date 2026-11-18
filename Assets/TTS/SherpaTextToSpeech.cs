@@ -1,21 +1,31 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using PiperPhonemize;
 using SherpaOnnx;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
-public class SherpaTextToSpeech : ITextToSpeech {
+public class SherpaTextToSpeech : ITextToSpeech, ITextToSpeechWarmup {
     // Paths are relative to the project root (the folder containing Assets/).
-    const string ModelPath = "Assets/TTS/Voices/GosiaPL/pl_PL-gosia-medium.onnx";
-    const string TokensPath = "Assets/TTS/Voices/GosiaPL/tokens.txt";
-    const string EspeakDataPath = "Assets/TTS/Voices/espeak-ng-data";
+    // TODO change paths to be relative to the extracted archive (dir parameter of CreateTts), essentially "root" is Assets/TTS
+    const string ModelPath = "GosiaPL/gosia-medium.onnx";
+    const string TokensPath = "GosiaPL/tokens.txt";
+    const string EspeakDataPath = "espeak-ng-data";
     const string Language = "pl";
     const int SpeakerId = 0;
+    static string _initializedPath;
+    readonly object _lock = new();
 
-    static readonly object InitLock = new();
-    static OfflineTts _tts;
+    UniTask<OfflineTts>? _ready;
+    readonly Notifications notifications;
+    OfflineTts tts;
+    Task<OfflineTts> ttsTask;
+
+    public SherpaTextToSpeech(Notifications notifications) => this.notifications = notifications;
 
     public AudioClip GenerateAudio(
         string text,
@@ -23,12 +33,14 @@ public class SherpaTextToSpeech : ITextToSpeech {
         float rate = 1f,
         float volume = 1f) {
         var time = Stopwatch.StartNew();
-        var phonemizeTime = Stopwatch.StartNew();
-        Stopwatch generateTime;
-        var tts = GetTts();
+        Debug.Log("TTS for: " + text);
         float[] samples;
         int sampleRate;
-
+        if (tts == null)
+            // we'll see how long it takes to load
+            // If this ever shows up, we need to make GenerateAudio async and await the _ready task.
+            throw new InvalidOperationException(
+                "TTS not initialized. If this shows up we need some changes, or something broke horribly.");
         using (var phonemes = PiperPhonemizeApi.Text(text, Language)) {
             if (phonemes == null)
                 throw new InvalidOperationException("Phonemization failed.");
@@ -44,8 +56,6 @@ public class SherpaTextToSpeech : ITextToSpeech {
                 codepoints[i] = cps;
             }
 
-            phonemizeTime.Stop();
-            generateTime = Stopwatch.StartNew();
 
             var genConfig = new OfflineTtsGenerationConfig {
                 Sid = SpeakerId,
@@ -57,7 +67,6 @@ public class SherpaTextToSpeech : ITextToSpeech {
             var audio = tts.GenerateWithConfig("", genConfig, null);
             samples = audio.Samples;
             sampleRate = audio.SampleRate;
-            generateTime.Stop();
         }
 
 
@@ -66,9 +75,7 @@ public class SherpaTextToSpeech : ITextToSpeech {
                 samples[i] = Mathf.Clamp(samples[i] * volume, -1f, 1f);
 
         time.Stop();
-        Debug.Log("TTS generation took: " + time.ElapsedTicks + " ticks / " + time.ElapsedMilliseconds + " ms");
-        Debug.Log(
-            $"Split: {phonemizeTime.ElapsedMilliseconds}/{phonemizeTime.ElapsedTicks} phonemize, {generateTime.ElapsedMilliseconds}/{generateTime.ElapsedTicks} generate");
+        Debug.Log("TTS generation took: " + time.ElapsedMilliseconds + " ms");
         var clip = AudioClip.Create(
             "SherpaTTS",
             samples.Length,
@@ -79,39 +86,63 @@ public class SherpaTextToSpeech : ITextToSpeech {
         return clip;
     }
 
-    static OfflineTts GetTts() {
-        // This load takes a while, preload it later, maybe constructor or something, but should be async/threaded
-        lock (InitLock) {
-            if (_tts != null)
-                return _tts;
-
-            var espeakDir = ToAbsolutePath(EspeakDataPath);
-            if (!Directory.Exists(espeakDir))
-                throw new DirectoryNotFoundException(espeakDir);
-
-            var sampleRate = PiperPhonemizeApi.Initialize(espeakDir);
-            if (sampleRate < 0)
-                throw new InvalidOperationException("Failed to initialize piper-phonemize.");
-
-            var config = new OfflineTtsConfig();
-            config.Model.Vits.Model = ToAbsolutePath(ModelPath);
-            config.Model.Vits.Tokens = ToAbsolutePath(TokensPath);
-            config.Model.NumThreads = 2;
-            config.Model.Provider = "cpu";
-            _tts = new(config);
-            return _tts;
+    // Call once from the Loader. Safe to call repeatedly.
+    public UniTask WarmupAsync(CancellationToken ct = default) {
+        lock (_lock) {
+            _ready ??= InitAsync(ct).Preserve();
         }
+
+        return _ready?.AsUniTask() ?? UniTask.FromException(new InvalidOperationException("Failed to initialize TTS."));
     }
 
-    static string[][] GetTokensContents(string tokensPath) {
-        var lines = File.ReadAllLines(tokensPath);
-        var tokens = new string[lines.Length][];
-        for (var i = 0; i < lines.Length; i++)
-            tokens[i] = lines[i].Split(' ', StringSplitOptions.RemoveEmptyEntries);
-        return tokens;
+    async UniTask<OfflineTts> InitAsync(CancellationToken ct) {
+        var dir = "";
+        try {
+            dir = await TtsAssetInstaller.EnsureInstalledAsync(
+                "TTS/TTS.zip",
+                ct);
+        }
+        catch (TtsInsufficientStorageException e) {
+            notifications.Show(
+                "Instalacja Głosu nie powiodła się",
+                "Nie udało się zainstalować głosu. Brak wystarczającej ilości miejsca na dysku.\n Spróbuj zwolnić miejsce i uruchomić grę ponownie.\n");
+            return null;
+        }
+        catch (Exception e) {
+            notifications.Show(
+                "Instalacja Głosu nie powiodła się",
+                "Nie udało się zainstalować głosu. Spróbuj uruchomić grę ponownie.\n");
+            Debug.LogException(e);
+            return null;
+        }
+
+        await UniTask.SwitchToThreadPool();
+        var tts = CreateTts(dir); // no UnityEngine calls
+        await UniTask.SwitchToMainThread();
+        return tts;
     }
 
-    static string ToAbsolutePath(string projectRelativePath) =>
+
+    OfflineTts CreateTts(string dataPath) {
+        var espeakDir = ToAbsolutePath(EspeakDataPath, dataPath);
+
+        if (!Directory.Exists(espeakDir))
+            throw new DirectoryNotFoundException(espeakDir);
+
+        var sampleRate = PiperPhonemizeApi.Initialize(espeakDir);
+        if (sampleRate < 0)
+            throw new InvalidOperationException("Failed to initialize piper-phonemize.");
+
+        var config = new OfflineTtsConfig();
+        config.Model.Vits.Model = ToAbsolutePath(ModelPath, dataPath);
+        config.Model.Vits.Tokens = ToAbsolutePath(TokensPath, dataPath);
+        config.Model.NumThreads = 2;
+        config.Model.Provider = "cpu";
+        tts = new(config);
+        return tts;
+    }
+
+    static string ToAbsolutePath(string relativePath, string dataPath) =>
         Path.GetFullPath(
-            Path.Combine(Application.dataPath, "..", projectRelativePath));
+            Path.Combine(dataPath, relativePath));
 }

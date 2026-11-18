@@ -1,7 +1,9 @@
 using System;
 using Reflex.Core;
+using Reflex.Enums;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Resolution = Reflex.Enums.Resolution;
 
 [Serializable]
 public class LoaderUIDocument {
@@ -25,6 +27,7 @@ public class LoaderInstaller : MonoBehaviour, IInstaller {
     [SerializeField] Camera cam;
 
     [SerializeField] ScreenSizeManager screenSizeManager;
+    [SerializeField] Notifications notifications;
 
     public void InstallBindings(ContainerBuilder builder) {
         builder.RegisterValue(cam, typeof(Camera));
@@ -37,5 +40,12 @@ public class LoaderInstaller : MonoBehaviour, IInstaller {
         builder.RegisterType<DifficultyHolder>();
         builder.RegisterValue(screenSizeManager);
         builder.RegisterValue(new MainMenuData());
+
+        builder.RegisterValue(notifications);
+        builder.RegisterFactory(
+            c => new SherpaTextToSpeech(c.Resolve<Notifications>()),
+            new[] { typeof(ITextToSpeech), typeof(ITextToSpeechWarmup) },
+            Lifetime.Singleton,
+            Resolution.Lazy);
     }
 }

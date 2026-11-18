@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 
 public class GameUIManager : MonoBehaviour {
     [SerializeField] UIDocument uiDocument;
+    Button audioButton;
     Popup endGamePopup;
     [Inject] GameLoader gameLoader;
     [Inject] IGameManager gameManager;
@@ -15,6 +16,7 @@ public class GameUIManager : MonoBehaviour {
     [Inject] IRandomItemContainer itemContainer;
     [Inject] GameProgressData progressData;
     [Inject] ITextToSpeech textToSpeech;
+    [Inject] TtsState ttsState;
     string Instructions => TransformLabel(group.TargetText, itemContainer.GetTargets());
 
     void Start() {
@@ -32,7 +34,9 @@ public class GameUIManager : MonoBehaviour {
         uiDocument.rootVisualElement.Q<Button>("PauseButton").clicked += OpenPauseMenu;
     }
 
-    void PlayTTSInstructions() {
+    void OnDestroy() => ttsState.OnAvailableChanged -= OnAvailableChanged;
+
+    void PlayTtsInstructions() {
         var audioClip = textToSpeech.GenerateAudio(Instructions);
         var audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = audioClip;
@@ -52,12 +56,13 @@ public class GameUIManager : MonoBehaviour {
 
 
         // TODO setup audio here
-        var audioButton = instructionPopup.Q<Button>("InstructionAudioButton");
-        if (textToSpeech == null)
-            audioButton.SetEnabled(false);
-        else
-            audioButton.clicked += PlayTTSInstructions;
+        audioButton = instructionPopup.Q<Button>("InstructionAudioButton");
+        audioButton.dataSource = ttsState;
+        ttsState.OnAvailableChanged += OnAvailableChanged;
+        audioButton.clicked += PlayTtsInstructions;
     }
+
+    void OnAvailableChanged(bool available) => audioButton.SetEnabled(available);
 
 
     void OpenPauseMenu() {

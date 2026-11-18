@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using Eflatun.SceneReference;
@@ -10,6 +12,7 @@ using Reflex.Extensions;
 using UnityEngine;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.SceneManagement;
+using Debug = UnityEngine.Debug;
 #if UNITY_EDITOR
 #endif
 
@@ -24,35 +27,15 @@ public class GameLoader : MonoBehaviour {
     [Inject] DifficultyHolder difficultyHolder;
     [Inject] ItemRegistry itemRegistry;
     bool ready;
+    [Inject] TtsState ttsState;
+    [Inject] IEnumerable<ITextToSpeechWarmup> ttsWarmups;
 
     [Inject] LoaderUIController uiController;
     bool isCurrentSceneValid => currentScene != null && currentScene.State != SceneReferenceState.Unsafe;
 
     void Awake() {
         container = gameObject.scene.GetSceneContainer();
-
-        // if we open a different scene, reload the current one for ordering
-        // Editor only, since the full game will just start on the loader scene in the main menu
-        // see EditorBootstrapHelper for always loading this scene
-#if UNITY_EDITOR
-        // LoadMainMenu();
-        // TODO need to load this differently, going through the LoadGameplayScene
-        /*var lastScene = EditorPrefs.GetString("LastEditScene", "");
-        if (!ready && !string.IsNullOrEmpty(lastScene) && lastScene != SceneManager.GetActiveScene().name) {
-            var sceneToLoad = GetSceneByName(lastScene);
-            if (sceneToLoad != null) {
-                EditorPrefs.DeleteKey("LastEditScene");
-                currentScene = GetSceneByName(lastScene);
-                if (currentScene.Name == "MainMenu") LoadMainMenu();
-                else
-                    Debug.LogWarning("Loading gameplay scene not supported yet... skipping");
-                ready = true;
-            }
-            else {
-                Debug.LogError($"Scene {lastScene} not found in the scene list");
-            }
-        }*/
-#endif
+        WarmupTts().Forget();
 
         // starting from loader scene, go to main menu
         var activeScene = SceneManager.GetActiveScene();
@@ -62,14 +45,27 @@ public class GameLoader : MonoBehaviour {
         }
     }
 
+    public async UniTaskVoid WarmupTts() {
+        var stopwatch = new Stopwatch();
+        stopwatch.Start();
+        var cts = new CancellationTokenSource();
+        var ct = cts.Token;
+        try {
+            // TODO store when this is complete to unlock any buttons etc.
+            Debug.Log("TTS count: " + ttsWarmups.Count());
+            await UniTask.WhenAll(ttsWarmups.Select(tts => tts.WarmupAsync(ct)));
+            ttsState.Available = true;
+        }
+        catch (Exception e) {
+            Debug.LogException(e);
+            cts.Cancel();
+        }
+        finally {
+            stopwatch.Stop();
+            Debug.Log($"TTS warmup took {stopwatch.ElapsedMilliseconds} ms");
+        }
+    }
 
-    /*SceneReference GetSceneByName(string name) {
-        foreach (var kvp in lifecycle)
-            if (kvp.Key.Name == name)
-                return kvp.Key;
-
-        return null;
-    }*/
     SceneLifecycle CreateLifecycle() => new(container);
 
     public void ReloadCurrentGameplayScene() => LoadGameplaySceneFromHolder().Forget();
