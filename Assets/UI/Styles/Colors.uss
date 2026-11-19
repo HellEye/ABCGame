@@ -25,6 +25,11 @@
     --color-light-text: #314D79;
     --color-light-hover: #e6e6e6;
     --color-light-active: #cccccc;
+    --color-highlight: #FFDB5A;
+    --color-label-border: #2E2E2E;
+    --color-label-background: #ffffff;
+    --color-label-accent: #314D79;
+
 }
 
 .easy {
@@ -32,7 +37,7 @@
     --color-button-hover: var(--color-easy-hover);
     --color-button-active: var(--color-easy-active);
     --color-button-text: var(--color-text-dark);
-    
+
 }
 
 .medium {

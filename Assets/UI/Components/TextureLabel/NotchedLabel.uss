@@ -1,0 +1,39 @@
+.notched-label {
+    --highlight-color: #ffdd55;
+    --notch-radius: 18;
+    --corner-radius: 12;
+    --border-width: 3;
+    --highlight-width: 4;
+    --notch-right: 0;
+
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+    border-width: 0;
+    border-color: #2a2a2a;
+    background-color: #ffffff;
+}
+
+.notched-label.notch-right-side { --notch-right: 1; }
+.notched-label--fixed { width: 240px; }
+
+.notched-label__content {
+    flex-direction: row;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 12px;
+}
+
+.notched-label__text {
+    white-space: nowrap;
+    -unity-font-style: bold;
+    font-size: 22px;
+    color: #2c4f7c;
+}
+
+.notched-label__icon {
+    width: 36px;
+    height: 36px;
+    /* background-image: ... */
+}

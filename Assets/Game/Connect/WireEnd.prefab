@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 4336133188851353887}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.75, y: 0, z: 0}
+  m_LocalPosition: {x: -1.94, y: 0.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -49,10 +49,10 @@ MonoBehaviour:
   sourceAsset: {fileID: 9197481963319205126, guid: 326e7f37d4245ba74ad95387433f720c, type: 3}
   m_SortingOrder: 0
   m_Position: 0
-  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceSizeMode: 0
   m_WorldSpaceWidth: 800
-  m_WorldSpaceHeight: 100
-  m_PivotReferenceSize: 0
+  m_WorldSpaceHeight: 115
+  m_PivotReferenceSize: 1
   m_Pivot: 0
   m_WorldSpaceCollider: {fileID: 0}
 --- !u!1 &6799099342132539005
@@ -71,8 +71,9 @@ GameObject:
   - component: {fileID: 4504256038060985266}
   - component: {fileID: 889318573457274519}
   - component: {fileID: 4331619318056785544}
+  - component: {fileID: -7594806998335684266}
   m_Layer: 7
-  m_Name: WireConnect
+  m_Name: WireEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +88,7 @@ Transform:
   m_GameObject: {fileID: 6799099342132539005}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.37, y: 1.72, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -120,7 +121,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 8dc8e39e54e36c7ce84a418c78b4c850, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -143,8 +144,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: 4adeaf2d2b1c7417e89f026626d8264f, type: 3}
-  m_Color: {r: 0.27726933, g: 0.8660378, b: 0.31423286, a: 1}
+  m_Sprite: {fileID: -4519275736768165028, guid: 7baf554eca77fca438bbb68f159cff25, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -258,3 +259,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DropZone
   correctEffect: {fileID: 0}
   placer: {fileID: 8335240201231651419}
+--- !u!114 &-7594806998335684266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6799099342132539005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aea2d1b78aec4a7a8a9aff2420830aa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OutlineController
+  spriteRenderer: {fileID: 7673208941631158484}

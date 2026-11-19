@@ -6,19 +6,16 @@ using UnityEngine.UIElements;
 
 [UxmlElement]
 public partial class CustomProgress : VisualElement {
-    int discreteSteps = 1;
+    int discreteSteps = 5;
+
+    Texture leftIcon;
     float max = 1f;
     float min;
     List<Image> ticks;
 
     float value;
-    float valueStep;
 
-    public CustomProgress() {
-        AddToClassList("progress-wrapper");
-        if (!Discrete) throw new NotSupportedException("Non discrete not supported yet");
-        InitializeDiscrete();
-    }
+    public CustomProgress() => AddToClassList("progress-wrapper");
 
     [UxmlAttribute("discrete")] public bool Discrete { get; set; } = true;
 
@@ -51,7 +48,9 @@ public partial class CustomProgress : VisualElement {
     public float Min {
         get => min;
         set {
+            if (Mathf.Approximately(min, value)) return;
             min = value;
+            NotifyPropertyChanged(nameof(Min));
             UpdateProgressBar();
         }
     }
@@ -68,22 +67,48 @@ public partial class CustomProgress : VisualElement {
         }
     }
 
-    [UxmlAttribute("image-false")] public Texture ImageFalse { get; set; }
+    [UxmlAttribute("left-icon")]
+    [CreateProperty]
+    public Texture LeftIcon {
+        get => leftIcon;
+        set {
+            leftIcon = value;
+            Initialize();
+        }
+    }
 
-    [UxmlAttribute("image-true")] public Texture ImageTrue { get; set; }
+    void Initialize() {
+        Clear();
+        if (LeftIcon != null) {
+            var icon = new Image();
+            icon.image = LeftIcon;
+            icon.AddToClassList("progress-icon");
+            Add(icon);
+        }
+
+        if (!Discrete) throw new NotSupportedException("Non discrete not supported yet");
+        InitializeDiscrete();
+    }
+
 
     void InitializeDiscrete() {
-        if (DiscreteSteps <= 0) throw new ArgumentOutOfRangeException("discrete-steps must be greater than 0");
-        valueStep = (max - min) / DiscreteSteps;
-        Clear();
+        if (DiscreteSteps <= 0)
+            throw new ArgumentOutOfRangeException(
+                nameof(DiscreteSteps),
+                DiscreteSteps,
+                "Discrete steps must be greater than 0.");
         ticks = new();
+        var container = new VisualElement();
+        container.AddToClassList("ticks-container");
         for (var i = 0; i < DiscreteSteps; i++) {
             var tick = new Image();
             tick.AddToClassList("tick");
-            Add(tick);
+            tick.AddToClassList("tick-false");
+            container.Add(tick);
             ticks.Add(tick);
         }
 
+        Add(container);
         UpdateDiscrete();
     }
 
@@ -93,10 +118,22 @@ public partial class CustomProgress : VisualElement {
     }
 
     void UpdateDiscrete() {
+        if (ticks == null || ticks.Count != DiscreteSteps) return;
+
+        int activeTickCount;
+        if (Mathf.Approximately(min, max)) {
+            activeTickCount = value >= max ? DiscreteSteps : 0;
+        }
+        else {
+            var normalized = Mathf.InverseLerp(min, max, value);
+            activeTickCount = Mathf.Clamp(Mathf.FloorToInt(normalized * DiscreteSteps), 0, DiscreteSteps);
+        }
+
         for (var i = 0; i < DiscreteSteps; i++) {
             var tick = ticks[i];
-            var isActive = value >= min + valueStep * (i + 1);
-            tick.image = isActive ? ImageTrue : ImageFalse;
+            var isActive = i < activeTickCount;
+            tick.EnableInClassList("tick-true", isActive);
+            tick.EnableInClassList("tick-false", !isActive);
         }
     }
 

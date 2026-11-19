@@ -1,0 +1,47 @@
+.texture-label-outer {
+    border-width: 10px;
+    border-radius: 20px;
+    border-color: transparent;
+}
+
+.texture-label-inner {
+    background-color: var(--color-label-background);
+    border-color: var(--color-label-border);
+    border-width: 10px;
+    border-radius: 20px;
+    flex-direction: row;
+}
+
+.left .texture-label-inner {
+    flex-direction: row-reverse;
+}
+
+.texture-label-text {
+    font-size: 50px;
+    color: var(--color-label-accent);
+}
+
+.texture-label-image {
+
+}
+
+.texture-label-notch-wrap {
+    border-radius: 30px;
+    border-width: 5px;
+    border-color: var(--color-label-border);
+    
+}
+
+.texture-label-notch {
+    width: 50px;
+    height: 50px;
+    /*This is right, background uses the border color*/
+    background-color: var(--color-label-border);
+    border-color: var(--color-label-accent);
+    border-radius: 25px;
+    border-width: 10px;
+}
+
+.texture-label-outer.texture-label-highlight {
+    border-color: var(--color-highlight);
+}
