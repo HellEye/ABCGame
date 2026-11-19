@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{c49b312c-7809-43a3-b0ee-3cc32aee0675}">
+		<property name="assetPath">
+			<value>SFX2/JDSherbert - Ultimate UI SFX Pack - Popup Open - 1.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>2.04</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8481d464-a10d-4d4d-a3da-662aba73ddbe}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{86c11d6f-ae53-4321-879d-1407d5b1364f}">
+		<property name="assetPath">
+			<value>BGM/CGM2_Magic_Palace_Short_Loop_1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>9.1425170068027217</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8481d464-a10d-4d4d-a3da-662aba73ddbe}</destination>
+		</relationship>
+	</object>
+</objects>
