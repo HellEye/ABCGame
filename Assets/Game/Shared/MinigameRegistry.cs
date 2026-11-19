@@ -21,6 +21,7 @@ public class LevelMapping {
     public SceneReference sceneReference;
     public DifficultyMapping[] difficultiesMappings;
     public bool WIP;
+    public Texture progressIcon;
 }
 
 [CreateAssetMenu(fileName = "MinigameRegistry", menuName = "ScriptableObjects/MinigameRegistry")]

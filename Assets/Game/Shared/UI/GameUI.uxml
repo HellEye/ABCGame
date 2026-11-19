@@ -4,7 +4,7 @@
     <ui:VisualElement class="game-top-row">
         <ui:Button name="PauseButton" icon-image="project://database/Assets/MainMenu/Sprites/UI/Pause.png?fileID=2800000&amp;guid=72d6b355c58c06a97acec3944a98ad7b&amp;type=3#Pause" class="button  no-border pause-button"/>
         <ui:Button name="OpenInstructionsButton" text="Zadanie" icon-image="project://database/Assets/MainMenu/Sprites/UI/Task.png?fileID=2800000&amp;guid=6cf47722b732e47449f6fd9a8120fe85&amp;type=3#Task" class="button   light no-border task-button"/>
-        <CustomProgress name="ProgressBar" discrete-steps="3" value="5" max="5" image-false="project://database/Assets/MainMenu/Sprites/UI/Tick_False.png?fileID=2800000&amp;guid=91dae990360e88b4c8e54a986d270be3&amp;type=3#Tick_False" image-true="project://database/Assets/MainMenu/Sprites/UI/Tick_True.png?fileID=2800000&amp;guid=c76eab2c0bd8d3ec588f4c569201f58d&amp;type=3#Tick_True">
+        <CustomProgress name="ProgressBar" discrete-steps="3" value="5" max="5" image-false="project://database/Assets/MainMenu/Sprites/UI/Tick_False.png?fileID=2800000&amp;guid=91dae990360e88b4c8e54a986d270be3&amp;type=3#Tick_False" image-true="project://database/Assets/MainMenu/Sprites/UI/Tick_True.png?fileID=2800000&amp;guid=c76eab2c0bd8d3ec588f4c569201f58d&amp;type=3#Tick_True" class="progress-bar">
             <Bindings>
                 <ui:DataBinding property="Value" data-source-path="Progress" binding-mode="ToTarget"/>
                 <ui:DataBinding property="Max" data-source-path="TotalProgress" binding-mode="ToTarget"/>

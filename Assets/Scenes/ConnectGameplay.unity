@@ -347,6 +347,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8412250637933550323, guid: 752af9d2d688adc7db5c2cafc0b8b698, type: 3}
+      propertyPath: progressIcon
+      value: 
+      objectReference: {fileID: 2800000, guid: 88557252264d623bca296dbcb6a337ca, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -496,7 +500,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
+    width: 0.99999964
     height: 1
   near clip plane: 0.3
   far clip plane: 1000

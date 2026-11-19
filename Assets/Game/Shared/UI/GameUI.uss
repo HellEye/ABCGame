@@ -91,6 +91,10 @@
     width: 60px;
 }
 
+.game-top-row .progress-bar {
+    margin-left: auto;
+}
+
 
 #InstructionPopup .popup-wrapper {
     width: 90%;

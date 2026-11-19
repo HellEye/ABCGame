@@ -241,8 +241,9 @@ GameObject:
   - component: {fileID: 3364822506792174880}
   - component: {fileID: 4026093189997254497}
   - component: {fileID: -5855516668241929739}
+  - component: {fileID: 4561931623208430261}
   m_Layer: 0
-  m_Name: Wire
+  m_Name: WireStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -257,7 +258,7 @@ Transform:
   m_GameObject: {fileID: 7799946431164404700}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.22, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -291,7 +292,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: 8dc8e39e54e36c7ce84a418c78b4c850, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -314,12 +315,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: 4adeaf2d2b1c7417e89f026626d8264f, type: 3}
+  m_Sprite: {fileID: -8950990397410508107, guid: 624e283ee6d69cf93b667f286e8e339b, type: 3}
   m_Color: {r: 0.9867924, g: 0.9867924, b: 0.9867924, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.63, y: 2.35}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -374,27 +375,27 @@ LineRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Positions:
-  - {x: -5.22, y: 0, z: 0}
-  - {x: -5.2199993, y: 0, z: 0}
-  - {x: -5.2199993, y: 0, z: 0}
-  - {x: -5.2200007, y: 0, z: 0}
-  - {x: -5.2200003, y: 0, z: 0}
-  - {x: -5.22, y: 0, z: 0}
-  - {x: -5.22, y: 0, z: 0}
-  - {x: -5.2199993, y: 0, z: 0}
-  - {x: -5.2200007, y: 0, z: 0}
-  - {x: -5.22, y: 0, z: 0}
-  - {x: -5.2200003, y: 0, z: 0}
-  - {x: -5.22, y: 0, z: 0}
-  - {x: -5.22, y: 0, z: 0}
-  - {x: -5.22, y: 0, z: 0}
-  - {x: -5.2200003, y: 0, z: 0}
-  - {x: -5.2199993, y: 0, z: 0}
-  - {x: -5.2200003, y: 0, z: 0}
-  - {x: -5.2200003, y: 0, z: 0}
-  - {x: -5.2199993, y: 0, z: 0}
-  - {x: -5.22, y: 0, z: 0}
-  - {x: -5.22, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -541,6 +542,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Reflex::Reflex.Components.GameObjectSelfInjector
   _injectionStrategy: 2
+--- !u!114 &4561931623208430261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7799946431164404700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aea2d1b78aec4a7a8a9aff2420830aa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OutlineController
+  spriteRenderer: {fileID: 3955836071456565569}
 --- !u!1 &8522664366744946666
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,8 +581,8 @@ Transform:
   m_GameObject: {fileID: 8522664366744946666}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+  m_LocalPosition: {x: -0.166, y: 0, z: 0}
+  m_LocalScale: {x: 0.22, y: 0.22000001, z: 0.22000001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7075686882638520046}

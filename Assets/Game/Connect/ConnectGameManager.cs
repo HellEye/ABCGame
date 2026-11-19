@@ -36,7 +36,7 @@ public class ConnectGameManager : MonoBehaviour, IGameManager {
         if (dropInfo.dropType == DropType.Correct) {
             currentCorrect++;
             progressData.Progress = currentCorrect;
-            Debug.Log("Dropped correct " + currentCorrect);
+            Debug.Log($"Correct: {currentCorrect}, Total: {difficulty.TargetTypes}");
             if (currentCorrect >= difficulty.TargetTypes) OnGameComplete?.Invoke();
         }
     }

@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 
 public class GameUIManager : MonoBehaviour {
     [SerializeField] UIDocument uiDocument;
+    [SerializeField] Texture progressIcon;
     Button audioButton;
     Popup endGamePopup;
     [Inject] GameLoader gameLoader;
@@ -27,7 +28,9 @@ public class GameUIManager : MonoBehaviour {
         root.Q<Button>("ContinueButton").clicked += endGamePopup.Close;
         root.Q<Button>("RestartButton").clicked += gameManager.RestartGame;
         root.Q<Button>("ExitButton").clicked += gameLoader.LoadMainMenu;
-        root.Q<CustomProgress>("ProgressBar").dataSource = progressData;
+        var progress = root.Q<CustomProgress>("ProgressBar");
+        progress.dataSource = progressData;
+        progress.LeftIcon = progressIcon;
         SetupInstructionPopup(root);
         root.Q<Button>("OpenInstructionsButton").clicked += instructionPopup.Open;
 
