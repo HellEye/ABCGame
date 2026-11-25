@@ -28,6 +28,7 @@ public class LoaderInstaller : MonoBehaviour, IInstaller {
 
     [SerializeField] ScreenSizeManager screenSizeManager;
     [SerializeField] Notifications notifications;
+    [SerializeField] TtsAudio ttsAudio;
 
     public void InstallBindings(ContainerBuilder builder) {
         builder.RegisterValue(cam, typeof(Camera));
@@ -47,5 +48,6 @@ public class LoaderInstaller : MonoBehaviour, IInstaller {
             new[] { typeof(ITextToSpeech), typeof(ITextToSpeechWarmup) },
             Lifetime.Singleton,
             Resolution.Lazy);
+        builder.RegisterValue(ttsAudio);
     }
 }

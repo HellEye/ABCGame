@@ -414,11 +414,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb23e31ba69a450a99b3fda0e4a4a787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ConnectSpawner
-  itemX: 0.212
-  labelX: 0.745
-  spacingRelative: 0.173
+  itemX: 0.2
+  labelX: 0.65
+  spacingRelative: 0.2
   screenSizeManager: {fileID: 1997416156}
-  previewItemCount: 4
+  previewItemCount: 2
   itemPrefab: {fileID: 7799946431164404700, guid: 3573f1e7d8fc5c12db8f62521dd9357c, type: 3}
   labelPrefab: {fileID: 6799099342132539005, guid: 39491da920ea0340e881702b99b3d0e2, type: 3}
 --- !u!114 &1997416159
@@ -671,6 +671,10 @@ PrefabInstance:
     - target: {fileID: 4093950910428384934, guid: 14d774ce5bd1a536a879fece7e5624c1, type: 3}
       propertyPath: m_Name
       value: DragController
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444922015093018203, guid: 14d774ce5bd1a536a879fece7e5624c1, type: 3}
+      propertyPath: preserveOffset
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7337838682147706303, guid: 14d774ce5bd1a536a879fece7e5624c1, type: 3}
       propertyPath: m_LocalPosition.x

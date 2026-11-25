@@ -82,13 +82,13 @@ public class ConnectSpawner : MonoBehaviour {
     void SpawnLabel(IElement element, Vector2 normalizedPos) {
         var label = Instantiate(labelPrefab, Vector3.zero, Quaternion.identity);
 
-        var labelRenderer = label.GetComponent<IElementRenderer>();
+        var labelRenderer = label.GetComponentInChildren<IElementRenderer>();
         if (labelRenderer == null) {
             Debug.LogError($"{labelPrefab.name} requires a component implementing {nameof(IElementRenderer)}", label);
             return;
         }
 
-        var dropZone = label.GetComponent<DropZone>();
+        var dropZone = label.GetComponentInChildren<DropZone>();
         dropZone.Initialize(new List<IElement> { element }, normalizedPos);
 
         labelRenderer.Initialize(element);

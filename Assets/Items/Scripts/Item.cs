@@ -22,6 +22,7 @@ public class Item : MonoBehaviour {
         screenPlacer.NormalizedPosition = pos;
         if (renderer.UnderlyingValue != null)
             renderer.Value?.Initialize(itemData);
+        Debug.Log($"Initializing item: {itemData.DisplayNameSingular} at {gameObject.name}");
         foreach (var child in children) child.Initialize(itemData, pos, depth + 1);
     }
 }

@@ -27,7 +27,7 @@ public partial class CustomProgress : VisualElement {
             if (value == discreteSteps) return;
             discreteSteps = value;
             NotifyPropertyChanged(nameof(DiscreteSteps));
-            InitializeDiscrete();
+            Initialize();
         }
     }
 

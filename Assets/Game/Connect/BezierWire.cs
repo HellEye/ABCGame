@@ -5,11 +5,25 @@ public class BezierWire : MonoBehaviour {
     public LineRenderer line;
     public int segmentCount = 20;
     public Transform lastPoint;
-
+    [SerializeField] Draggable draggable;
+    [SerializeField] WireDragAnimations animations;
+    [SerializeField] Transform wireEndVisuals;
     void Update() => UpdateLine();
 
+    void OnEnable() {
+        if (draggable == null) return;
+        SetLineActive(false);
+        draggable.OnPickedUp += () => SetLineActive(true);
+        animations.OnIncorrectMotionComplete += () => SetLineActive(false);
+    }
+
+    void SetLineActive(bool active) {
+        line.gameObject.SetActive(active);
+        wireEndVisuals.gameObject.SetActive(active);
+    }
+
     void UpdateLine() {
-        Vector2 p0 = transform.position;
+        Vector2 p0 = line.transform.position;
         Vector2 p3 = lastPoint.position;
         var p1 = new Vector2(Mathf.Lerp(p0.x, lastPoint.position.x, 0.3f), p0.y);
         var p2 = new Vector2(Mathf.Lerp(p0.x, lastPoint.position.x, 0.7f), lastPoint.position.y);

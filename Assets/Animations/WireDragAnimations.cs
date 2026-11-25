@@ -26,6 +26,8 @@ public class WireDragAnimations : MonoBehaviour {
         currentHandle?.Cancel();
     }
 
+    public event Action OnIncorrectMotionComplete;
+
     void HandleDrag(DropInfo dropInfo) {
         switch (dropInfo.dropType) {
             case DropType.Incorrect:
@@ -44,6 +46,7 @@ public class WireDragAnimations : MonoBehaviour {
     void AnimateIncorrect(DropInfo dropInfo) =>
         LMotion.Create(transform.position, dropInfo.startPos, incorrectTransitionDuration)
             .WithEase(incorrectAnimation)
+            .WithOnComplete(() => OnIncorrectMotionComplete?.Invoke())
             .BindToPosition(transform)
             .AddTo(currentHandle);
 

@@ -1,14 +1,22 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/Game/Shared/UI/GameUI.uss?fileID=7433441132597879392&amp;guid=b548f1e591b0515e5bc077693b83dc27&amp;type=3#GameUI"/>
-    <Style src="project://database/Assets/UI/globals.uss?fileID=7433441132597879392&amp;guid=f379efdc614e19cb0b2380346f56bde5&amp;type=3#globals"/>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
+         editor-extension-mode="False">
+    <Style
+        src="project://database/Assets/Game/Shared/UI/GameUI.uss?fileID=7433441132597879392&amp;guid=b548f1e591b0515e5bc077693b83dc27&amp;type=3#GameUI"/>
+    <Style
+        src="project://database/Assets/UI/globals.uss?fileID=7433441132597879392&amp;guid=f379efdc614e19cb0b2380346f56bde5&amp;type=3#globals"/>
     <ui:VisualElement class="game-top-row">
-        <ui:Button name="PauseButton" icon-image="project://database/Assets/MainMenu/Sprites/UI/Pause.png?fileID=2800000&amp;guid=72d6b355c58c06a97acec3944a98ad7b&amp;type=3#Pause" class="button  no-border pause-button"/>
-        <ui:Button name="OpenInstructionsButton" text="Zadanie" icon-image="project://database/Assets/MainMenu/Sprites/UI/Task.png?fileID=2800000&amp;guid=6cf47722b732e47449f6fd9a8120fe85&amp;type=3#Task" class="button   light no-border task-button"/>
-        <CustomProgress name="ProgressBar" discrete-steps="3" value="5" max="5" image-false="project://database/Assets/MainMenu/Sprites/UI/Tick_False.png?fileID=2800000&amp;guid=91dae990360e88b4c8e54a986d270be3&amp;type=3#Tick_False" image-true="project://database/Assets/MainMenu/Sprites/UI/Tick_True.png?fileID=2800000&amp;guid=c76eab2c0bd8d3ec588f4c569201f58d&amp;type=3#Tick_True" class="progress-bar">
+        <ui:Button name="PauseButton"
+                   icon-image="project://database/Assets/MainMenu/Sprites/UI/Pause.png?fileID=2800000&amp;guid=72d6b355c58c06a97acec3944a98ad7b&amp;type=3#Pause"
+                   class="button  no-border pause-button"/>
+        <ui:Button name="OpenInstructionsButton" text="Zadanie"
+                   icon-image="project://database/Assets/MainMenu/Sprites/UI/Task.png?fileID=2800000&amp;guid=6cf47722b732e47449f6fd9a8120fe85&amp;type=3#Task"
+                   class="button   light no-border task-button"/>
+        <CustomProgress name="ProgressBar" discrete="true" data-source-type="GameProgressData, Assembly-CSharp"
+                        class="progress-bar">
             <Bindings>
-                <ui:DataBinding property="Value" data-source-path="Progress" binding-mode="ToTarget"/>
-                <ui:DataBinding property="Max" data-source-path="TotalProgress" binding-mode="ToTarget"/>
                 <ui:DataBinding property="DiscreteSteps" data-source-path="TotalProgress" binding-mode="ToTarget"/>
+                <ui:DataBinding property="Max" data-source-path="TotalProgress" binding-mode="ToTarget"/>
+                <ui:DataBinding property="Value" data-source-path="Progress" binding-mode="ToTarget"/>
             </Bindings>
         </CustomProgress>
     </ui:VisualElement>
@@ -17,7 +25,9 @@
             <ui:Label text="Zadanie" class="instruction-title"/>
         </ui:VisualElement>
         <ui:VisualElement class="instruction-text-wrap">
-            <ui:Button name="InstructionAudioButton" icon-image="project://database/Assets/MainMenu/Sprites/UI/Sound.png?fileID=2800000&amp;guid=643f9c37510c3bfd0a1d45f47ac0e389&amp;type=3#Sound" enabled="true" class="instruction-audio">
+            <ui:Button name="InstructionAudioButton"
+                       icon-image="project://database/Assets/MainMenu/Sprites/UI/Sound.png?fileID=2800000&amp;guid=643f9c37510c3bfd0a1d45f47ac0e389&amp;type=3#Sound"
+                       enabled="true" class="instruction-audio">
                 <Bindings>
                     <ui:DataBinding property="enabled" data-source-path="Available"/>
                 </Bindings>
@@ -31,8 +41,36 @@
             <ui:Button name="InstructionContinueButton" text="Gram!" class="button easy"/>
         </ui:VisualElement>
     </Popup>
-    <Popup name="EndGamePopup" close-on-backdrop="false" is-open="false">
+    <Popup name="EndGamePopup" close-on-backdrop="false" class="end-menu">
         <ui:VisualElement class="end-game-wrap">
+            <ui:VisualElement class="only-end medal-wrap">
+                <ui:Image name="EndGameMedalBackground"
+                          source="project://database/Assets/Game/Shared/UI/Sprites/Background.png?fileID=2800000&amp;guid=6789afbb746a14c16b44b04ee52d04c2&amp;type=3#Background"
+                          class="end-game-medal-background"/>
+
+                <ui:Image name="Star51"
+                          class="end-game-star"
+                          source="project://database/Assets/Game/Shared/UI/Sprites/Star1.png?fileID=2800000&amp;guid=9da5152a7ef0ea9068f2991915deff13&amp;type=3#Star1"/>
+                <ui:Image name="Star52"
+                          class="end-game-star"
+                          source="project://database/Assets/Game/Shared/UI/Sprites/Star1.png?fileID=2800000&amp;guid=9da5152a7ef0ea9068f2991915deff13&amp;type=3#Star1"/>
+                <ui:Image name="Star53"
+                          class="end-game-star"
+
+                          source="project://database/Assets/Game/Shared/UI/Sprites/Star1.png?fileID=2800000&amp;guid=9da5152a7ef0ea9068f2991915deff13&amp;type=3#Star1"/>
+                <ui:Image name="Star41"
+                          class="end-game-star"
+                          source="project://database/Assets/Game/Shared/UI/Sprites/Star2.png?fileID=2800000&amp;guid=b0d0f05232d1e8745a1ac77a4ecfdc24&amp;type=3#Star2"/>
+                <ui:Image name="Star42"
+                          class="end-game-star"
+                          source="project://database/Assets/Game/Shared/UI/Sprites/Star2.png?fileID=2800000&amp;guid=b0d0f05232d1e8745a1ac77a4ecfdc24&amp;type=3#Star2"/>
+                <ui:Image name="Star43"
+                          class="end-game-star"
+                          source="project://database/Assets/Game/Shared/UI/Sprites/Star2.png?fileID=2800000&amp;guid=b0d0f05232d1e8745a1ac77a4ecfdc24&amp;type=3#Star2"/>
+                <ui:Image name="EndGameMedal"
+                          source="project://database/Assets/Game/Shared/UI/Sprites/Medal.png?fileID=2800000&amp;guid=38f6a23f8bbaaee5f90fc63a6dbea6be&amp;type=3#Medal"
+                          class="end-game-medal"/>
+            </ui:VisualElement>
             <ui:Label text="Gratulacje!" class="only-end title"/>
             <ui:Label text="Menu" class="only-pause title"/>
             <ui:VisualElement>
