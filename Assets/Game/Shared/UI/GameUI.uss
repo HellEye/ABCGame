@@ -9,6 +9,7 @@
 
 .end-game-wrap {
     padding: 20px;
+    align-items: center;
 }
 
 .end-game-wrap .title {
@@ -17,6 +18,42 @@
 
 .end-game-wrap Button {
     margin-bottom: 10px;
+}
+
+.medal-wrap {
+    width: 200px;
+    min-height: 200px;
+
+}
+
+.end-game-medal-background {
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    right: -100px;
+    bottom: -100px;
+    margin: auto;
+    width: 400px;
+    height: 400px;
+}
+
+.end-game-star {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 75px;
+    left: 75px;
+}
+
+.end-game-medal {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    right: 25px;
+    bottom: 25px;
+    margin: auto;
+    width: 150px;
+    height: 150px;
 }
 
 .label-wrap {
@@ -184,3 +221,4 @@
     align-items: center;
     justify-content: center;
 }
+

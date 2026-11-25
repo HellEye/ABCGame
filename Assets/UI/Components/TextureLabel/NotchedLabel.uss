@@ -1,39 +1,60 @@
 .notched-label {
     --highlight-color: #ffdd55;
     --notch-radius: 18;
-    --corner-radius: 12;
-    --border-width: 3;
-    --highlight-width: 4;
+    --corner-radius: 30;
+    --border-width: 15;
+    --highlight-width: 15;
     --notch-right: 0;
-
+    --fill-color: #ffffff;
+    --border-color: #2E2E2E;
+    --notch-color: #314D79;
     flex-direction: row;
     align-items: center;
     width: auto;
     border-width: 0;
-    border-color: #2a2a2a;
-    background-color: #ffffff;
+    background-color: transparent;
+    height: 100%;
 }
 
-.notched-label.notch-right-side { --notch-right: 1; }
-.notched-label--fixed { width: 240px; }
+.notched-label.notch-right-side {
+    --notch-right: 1;
+}
+
+.notched-label--fixed {
+    width: 240px;
+}
 
 .notched-label__content {
     flex-direction: row;
     flex-grow: 1;
     align-items: center;
     justify-content: space-between;
-    padding: 6px 12px;
+    padding: 24px 48px;
 }
 
 .notched-label__text {
     white-space: nowrap;
     -unity-font-style: bold;
-    font-size: 22px;
+    font-size: 60px;
     color: #2c4f7c;
 }
 
 .notched-label__icon {
-    width: 36px;
-    height: 36px;
-    /* background-image: ... */
+    width: 96px;
+    height: 96px;
+}
+
+.notched-label__action-button {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 4px;
+    border-width: 0;
+    background-color: transparent;
+}
+
+.notched-label__action-icon {
+    width: 100%;
+    height: 100%;
 }

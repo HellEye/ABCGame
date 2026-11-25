@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Reflex.Attributes;
@@ -16,7 +17,7 @@ public class GameUIManager : MonoBehaviour {
 
     [Inject] IRandomItemContainer itemContainer;
     [Inject] GameProgressData progressData;
-    [Inject] ITextToSpeech textToSpeech;
+    [Inject] TtsAudio textToSpeech;
     [Inject] TtsState ttsState;
     string Instructions => TransformLabel(group.TargetText, itemContainer.GetTargets());
 
@@ -38,13 +39,7 @@ public class GameUIManager : MonoBehaviour {
     }
 
     void OnDestroy() => ttsState.OnAvailableChanged -= OnAvailableChanged;
-
-    void PlayTtsInstructions() {
-        var audioClip = textToSpeech.GenerateAudio(Instructions);
-        var audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.clip = audioClip;
-        audioSource.Play();
-    }
+    public event Action OnEndGamePopupOpen;
 
     void SetupInstructionPopup(VisualElement root) {
         instructionPopup = root.Q<Popup>("InstructionPopup");
@@ -62,7 +57,7 @@ public class GameUIManager : MonoBehaviour {
         audioButton = instructionPopup.Q<Button>("InstructionAudioButton");
         audioButton.dataSource = ttsState;
         ttsState.OnAvailableChanged += OnAvailableChanged;
-        audioButton.clicked += PlayTtsInstructions;
+        audioButton.clicked += () => textToSpeech.Play(Instructions);
     }
 
     void OnAvailableChanged(bool available) => audioButton.SetEnabled(available);
@@ -80,6 +75,7 @@ public class GameUIManager : MonoBehaviour {
         endGamePopup.EnableInClassList("pause-menu", false);
         endGamePopup.EnableInClassList("end-menu", true);
         endGamePopup.Open();
+        OnEndGamePopupOpen?.Invoke();
     }
 
     string TransformLabel(string label, IEnumerable<IElement> elements) =>

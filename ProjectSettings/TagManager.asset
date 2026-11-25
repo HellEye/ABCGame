@@ -41,5 +41,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Wire
+    uniqueID: 1418372617
+    locked: 0
+  - name: WireTop
+    uniqueID: 3528085731
+    locked: 0
   m_RenderingLayers:
   - Default
