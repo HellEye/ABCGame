@@ -12,6 +12,8 @@ public class MainMenuUI : MonoBehaviour {
     [Header("Demo Sprites")]
     [SerializeField] Sprite placeholderThumbnail;
 
+    [SerializeField] UiSounds uiSounds;
+
     [Inject] InputSystem_Actions actions;
 
     UIDocument document;
@@ -84,5 +86,6 @@ public class MainMenuUI : MonoBehaviour {
         settingsButton.style.display = DisplayStyle.Flex;
         actions.Player.Continue.Disable();
         SetupButtons();
+        uiSounds.Reinitialize();
     }
 }

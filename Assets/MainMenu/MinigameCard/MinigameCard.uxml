@@ -3,7 +3,7 @@
     <Style
         src="project://database/Assets/UI/Styles/Cards.uss?fileID=7433441132597879392&amp;guid=109dd6c00301f7f419f83a4f96311992&amp;type=3#Cards"/>
     <ui:VisualElement class="minigame-card-view-wrapper">
-        <ui:VisualElement name="Card" class="minigame-card" style="flex-grow: 1;">
+        <ui:Button name="Card" class="minigame-card" style="flex-grow: 1;">
 
             <ui:Image name="Thumbnail" class="card-thumbnail">
                 <Bindings>
@@ -14,7 +14,7 @@
                 <ui:Image name="CornerBackground" class="favorite-corner-background"/>
                 <ui:Image name="Heart" class="favorite-heart"/>
             </ui:VisualElement>
-        </ui:VisualElement>
+        </ui:Button>
         <ui:Label text="Label" name="Title" class="card-title" style="-unity-text-align: upper-center;">
             <Bindings>
                 <ui:DataBinding data-source-path="levelName" property="text"/>

@@ -22,7 +22,7 @@
         </ui:VisualElement>
         <ui:VisualElement name="CardContainer"/>
     </ui:VisualElement>
-    <ui:Button name="SettingsButton" class="settings-button"
+    <ui:Button name="SettingsButton" class="settings-button click-sound"
                style="background-image: url(&quot;project://database/Assets/MainMenu/Sprites/UI/Settings.png?fileID=7886631795410796208&amp;guid=533696a6e6f021445ada040120f3474b&amp;type=3#Settings_0&quot;);"/>
     <Popup name="DifficultyPopup" is-open="false" class="difficulty-popup">
         <ui:Instance template="DifficultyPopup" name="DifficultyPopupInstance"

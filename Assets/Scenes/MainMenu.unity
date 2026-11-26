@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 153866602}
   - component: {fileID: 153866603}
   - component: {fileID: 153866604}
+  - component: {fileID: 153866605}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -192,6 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuUI
   minigameCardTemplate: {fileID: 9197481963319205126, guid: 1d1fb35abc6733447850fad38485ef17, type: 3}
   placeholderThumbnail: {fileID: -3092956421908063085, guid: dc4806f0a1d807d428e0a1d60a512374, type: 3}
+  uiSounds: {fileID: 153866605}
 --- !u!114 &153866602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +237,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4861c8b836fb93725a63b77712ba851f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DifficultyPopupController
+--- !u!114 &153866605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153866595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89eb96b92a8a4fed9b5f71d58540f5a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UiSounds
+  document: {fileID: 153866599}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ComponentVersion: 2
+  m_ComponentVersion: 3
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5

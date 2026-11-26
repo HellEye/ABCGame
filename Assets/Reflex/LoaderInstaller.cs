@@ -29,8 +29,10 @@ public class LoaderInstaller : MonoBehaviour, IInstaller {
     [SerializeField] ScreenSizeManager screenSizeManager;
     [SerializeField] Notifications notifications;
     [SerializeField] TtsAudio ttsAudio;
+    [SerializeField] FmodEvents fmodEvents;
 
     public void InstallBindings(ContainerBuilder builder) {
+        builder.RegisterValue(fmodEvents);
         builder.RegisterValue(cam, typeof(Camera));
         builder.RegisterValue(minigameRegistry);
         builder.RegisterValue(new LoaderUIDocument(uiDocument));
@@ -49,5 +51,6 @@ public class LoaderInstaller : MonoBehaviour, IInstaller {
             Lifetime.Singleton,
             Resolution.Lazy);
         builder.RegisterValue(ttsAudio);
+        builder.RegisterType<AudioManager>();
     }
 }
