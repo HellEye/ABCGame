@@ -13,6 +13,6 @@ public interface ISpawnableGroup {
 
     bool IsPlaceholder { get; }
 
-    (IEnumerable<IElement> targets, IEnumerable<IElement> allItems) PickItems(DropZoneGameDifficulty difficulty,
+    (IEnumerable<IElement> targets, IEnumerable<IElement> allItems) PickItems(IDifficulty difficulty,
         MainMenuSettingsData data, ExcludeItemsSO excludeItems = null);
 }

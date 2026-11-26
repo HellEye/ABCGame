@@ -42,6 +42,14 @@
 
 #CardGrid {
     flex-shrink: 1;
+    flex-direction: row;
+}
+
+.card-column {
+    flex-direction: column;
+    flex-shrink: 1;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
 .settings-button {

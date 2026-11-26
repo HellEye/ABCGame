@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 public class MinigameSelectionView {
@@ -37,7 +39,7 @@ public class MinigameSelectionView {
 
     public void SetCards(LevelMapping[] cards) {
         cardData.Clear();
-        cardData.AddRange(cards);
+        cardData.AddRange(Debug.isDebugBuild ? cards : cards.Where(c => !c.WIP));
 
         BuildCards();
     }
@@ -46,16 +48,30 @@ public class MinigameSelectionView {
         cardGrid.Clear();
         cardViews.Clear();
 
-        for (var i = 0; i < cardData.Count; i++) {
-            var card = new MinigameCardView();
+        for (var i = 0; i < cardData.Count; i += 2) {
+            // Group cards in pairs for columns
+            var container = new VisualElement();
+            container.AddToClassList("card-column");
+            for (var j = 0; j < 2; j++) {
+                if (i + j >= cardData.Count) {
+                    // Add a dummy card to fill the space
+                    // Only for odd number of cards
+                    var dummyCard = new VisualElement();
+                    dummyCard.AddToClassList("minigame-card-view-root");
+                    container.Add(dummyCard);
+                    break;
+                }
 
-            card.Data = cardData[i];
+                var card = new MinigameCardView {
+                    Data = cardData[i + j]
+                };
+                card.Clicked += _ => {
+                    CardClicked?.Invoke(card.Data);
+                };
+                container.Add(card);
+            }
 
-            card.Clicked += _ => {
-                CardClicked?.Invoke(card.Data);
-            };
-
-            cardGrid.Add(card);
+            cardGrid.Add(container);
         }
     }
 }

@@ -9,6 +9,22 @@
     transition-duration: 0.15s;
 }
 
+.button.no-border {
+    border-width: 0;
+    border-color: transparent;
+}
+
+.button .unity-image {
+    width: 48px;
+    height: 48px;
+    margin: 0;
+    margin-right: 4px;
+}
+
+.button.icon-button {
+    padding: 0;
+}
+
 .icon-button:hover {
     scale: 1.08;
 }
@@ -17,9 +33,10 @@
     scale: 0.95;
 }
 
+
 .button {
     font-size: 40px;
-    color: var(--color-text-light);
+    color: var(--color-button-text);
     background-color: var(--color-button-base);
     border-color: var(--color-button-base);
     border-radius: 30px;
@@ -45,3 +62,5 @@
 .button:active {
     background-color: var(--color-button-active);
 }
+
+

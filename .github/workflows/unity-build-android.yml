@@ -4,9 +4,10 @@ on:
   push:
     tags:
       - v*
+      - dev*
 
 env:
-  UNITY_VERSION: 6000.3.11f1
+  UNITY_VERSION: 6000.3.28f1
   
 jobs:
   build:

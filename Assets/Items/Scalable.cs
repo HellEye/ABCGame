@@ -7,8 +7,8 @@ public class Scalable : MonoBehaviour {
     const float clampScalingValue = 0.01f;
 
 
-    [SerializeField] float _minScaleValue;
-    [SerializeField] float _maxScaleValue;
+    [SerializeField] float _minScaleValue = 0.4f;
+    [SerializeField] float _maxScaleValue = 1.5f;
     [Inject] MainMenuSettingsData settingsData;
 
     [CreateProperty] public float MinScaleValue { get => _minScaleValue; set => _minScaleValue = value; }
