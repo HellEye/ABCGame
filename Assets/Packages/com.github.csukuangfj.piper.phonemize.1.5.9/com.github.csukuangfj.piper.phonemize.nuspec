@@ -1,0 +1,465 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>com.github.csukuangfj.piper.phonemize</id>
+    <version>1.5.9</version>
+    <title>piper-phonemize v1.5.9</title>
+    <authors>Michael Hansen, Fangjun Kuang</authors>
+    <license type="expression">GPL-3.0-or-later</license>
+    <licenseUrl>https://licenses.nuget.org/GPL-3.0-or-later</licenseUrl>
+    <projectUrl>https://github.com/csukuangfj/piper-phonemize</projectUrl>
+    <description>C# bindings for piper-phonemize, a text-to-phoneme library based on espeak-ng.
+    See https://github.com/csukuangfj/piper-phonemize for details.</description>
+    <tags>phonemize text-to-speech tts espeak-ng phonemes ipa offline</tags>
+    <repository type="git" url="https://github.com/csukuangfj/piper-phonemize" />
+    <dependencies>
+      <group targetFramework="net10.0">
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.android-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.android-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.linux-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.linux-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.osx-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.osx-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.win-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.win-x64" version="1.5.9" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework2.0">
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.android-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.android-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.linux-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.linux-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.osx-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.osx-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.win-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.win-x64" version="1.5.9" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework3.5">
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.android-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.android-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.linux-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.linux-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.osx-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.osx-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.win-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.win-x64" version="1.5.9" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework4.0">
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.android-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.android-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.linux-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.linux-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.osx-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.osx-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.win-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.win-x64" version="1.5.9" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.android-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.android-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.linux-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.linux-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.osx-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.osx-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.win-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.win-x64" version="1.5.9" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net6.0">
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.android-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.android-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.linux-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.linux-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.osx-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.osx-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.win-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.win-x64" version="1.5.9" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net7.0">
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.android-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.android-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.linux-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.linux-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.osx-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.osx-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.win-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.win-x64" version="1.5.9" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net8.0">
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.android-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.android-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.linux-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.linux-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.osx-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.osx-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.win-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.win-x64" version="1.5.9" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.android-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.android-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.linux-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.linux-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.osx-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.osx-x64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.win-arm64" version="1.5.9" exclude="Build,Analyzers" />
+        <dependency id="com.github.csukuangfj.piper.phonemize.runtime.win-x64" version="1.5.9" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <contentFiles>
+      <files include="any/any/espeak-ng-data/af_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/am_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/an_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/ar_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/as_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/az_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/ba_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/be_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/bg_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/bn_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/bpy_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/bs_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/ca_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/chr_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/cmn_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/cs_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/cv_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/cy_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/da_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/de_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/el_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/en_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/eo_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/es_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/et_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/eu_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/fa_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/fi_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/fr_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/ga_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/gd_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/gn_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/grc_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/gu_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/hak_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/haw_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/he_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/hi_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/hr_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/ht_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/hu_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/hy_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/ia_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/id_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/intonations" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/io_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/is_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/it_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/ja_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/jbo_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/ka_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/kk_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/kl_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/kn_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/kok_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/ko_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/ku_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/ky_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/aav/vi" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/aav/vi-VN-x-central" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/aav/vi-VN-x-south" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/art/eo" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/art/ia" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/art/io" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/art/jbo" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/art/lfn" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/art/piqd" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/art/py" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/art/qdb" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/art/qya" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/art/sjn" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/azc/nci" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/bat/lt" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/bat/ltg" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/bat/lv" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/bnt/sw" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/bnt/tn" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/ccs/ka" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/cel/cy" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/cel/ga" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/cel/gd" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/cus/om" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/dra/kn" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/dra/ml" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/dra/ta" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/dra/te" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/esx/kl" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/eu" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/gmq/da" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/gmq/is" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/gmq/nb" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/gmq/sv" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/gmw/af" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/gmw/de" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/gmw/en" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/gmw/en-029" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/gmw/en-GB-scotland" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/gmw/en-GB-x-gbclan" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/gmw/en-GB-x-gbcwmd" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/gmw/en-GB-x-rp" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/gmw/en-US" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/gmw/en-US-nyc" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/gmw/lb" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/gmw/nl" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/grk/el" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/grk/grc" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/inc/as" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/inc/bn" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/inc/bpy" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/inc/gu" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/inc/hi" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/inc/kok" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/inc/mr" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/inc/ne" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/inc/or" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/inc/pa" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/inc/sd" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/inc/si" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/inc/ur" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/ine/hy" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/ine/hyw" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/ine/sq" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/ira/fa" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/ira/fa-Latn" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/ira/ku" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/iro/chr" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/itc/la" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/jpx/ja" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/ko" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/map/haw" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/miz/mto" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/myn/quc" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/poz/id" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/poz/mi" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/poz/ms" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/qu" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/roa/an" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/roa/ca" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/roa/es" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/roa/es-419" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/roa/fr" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/roa/fr-BE" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/roa/fr-CH" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/roa/ht" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/roa/it" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/roa/pap" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/roa/pt" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/roa/pt-BR" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/roa/ro" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/sai/gn" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/sem/am" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/sem/ar" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/sem/he" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/sem/mt" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/sit/cmn" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/sit/cmn-Latn-pinyin" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/sit/hak" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/sit/my" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/sit/yue" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/sit/yue-Latn-jyutping" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/tai/shn" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/tai/th" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/trk/az" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/trk/ba" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/trk/cv" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/trk/kk" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/trk/ky" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/trk/nog" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/trk/tk" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/trk/tr" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/trk/tt" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/trk/ug" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/trk/uz" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/urj/et" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/urj/fi" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/urj/hu" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/urj/smj" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/zle/be" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/zle/ru" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/zle/ru-cl" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/zle/ru-LV" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/zle/uk" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/zls/bg" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/zls/bs" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/zls/hr" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/zls/mk" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/zls/sl" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/zls/sr" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/zlw/cs" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/zlw/pl" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lang/zlw/sk" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/la_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lb_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lfn_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lt_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/lv_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/mi_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/mk_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/ml_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/mr_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/ms_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/mto_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/mt_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/my_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/nci_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/ne_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/nl_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/nog_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/no_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/om_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/or_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/pap_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/pa_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/phondata" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/phondata-manifest" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/phonindex" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/phontab" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/piqd_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/pl_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/pt_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/py_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/qdb_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/quc_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/qu_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/qya_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/ro_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/ru_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/sd_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/shn_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/si_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/sjn_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/sk_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/sl_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/smj_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/sq_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/sr_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/sv_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/sw_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/ta_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/te_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/th_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/tk_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/tn_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/tr_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/tt_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/ug_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/uk_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/ur_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/uz_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/vi_dict" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/adam" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/Alex" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/Alicia" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/Andrea" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/Andy" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/anika" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/anikaRobot" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/Annie" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/announcer" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/antonio" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/AnxiousAndy" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/aunty" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/belinda" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/benjamin" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/boris" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/caleb" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/croak" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/david" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/Demonic" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/Denis" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/Diogo" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/ed" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/edward" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/edward2" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/f1" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/f2" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/f3" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/f4" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/f5" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/fast" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/Gene" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/Gene2" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/grandma" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/grandpa" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/gustave" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/Henrique" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/Hugo" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/ian" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/iven" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/iven2" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/iven3" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/iven4" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/Jacky" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/john" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/kaukovalta" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/klatt" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/klatt2" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/klatt3" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/klatt4" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/klatt5" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/klatt6" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/Lee" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/linda" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/m1" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/m2" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/m3" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/m4" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/m5" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/m6" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/m7" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/m8" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/marcelo" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/Marco" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/Mario" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/max" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/Michael" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/michel" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/miguel" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/Mike" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/mike2" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/Mr serious" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/Nguyen" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/norbert" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/pablo" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/paul" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/pedro" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/quincy" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/Reed" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/RicishayMax" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/RicishayMax2" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/RicishayMax3" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/rob" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/robert" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/robosoft" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/robosoft2" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/robosoft3" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/robosoft4" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/robosoft5" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/robosoft6" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/robosoft7" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/robosoft8" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/sandro" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/shelby" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/steph" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/steph2" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/steph3" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/Storm" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/travis" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/Tweaky" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/UniRobot" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/victor" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/whisper" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/whisperf" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/voices/!v/zac" buildAction="Content" />
+      <files include="any/any/espeak-ng-data/yue_dict" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+</package>
