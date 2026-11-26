@@ -12,8 +12,6 @@ public class MainMenuUI : MonoBehaviour {
     [Header("Demo Sprites")]
     [SerializeField] Sprite placeholderThumbnail;
 
-    [SerializeField] UiSounds uiSounds;
-
     [Inject] InputSystem_Actions actions;
 
     UIDocument document;
@@ -25,6 +23,8 @@ public class MainMenuUI : MonoBehaviour {
     MinigameSelectionView selectionView;
     Button settingsButton;
     Popup settingsPopup;
+
+    [Inject] UiAudio uiAudio;
 
     void Awake() {
         document = GetComponent<UIDocument>();
@@ -86,6 +86,6 @@ public class MainMenuUI : MonoBehaviour {
         settingsButton.style.display = DisplayStyle.Flex;
         actions.Player.Continue.Disable();
         SetupButtons();
-        uiSounds.Reinitialize();
+        uiAudio.Initialize(document.rootVisualElement);
     }
 }

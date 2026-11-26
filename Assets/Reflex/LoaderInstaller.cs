@@ -52,5 +52,7 @@ public class LoaderInstaller : MonoBehaviour, IInstaller {
             Resolution.Lazy);
         builder.RegisterValue(ttsAudio);
         builder.RegisterType<AudioManager>();
+        builder.RegisterType<DropAudio>();
+        builder.RegisterType<UiAudio>();
     }
 }

@@ -20,6 +20,8 @@ public class DropZone : MonoBehaviour, ISelectEvents {
     public List<IElement> targets;
     public event Action OnSelected;
     public event Action OnDeselected;
+    public event Action OnDropCorrect;
+    public event Action OnDropIncorrect;
 
     public void Initialize(IEnumerable<IElement> targets, Vector2 pos) {
         this.targets = targets.ToList();
@@ -46,7 +48,11 @@ public class DropZone : MonoBehaviour, ISelectEvents {
         if (correctEffect != null)
             correctEffect.Play();
         draggable.DropCorrect(targetPosition == null ? transform.position : targetPosition.position);
+        OnDropCorrect?.Invoke();
     }
 
-    void Incorrect(Draggable draggable) => draggable.DropIncorrect();
+    void Incorrect(Draggable draggable) {
+        draggable.DropIncorrect();
+        OnDropIncorrect?.Invoke();
+    }
 }

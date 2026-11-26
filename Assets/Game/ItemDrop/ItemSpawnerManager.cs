@@ -17,12 +17,12 @@ public class ItemSpawnerManager : MonoBehaviour, IScreenSpaceBounds {
     [SerializeField] DropZone dropZonePrefab;
 
     [Inject] DropZoneGameDifficulty difficulty;
+    [Inject] DropAudio dropAudio;
 
     [Header("References")]
     [Inject] DropZoneGameManager gameManager;
 
     [Inject] ScreenSizeManager screenSizeManager;
-
     public MinMaxRect Bounds => bounds;
 
     public void TrySpawningMaxItems(IEnumerable<IElement> items) {
@@ -63,6 +63,7 @@ public class ItemSpawnerManager : MonoBehaviour, IScreenSpaceBounds {
     public DropZone SpawnDropZone(IEnumerable<IElement> targets) {
         var newDropZone = Instantiate(dropZonePrefab, Vector3.zero, Quaternion.identity);
         newDropZone.Initialize(targets, new(0.5f, dropZoneNormalizedY));
+        dropAudio.AddDropZone(newDropZone);
         return newDropZone;
     }
 }

@@ -16,6 +16,7 @@ public class ConnectSpawner : MonoBehaviour {
 
     [SerializeField] GameObject labelPrefab;
     [Inject] ConnectDifficulty difficulty;
+    [Inject] DropAudio dropAudio;
     [Inject] ConnectGameManager gameManager;
 
     void OnDrawGizmosSelected() {
@@ -89,8 +90,9 @@ public class ConnectSpawner : MonoBehaviour {
         }
 
         var dropZone = label.GetComponentInChildren<DropZone>();
-        dropZone.Initialize(new List<IElement> { element }, normalizedPos);
 
+        dropZone.Initialize(new List<IElement> { element }, normalizedPos);
+        dropAudio.AddDropZone(dropZone);
         labelRenderer.Initialize(element);
     }
 
