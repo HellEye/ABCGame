@@ -3,6 +3,7 @@ using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+[DefaultExecutionOrder(500)]
 public class UiSounds : MonoBehaviour {
     [SerializeField] UIDocument document;
     [Inject] AudioManager audioManager;
