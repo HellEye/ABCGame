@@ -237,6 +237,21 @@ MonoBehaviour:
         Data3: 133026735
         Data4: -435356230
       Path: event:/sfx_onclick
+  game:
+    dropCorrect:
+      Guid:
+        Data1: 399571198
+        Data2: 1294273567
+        Data3: -1888702551
+        Data4: -252838461
+      Path: event:/sfx_correct
+    dropIncorrect:
+      Guid:
+        Data1: -432879747
+        Data2: 1119418644
+        Data3: -1020561504
+        Data4: -308919295
+      Path: event:/sfx_wrong
 --- !u!4 &416466237
 Transform:
   m_ObjectHideFlags: 0

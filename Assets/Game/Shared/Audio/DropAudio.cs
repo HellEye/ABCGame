@@ -1,9 +1,6 @@
-using System.Collections.Generic;
-
 public class DropAudio {
     readonly AudioManager audioManager;
     readonly FmodEvents fmodEvents;
-    readonly List<DropZone> dropZones = new();
 
     public DropAudio(AudioManager audioManager, FmodEvents fmodEvents) {
         this.audioManager = audioManager;
@@ -11,7 +8,6 @@ public class DropAudio {
     }
 
     public void AddDropZone(DropZone dropZone) {
-        dropZones.Add(dropZone);
         dropZone.OnDropCorrect += PlayCorrect;
         dropZone.OnDropIncorrect += PlayIncorrect;
     }
