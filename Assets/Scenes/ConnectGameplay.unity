@@ -339,10 +339,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6739916951221561290, guid: 752af9d2d688adc7db5c2cafc0b8b698, type: 3}
-      propertyPath: animations.Array.data[1].styles.Array.data[0].duration
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 7698293720025431288, guid: 752af9d2d688adc7db5c2cafc0b8b698, type: 3}
       propertyPath: m_Name
       value: GameUI
