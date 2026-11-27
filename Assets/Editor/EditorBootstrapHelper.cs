@@ -2,34 +2,30 @@
 using System.Linq;
 using UnityEditor;
 using UnityEditor.SceneManagement;
-using UnityEngine;
 
 [InitializeOnLoad]
-public class EditorBootstrapHelper {
-    const string LOADER_SCENE_NAME = "Loader";
+public static class EditorBootstrapHelper {
+    const string LOADER_SCENE_PATH = "Assets/Scenes/Loader.unity";
     static readonly string[] IGNORED_SCENES = { "UI Test", "PuzzleGameplay" };
 
     static EditorBootstrapHelper() {
-        var activeScene = EditorSceneManager.GetActiveScene();
-        Debug.Log("Active scene: " + activeScene.path + " " + activeScene.name);
-        if (IGNORED_SCENES.Contains(activeScene.name)) {
-            EditorSceneManager.playModeStartScene = AssetDatabase.LoadAssetAtPath<SceneAsset>(activeScene.path);
-            return;
-        }
-
-        EditorSceneManager.playModeStartScene =
-            AssetDatabase.LoadAssetAtPath<SceneAsset>(
-                $"Assets/Scenes/{LOADER_SCENE_NAME}.unity");
-
         EditorApplication.playModeStateChanged -= OnPlayModeChanged;
         EditorApplication.playModeStateChanged += OnPlayModeChanged;
+        UpdatePlayModeStartScene();
     }
 
     static void OnPlayModeChanged(PlayModeStateChange state) {
-        if (state != PlayModeStateChange.ExitingEditMode) return;
+        // Runs right before play mode starts, so the decision is made fresh every time.
+        if (state == PlayModeStateChange.ExitingEditMode)
+            UpdatePlayModeStartScene();
+    }
+
+    static void UpdatePlayModeStartScene() {
         var activeScene = EditorSceneManager.GetActiveScene();
-        if (activeScene.name != LOADER_SCENE_NAME && !IGNORED_SCENES.Contains(activeScene.name))
-            EditorPrefs.SetString("LastEditScene", activeScene.name);
+
+        // Ignored scenes play themselves; everything else starts from the Loader.
+        var path = IGNORED_SCENES.Contains(activeScene.name) ? activeScene.path : LOADER_SCENE_PATH;
+        EditorSceneManager.playModeStartScene = AssetDatabase.LoadAssetAtPath<SceneAsset>(path);
     }
 }
 #endif
