@@ -30,7 +30,16 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha || inputs.ref || github.ref }}
           fetch-depth: 0
-
+     - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+      - name: Install NuGetForUnity CLI
+        run: |
+          dotnet tool install --global NuGetForUnity.Cli --version 4.5.0
+          echo "$HOME/.dotnet/tools" >> "$GITHUB_PATH"
+      - name: Restore NuGet packages
+        run: nugetforunity restore .
       - name: Cache Library Restore
         uses: actions/cache/restore@v6
         with:
@@ -49,7 +58,6 @@ jobs:
           unityVersion: ${{ env.UNITY_VERSION }}
           targetPlatform: Android
           buildName: Lumisie
-          buildMethod: NugetForUnity.NugetHelper.Restore
           
       - name: Upload Build Artifact
         uses: softprops/action-gh-release@v3
