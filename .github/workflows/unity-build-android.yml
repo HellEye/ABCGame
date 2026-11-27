@@ -37,6 +37,7 @@ jobs:
           unityVersion: ${{ env.UNITY_VERSION }}
           targetPlatform: Android
           buildName: Lumisie
+          buildMethod: NugetForUnity.NugetHelper.Restore
 
       - name: Upload Build Artifact
         uses: softprops/action-gh-release@v3
