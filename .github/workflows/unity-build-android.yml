@@ -5,18 +5,30 @@ on:
     tags:
       - v*
       - dev*
-
+  pull_request:
+    types: [ labeled, synchronize ]
 env:
   UNITY_VERSION: 6000.3.28f1
   
+concurrency:
+  group: unity-build-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+  
 jobs:
   build:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (
+        contains(github.event.pull_request.labels.*.name, 'build-unity') &&
+        github.event.pull_request.head.repo.full_name == github.repository
+      )
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v7
         with:
+          ref: ${{ github.event.pull_request.head.sha || inputs.ref || github.ref }}
           fetch-depth: 0
 
       - name: Cache Library Restore
@@ -38,7 +50,7 @@ jobs:
           targetPlatform: Android
           buildName: Lumisie
           buildMethod: NugetForUnity.NugetHelper.Restore
-
+          
       - name: Upload Build Artifact
         uses: softprops/action-gh-release@v3
         with:
