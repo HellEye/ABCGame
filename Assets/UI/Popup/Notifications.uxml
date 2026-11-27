@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
+         editor-extension-mode="False">
+    <Style
+        src="project://database/Assets/UI/globals.uss?fileID=7433441132597879392&amp;guid=f379efdc614e19cb0b2380346f56bde5&amp;type=3#globals"/>
+    <Popup name="NotificationPopup">
+        <ui:Label text="Label" name="NotificationTitle"/>
+        <ui:Label text="Label" name="NotificationMessage"/>
+        <ui:Button name="NotificationCloseButton" class="notification-close-button button easy" text="OK"/>
+    </Popup>
+</ui:UXML>

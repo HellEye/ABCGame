@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Cherry
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: "Wi\u015Bnia"
+  pluralName: "wi\u015Bnie"
   sprite:
     m_AssetGUID: 21b1145cfbe008d448ffdb6038749c56
     m_SubObjectName: cherry

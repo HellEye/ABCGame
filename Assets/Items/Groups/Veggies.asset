@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Veggies
   m_EditorClassIdentifier: Assembly-CSharp::ItemGroup
   groupName: Owoce
-  targetText: Wybierz pokazane warzywa
+  targetText: 'Wybierz wszystkie: {name}'
   items:
   - {fileID: 11400000, guid: 712d2db103609b33c8be165202508eae, type: 2}
   - {fileID: 11400000, guid: a16f953b6dc24754786cbd6e461417bc, type: 2}

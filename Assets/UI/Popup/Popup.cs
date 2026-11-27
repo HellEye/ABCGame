@@ -18,7 +18,6 @@ public partial class Popup : VisualElement {
         wrapper.AddToClassList("popup-wrapper");
         // have to use hierarchy.Add instead of Add because we're overriding contentContainer
         hierarchy.Add(wrapper);
-
         // treat this element as the backdrop
         AddToClassList("popup-backdrop");
 
@@ -43,6 +42,7 @@ public partial class Popup : VisualElement {
         }
     }
 
+
     public async UniTask LoadStyleSheet() {
         // try the cached styles first if already loaded, otherwise load via addressables
         var styleSheet = popupStyleSheet;
@@ -62,14 +62,21 @@ public partial class Popup : VisualElement {
     }
 
     public Popup WithOpenButton(Button button) {
-        button.clicked += () => IsOpen = true;
+        button.clicked += Open;
         return this;
     }
 
     public Popup WithCloseButton(Button button) {
-        button.clicked += () => IsOpen = false;
+        button.clicked += Close;
         return this;
     }
 
-    void OnOpenChange(bool value) => EnableInClassList("show", value);
+    public void Open() => IsOpen = true;
+
+    public void Close() => IsOpen = false;
+
+    void OnOpenChange(bool value) {
+        EnableInClassList("show", value);
+        if (!value) OnClose?.Invoke();
+    }
 }

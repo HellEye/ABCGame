@@ -12,18 +12,23 @@ public class LetterSetSO : ScriptableObject, ISpawnableGroup {
 
     public Difficulty difficulty;
     public Difficulty Difficulty => difficulty;
+
+    [InfoBanner("This group doesn't have enough items that are not placeholders")]
+
+    public bool IsPlaceholder => false;
+
     public string Title => groupName;
 
     public string TargetText => targetText;
 
     public (IEnumerable<IElement> targets, IEnumerable<IElement> allItems) PickItems(
-        DropZoneGameDifficulty gameDifficulty,
+        IDifficulty gameDifficulty,
         MainMenuSettingsData data,
         ExcludeItemsSO excludeItems = null) {
         var uniqueLetters = (letters ?? string.Empty).Distinct().Select(letter => new Letter(letter.ToString()))
             .ToList();
-        var pickedItems = uniqueLetters.PickRandom(gameDifficulty.itemTypes);
-        var targets = pickedItems.PickRandom(gameDifficulty.targetTypes);
+        var pickedItems = uniqueLetters.PickRandom(gameDifficulty.ItemTypes);
+        var targets = pickedItems.PickRandom(gameDifficulty.TargetTypes);
         return (targets, pickedItems);
     }
 }

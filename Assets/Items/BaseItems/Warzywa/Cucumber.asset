@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Cucumber
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: "Og\xF3rek"
+  pluralName: "og\xF3rki"
   sprite:
     m_AssetGUID: 1d89686cd0c402f4084a8e7fea26cc2e
     m_SubObjectName: cucumber

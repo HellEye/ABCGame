@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Pear
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Gruszka
+  pluralName: gruszki
   sprite:
     m_AssetGUID: 3a95d98a9ff4525e68dcd8c0b4667532
     m_SubObjectName: pear

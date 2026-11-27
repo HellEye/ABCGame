@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
+         editor-extension-mode="False">
+    <ui:Button name="DifficultyPopupCloseBtn" icon-image="project:
+    //database/Assets/MainMenu/UITest/Cancel.png?fileID=2800000&amp;guid=bc74311713d4f2c48bd2a6c8d986abd4&amp;type=3#Cancel"
+               class="difficulty-close-btn"/>
+    <ui:VisualElement name="difficultyIcon" class="difficulty-icon-btn"/>
+
+    <ui:VisualElement name="DifficultyPopupFooter" class="difficulty-popup-footer">
+        <ui:VisualElement name="DifficultyButtons" class="difficulty-buttons"/>
+    </ui:VisualElement>
+</ui:UXML>

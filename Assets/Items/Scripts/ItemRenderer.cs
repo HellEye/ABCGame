@@ -7,7 +7,10 @@ public class ItemRenderer : MonoBehaviour, IElementRenderer {
 
     AsyncOperationHandle<Sprite> handle;
 
-    void OnDestroy() => AssetReferenceExtensions.Release(handle);
+    void OnDestroy() {
+        if (handle.IsValid()) AssetReferenceExtensions.Release(handle);
+    }
+
 
     public async UniTask Initialize(IElement element) {
         if (element is not ItemSO itemData) {

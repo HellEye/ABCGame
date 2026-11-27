@@ -30,5 +30,8 @@ public class RootInstaller : MonoBehaviour, IInstaller {
             Resolution.Eager);
 
         builder.RegisterType<InputSystem_Actions>();
+        builder.RegisterType<BackgroundStore>();
+        builder.RegisterType<GameProgressData>();
+        builder.RegisterType<TtsState>();
     }
 }

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Potato
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Ziemniak
+  pluralName: ziemniaki
   sprite:
     m_AssetGUID: b1cea3abc66276849a30a8126530c200
     m_SubObjectName: potato_v2

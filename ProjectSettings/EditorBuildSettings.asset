@@ -23,7 +23,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: b23f982b2ef9ca7418672398e0cfe5b9
+  - enabled: 1
+    path: Assets/Scenes/ConnectGameplay.unity
+    guid: bf31df99d9d69760b93f40891d01cff1
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: b9cdcc0a3005105fe9cd7a33981e8aab, type: 2}
+    com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

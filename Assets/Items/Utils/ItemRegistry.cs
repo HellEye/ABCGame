@@ -8,12 +8,16 @@ public class ItemRegistry : ScriptableObject {
     public List<InterfaceReference<ISpawnableGroup>> items;
     public List<InterfaceReference<ISpawnableGroup>> letters;
 
-    public IEnumerable<ISpawnableGroup> GetGroupsFor(IDifficulty<ScriptableObject> difficulty) {
+    public IEnumerable<ISpawnableGroup> GetGroupsFor(IDifficulty difficulty) {
         var list = difficulty.Variant switch {
             Variant.Items => items,
             Variant.Letters => letters,
             var _ => throw new NotImplementedException()
         };
-        return list.Where(i => i.Value.Difficulty == difficulty.Difficulty).Select(i => i.Value);
+        return list
+            // Hide placeholders in release build
+            .Where(i => Debug.isDebugBuild || !i.Value.IsPlaceholder)
+            .Where(i => i.Value.Difficulty == difficulty.Difficulty)
+            .Select(i => i.Value);
     }
 }

@@ -1,58 +1,47 @@
 using System;
 using System.Linq;
 using Eflatun.SceneReference;
+using Unity.Properties;
 using UnityEngine;
 
 [Serializable]
 public struct DifficultyMapping {
     // can add different data here later if necessary
-    public InterfaceReference<IDifficulty<ScriptableObject>> difficultyData;
+    public InterfaceReference<IDifficulty> difficultyData;
+
+    public bool IsValid(ItemRegistry itemRegistry) => itemRegistry.GetGroupsFor(difficultyData.Value).Any();
 }
 
 [Serializable]
 public class LevelMapping {
-    public string levelName;
-    public Sprite levelIcon;
+    [CreateProperty] public string levelName;
+
+    [CreateProperty] public Sprite levelIcon;
+
     public SceneReference sceneReference;
     public DifficultyMapping[] difficultiesMappings;
+    public bool WIP;
+    public Texture progressIcon;
 }
 
 [CreateAssetMenu(fileName = "MinigameRegistry", menuName = "ScriptableObjects/MinigameRegistry")]
 public class MinigameRegistry : ScriptableObject {
-    [SerializeField] private LevelMapping[] mappings;
-    public LevelMapping[] Mappings
-    {
-        get => mappings;
-    }
+    [SerializeField] LevelMapping[] mappings;
+
+    public LevelMapping[] Mappings => mappings;
+
     public int Count => mappings.Length;
 
-    /*
-    [Obsolete ("Kod pisany na szybko do zmiany lub wyrzucenia")]
-    public (SceneReference sceneAsset, IDifficulty<ScriptableObject> difficulty) GetLevelData(int levelIndex,
-        int difficultyIndex) {
-        var levelMapping = mappings.FirstOrDefault(m => m.levelIndex == levelIndex);
-        var difficultyMapping =
-            
-            
-                .PickRandom();
-
-        if (difficultyMapping.difficultyData == null) return (null, null);
-
-        return (levelMapping.sceneReference, difficultyMapping.difficultyData.Value);
-    }
-    */
-
-    public LevelMapping[] GetMappings()
-    {
-        return mappings;
-    }
+    public LevelMapping[] GetMappings() => mappings;
 }
 
-public interface IDifficulty<out T> where T : ScriptableObject {
-    Type type => typeof(T);
+public interface IDifficulty {
+    Type type { get; }
     Difficulty Difficulty { get; }
     Variant Variant { get; }
     string Name { get; }
+    int ItemTypes { get; }
+    int TargetTypes { get; }
 }
 
 public enum Variant {
@@ -61,6 +50,7 @@ public enum Variant {
 }
 
 public class DifficultyHolder {
-    public IDifficulty<ScriptableObject> selectedDifficulty;
+    public IDifficulty selectedDifficulty;
+    public LevelMapping selectedMapping;
     public SceneReference selectedScene;
 }

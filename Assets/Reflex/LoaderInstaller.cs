@@ -1,7 +1,9 @@
 using System;
 using Reflex.Core;
+using Reflex.Enums;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Resolution = Reflex.Enums.Resolution;
 
 [Serializable]
 public class LoaderUIDocument {
@@ -25,9 +27,11 @@ public class LoaderInstaller : MonoBehaviour, IInstaller {
     [SerializeField] Camera cam;
 
     [SerializeField] ScreenSizeManager screenSizeManager;
+    [SerializeField] Notifications notifications;
+    [SerializeField] TtsAudio ttsAudio;
 
     public void InstallBindings(ContainerBuilder builder) {
-        builder.RegisterValue(cam);
+        builder.RegisterValue(cam, typeof(Camera));
         builder.RegisterValue(minigameRegistry);
         builder.RegisterValue(new LoaderUIDocument(uiDocument));
         builder.RegisterValue(loaderUIController);
@@ -36,5 +40,14 @@ public class LoaderInstaller : MonoBehaviour, IInstaller {
         builder.RegisterValue(itemRegistry);
         builder.RegisterType<DifficultyHolder>();
         builder.RegisterValue(screenSizeManager);
+        builder.RegisterValue(new MainMenuData());
+
+        builder.RegisterValue(notifications);
+        builder.RegisterFactory(
+            c => new SherpaTextToSpeech(c.Resolve<Notifications>()),
+            new[] { typeof(ITextToSpeech), typeof(ITextToSpeechWarmup) },
+            Lifetime.Singleton,
+            Resolution.Lazy);
+        builder.RegisterValue(ttsAudio);
     }
 }

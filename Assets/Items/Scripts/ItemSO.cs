@@ -7,11 +7,13 @@ public class ItemSO : ScriptableObject, IElement {
     public string itemName;
     public string pluralName;
     public AssetReferenceT<Sprite> sprite;
-
+    public bool placeholder;
 
     AsyncOperationHandle<Sprite> spriteHandle;
-    public string TargetDisplayName => pluralName;
-    public bool Matches(Item item) => item.data == this;
-
+    public string DisplayNamePlural => pluralName;
+    public string DisplayNameSingular => itemName;
+    public bool IsPlaceholder => placeholder;
+    public AssetReferenceT<Sprite> Icon => sprite;
+    public bool Matches(Item item) => ReferenceEquals(item.data, this);
     public override string ToString() => $"ItemSO: {itemName} ({name})";
 }

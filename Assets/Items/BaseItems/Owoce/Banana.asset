@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Banana
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Banan
+  pluralName: banany
   sprite:
     m_AssetGUID: d3d8040c14c4b22d586a64e7f775ca10
     m_SubObjectName: banana

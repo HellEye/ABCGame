@@ -1,0 +1,22 @@
+#NotificationPopup .popup-wrapper {
+    padding: 20px;
+    min-height: 80%;
+    min-width: 80%
+}
+
+#NotificationTitle {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+#NotificationMessage {
+    font-size: 30px;
+}
+
+#NotificationCloseButton {
+    position: absolute;
+    bottom: 20px;
+    left: 10%;
+    right: 10%;
+
+}

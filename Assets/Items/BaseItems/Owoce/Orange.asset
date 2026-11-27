@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Orange
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: "Pomara\u0144cza"
+  pluralName: "pomara\u0144cze"
   sprite:
     m_AssetGUID: abbde2a65457da045abc0af537c0140c
     m_SubObjectName: orange

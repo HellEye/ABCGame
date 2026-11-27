@@ -1,0 +1,25 @@
+.title {
+    font-size: 48px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}
+
+.subtitle {
+    font-size: 30px;
+    -unity-text-align: middle-center;
+}
+
+.button-text {
+    font-size: 26px;
+    -unity-text-align: middle-center;
+}
+
+.small-text {
+    font-size: 18px;
+}
+
+Label,
+Text,
+Button {
+    -unity-font-definition: url("project://database/Assets/Fonts/Super%20Warming.ttf?fileID=12800000&guid=5b62f8b0e30230e4a8cd6d2a283c7f21&type=3#Super Warming");
+}
