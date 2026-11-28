@@ -17,11 +17,11 @@ concurrency:
 jobs:
   build:
     if: >-
-      github.event_name == 'workflow_dispatch' ||
+      github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/')
       (
         contains(github.event.pull_request.labels.*.name, 'build-unity') &&
         github.event.pull_request.head.repo.full_name == github.repository
-      )
+      ) 
     runs-on: ubuntu-latest
     permissions:
       contents: write
