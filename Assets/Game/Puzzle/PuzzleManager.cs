@@ -7,11 +7,7 @@ public class PuzzleManager : MonoBehaviour {
     [SerializeField] Vector2 imageSize;
     [SerializeField] PuzzlePiece piecePrefab;
     [SerializeField] Material pieceMaterial;
-<<<<<<< HEAD
     readonly IPuzzleGenerator generator = new SDFPuzzleGenerator();
-=======
-    readonly IPuzzleGenerator generator = new JigsawPuzzleGenerator();
->>>>>>> 3501407 (Puzzle game proof of concept)
     List<(PuzzlePiece piece, PuzzlePieceData data)> pieces;
 
     void Start() {

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-<<<<<<< HEAD
 // One side of a puzzle piece.
 // Shared sides (knob on one piece, socket on its neighbour) carry identical Center/Radius/Depth,
 // only Tab is mirrored. Center is measured along the world axis of the side
@@ -49,13 +48,6 @@ public class PuzzlePieceData {
         block.SetVector(BottomEdgeId, Bottom.ToVector4());
         block.SetVector(LeftEdgeId, Left.ToVector4());
     }
-=======
-public class PuzzlePieceData {
-    public Mesh Mesh { get; set; }
-    public Vector2 CenterPosition { get; set; }
-    public Rect UVRegion { get; set; }
-    public Bounds Bounds { get; set; }
->>>>>>> 3501407 (Puzzle game proof of concept)
 }
 
 public interface IPuzzleGenerator {

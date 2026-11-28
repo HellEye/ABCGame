@@ -62,11 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-<<<<<<< HEAD
   - {fileID: 2100000, guid: 434e4e1263f54f83481c46cdc6def7b7, type: 2}
-=======
-  - {fileID: 2100000, guid: 557d821d15cd878c3b64117db03a1297, type: 2}
->>>>>>> 3501407 (Puzzle game proof of concept)
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -162,10 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Draggable
   collider: {fileID: -8941938342410592303}
-<<<<<<< HEAD
   item: {fileID: 0}
-=======
->>>>>>> 3501407 (Puzzle game proof of concept)
 --- !u!61 &-8941938342410592303
 BoxCollider2D:
   m_ObjectHideFlags: 0
